@@ -1,0 +1,19 @@
+@charset "utf-8";
+.js-countdown-timer{}
+.js-countdown-section{
+	white-space:nowrap;}
+.js-countdown-number{
+	background:rgba(20,40,50,0.1);
+	border-radius:3px;
+	display:inline-block;
+	font-family:Menlo,Monaco,monospace;
+	font-size:1.1rem;
+	font-weight:bold;
+	letter-spacing:0.1em;
+	line-height:1.3;
+	margin:0 4px;
+	padding:0 0.2em;}
+.js-countdown-units{
+	font-size:.8rem;
+	letter-spacing:1px;
+	text-transform:uppercase;}

@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+@font-face {
+    font-family:'GraphCondensedWeb';
+	font-style:normal;
+	font-variant:normal;
+	font-weight:700;
+    src:url('graph-condensed-bold-web.eot');
+    src:url('graph-condensed-bold-web.eot?#iefix') format('embedded-opentype'),
+		url('graph-condensed-bold-web.svg#graphcondensedbold') format('svg'),
+		url('graph-condensed-bold-web.woff') format('woff'),
+		url('graph-condensed-bold-web.woff2') format('woff2'),
+		url('graph-condensed-bold-web.ttf') format('truetype');}

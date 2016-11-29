@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@font-face {
+    font-family:'tf-icons';
+	font-style:normal;
+	font-variant:normal;
+	font-weight:700;
+    src:url('//s3.amazonaws.com/s3.350.org/fonts/350icons/350icons-web.eot');
+    src:url('//s3.amazonaws.com/s3.350.org/fonts/350icons/350icons-web.eot?#iefix') format('embedded-opentype'),
+		url('//s3.amazonaws.com/s3.350.org/fonts/350icons/350icons-web.woff') format('woff'),
+		url('//s3.amazonaws.com/s3.350.org/fonts/350icons/350icons-web.woff2') format('woff2'),
+		url('//s3.amazonaws.com/s3.350.org/fonts/350icons/350icons-web.svg#tficonsregular') format('svg'),
+		url('//s3.amazonaws.com/s3.350.org/fonts/350icons/350icons-web.ttf') format('truetype');}
