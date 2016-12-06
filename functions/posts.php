@@ -46,34 +46,25 @@ function settings_checkbox_callback( $args ){
 
 // Adjust excerpt length
 function custom_excerpt_length( $length ) {
-	return 20;
+    return 20;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
-// Change default "more..." text to Int'l friendly "..."
+// Change default "more..." text to language-agnostic "..."
 function new_excerpt_more( $more ) {
-	return '...';
+    return '...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
-/* function og_excerpt($text, $excerpt) {
-    if ($excerpt) return $excerpt;
-    $text = strip_shortcodes( $text );
-    $text = apply_filters('the_content', $text);
-    $text = str_replace(']]>', ']]&gt;', $text);
-    $text = strip_tags($text);
-    $excerpt_length = apply_filters('excerpt_length', 55);
-    $excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
-    $words = preg_split("/[\n
-	 ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
-    if ( count($words) > $excerpt_length ) {
-            array_pop($words);
-            $text = implode(' ', $words);
-            $text = $text . $excerpt_more;
-    } else {
-            $text = implode(' ', $words);
+// display featured post thumbnails in WordPress feeds (why doesn't WP do this by default?)
+function post_thumbnails_in_feeds( $content ) {
+    global $post;
+    if( has_post_thumbnail( $post->ID ) ) {
+        $content = '<p>' . get_the_post_thumbnail( $post->ID ) . '</p>' . $content;
     }
-    return apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
-} */
+    return $content;
+}
+add_filter( 'the_excerpt_rss', 'post_thumbnails_in_feeds' );
+add_filter( 'the_content_feed', 'post_thumbnails_in_feeds' );
 
 ?>
