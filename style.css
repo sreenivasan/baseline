@@ -198,15 +198,17 @@ table{
   border-collapse:separate;
   border-spacing:2px;}
 th{
-  background:#dde0e3;
-  padding:2px 5px;}
-thead th{
-  background:#17292e;
-  color:#fff;
-  padding:2px 5px;
-  font-weight:bold;}
-td{
-  padding:5px;}
+  font-weight:bold;
+  /* some browsers center-align <th> by default *shrug* */
+  text-align:left;}
+tr{
+  background:rgba(255,255,255,0.1);}
+tr:nth-child(2n){
+  background:rgba(21,36,43,0.1);}
+thead tr{
+  background:transparent;}
+td, th{
+  padding:0.9em 1em;}
 code, samp, kbd, var{
   font-family:Menlo,Monaco,Courier,monospace;
   font-size:0.9em;}
@@ -275,9 +277,6 @@ textarea{
   overflow:auto;
   vertical-align:top;
   max-width:none;}
-table{
-  border-collapse:collapse;
-  border-spacing:0}
 img{
   height:auto;
   max-width:auto;}
@@ -1716,7 +1715,7 @@ img.b-loaded {
   font-size:0.85em;
   padding:0.4rem 0 0.7rem;}
 
-/* Action Network */
+/* Action Network - CSS for signup forms, events */
 
 #can_embed_form{
   max-width:33em;}
@@ -1747,7 +1746,7 @@ img.b-loaded {
   padding:1em;}
 
 #can_embed_form #form_col1 {
-    margin-bottom: 1em;}
+  margin-bottom:1em;}
 #can_embed_form #logo_wrap{
   display:none;}
 #can_embed_form .ajax-loading {
@@ -1759,6 +1758,74 @@ img.b-loaded {
   margin-right:10px !important;
   height:16px !important;
   width:22px !important;}
+
+.event_campaign #can_embed_form h2{
+  margin-bottom:0.8em;}
+.event_campaign #can_embed_form{
+  max-width:100%;}
+.event_campaign #can_embed_form #event_map_wrap, 
+.event_campaign #can_embed_form #map_canvas{
+  height:300px;}
+
+.event_campaign #can_zip_search{
+  margin-bottom:1.5em;}
+.event_campaign #form-zip_code{
+  display:inline-block;
+  width:65%;}
+.event_campaign #form-zip_code-submit{
+  display:inline-block;
+  font-size:1.2em !important;
+  width:32%;}
+
+.event_campaign #form_col1 h4{
+  font-size:1.1em;
+  font-weight:400;
+  margin-bottom:0.5em;}
+.event_campaign .zip_search_results_col{
+  background-color:rgba(21,36,43,0.1);
+  margin-top:2em;
+  padding:1.2em;}
+.event_campaign #host_your_own{
+  background-color:rgba(21,36,43,0.2);
+  padding:1.2em;}
+.event_campaign #host_your_own .button{
+  font-size:1.2em;}
+
+.event_campaign #search_location_list span{
+  display:block;}
+.event_campaign .choose_location_button{
+  display:inline-block;
+  font-size:1.1em;
+  margin:0.5em 0;}
+
+
+
+@media screen and (min-width:1050px){
+
+.event_campaign #form_col1 h4{
+  float:left;
+  width:38%;}
+.event_campaign #can_embed_form #can_zip_search{
+  clear:left;
+  float:left;
+  margin-right:2%;
+  width:38%;}
+.event_campaign #can_embed_form #event_map_wrap{
+  float:right;
+  position:relative;
+  margin-left:2%;
+  top:-1.5em;
+  width:58%;}
+.event_campaign #can_embed_form #event_map_wrap, 
+.event_campaign #can_embed_form #map_canvas{
+  height:380px;}
+.event_campaign .zip_search_results_col,
+.event_campaign #host_your_own{
+  clear:left;
+  width:38%;}
+
+}
+
 #can_embed_form .ajax-loading {
   -webkit-animation: spin 1s infinite linear;
   -moz-animation: spin 1s infinite linear;

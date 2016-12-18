@@ -286,6 +286,9 @@ function urlParam(name){
 		return this.each(function(){
 			// get the ID of the element that contains the content for the modal from the "data-modal-source" attribute in the HTML tag
 			var modalSourceID = $(this).attr('data-modal-source');
+      var modalSourceElem = $( modalSourceID );
+      // Make sure the modal source element is hidden with inline styles
+      modalSourceElem.hide().removeClass('hidden js-hidden');
 			// get the optional list of classes to add to the inner content area from the "data-modal-classes-inner" attribute in the HTML tag
 			var modalInnerClassesAttr = $(this).attr('data-modal-classes-inner');
 			// use the default classes to set the inner modal to be a white box with lots of padding
@@ -300,19 +303,19 @@ function urlParam(name){
 			if ( modalOuterClassesAttr ){
 				modalOuterClasses = modalOuterClassesAttr;
 			}
-			// get the modal content, wrap it in a div, and copy the HTML to a variable
-			var modalContent = $( modalSourceID ).wrap('<div/>').parent().html();
-			// assemble the outer and inner modal wrappers around the content
-			var modal = '<div class="modal-wrapper section ' + modalOuterClasses + '"><div class="modal-content section-inner ' + modalInnerClasses + '"><a class="modal-close">X</a>' + modalContent + '</div></div>';
 
 			// set up the click event
 			$(this).on('click', function(e){
 				e.preventDefault();
+        // unhide the source element before appending it to the modal window
+        modalSourceElem.show();
+        // assemble the outer and inner modal wrappers around the content
+        var modal = '<div class="modal-wrapper section ' + modalOuterClasses + '"><div class="modal-content section-inner ' + modalInnerClasses + '"><a class="modal-close">X</a></div></div>';
 
 				// append the modal before the closing </body> tag and add the class "open" (which hooks into CSS3 animations)
 				// NOTE: animate() is used just to provide a slight delay before adding the 'open' class, which is necessary to trigger CSS3 animation (for some reason)
 				$(modal).appendTo('body').animate({borderRightWidth:0},10, function(){
-					$(this).addClass('open').children('.section-inner').children().show();
+					$(this).addClass('open').children('.section-inner').append(modalSourceElem);
 				});
 				$('body').addClass("no-scroll");
 				// set up the "close modal" function
