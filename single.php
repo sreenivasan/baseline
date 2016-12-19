@@ -14,6 +14,8 @@
 	}
 // Text-on-image classes
 	$text_on_image_classes = get_option('site_text_on_image_classes');
+// Custom comments
+	$custom_comments = stripslashes( get_option('tfcomments_code') );
 // Post featured image
 	$post_thumb_id = get_post_thumbnail_id();
 	$post_thumb_small = wp_get_attachment_image_src( $post_thumb_id, 'page-background-mob'); 
@@ -108,6 +110,13 @@
 			<?php the_content(); ?>
 		</div>
 	</article>
+<?php if ( $custom_comments ): ?>
+	<div id="post-comments" class="section bg-ltgray width-narrow padding-medium">
+		<div id="post-comments-inner" class="section-inner">
+			<?php echo stripslashes($custom_comments); ?>
+		</div>
+	</div>
+<?php endif; ?>
 <footer class="clear"></footer>
 </section>
 <?php endwhile; endif;?>
