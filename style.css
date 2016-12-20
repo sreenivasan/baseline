@@ -196,7 +196,8 @@ strong{
   font-weight:bold;}
 table{
   border-collapse:separate;
-  border-spacing:2px;}
+  border-spacing:2px;
+  width:100%;}
 th{
   font-weight:bold;
   /* some browsers center-align <th> by default *shrug* */
