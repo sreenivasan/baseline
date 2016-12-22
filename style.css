@@ -1254,7 +1254,7 @@ a.bg-sina-weibo-color:hover{
   justify-content:center;
   width:100%;}
 .title-section-60{
-  height:calc(100vh - 60px);}
+  min-height:calc(100vh - 60px);}
 
 .padding-none,
 .padding-none > .expando-link{
