@@ -1,6 +1,8 @@
 <?php 
 	$lang = substr(get_locale(),0,2); 
 	$hide_header = get_option('site_hide_header');
+// check for ACF support for custom share info
+	$acf_on = function_exists('get_field');
 // Header Bar Background color
 	$header_bgcolor_option = get_option('site_header_bgcolor','white');
 	$header_bgcolor = !empty( $header_bgcolor_option ) ? $header_bgcolor_option : 'white';
@@ -20,10 +22,16 @@
 
 	$nav_desktop_display = get_option('site_nav_display_desktop','desktop-modal');
 	$logo = get_option('site_logo_url');
-	$theme_bg_id = get_option('theme_bg');
+// Background image options
 	$body_bg_img_class = "bg-off";
-	if ( $theme_bg_id ) {
-		$body_bg_img_class = "bg-on";}
+	$theme_bg_id = get_option('theme_bg');
+	$superpageBgChoice = false;
+	if ( $acf_on ){
+		$superpageBgChoice = get_field("sp_default_bg_choice");
+	}
+	if ( $theme_bg_id || ( $superpageBgChoice == 'custom' ) ) {
+		$body_bg_img_class = "bg-on";
+	}
 	$fb_app_id = get_option('site_fb_appid','148617041897246');
 	$site_twitter_account = get_option('site_twitter_account');
 	$custom_code = stripslashes( get_option('customcode'));
@@ -53,8 +61,6 @@
 			$post_thumb_src = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : '' ;
 		endif;
 	endif;
-	// check for ACF support for custom share info
-	$acf_on = function_exists('get_field');
 	if ( $acf_on ):
 		$title = !empty( get_field('post_fb_title') ) ? get_field('post_fb_title') : get_the_title();
 		$description = !empty( get_field('post_fb_desc') ) ? get_field('post_fb_desc') : $default_single_description;

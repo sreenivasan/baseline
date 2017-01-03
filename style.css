@@ -1320,6 +1320,8 @@ a.bg-sina-weibo-color:hover{
 
 .bg-size-cover{
   background-size:cover;}
+.bg-size-normal{
+  background-size:auto;}
 
 .section-img-credit{
   display:none;}
