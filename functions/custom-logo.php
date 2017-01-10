@@ -10,7 +10,7 @@ add_action('admin_menu', 'site_logo_menu_options');
 function site_logo_page() {
     ?>
         <div class="wrap">
-            <h2><?php _e( 'Logo', 'site_logo' ); ?></h2>
+            <h2><?php /* translators: admin settings */ _e( 'Logo', 'site_logo' ); ?></h2>
             <?php 
 				$site_logo_url = get_option('site_logo_url'); 
 			?>

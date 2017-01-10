@@ -11,7 +11,7 @@ add_action('admin_menu', 'site_bg_menu_options');
 function site_bg_page() {
     ?>
         <div class="wrap">
-            <h2><?php _e( 'Background Image', 'threefifty_world' ); ?></h2>
+            <h2><?php /* translators: admin settings */ _e( 'Background Image', 'threefifty_world' ); ?></h2>
             <?php 
 				$theme_bg_id = get_option('theme_bg'); 
 				$theme_bg_url = wp_get_attachment_image_src( $theme_bg_id, 'page-background');

@@ -10,7 +10,9 @@
 			<p class="lead"><strong><?php _e("Sorry, the page you're looking for isn't here.", "baseline"); ?></strong></p>
 			<ul>
 				<li><?php _e("If you typed in the URL directly, make sure it doesn't have any mistakes.", "baseline"); ?></li>
-				<li><?php _e('If you clicked on a link on this site, <a href="mailto:' . $admin_email . '">let us know</a> that it&#39;s broken.', "baseline"); ?></li>
+				<li><?php _e('If you clicked on a link on this site', "baseline"); 
+					echo ' <a href="mailto:' . $admin_email . '">';
+					_e('let us know</a> that it&#39;s broken.', "baseline"); ?></li>
 			</ul>
 			<div class="lead"><?php get_search_form(); ?></div>
 		</div>

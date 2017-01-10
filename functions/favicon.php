@@ -10,7 +10,7 @@ add_action('admin_menu', 'site_fav_menu_options');
 function site_fav_page() {
     ?>
         <div class="wrap">
-            <h2><?php _e( 'Favicon', 'site_fav' ); ?></h2>
+            <h2><?php /* translators: admin settings */ _e( 'Favicon', 'site_fav' ); ?></h2>
 			<p>Favicons are the 16x16px icons that appear in browser tabs and toolbars next to the title of the site. Make sure the file you upload is 16x16 and saved in .png format.</p>
             <?php 
 				$site_fav_id = get_option('site_fav_id'); 

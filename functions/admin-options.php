@@ -73,7 +73,7 @@ add_action( 'admin_menu', 'edit_menu_options', 999 );
 function my_add_excerpt_meta_box( $post_type ) {
     if ( in_array( $post_type, array( 'post' ) ) ) {
          add_meta_box(
-            'contact_details_meta', __( 'Summary (1-2 sentences)' ), 'post_excerpt_meta_box', $post_type, 'test', // change to something other then normal, advanced or side
+            'contact_details_meta',  /* translators: admin settings */ __( 'Summary (1-2 sentences)' ), 'post_excerpt_meta_box', $post_type, 'test', // change to something other then normal, advanced or side
             'high'
         );
     }

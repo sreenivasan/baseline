@@ -1,6 +1,7 @@
 <?php 
 
 /* Add options to Settings > Reading */
+
 add_action('admin_init', 'baseline_post_options_section');  
 function baseline_post_options_section() {  
     add_settings_section(
@@ -11,6 +12,7 @@ function baseline_post_options_section() {
     );
     add_settings_field(
         'post_show_author',
+         /* translators: admin settings */
         __('Show Author Name and Photo','baseline'),
         'settings_checkbox_callback',
         'reading',
@@ -22,6 +24,7 @@ function baseline_post_options_section() {
     );
     add_settings_field(
         'post_show_categories',
+         /* translators: admin settings */
         __('Show Categories','baseline'),
         'settings_checkbox_callback',
         'reading',

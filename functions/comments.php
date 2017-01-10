@@ -18,7 +18,7 @@ add_action('admin_menu', 'tfcomments_menu_options');
 function tfcomments_page() {
     ?>
         <div class="wrap">
-            <h2><?php _e( 'Comments', 'tfcomments' ); ?></h2>
+            <h2><?php /* translators: admin settings */ _e( 'Comments', 'tfcomments' ); ?></h2>
             <?php 
 				$tfcomments_code = get_option('tfcomments_code'); 
 			?>

@@ -10,7 +10,7 @@ function smoptions_settings_init(){
 	// register a new section in the "social media" page
 	add_settings_section(
 	    'smoptions_general',
-	    /* translators: ADMIN ONLY */
+	    /* translators: admin settings */
 	    __('General', 'baseline'),
 	    'smoptions_general_callback',
 	    'social-media'
@@ -21,6 +21,7 @@ function smoptions_settings_init(){
 
 	add_settings_section(
 	    'smoptions_facebook',
+	     /* translators: admin settings */
 	    __('Facebook', 'baseline'),
 	    'smoptions_facebook_callback',
 	    'social-media'
@@ -31,6 +32,7 @@ function smoptions_settings_init(){
 
 	add_settings_section(
 	    'smoptions_twitter',
+	     /* translators: admin settings */
 	    __('Twitter', 'baseline'),
 	    'smoptions_twitter_callback',
 	    'social-media'
@@ -71,7 +73,7 @@ function smoptions_settings_init(){
 	// Post sharing buttons
 	add_settings_field(
 		'post_sharing_buttons',
-		/* translators: ADMIN ONLY */
+		/* translators: admin settings */
 		__('Share Buttons on Blog Posts','baseline'),
 		'post_sharing_buttons_callback',
 		'social-media',
@@ -85,17 +87,19 @@ function smoptions_settings_init(){
     register_setting( 'social-media', 'site_show_tw_share'  );
     register_setting( 'social-media', 'site_show_vk_share'  );
     register_setting( 'social-media', 'site_show_sina_weibo_share'  );
+  
     function post_sharing_buttons_callback( $args ){
-		echo '<input type="checkbox" name="site_show_fb_share" id="site_show_fb_share" value="1" ' . checked( get_option( 'site_show_fb_share', 'true' ), '1', 0 ) . ' /> <label for="site_show_fb_share">' . __("Facebook","baseline") .'</label><br>
-			<input type="checkbox" name="site_show_tw_share" id="site_show_tw_share" value="1"  ' . checked( get_option( 'site_show_tw_share' ), '1', 0 ) . ' /> <label for="site_show_tw_share">' . __("Twitter","baseline") .'</label><br>
-			<input type="checkbox" name="site_show_vk_share" id="site_show_vk_share" value="1"  ' . checked( get_option( 'site_show_vk_share' ), '1', 0 ) . ' /> <label for="site_show_vk_share">' . __("VK","baseline") .'</label><br>
-			<input type="checkbox" name="site_show_sina_weibo_share" id="site_show_sina_weibo_share" value="1" ' . checked( get_option( 'site_show_sina_weibo_share' ), '1', 0 ) . ' /> <label for="site_show_sina_weibo_share">' . __("新浪微博 (Sina Weibo)","baseline") .'</label><br>';
+     /* translators: admin settings */
+		echo '<input type="checkbox" name="site_show_fb_share" id="site_show_fb_share" value="1" ' . checked( get_option( 'site_show_fb_share', 'true' ), '1', 0 ) . ' /> <label for="site_show_fb_share">' .  /* translators: admin settings */ __("Facebook","baseline") .'</label><br>
+			<input type="checkbox" name="site_show_tw_share" id="site_show_tw_share" value="1"  ' . checked( get_option( 'site_show_tw_share' ), '1', 0 ) . ' /> <label for="site_show_tw_share">' .  /* translators: admin settings */ __("Twitter","baseline") .'</label><br>
+			<input type="checkbox" name="site_show_vk_share" id="site_show_vk_share" value="1"  ' . checked( get_option( 'site_show_vk_share' ), '1', 0 ) . ' /> <label for="site_show_vk_share">' .  /* translators: admin settings */ __("VK","baseline") .'</label><br>
+			<input type="checkbox" name="site_show_sina_weibo_share" id="site_show_sina_weibo_share" value="1" ' . checked( get_option( 'site_show_sina_weibo_share' ), '1', 0 ) . ' /> <label for="site_show_sina_weibo_share">' .  /* translators: admin settings */ __("新浪微博 (Sina Weibo)","baseline") .'</label><br>';
 	}
 
 	// Load FB SDK
 	add_settings_field(
 		'site_fb_active',
-		/* translators: ADMIN ONLY */
+		/* translators: admin settings */
 		__('Load Facebook Javascript SDK','baseline'),
 		'site_fb_active_callback',
 		'social-media',
@@ -113,7 +117,7 @@ function smoptions_settings_init(){
 	// FB App ID
 	add_settings_field(
 		'site_fb_appid',
-		/* translators: ADMIN ONLY */
+		/* translators: admin settings */
 		__('Facebook App ID','baseline'),
 		'site_fb_appid_callback',
 		'social-media',
@@ -132,7 +136,7 @@ function smoptions_settings_init(){
 	// Site Twitter account
 	add_settings_field(
 		'site_twitter_account',
-		/* translators: ADMIN ONLY */
+		/* translators: admin settings */
 		__('Site Twitter account','baseline'),
 		'site_twitter_account_callback',
 		'social-media',

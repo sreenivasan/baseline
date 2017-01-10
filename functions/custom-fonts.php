@@ -10,7 +10,7 @@ add_action('admin_menu', 'fonts_menu_options');
 function site_fonts_page() {
     ?>
         <div class="wrap">
-            <h2><?php _e( 'Fonts', 'baseline' ); ?></h2>
+            <h2><?php /* translators: admin settings */ _e( 'Fonts', 'baseline' ); ?></h2>
             <?php 
 				$site_display_font = stripslashes (get_option('site_display_font','GraphCondensedWeb') ); 
 				$site_body_font = stripslashes (get_option('site_body_font','-apple-system,BlinkMacSystemFont,arial') ); 

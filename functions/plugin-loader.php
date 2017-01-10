@@ -159,25 +159,25 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		public function __construct() {
 
 			self::$instance =& $this;
-
+			 /* translators: admin settings */
 			$this->strings = array(
-				'page_title'                      => __( 'Install Required Plugins', $this->domain ),
-				'menu_title'                      => __( 'Install Plugins', $this->domain ),
-				'installing'                      => __( 'Installing Plugin: %s', $this->domain ),
-				'oops'                            => __( 'Something went wrong.', $this->domain ),
-				'notice_can_install_required'     => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ),
-				'notice_can_install_recommended'  => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ),
-				'notice_cannot_install'           => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ),
-				'notice_can_activate_required'    => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ),
-				'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ),
-				'notice_cannot_activate'          => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ),
-				'notice_ask_to_update'            => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ),
-				'notice_cannot_update'            => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ),
-				'install_link' 					  => _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
-				'activate_link' 				  => _n_noop( 'Activate installed plugin', 'Activate installed plugins' ),
-				'return'                          => __( 'Return to Required Plugins Installer', $this->domain ),
-				'plugin_activated'                => __( 'Plugin activated successfully.', $this->domain ),
-				'complete'                        => __( 'All plugins installed and activated successfully. %1$s', $this->domain ),
+				'page_title'                      => /* translators: admin settings */ __( 'Install Required Plugins', $this->domain ),
+				'menu_title'                      => /* translators: admin settings */ __( 'Install Plugins', $this->domain ),
+				'installing'                      => /* translators: admin settings */ __( 'Installing Plugin: %s', $this->domain ),
+				'oops'                            => /* translators: admin settings */ __( 'Something went wrong.', $this->domain ),
+				'notice_can_install_required'     => /* translators: admin settings */ _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.' ),
+				'notice_can_install_recommended'  => /* translators: admin settings */ _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.' ),
+				'notice_cannot_install'           => /* translators: admin settings */ _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.' ),
+				'notice_can_activate_required'    => /* translators: admin settings */ _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.' ),
+				'notice_can_activate_recommended' => /* translators: admin settings */ _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.' ),
+				'notice_cannot_activate'          => /* translators: admin settings */ _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.' ),
+				'notice_ask_to_update'            => /* translators: admin settings */ _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.' ),
+				'notice_cannot_update'            => /* translators: admin settings */ _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.' ),
+				'install_link' 					  => /* translators: admin settings */ _n_noop( 'Begin installing plugin', 'Begin installing plugins' ),
+				'activate_link' 				  => /* translators: admin settings */ _n_noop( 'Activate installed plugin', 'Activate installed plugins' ),
+				'return'                          => /* translators: admin settings */ __( 'Return to Required Plugins Installer', $this->domain ),
+				'plugin_activated'                => /* translators: admin settings */ __( 'Plugin activated successfully.', $this->domain ),
+				'complete'                        => /* translators: admin settings */ __( 'All plugins installed and activated successfully. %1$s', $this->domain ),
 			);
 
 			/** Annouce that the class is ready, and pass the object (for advanced use) */
@@ -372,7 +372,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 				<?php $plugin_table->prepare_items(); ?>
 
-				<?php if ( isset( $this->message ) ) _e( wp_kses_post( $this->message ), $this->domain ); ?>
+				<?php /* translators: admin settings */ if ( isset( $this->message ) ) _e( wp_kses_post( $this->message ), $this->domain ); ?>
 
 				<form id="tgmpa-plugins" action="" method="post">
             		<input type="hidden" name="tgmpa-page" value="<?php echo $this->menu; ?>" />
@@ -485,6 +485,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 					$activate = activate_plugin( $plugin_activate ); // Activate the plugin
 					$this->populate_file_path(); // Re-populate the file path now that the plugin has been installed and activated
 
+					/* translators: admin settings */
 					if ( is_wp_error( $activate ) ) {
 						echo '<div id="message" class="error"><p>' . $activate->get_error_message() . '</p></div>';
 						echo '<p><a href="' . add_query_arg( 'page', $this->menu, admin_url( $this->parent_url_slug ) ) . '" title="' . esc_attr( $this->strings['return'] ) . '" target="_parent">' . __( 'Return to Required Plugins Installer', $this->domain ) . '</a></p>';
@@ -496,6 +497,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				}
 
 				/** Display message based on if all plugins are now active or not */
+				
 				$complete = array();
 				foreach ( $this->plugins as $plugin ) {
 					if ( ! is_plugin_active( $plugin['file_path'] ) ) {
@@ -514,7 +516,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
 				/** All plugins are active, so we display the complete string and hide the plugin menu */
 				if ( empty( $complete ) ) {
-					echo '<p>' .  sprintf( $this->strings['complete'], '<a href="' . admin_url() . '" title="' . __( 'Return to the Dashboard', $this->domain ) . '">' . __( 'Return to the Dashboard', $this->domain ) . '</a>' ) . '</p>';
+					echo '<p>' .  sprintf( $this->strings['complete'], '<a href="' . admin_url() . '" title="' . /* translators: admin settings */ __( 'Return to the Dashboard', $this->domain ) . '">' . __( 'Return to the Dashboard', $this->domain ) . '</a>' ) . '</p>';
 					echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
 				}
 
@@ -533,7 +535,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				$plugin_file = array_keys( $plugin_data ); // Retrieve all plugin files from installed plugins
 				$plugin_to_activate = $plugin['slug'] . '/' . $plugin_file[0]; // Match plugin slug with appropriate plugin file
 				$activate = activate_plugin( $plugin_to_activate ); // Activate the plugin
-
+			  /* translators: admin settings */
 				if ( is_wp_error( $activate ) ) {
 					echo '<div id="message" class="error"><p>' . $activate->get_error_message() . '</p></div>';
 					echo '<p><a href="' . add_query_arg( 'page', $this->menu, admin_url( $this->parent_url_slug ) ) . '" title="' . esc_attr( $this->strings['return'] ) . '" target="_parent">' . __( $this->strings['return'], $this->domain ) . '</a></p>';
@@ -542,7 +544,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				else {
 					/** Make sure message doesn't display again if bulk activation is performed immediately after a single activation */
 					if ( ! isset( $_POST[sanitize_key( 'action' )] ) ) {
-						$msg = sprintf( __( 'The following plugin was activated successfully: %s.', $this->domain ), '<strong>' . $plugin['name'] . '</strong>' );
+						$msg = sprintf( /* translators: admin settings */ __( 'The following plugin was activated successfully: %s.', $this->domain ), '<strong>' . $plugin['name'] . '</strong>' );
 						echo '<div id="message" class="updated"><p>' . $msg . '</p></div>';
 					}
 				}
@@ -701,7 +703,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 						array(
 							'install'  => ( current_user_can( 'install_plugins' ) ) ? $show_install_link : '',
 							'activate' => ( current_user_can( 'activate_plugins' ) ) ? $show_activate_link : '',
-							'dismiss'  => '<a class="dismiss-notice" href="' . add_query_arg( 'tgmpa-dismiss', 'dismiss_admin_notices' ) . '" target="_parent">' . __( 'Dismiss this notice', $this->domain ) . '</a>',
+							'dismiss'  => '<a class="dismiss-notice" href="' . add_query_arg( 'tgmpa-dismiss', 'dismiss_admin_notices' ) . '" target="_parent">' . /* translators: admin settings */ __( 'Dismiss this notice', $this->domain ) . '</a>',
 						)
 					);
 
@@ -1088,26 +1090,33 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
 				if ( isset( $plugin['external_url'] ) ) {
 					/** The plugin is linked to an external source */
+					 /* translators: admin settings */
 					$table_data[$i]['source'] = __( 'External Link', TGM_Plugin_Activation::$instance->domain );
 				}
 				elseif ( isset( $plugin['source'] ) ) {
 					/** The plugin must be from a private repository */
+
 					if ( preg_match( '|^http(s)?://|', $plugin['source'] ) )
+						/* translators: admin settings */
 						$table_data[$i]['source'] = __( 'Private Repository', TGM_Plugin_Activation::$instance->domain );
 					/** The plugin is pre-packaged with the theme */
 					else
+						/* translators: admin settings */
 						$table_data[$i]['source'] = __( 'Pre-Packaged', TGM_Plugin_Activation::$instance->domain );
 				}
 				/** The plugin is from the WordPress repository */
 				else {
+					/* translators: admin settings */					
 					$table_data[$i]['source'] = __( 'WordPress Repository', TGM_Plugin_Activation::$instance->domain );
 				}
-
-				$table_data[$i]['type'] = $plugin['required'] ? __( 'Required', TGM_Plugin_Activation::$instance->domain ) : __( 'Recommended', TGM_Plugin_Activation::$instance->domain );
+				/* translators: admin settings */
+				$table_data[$i]['type'] = $plugin['required'] ? __( 'Required', TGM_Plugin_Activation::$instance->domain ) :  /* translators: admin settings */ __( 'Recommended', TGM_Plugin_Activation::$instance->domain );
 
 				if ( ! isset( $installed_plugins[$plugin['file_path']] ) )
+				 /* translators: admin settings */
 					$table_data[$i]['status'] = sprintf( '%1$s', __( 'Not Installed', TGM_Plugin_Activation::$instance->domain ) );
 				elseif ( is_plugin_inactive( $plugin['file_path'] ) )
+				 /* translators: admin settings */
 					$table_data[$i]['status'] = sprintf( '%1$s', __( 'Installed But Not Activated', TGM_Plugin_Activation::$instance->domain ) );
 
 				$table_data[$i]['file_path'] = $plugin['file_path'];
@@ -1277,7 +1286,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 		 * @since 2.2.0
 		 */
 		public function no_items() {
-
+ /* translators: admin settings */
 			printf( __( 'No plugins to install or activate. <a href="%1$s" title="Return to the Dashboard">Return to the Dashboard</a>', TGM_Plugin_Activation::$instance->domain ), admin_url() );
 			echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
 
@@ -1291,12 +1300,15 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 		 * @return array $columns The column names
 		 */
 		public function get_columns() {
-
 			$columns = array(
 				'cb'     => '<input type="checkbox" />',
+				/* translators: admin settings */
 				'plugin' => __( 'Plugin', TGM_Plugin_Activation::$instance->domain ),
+				/* translators: admin settings */
 				'source' => __( 'Source', TGM_Plugin_Activation::$instance->domain ),
+				/* translators: admin settings */
 				'type'   => __( 'Type', TGM_Plugin_Activation::$instance->domain ),
+				/* translators: admin settings */
 				'status' => __( 'Status', TGM_Plugin_Activation::$instance->domain )
 			);
 
@@ -1313,9 +1325,10 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 		 * @return array $actions The bulk actions for the plugin install table
 		 */
 		public function get_bulk_actions() {
-
 			$actions = array(
+				/* translators: admin settings */
 				'tgmpa-bulk-install'  => __( 'Install', TGM_Plugin_Activation::$instance->domain ),
+				/* translators: admin settings */
 				'tgmpa-bulk-activate' => __( 'Activate', TGM_Plugin_Activation::$instance->domain ),
 			);
 
@@ -1541,6 +1554,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				if ( is_wp_error( $activate ) )
 					echo '<div id="message" class="error"><p>' . $activate->get_error_message() . '</p></div>';
 				else
+					/* translators: admin settings */
 					printf( '<div id="message" class="updated"><p>%1$s %2$s</p></div>', _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, TGM_Plugin_Activation::$instance->domain ), $imploded );
 
  				/** Update recently activated plugins option */
@@ -1825,12 +1839,17 @@ if ( ! class_exists( 'WP_Upgrader' ) && ( isset( $_GET[sanitize_key( 'page' )] )
 	 		 * @since 2.2.0
 	 		 */
 			public function install_strings() {
-
+			 	/* translators: admin settings */
 				$this->strings['no_package']          = __( 'Install package not available.', TGM_Plugin_Activation::$instance->domain );
+				/* translators: admin settings */
 				$this->strings['downloading_package'] = __( 'Downloading install package from <span class="code">%s</span>&#8230;', TGM_Plugin_Activation::$instance->domain );
+				/* translators: admin settings */
 				$this->strings['unpack_package']      = __( 'Unpacking the package&#8230;', TGM_Plugin_Activation::$instance->domain );
+				/* translators: admin settings */
 				$this->strings['installing_package']  = __( 'Installing the plugin&#8230;', TGM_Plugin_Activation::$instance->domain );
+				/* translators: admin settings */
 				$this->strings['process_failed']      = __( 'Plugin install failed.', TGM_Plugin_Activation::$instance->domain );
+				/* translators: admin settings */
 				$this->strings['process_success']     = __( 'Plugin installed successfully.', TGM_Plugin_Activation::$instance->domain );
 
 			}
@@ -1841,8 +1860,9 @@ if ( ! class_exists( 'WP_Upgrader' ) && ( isset( $_GET[sanitize_key( 'page' )] )
 	 		 * @since 2.2.0
 	 		 */
 			public function activate_strings() {
-
+				/* translators: admin settings */
 				$this->strings['activation_failed']  = __( 'Plugin activation failed.', TGM_Plugin_Activation::$instance->domain );
+				/* translators: admin settings */
 				$this->strings['activation_success'] = __( 'Plugin activated successfully.', TGM_Plugin_Activation::$instance->domain );
 
 			}
@@ -1951,19 +1971,30 @@ if ( ! class_exists( 'WP_Upgrader' ) && ( isset( $_GET[sanitize_key( 'page' )] )
 			public function add_strings() {
 
 				/** Automatic activation strings */
+
 				if ( TGM_Plugin_Activation::$instance->is_automatic ) {
+					/* translators: admin settings */
 					$this->upgrader->strings['skin_upgrade_start']        = __( 'The installation and activation process is starting. This process may take a while on some hosts, so please be patient.', TGM_Plugin_Activation::$instance->domain );
-					$this->upgrader->strings['skin_update_successful']    = __( '%1$s installed and activated successfully.', TGM_Plugin_Activation::$instance->domain ) . ' <a onclick="%2$s" href="#" class="hide-if-no-js"><span>' . __( 'Show Details', TGM_Plugin_Activation::$instance->domain ) . '</span><span class="hidden">' . __( 'Hide Details', TGM_Plugin_Activation::$instance->domain ) . '</span>.</a>';
+					/* translators: admin settings */
+					$this->upgrader->strings['skin_update_successful']    = __( '%1$s installed and activated successfully.', TGM_Plugin_Activation::$instance->domain ) . ' <a onclick="%2$s" href="#" class="hide-if-no-js"><span>' . /* translators: admin settings */ __( 'Show Details', TGM_Plugin_Activation::$instance->domain ) . '</span><span class="hidden">' . /* translators: admin settings */ __( 'Hide Details', TGM_Plugin_Activation::$instance->domain ) . '</span>.</a>';
+					/* translators: admin settings */
 					$this->upgrader->strings['skin_upgrade_end']          = __( 'All installations and activations have been completed.', TGM_Plugin_Activation::$instance->domain );
+					/* translators: admin settings */
 					$this->upgrader->strings['skin_before_update_header'] = __( 'Installing and Activating Plugin %1$s (%2$d/%3$d)', TGM_Plugin_Activation::$instance->domain );
 				}
 				/** Default installation strings */
 				else {
+					/* translators: admin settings */					
 					$this->upgrader->strings['skin_upgrade_start']        = __( 'The installation process is starting. This process may take a while on some hosts, so please be patient.', TGM_Plugin_Activation::$instance->domain );
+					/* translators: admin settings */
 					$this->upgrader->strings['skin_update_failed_error']  = __( 'An error occurred while installing %1$s: <strong>%2$s</strong>.', TGM_Plugin_Activation::$instance->domain );
+					/* translators: admin settings */
 					$this->upgrader->strings['skin_update_failed']        = __( 'The installation of %1$s failed.', TGM_Plugin_Activation::$instance->domain );
+					/* translators: admin settings */
 					$this->upgrader->strings['skin_update_successful']    = __( '%1$s installed successfully.', TGM_Plugin_Activation::$instance->domain ) . ' <a onclick="%2$s" href="#" class="hide-if-no-js"><span>' . __( 'Show Details', TGM_Plugin_Activation::$instance->domain ) . '</span><span class="hidden">' . __( 'Hide Details', TGM_Plugin_Activation::$instance->domain ) . '</span>.</a>';
+					/* translators: admin settings */
 					$this->upgrader->strings['skin_upgrade_end']          = __( 'All installations have been completed.', TGM_Plugin_Activation::$instance->domain );
+					/* translators: admin settings */
 					$this->upgrader->strings['skin_before_update_header'] = __( 'Installing Plugin %1$s (%2$d/%3$d)', TGM_Plugin_Activation::$instance->domain );
 				}
 
@@ -2055,7 +2086,7 @@ if ( ! class_exists( 'WP_Upgrader' ) && ( isset( $_GET[sanitize_key( 'page' )] )
 
 				/** All plugins are active, so we display the complete string and hide the menu to protect users */
 				if ( empty( $complete ) ) {
-					echo '<p>' .  sprintf( TGM_Plugin_Activation::$instance->strings['complete'], '<a href="' . admin_url() . '" title="' . __( 'Return to the Dashboard', TGM_Plugin_Activation::$instance->domain ) . '">' . __( 'Return to the Dashboard', TGM_Plugin_Activation::$instance->domain ) . '</a>' ) . '</p>';
+					echo '<p>' .  sprintf( TGM_Plugin_Activation::$instance->strings['complete'], '<a href="' . admin_url() . '" title="' . /* translators: admin settings */ __( 'Return to the Dashboard', TGM_Plugin_Activation::$instance->domain ) . '">' . /* translators: admin settings */ __( 'Return to the Dashboard', TGM_Plugin_Activation::$instance->domain ) . '</a>' ) . '</p>';
 					echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
 				}
 

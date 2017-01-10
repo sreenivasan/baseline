@@ -62,7 +62,7 @@ function site_colors_page() {
 	$site_colors_default_string = "White:white:rgb(255,255,255):dark:default:default\nBlue:blue:rgb(15,129,233):light:auto:auto\nOrange:orange:rgb(255,169,2):light:auto:auto\nDark Gray:dkgray:rgb(23,41,46):light:auto:auto\nDark Gray (transparent):dkgray-trans:rgba(23,41,46,0.6):light:auto:auto\nLight Gray:ltgray:rgb(218,230,242):dark:auto:auto\nTransparent:transparent:rgba(0,0,0,0):light:auto:auto";
     ?>
         <div class="wrap">
-            <h2><?php _e( 'Colors', 'site_colors' ); ?></h2>
+            <h2><?php /* translators: admin settings */ _e( 'Colors', 'site_colors' ); ?></h2>
             <?php /* Check for site_colors option, use default 350 colors if not present */
 				$site_colors_option = trim( get_option('site_colors') );
 				if ( $site_colors_option ){

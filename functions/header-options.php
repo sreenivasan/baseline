@@ -28,6 +28,7 @@ function tf_header_options_page(){
 				$site_colors = tfArrayifyColors( $site_colors_raw ); 
 
 				$header_buttons = stripslashes( get_option('header_buttons') );
+				 /* translators: admin settings */
 				$site_nav_button_label = get_option('site_nav_button_label', __('Menu','baseline') );
 			?>
 
@@ -74,8 +75,8 @@ function tf_header_options_page(){
 			<label for="header_buttons"><strong>Code for Header buttons, top right</strong></label><br />
 			<textarea style="font-family:monospace;" name="header_buttons" id="header_buttons" rows="6" cols="75"><?php echo ( $header_buttons ); ?></textarea><br />
 			<hr>
-			<label for="site_nav_button_label"><strong><?php _e('Site Nav "Menu" Button Text','baseline'); ?></strong></label>
-			<p class="small"><em><?php _e('Leave blank to use just the <span style="display: inline-block; width: 18px; background: rgba(255, 255, 255, 0.6) url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4yIiBiYXNlUHJvZmlsZT0idGlueSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiDQoJIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNjAgNjAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHJlY3QgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8cmVjdCB5PSI0OCIgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8cmVjdCB5PSIyNCIgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8L3N2Zz4NCg==&quot;) no-repeat scroll center center / 14px 14px; height: 14px;"> </span> icon.','baseline'); ?></em></p>
+			<label for="site_nav_button_label"><strong><?php  /* translators: admin settings */ _e('Site Nav "Menu" Button Text','baseline'); ?></strong></label>
+			<p class="small"><em><?php  /* translators: admin settings */ _e('Leave blank to use just the <span style="display: inline-block; width: 18px; background: rgba(255, 255, 255, 0.6) url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4yIiBiYXNlUHJvZmlsZT0idGlueSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiDQoJIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNjAgNjAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHJlY3QgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8cmVjdCB5PSI0OCIgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8cmVjdCB5PSIyNCIgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8L3N2Zz4NCg==&quot;) no-repeat scroll center center / 14px 14px; height: 14px;"> </span> icon.','baseline'); ?></em></p>
 			<input type="text" name="site_nav_button_label" id"site_nav_button_label" value="<?php echo $site_nav_button_label; ?>">
 			<br>
 			<h4>Main Navigation Display Options</h4>
