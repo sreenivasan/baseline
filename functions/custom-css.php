@@ -165,21 +165,21 @@ function baseline_custom_css() {
 	.page-numbers.current{
 	  background-color:'. $link_color .';}
 
-	#container #can_embed_form input[type="submit"],
-	#container #can_embed_form .button,
-	#container #donate_auto_modal input[type="submit"],
-	#container #donate_auto_modal .button{
-		background-color:'. $button_color .' !important;
-		font-family:'. $display_font .','. $body_font .','. $fallback_font .' !important;
-		font-size:'. fontSize(1.5) .'rem !important;
-		text-shadow:none !important;
+	.form #can_embed_form input[type="submit"],
+	.form #can_embed_form .button,
+	#donate_auto_modal input[type="submit"],
+	#donate_auto_modal .button{
+		background-color:'. $button_color .';
+		font-family:'. $display_font .','. $body_font .','. $fallback_font .';
+		font-size:'. fontSize(1.5) .'rem;
+		text-shadow:none;
 	  	border-width:0 0 3px;
-		border-bottom:3px solid rgba(21,35,43,0.15) !important;}
-	#container #can_embed_form input[type="submit"]:hover,
-	#container #can_embed_form .button:hover,
-	#container #donate_auto_modal input[type="submit"]:hover,
-	#container #donate_auto_modal .button:hover{
-  		background:'. $button_color .' !important;}
+		border-bottom:3px solid rgba(21,35,43,0.15);}
+	.form #can_embed_form input[type="submit"]:hover,
+	.form #can_embed_form .button:hover,
+	#donate_auto_modal input[type="submit"]:hover,
+	#donate_auto_modal .button:hover{
+  		background:'. $button_color .';}
 
 
 	.title0{
