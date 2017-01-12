@@ -1740,6 +1740,7 @@ img.b-loaded {
   padding:60px;
   margin-bottom:40px;}
 #d_sharing,
+#can_embed_form h2,
 #action_info{
   display:none !important;}
 #can_embed_form #action_welcome_message #action_welcome_message_inner{
@@ -1747,6 +1748,14 @@ img.b-loaded {
   background:rgba(21,36,43,0.1) !important;
   font-size:1.2em;
   padding:1em;}
+#can_embed_form li.control-group{
+  list-style-type:none;
+  margin-top:0.3em;}
+#can_embed_form li.control-group label{
+  font-weight:bold;}
+#can_embed_form .international_link{
+  font-size:0.8rem;
+  font-style:italic;}
 
 #can_embed_form #form_col1 {
   margin-bottom:1em;}

@@ -32,10 +32,10 @@
 	$show_tw = get_option('site_show_tw_share');
 // Set up default tweet text
 	if (get_field("post_tw_text")){
-		$tweet_text = get_field("post_tw_text");
+		$tweet_text = sanitize_text_field( get_field("post_tw_text") );
 	} else if (get_field("tweet_text")) {
 		/* Support for legacy "tweet_text" custom field from imported posts */
-		$tweet_text = get_field("tweet_text");
+		$tweet_text = sanitize_text_field( get_field("tweet_text") );
 	} else {
 		$tweet_text = get_the_title();
 	}
@@ -99,7 +99,7 @@
 				<a class="fb-share bg-facebook-icon bg-facebook-color button-share-medium" href="https://www.facebook.com/sharer/sharer.php?u=<?php if ( get_field("post_fb_url")){ the_field("post_fb_url"); } else { the_permalink(); } ?>" target="_blank"><?php _e('Share','baseline'); ?></a> 
 				<?php endif; ?> 
 				<?php if ( $show_tw ): ?>
-				<a class="tw-share bg-twitter-icon bg-twitter-color button-share-medium" href="http://twitter.com/home?status=<?php echo urlencode( $tweet ); ?>" target="_blank"><?php _e('Tweet','baseline'); ?></a> 
+				<a class="tw-share bg-twitter-icon bg-twitter-color button-share-medium" href="http://twitter.com/home?status=<?php echo $tweet; ?>" target="_blank"><?php _e('Tweet','baseline'); ?></a> 
 				<?php endif; ?> 
 				<span class="clear"></span>
 			</span>
