@@ -167,7 +167,7 @@
 						</div>
 <?php endif; ?>
 <?php if ( has_nav_menu('main-nav') ): ?>
-						<a id="nav-label" class="js-modal <?php echo $nav_desktop_display; ?>" data-modal-source=".site-nav" data-modal-classes-outer="width-narrow slide-out" data-modal-classes-inner="-"><?php if ( $site_nav_button_label ): ?><span id="site-nav-button-label"><?php echo $site_nav_button_label; ?></span><?php endif; ?></a>
+						<a id="nav-label" class="js-modal <?php echo $nav_desktop_display; ?>" data-modal-source=".site-nav" data-modal-show-source="true" data-modal-classes-outer="width-narrow slide-out" data-modal-classes-inner="-"><?php if ( $site_nav_button_label ): ?><span id="site-nav-button-label"><?php echo $site_nav_button_label; ?></span><?php endif; ?></a>
 <?php endif; ?>
 					</div>
 				</div>

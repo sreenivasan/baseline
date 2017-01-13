@@ -282,16 +282,23 @@ function urlParam(name){
 }(jQuery));
 // Modal
 (function($){
-	$.fn.modal = function(){
-		return this.each(function(){
-			// get the ID of the element that contains the content for the modal from the "data-modal-source" attribute in the HTML tag
-			var modalSourceID = $(this).attr('data-modal-source');
+  $.fn.modal = function(){
+    return this.each(function(){
+      // check for option to disable automatic hiding of source element
+      var showSourceElem = $(this).attr('data-modal-show-source');
+      // get the ID of the element that contains the content for the modal from the "data-modal-source" attribute in the HTML tag
+      var modalSourceID = $(this).attr('data-modal-source');
       var modalSourceElem = $( modalSourceID );
-      // Make sure the modal source element is hidden with inline styles
-      modalSourceElem.hide().removeClass('hidden js-hidden');
-			// get the optional list of classes to add to the inner content area from the "data-modal-classes-inner" attribute in the HTML tag
-			var modalInnerClassesAttr = $(this).attr('data-modal-classes-inner');
-			// use the default classes to set the inner modal to be a white box with lots of padding
+      // if showing the source element...
+      if (showSourceElem){
+        modalSourceElem.removeClass('hidden js-hidden');
+      } else {
+        // Make sure the modal source element is hidden only with inline styles
+        modalSourceElem.hide().removeClass('hidden js-hidden');
+      }
+      // get the optional list of classes to add to the inner content area from the "data-modal-classes-inner" attribute in the HTML tag
+      var modalInnerClassesAttr = $(this).attr('data-modal-classes-inner');
+      // use the default classes to set the inner modal to be a white box with lots of padding
 			var modalInnerClasses = 'box box-huge bg-white'; 
 			if ( modalInnerClassesAttr ){
 				modalInnerClasses = modalInnerClassesAttr;
