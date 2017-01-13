@@ -49,8 +49,10 @@ function baseline_custom_css() {
 	$color_css_array = array();
 	foreach ($site_colors as $site_color){ 
 		$cur_link_color = !empty( $site_color['link'] ) ? $site_color['link'] : 'auto';
-		if ( $cur_link_color != 'auto' ) {
+		if ( $cur_link_color != 'auto' && $cur_link_color != 'default') {
 			$custom_link_color = $site_color['link'];
+		} elseif ( $site_color['link'] == 'default' && $link_color_option ){
+			$custom_link_color = $link_color_option;
 		} elseif ( $site_color['text'] == 'light' ){
 			$custom_link_color = 'rgba(255,255,255,0.75)';
 		} else {
@@ -58,8 +60,10 @@ function baseline_custom_css() {
 		}
 
 		$cur_link_hover_color = !empty( $site_color['link_hover'] ) ? $site_color['link_hover'] : 'auto';
-		if ( $cur_link_hover_color != 'auto' ) {
+		if ( $cur_link_hover_color != 'auto' && $cur_link_hover_color != 'default') {
 			$custom_link_hover_color = $site_color['link_hover'];
+		} elseif ( $site_color['link'] == 'default' && $link_color_option ){
+			$custom_link_color = $link_color_option;
 		} elseif ( $site_color['text'] == 'light' ){
 			$custom_link_hover_color = 'rgba(255,255,255,0.3)';
 		} else {
@@ -164,6 +168,9 @@ function baseline_custom_css() {
 	a.page-numbers,
 	.page-numbers.current{
 	  background-color:'. $link_color .';}
+
+	input.search-form-submit{
+		background-color:'. $button_color .';}
 
 	.form #can_embed_form input[type="submit"],
 	.form #can_embed_form .button,
