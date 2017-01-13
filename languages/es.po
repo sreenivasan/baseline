@@ -1,0 +1,563 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: 350 Baseline\n"
+"POT-Creation-Date: 2017-01-11 18:26-0200\n"
+"PO-Revision-Date: 2017-01-11 18:49-0200\n"
+"Language-Team: Matthew Anderson <matthew@350.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: es\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:8
+msgid "Page Not Found :("
+msgstr "Página no encontrada :("
+
+#: 404.php:10
+msgid "Sorry, the page you're looking for isn't here."
+msgstr "Lo sentimos, la página que buscas no está aquí"
+
+#: 404.php:12
+msgid "If you typed in the URL directly, make sure it doesn't have any mistakes."
+msgstr "Si has escrito la URL directamente, asegúrate de que no hay ningún error"
+
+#: 404.php:13
+msgid "If you clicked on a link on this site"
+msgstr "Si has hecho click en un enlace de esta página web, "
+
+#: 404.php:16
+msgid "let us know</a> that it&#39;s broken."
+msgstr "avísanos </a> de que está roto"
+
+#: archive.php:20
+msgid "Archive"
+msgstr "Archivo"
+
+#: archive.php:32 archive.php:52 homepage-default.php:44 search.php:50 search.php:76
+msgid "← Newer Posts"
+msgstr "← Posts más recientes"
+
+#: archive.php:33 archive.php:53 homepage-default.php:45 search.php:51 search.php:77
+msgid "Older Posts →"
+msgstr "Posts más antiguos →"
+
+#. translators: admin settings
+#: functions/admin-options.php:76
+msgid "Summary (1-2 sentences)"
+msgstr "Summary (1-2 sentences)"
+
+#. translators: admin settings
+#: functions/colors.php:65
+msgid "Colors"
+msgstr "Colors"
+
+#. translators: admin settings
+#: functions/comments.php:21
+msgid "Comments"
+msgstr "Comments"
+
+#. translators: admin settings
+#: functions/custom-background.php:14
+msgid "Background Image"
+msgstr "Background Image"
+
+#. translators: admin settings
+#: functions/custom-fonts.php:13
+msgid "Fonts"
+msgstr "Fonts"
+
+#. translators: admin settings
+#: functions/custom-logo.php:13
+msgid "Logo"
+msgstr "Logo"
+
+#. translators: admin settings
+#: functions/favicon.php:13
+msgid "Favicon"
+msgstr "Favicon"
+
+#. translators: admin settings
+#: functions/header-options.php:32
+msgid "Menu"
+msgstr "Menu"
+
+#. translators: admin settings
+#: functions/header-options.php:78
+msgid "Site Nav \"Menu\" Button Text"
+msgstr "Site Nav \"Menu\" Button Text"
+
+#. translators: admin settings
+#: functions/header-options.php:79
+msgid ""
+"Leave blank to use just the <span style=\"display: inline-block; width: 18px; background: rgba(255, 255, 255, 0.6) url(&quot;data:image/svg+xml;base64,"
+"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4yIiBiYXNlUHJvZmlsZT0idGlueSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiDQoJIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNjAgNjAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHJlY3QgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8cmVjdCB5PSI0OCIgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8cmVjdCB5PSIyNCIgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8L3N2Zz4NCg==&quot;) "
+"no-repeat scroll center center / 14px 14px; height: 14px;\"> </span> icon."
+msgstr ""
+"Leave blank to use just the <span style=\"display: inline-block; width: 18px; background: rgba(255, 255, 255, 0.6) url(&quot;data:image/svg+xml;base64,"
+"PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4yIiBiYXNlUHJvZmlsZT0idGlueSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiDQoJIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNjAgNjAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHJlY3QgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8cmVjdCB5PSI0OCIgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8cmVjdCB5PSIyNCIgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8L3N2Zz4NCg==&quot;) "
+"no-repeat scroll center center / 14px 14px; height: 14px;\"> </span> icon."
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:113 functions/plugin-loader.php:164
+msgid "Install Required Plugins"
+msgstr "Install Required Plugins"
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:114
+msgid "Required Plugins"
+msgstr "Required Plugins"
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:115 functions/plugin-loader.php:166
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr "Installing Plugin: %s"
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:116
+msgid "Something went wrong with the plugin API."
+msgstr "Something went wrong with the plugin API."
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:117 functions/plugin-loader.php:168
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "This theme requires the following plugin: %1$s."
+msgstr[1] "This theme requires the following plugin: %1$s."
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:118 functions/plugin-loader.php:169
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "This theme recommends the following plugin: %1$s."
+msgstr[1] "This theme recommends the following plugin: %1$s."
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:119 functions/plugin-loader.php:170
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
+msgid_plural "Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed."
+msgstr[0] "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
+msgstr[1] "Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed."
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:120 functions/plugin-loader.php:171
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "The following required plugin is currently inactive: %1$s."
+msgstr[1] "The following required plugins are currently inactive: %1$s."
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:121 functions/plugin-loader.php:172
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "The following recommended plugin is currently inactive: %1$s."
+msgstr[1] "The following recommended plugins are currently inactive: %1$s."
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:122 functions/plugin-loader.php:173
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
+msgid_plural "Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated."
+msgstr[0] "Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated."
+msgstr[1] "Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated."
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:123 functions/plugin-loader.php:174
+#, php-format
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[1] "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:124 functions/plugin-loader.php:175
+#, php-format
+msgid "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
+msgid_plural "Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated."
+msgstr[0] "Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated."
+msgstr[1] "Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated."
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:125 functions/plugin-loader.php:176
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "Begin installing plugin"
+msgstr[1] "Begin installing plugins"
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:126 functions/plugin-loader.php:177
+msgid "Activate installed plugin"
+msgid_plural "Activate installed plugins"
+msgstr[0] "Activate installed plugin"
+msgstr[1] "Activate installed plugins"
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:127 functions/plugin-loader.php:178 functions/plugin-loader.php:491
+msgid "Return to Required Plugins Installer"
+msgstr "Return to Required Plugins Installer"
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:128 functions/plugin-loader.php:179 functions/plugin-loader.php:1866
+msgid "Plugin activated successfully."
+msgstr "Plugin activated successfully."
+
+#. translators: admin settings
+#: functions/plugin-loader-config.php:129
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr "All plugins installed and activated successfully. %s"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:165
+msgid "Install Plugins"
+msgstr "Install Plugins"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:167
+msgid "Something went wrong."
+msgstr "Something went wrong."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:180
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "All plugins installed and activated successfully. %1$s"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:519 functions/plugin-loader.php:2089
+msgid "Return to the Dashboard"
+msgstr "Return to the Dashboard"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:547
+#, php-format
+msgid "The following plugin was activated successfully: %s."
+msgstr "The following plugin was activated successfully: %s."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:706
+msgid "Dismiss this notice"
+msgstr "Dismiss this notice"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1094
+msgid "External Link"
+msgstr "External Link"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1101
+msgid "Private Repository"
+msgstr "Private Repository"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1105
+msgid "Pre-Packaged"
+msgstr "Pre-Packaged"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1110
+msgid "WordPress Repository"
+msgstr "WordPress Repository"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1113
+msgid "Required"
+msgstr "Required"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1113
+msgid "Recommended"
+msgstr "Recommended"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1117
+msgid "Not Installed"
+msgstr "Not Installed"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1120
+msgid "Installed But Not Activated"
+msgstr "Installed But Not Activated"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1290
+#, php-format
+msgid "No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the Dashboard\">Return to the Dashboard</a>"
+msgstr "No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the Dashboard\">Return to the Dashboard</a>"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1306
+msgid "Plugin"
+msgstr "Plugin"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1308
+msgid "Source"
+msgstr "Source"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1310
+msgid "Type"
+msgstr "Type"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1312
+msgid "Status"
+msgstr "Status"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1330
+msgid "Install"
+msgstr "Install"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1332
+msgid "Activate"
+msgstr "Activate"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1558
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "The following plugin was activated successfully:"
+msgstr[1] "The following plugins were activated successfully:"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1843
+msgid "Install package not available."
+msgstr "Install package not available."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1845
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1847
+msgid "Unpacking the package&#8230;"
+msgstr "Unpacking the package&#8230;"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1849
+msgid "Installing the plugin&#8230;"
+msgstr "Installing the plugin&#8230;"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1851
+msgid "Plugin install failed."
+msgstr "Plugin install failed."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1853
+msgid "Plugin installed successfully."
+msgstr "Plugin installed successfully."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1864
+msgid "Plugin activation failed."
+msgstr "Plugin activation failed."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1977
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1979
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s installed and activated successfully."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1979 functions/plugin-loader.php:1994
+msgid "Show Details"
+msgstr "Show Details"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1979 functions/plugin-loader.php:1994
+msgid "Hide Details"
+msgstr "Hide Details"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1981
+msgid "All installations and activations have been completed."
+msgstr "All installations and activations have been completed."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1983
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1988
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr "The installation process is starting. This process may take a while on some hosts, so please be patient."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1990
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr "An error occurred while installing %1$s: <strong>%2$s</strong>."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1992
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr "The installation of %1$s failed."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1994
+#, php-format
+msgid "%1$s installed successfully."
+msgstr "%1$s installed successfully."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1996
+msgid "All installations have been completed."
+msgstr "All installations have been completed."
+
+#. translators: admin settings
+#: functions/plugin-loader.php:1998
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "Installing Plugin %1$s (%2$d/%3$d)"
+
+#. translators: admin settings
+#: functions/posts.php:16
+msgid "Show Author Name and Photo"
+msgstr "Show Author Name and Photo"
+
+#. translators: admin settings
+#: functions/posts.php:28
+msgid "Show Categories"
+msgstr "Show Categories"
+
+#. translators: admin settings
+#: functions/social-media.php:14
+msgid "General"
+msgstr "General"
+
+#. translators: admin settings
+#. translators: admin settings
+#. translators: admin settings
+#: functions/social-media.php:25 functions/social-media.php:93
+msgid "Facebook"
+msgstr "Facebook"
+
+#. translators: admin settings
+#: functions/social-media.php:36 functions/social-media.php:94
+msgid "Twitter"
+msgstr "Twitter"
+
+#. translators: ADMIN ONLY
+#: functions/social-media.php:48
+msgid "Default Share Image"
+msgstr "Default Share Image"
+
+#. translators: admin settings
+#: functions/social-media.php:77
+msgid "Share Buttons on Blog Posts"
+msgstr "Share Buttons on Blog Posts"
+
+#. translators: admin settings
+#: functions/social-media.php:95 single.php:91
+msgid "VK"
+msgstr "VK"
+
+#. translators: admin settings
+#: functions/social-media.php:96
+msgid "新浪微博 (Sina Weibo)"
+msgstr "新浪微博 (Sina Weibo)"
+
+#. translators: admin settings
+#: functions/social-media.php:103
+msgid "Load Facebook Javascript SDK"
+msgstr "Load Facebook Javascript SDK"
+
+#. translators: admin settings
+#: functions/social-media.php:121
+msgid "Facebook App ID"
+msgstr "Facebook App ID"
+
+#. translators: admin settings
+#: functions/social-media.php:140
+msgid "Site Twitter account"
+msgstr "Site Twitter account"
+
+#: homepage-default.php:23
+#, php-format
+msgid "%1$s: Page %2$s"
+msgstr "%1$s: Página %2$s"
+
+#: search.php:35
+#, php-format
+msgid "%d search results found for \"%s\""
+msgstr "%d resultádos de búsqueda encontrados para \"%s\""
+
+#: search.php:41 searchform.php:3
+msgid "Search..."
+msgstr "Buscar..."
+
+#: search.php:42
+msgid "→"
+msgstr "→"
+
+#: searchform.php:4
+msgid "Search"
+msgstr "Buscar"
+
+#: single-super_pages.php:349
+msgid "← Newer"
+msgstr "← Más recientes"
+
+#: single-super_pages.php:350
+msgid "Older →"
+msgstr "Más antiguos →"
+
+#: single.php:94
+msgid "分享到新浪微博"
+msgstr "分享到新浪微博"
+
+#: single.php:97
+msgid "Share"
+msgstr "Compartir"
+
+#: single.php:100
+msgid "Tweet"
+msgstr "Tweet"
+
+#. Theme Name of the plugin/theme
+msgid "350 Baseline"
+msgstr "350 Baseline"
+
+#. Theme URI of the plugin/theme
+msgid "http://world.350.org/baseline"
+msgstr "http://world.350.org/baseline"
+
+#. Description of the plugin/theme
+msgid "350 Baseline parent theme"
+msgstr "350 Baseline parent theme"
+
+#. Author of the plugin/theme
+msgid "Matthew Anderson"
+msgstr "Matthew Anderson"
+
+#. Author URI of the plugin/theme
+msgid "http://350.org"
+msgstr "http://350.org"
