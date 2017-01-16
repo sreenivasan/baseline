@@ -90,6 +90,9 @@ function baseline_custom_css() {
 		/* Notch Color */
 		.bg-'. $site_color['slug'] .'.notch::after{
 			border-bottom-color:'. $site_color['code'] .';}
+		.bg-'. $site_color['slug'] .'.notch-semicircle::after,
+		.bg-'. $site_color['slug'] .'.notch-tab::after{
+			background-color:'. $site_color['code'] .';}
 		/* Text Color */
 		.text-'. $site_color['slug'] .'{
 			color:'. $site_color['code'] .';}

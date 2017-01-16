@@ -537,6 +537,33 @@ input[type="submit"]:active,
 .bg-white.notch::after{
   border-bottom-color:#fff;}
 
+.bg-blue.notch-semicircle::after,
+.bg-blue.notch-tab::after{
+  background-color:#0f81e8;}
+.bg-orange.notch-semicircle::after,
+.bg-orange.notch-tab::after{
+  background-color:#ffa902;}
+.bg-teal.notch-semicircle::after,
+.bg-teal.notch-tab::after{
+  background-color:#35c9c5;}
+.bg-red.notch-semicircle::after,
+.bg-red.notch-tab::after{
+  background-color:#ff6753;}
+.bg-dkgray.notch-semicircle::after,
+.bg-dkgray.notch-tab::after{
+  background-color:#2b2e2f;}
+.bg-dkgray-trans.notch-semicircle::after{
+  /* semicircle notch will have visible overlap with transparent colors, so just hide it :( */
+  display:none;}
+.bg-dkgray-trans.notch-tab{
+  background-color:rgba(23,41,46,0.6);}
+.bg-ltgray.notch-semicircle::after,
+.bg-ltgray.notch-tab::after{
+  background-color:#dae6f2;}
+.bg-white.notch-semicircle::after,
+.bg-white.notch-tab::after{
+  background-color:#fff;}
+
 .bg-blue a,
 .bg-orange a,
 .bg-teal a,
@@ -818,6 +845,25 @@ a.area-link:hover .area-link-hover{
 .notch-down::after{
   top:auto;
   bottom:-12px;
+  -webkit-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
+  transform:rotate(180deg);}
+
+.notch-semicircle::after{
+  content:'';
+  position:absolute;
+  top:-25px;
+  border-radius:100px 100px 0 0;
+  width:90px;
+  height:45px;
+  left:50%;
+  margin-left:-45px;
+  -webkit-transform:scale(1.1, 0.9);
+  -moz-transform:scale(1.1, 0.9);
+  transform:scale(1.1, 0.9);}
+.notch-semicircle.notch-down{
+  bottom:-25px;
+  top:auto;
   -webkit-transform:rotate(180deg);
   -moz-transform:rotate(180deg);
   transform:rotate(180deg);}
@@ -1419,11 +1465,15 @@ nav.section .heading a:hover,
   overflow:visible; /* fixes invisible #nav-label */
   padding:0;}
 a.logo{
+  color:inherit;
   display:inline-block;
   line-height:1;
   margin:0 auto;
   max-height:100px;
   max-width:250px;}
+.bg-white a.logo,
+.bg-white a.logo:hover{
+  color:inherit;}
 a.logo img{
   max-height:110px;
   max-width:250px;
@@ -2069,6 +2119,8 @@ a:hover .tf-logo{
   .notch-down::after{
     bottom:-17px;
     top:auto;}
+
+
 
   .section{
     padding-left:3%;

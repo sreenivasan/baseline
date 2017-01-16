@@ -146,9 +146,13 @@ if ( !post_password_required() ): ?>
 		$bg_img_credit = get_sub_field('sp-bg-image-credit');
 		$bg_img_credit_url = get_sub_field('sp-bg-image-credit-url');
 		$notch_class = '';
-		if ( get_sub_field('sp-notch') ){
+		$notch_value = get_sub_field('sp-notch');
+		// check for legacy notch true/false value
+		if ( $notch_value === '1' ){
 			$notch_class = 'notch';
-		}
+		} else {
+			$notch_class = $notch_value;
+		} 
 		$classes = "b-lazy lazy bg-" . $bgcolor . " bg-repeat-" . $bg_img_repeat . " bg-image-" . $bg_img_status . " bg-attach-" . $bg_img_attach . " bg-size-". $bg_img_size . " width-" . $width . " padding-" . $padding . " " . $notch_class . " " . $classes;
 
 		if(get_row_layout() == "sp-section-texthtml"): // layout: Text/HTML ?>

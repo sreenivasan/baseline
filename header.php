@@ -49,33 +49,43 @@
 		} else {
 			$site_favicon = get_stylesheet_directory_uri() . "/favicon.png";
 		}
-	}
-	// format description
+	// default, general meta info (PCM name prepended
+	$title = get_bloginfo('name');
+	$description = get_bloginfo('description');
+	$share_img_url = get_option('site_share_img_url');
+	$page_url = home_url();
+	$og_type = 'website';
+	// more specific meta info for pages and posts
 	if ( is_single() || is_page() ):
-		$default_single_description = get_the_excerpt();
-		$default_single_description = strip_tags($default_single_description);
-		$default_single_description = str_replace("\"", "'", $default_single_description);
-		$title = !empty( get_the_title() ) ? get_the_title() : bloginfo('title');
+		$title = !empty( get_the_title() ) ? get_the_title() : $title;
+		$description = strip_tags( get_the_excerpt() );
+		$description = str_replace("\"", "'", $description);
 		if ( has_post_thumbnail() ):
 			$post_thumb_src_raw = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
-			$post_thumb_src = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : '' ;
+			$share_img_url = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : $share_img_url ;
+		endif;
+		$page_url = !empty( get_the_permalink() ) ? get_the_permalink() : $page_url ;
+		$og_type = 'article';
+		// check for custom share info overrides
+		if ( $acf_on ):
+			$title = !empty( get_field('post_fb_title') ) ? get_field('post_fb_title') : $title;
+			$description = !empty( get_field('post_fb_desc') ) ? get_field('post_fb_desc') : $description;
+			if ( get_field('post_share_img') ):
+				$post_thumb_src_raw = wp_get_attachment_image_src( get_field('post_share_img'), 'large');
+				$share_img_url = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : $share_img_url ;
+			elseif ( has_post_thumbnail() ):
+				$post_thumb_src_raw = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
+				$share_img_url = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : $share_img_url;
+			endif;
+			if ( get_field('post_fb_url') ):
+				$fb_url = get_field('post_fb_url');
+			endif;
+			if ( get_field('post_tw_url') ):
+				$tw_url = get_field('post_tw_url');
+			endif;
+		else:
 		endif;
 	endif;
-	if ( $acf_on ):
-		$title = !empty( get_field('post_fb_title') ) ? get_field('post_fb_title') : get_the_title();
-		$description = !empty( get_field('post_fb_desc') ) ? get_field('post_fb_desc') : $default_single_description;
-		if ( get_field('post_share_img') ):
-			$post_thumb_src_raw = wp_get_attachment_image_src( get_field('post_share_img'), 'large');
-			$post_thumb_src = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : '' ;
-		elseif ( has_post_thumbnail() ):
-			$post_thumb_src_raw = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
-			$post_thumb_src = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : '' ;
-		endif;
-	else:
-
-	endif;
-	$share_img_url = !empty( $post_thumb_src ) ? $post_thumb_src : get_option('site_share_img_url');
-	$description = !empty( $description ) ? $description : get_bloginfo('description');
 ?>
 <!doctype html>  
 <html <?php language_attributes(); ?> class="no-js">
@@ -89,10 +99,16 @@
 	<link rel="icon" type="image/png" href="<?php echo $site_favicon ?>">
 	<link href="<?php bloginfo('rss2_url'); ?>" rel="alternate" type="application/rss+xml" title="<?php bloginfo('title'); ?>" />
 	<link type="application/atom+xml" rel="alternate" href="<?php bloginfo('atom_url'); ?>" title="<?php bloginfo('title'); ?>" />
-	<meta property="og:locale" content="<?php echo get_locale(); ?>">
 <?php if ( $fb_app_id ): ?>
 	<meta name="fb:app_id" content="<?php echo $fb_app_id; ?>">
 <?php endif; ?>
+	<meta property="og:locale" content="<?php echo get_locale(); ?>">
+	<meta property="og:title" content="<?php echo $title; ?>">
+	<meta property="og:description" content="<?php echo $description; ?>">
+	<meta property="og:site_name" content="<?php bloginfo('title'); ?>">
+	<meta property="og:image" content="<?php echo $share_img_url; ?>">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="<?php echo !empty($fb_url) ? $fb_url : $page_url ?>">
 <?php if ( $site_twitter_account ): ?>
 	<meta name="twitter:site" content="@<?php echo $site_twitter_account; ?>">
 <?php endif; ?>
@@ -101,18 +117,7 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:description" content="<?php echo $description; ?>">
 	<meta name="twitter:image" content="<?php echo $share_img_url; ?>">
-	<meta property="og:title" content="<?php echo $title; ?>">
-	<meta property="og:description" content="<?php echo $description; ?>">
-	<meta property="og:site_name" content="<?php bloginfo('title'); ?>">
-	<meta property="og:image" content="<?php echo $share_img_url; ?>">
-<?php if ( is_home() ): ?>
-	<meta name="twitter:url" content="<?php echo home_url(); ?>">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="<?php echo home_url(); ?>">
-<?php elseif ( is_single() || is_page() ): ?>
-	<meta name="twitter:url" content="<?php the_permalink(); ?>">
-	<meta property="og:type" content="article">
-	<meta property="og:url" content="<?php the_permalink(); ?>">
+	<meta name="twitter:url" content="<?php echo !empty($tw_url) ? $tw_url : $page_url ?>">
 	<link rel="amphtml" href="https://mercury.postlight.com/amp?url=<?php echo urlencode( get_the_permalink() ); ?>">
 <?php endif; ?>	
 <?php get_template_part( 'fonts/font', 'loader' ); ?>
