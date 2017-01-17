@@ -626,6 +626,7 @@ p.wp-caption-text{
 .text-wrap-none{
   white-space:nowrap;}
 
+/* link utility classes */
 .area-link{
   color:inherit !important;
   display:block;
@@ -638,6 +639,10 @@ a.area-link:hover .area-link-hover{
 .text-underline-none, 
 .no-underline a{
   text-decoration:none;}
+
+.text-color-default,
+a.text-color-default{
+  color:inherit !important;}
 
 .image-bleed{
   display:block;
@@ -858,9 +863,9 @@ a.area-link:hover .area-link-hover{
   height:45px;
   left:50%;
   margin-left:-45px;
-  -webkit-transform:scale(1.1, 0.9);
-  -moz-transform:scale(1.1, 0.9);
-  transform:scale(1.1, 0.9);}
+  -webkit-transform:scale(1.1, 1);
+  -moz-transform:scale(1.1, 1);
+  transform:scale(1.1, 1);}
 .notch-semicircle.notch-down{
   bottom:-25px;
   top:auto;

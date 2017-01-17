@@ -158,7 +158,7 @@
 							<img src="<?php echo $logo; ?>" alt="<?php bloginfo('title'); ?>" /> 
 						</a>
 						<?php else: ?>
-						<a class="<?php if ( $header_bgcolor == 'transparent' ){ echo $text_on_image_classes_header; } ?>" href="<?php bloginfo('url'); ?>"><?php echo tf_site_title(); ?></a>
+						<a class="<?php if ( $header_bgcolor == 'transparent' ){ echo $text_on_image_classes_header; } ?> text-color-default" href="<?php bloginfo('url'); ?>"><?php echo tf_site_title(); ?></a>
 						<?php endif; ?>
 					</h1>
 				</div>
