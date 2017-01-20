@@ -49,6 +49,7 @@
 		} else {
 			$site_favicon = get_stylesheet_directory_uri() . "/favicon.png";
 		}
+	}
 	// default, general meta info (PCM name prepended
 	$title = get_bloginfo('name');
 	$description = get_bloginfo('description');
@@ -88,7 +89,7 @@
 	endif;
 ?>
 <!doctype html>  
-<html <?php language_attributes(); ?> class="no-js">
+<html <?php language_attributes(); ?> class="no-js baseline">
 <head>
 	<title><?php bloginfo('name') ?> <?php wp_title('-'); ?></title>
 	<meta charset="utf-8">
@@ -119,14 +120,13 @@
 	<meta name="twitter:image" content="<?php echo $share_img_url; ?>">
 	<meta name="twitter:url" content="<?php echo !empty($tw_url) ? $tw_url : $page_url ?>">
 	<link rel="amphtml" href="https://mercury.postlight.com/amp?url=<?php echo urlencode( get_the_permalink() ); ?>">
-<?php endif; ?>	
 <?php get_template_part( 'fonts/font', 'loader' ); ?>
 <?php wp_head(); ?>
 <?php echo $custom_code; ?>
 </head>
 <body <?php body_class($lang .' '. $body_bg_img_class); ?> ontouchstart >
 
-<?php if ( get_option('site_fb_active') ){ ?>
+<?php if ( get_option('site_fb_active') ): ?>
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -135,7 +135,7 @@
 	  js.src = "//connect.facebook.net/<?php echo get_locale(); ?>/all.js#xfbml=1&appId=<?php if ( get_option('site_fb_appid') ){ echo get_option('site_fb_appid'); } else { ?>148617041897246<?php } ?>";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
-<?php } ?>
+<?php endif; ?>
 	<div id="container" class="g10">
 <?php if ( has_nav_menu('lang-nav') ):?>
 		<nav id="language-nav" class="section width-wide nav-desktop-dropdown nav-tablet-select nav-mobile-select padding-none bg-<?php echo $langnav_bgcolor; ?> <?php echo $header_alignment; ?> meta">

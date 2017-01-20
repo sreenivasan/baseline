@@ -744,7 +744,7 @@ a.text-color-default{
   text-transform:lowercase;}
 .text-caps,
 .text-uppercase{
-  letter-spacing:0.07em;
+  letter-spacing:0.05em;
   text-transform:uppercase;}
 
 .text-large,
@@ -1601,6 +1601,8 @@ a.logo img{
   max-width:600px;}
 .pagination{
   padding:2em 0;}
+.pagination:empty{
+  padding:0;}
 .pagination .search-form{
   margin: 0 2%;
   max-width: 400px;}
@@ -1639,8 +1641,8 @@ input.search-form-submit{
   cursor:text;
   width:100%;}
 
-a.page-numbers,
-.page-numbers.current{
+.pagination a.page-numbers,
+.pagination .page-numbers.current{
   background-color:#0f81e8;
   border-radius:2px;
   color:#fff;
@@ -2097,9 +2099,11 @@ a:hover .tf-logo{
 
 
   .mobile-hide{
-    display:inherit !important;}
+    display:inherit !important;
+    display:initial !important;}
   .tablet-hide{
-    display:none !important;}
+    display:inherit !important;
+    display:initial !important;}
 
     
   .two-col,
@@ -2607,9 +2611,11 @@ body{
     max-width:100%;}
 
   .mobile-hide{
-    display:inherit !important;}
+    display:inherit !important;
+    display:initial !important;}
   .tablet-hide{
-    display:inherit !important;}
+    display:inherit !important;
+    display:initial !important;}
   .desktop-hide{
     display:none !important;}
 

@@ -168,8 +168,8 @@ function baseline_custom_css() {
 		font-size:'. fontSize(1.6) .'rem;}
 
 	.search-form-submit,
-	a.page-numbers,
-	.page-numbers.current{
+	.pagination a.page-numbers,
+	.pagination .page-numbers.current{
 	  background-color:'. $link_color .';}
 
 	input.search-form-submit{

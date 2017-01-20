@@ -347,15 +347,13 @@ if ( !post_password_required() ): ?>
 								}
 							endwhile;
 						?>
-						<div class="pagination">
-						<?php 
+						<div class="pagination"><?php 
 							$pagination_args = array(
 								'prev_text'          => __('← Newer','baseline'),
 								'next_text'          => __('Older →','baseline')
 							); 
-							echo paginate_links($pagination_args);
-						?>
-						</div>
+							echo trim( paginate_links($pagination_args) );
+						?></div>
 					</div>
 					<?php spBgImgCredit($bg_img_credit, $bg_img_credit_url); ?>
 				</div>
