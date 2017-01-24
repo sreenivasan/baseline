@@ -62,8 +62,8 @@ function baseline_custom_css() {
 		$cur_link_hover_color = !empty( $site_color['link_hover'] ) ? $site_color['link_hover'] : 'auto';
 		if ( $cur_link_hover_color != 'auto' && $cur_link_hover_color != 'default') {
 			$custom_link_hover_color = $site_color['link_hover'];
-		} elseif ( $site_color['link'] == 'default' && $link_color_option ){
-			$custom_link_color = $link_color_option;
+		} elseif ( $site_color['link_hover'] == 'default' && $link_color_option ){
+			$custom_link_hover_color = $link_color_option;
 		} elseif ( $site_color['text'] == 'light' ){
 			$custom_link_hover_color = 'rgba(255,255,255,0.3)';
 		} else {

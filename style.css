@@ -378,9 +378,9 @@ div.alignright{
 .wf-tficons-n7-active .icon-after::after,
 .wf-tficons-n7-active .icon::after{
   opacity:1;
-  -webkit-transition:0.2s all;
-  -moz-transition:0.2s all;
-  transition:0.2s all;}
+  -webkit-transition:0.2s opacity;
+  -moz-transition:0.2s opacity;
+  transition:0.2s opacity;}
 .wf-tficons-n7-inactive .icon-before::before,
 .wf-tficons-n7-inactive .icon-after::after,
 .wf-tficons-n7-inactive .icon::after{
@@ -603,9 +603,12 @@ nav.bg-ltgray .sub-menu{
   background-size:cover;}
 
 .nobullet{
-  padding-left:0 !important;}
+  padding-left:0.7em !important;
+  text-indent:-0.7em;}
 .nobullet li{
-  list-style-type:none;}
+  line-height:1.4;
+  list-style-type:none;
+  margin-bottom:0.3em;}
 .image-link-parent{
   font-size:0 !important;}
 .post-thumbnail{
@@ -730,6 +733,14 @@ a.text-color-default{
   font-size:0.8em;
   line-height:1.6;
   letter-spacing:0.05em;}
+.meta.lang-ar,
+.meta .lang-ar,
+.lang-ar .meta,
+.text-font-secondary.lang-ar,
+.text-font-secondary .lang-ar,
+.lang-ar .text-font-secondary{
+  direction:rtl;
+  letter-spacing:0;}
 .meta.text-light{
   color:rgba(255,255,255,0.7);}  
 .highlight,
@@ -2811,6 +2822,10 @@ nav.nav-desktop-dropdown.meta .menu a{
   letter-spacing:0.2em;
   padding:0.6em 1.2em;
   text-transform: uppercase;}
+/* AR */
+nav.nav-desktop-dropdown.meta .menu .lang-ar a{
+  direction:rtl; 
+  letter-spacing:0;}
 nav.nav-desktop-dropdown.meta .menu .current-menu-item a{
   font-weight:bold;}
   

@@ -560,18 +560,36 @@ jQuery(document).ready(function($) {
 	}
 
 	// Add URL param "source" as hidden input on any AK forms
-	var akReferrer = urlParam('source');
-	$('.actionkit-widget').each(function(){
-		$(this).append('<input type="hidden" name="source" value="' +  akReferrer + '"> ');
-	});
+	var url_source = urlParam('source');
+  if ( url_source ){
+  	$('.actionkit-widget').each(function(){
+  		$(this).append('<input type="hidden" name="source" value="' +  url_source + '"> ');
+  	});
+  }
 	// Add URL param "source" to AK map iframe src, then AK can append it to map links
-	$('.ak-event-map').each(function(){
-		var iframe_src = $(this).attr('src');
-		if ( akReferrer ){
-			var iframe_src_new = iframe_src + '&source=' + akReferrer;
-			$(this).attr('src', iframe_src_new);
-		}
-	});
+  if ( url_source ){
+  	$('.ak-event-map').each(function(){
+  		var iframe_src = $(this).attr('src');
+  		if ( ~iframe_src.indexOf("?") ){
+  			var iframe_src_new = iframe_src + '&source=' + url_source;
+      } else {
+        var iframe_src_new = iframe_src + '?source=' + url_source;
+      }
+  		$(this).attr('src', iframe_src_new);
+  	});
+  }
+  // Pass URL param "source" to share buttons
+  if ( url_source ){
+    $('.button-share-twitter, .button-share-facebook, .fb-share, .tw-share').each(function(){
+      var share_url = $(this).attr('href');
+      if ( ~share_url.indexOf("?") ){
+        var share_url_new = share_url + '&source=' + url_source;
+      } else {
+        var share_url_new = share_url + '?source=' + url_source;
+      }
+      $(this).attr('href', share_url_new);
+    });
+  }
 	// Truncate and add "Read More" link
 	$('[data-read-more-after], [data-readmore-after]').truncateAndReadMore();
 	// Expandooooo
