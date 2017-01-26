@@ -3,7 +3,23 @@
 * Template for Single SuperPages
 *
 */
+/* set up new WP_Query within the template so it can be reset after "Blog" sections
+// also, it has to be above the get_header() call for the correct metadata to make it to the header, for some reason */
+$sp_args = array(
+	'post_type' => 'super_pages',
+	'tax_query' => array(
+		array(
+			'taxonomy' => 'display-location',
+			'field'    => 'slug',
+			'terms'    => 'homepage',
+		),
+	),
+	'posts_per_page'=> '1',
+);
+$hp_query = new WP_query($sp_args);
+$hp_query->reset_postdata();
 get_header(); 
+
 // convert array-formatted string to actual array
 function tfArrayifyParams($params_string){
     $params_array = array();
@@ -40,19 +56,7 @@ function tfArrayifyParams($params_string){
 	$params_array = array_combine($param_keys, $param_values);		
 	return $params_array;  
 }
-// set up new WP_Query within the template so it can be reset after "Blog" sections
-$sp_args = array(
-	'post_type' => 'super_pages',
-	'tax_query' => array(
-		array(
-			'taxonomy' => 'display-location',
-			'field'    => 'slug',
-			'terms'    => 'homepage',
-		),
-	),
-	'posts_per_page'=> '1',
-);
-$hp_query = new WP_query($sp_args);
+
 if ($hp_query->have_posts()) : while ($hp_query->have_posts()) : $hp_query->the_post();
 
 if ( !post_password_required() ): ?>

@@ -53,38 +53,39 @@
 	// default, general meta info (PCM name prepended
 	$title = get_bloginfo('name');
 	$description = get_bloginfo('description');
-	$share_img_url = get_option('site_share_img_url');
+	$share_img = get_option('site_share_img');
+	$share_img_url = wp_get_attachment_image_src( $share_img, "large" );
+	$share_img_url = $share_img_url[0];
 	$page_url = home_url();
 	$og_type = 'website';
 	// more specific meta info for pages and posts
-	if ( is_single() || is_page() ):
+	if ( !is_home() && ( is_single() || is_page() ) ):
 		$title = !empty( get_the_title() ) ? get_the_title() : $title;
 		$description = strip_tags( get_the_excerpt() );
 		$description = str_replace("\"", "'", $description);
 		if ( has_post_thumbnail() ):
 			$post_thumb_src_raw = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
-			$share_img_url = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : $share_img_url ;
+			$share_img_url = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : $share_img_url[0] ;
 		endif;
 		$page_url = !empty( get_the_permalink() ) ? get_the_permalink() : $page_url ;
 		$og_type = 'article';
-		// check for custom share info overrides
-		if ( $acf_on ):
-			$title = !empty( get_field('post_fb_title') ) ? get_field('post_fb_title') : $title;
-			$description = !empty( get_field('post_fb_desc') ) ? get_field('post_fb_desc') : $description;
-			if ( get_field('post_share_img') ):
-				$post_thumb_src_raw = wp_get_attachment_image_src( get_field('post_share_img'), 'large');
-				$share_img_url = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : $share_img_url ;
-			elseif ( has_post_thumbnail() ):
-				$post_thumb_src_raw = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
-				$share_img_url = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : $share_img_url;
-			endif;
-			if ( get_field('post_fb_url') ):
-				$fb_url = get_field('post_fb_url');
-			endif;
-			if ( get_field('post_tw_url') ):
-				$tw_url = get_field('post_tw_url');
-			endif;
-		else:
+	endif;
+	// check for custom share info overrides
+	if ( $acf_on ):
+		$title = !empty( get_field('post_fb_title') ) ? get_field('post_fb_title') : $title;
+		$description = !empty( get_field('post_fb_desc') ) ? get_field('post_fb_desc') : $description;
+		if ( get_field('post_share_img') ):
+			$post_thumb_src_raw = wp_get_attachment_image_src( get_field('post_share_img'), 'large');
+			$share_img_url = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : $share_img_url[0] ;
+		elseif ( has_post_thumbnail() ):
+			$post_thumb_src_raw = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large');
+			$share_img_url = !empty( $post_thumb_src_raw[0] ) ? $post_thumb_src_raw[0] : $share_img_url[0];
+		endif;
+		if ( get_field('post_fb_url') ):
+			$fb_url = get_field('post_fb_url');
+		endif;
+		if ( get_field('post_tw_url') ):
+			$tw_url = get_field('post_tw_url');
 		endif;
 	endif;
 ?>
@@ -111,7 +112,7 @@
 	<meta property="og:type" content="article">
 	<meta property="og:url" content="<?php echo !empty($fb_url) ? $fb_url : $page_url ?>">
 <?php if ( $site_twitter_account ): ?>
-	<meta name="twitter:site" content="@<?php echo $site_twitter_account; ?>">
+	<meta name="twitter:site" content="<?php echo $site_twitter_account; ?>">
 <?php endif; ?>
 	<meta name="twitter:title" content="<?php echo $title; ?>">
 	<meta name="twitter:site:id" content="<?php bloginfo('title'); ?>">
