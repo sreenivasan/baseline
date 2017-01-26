@@ -251,7 +251,7 @@ function urlParam(name){
 		// For each element targeted...
 		return this.each(function(){
       // get number of paragraphs to hide
-      var visElems = $(this).attr('data-readmore-after');
+      var visElems = $(this).attr('data-read-more-after');
       var visElems = (visElems > 0) ? visElems : 2 ;
 			// Set up click handler function 
 			jQuery(this).on('readMoreEventSetup', function(){
@@ -580,12 +580,12 @@ jQuery(document).ready(function($) {
   }
   // Pass URL param "source" to share buttons
   if ( url_source ){
-    $('.button-share-twitter, .button-share-facebook, .fb-share, .tw-share').each(function(){
+    $('.button-share-facebook, .fb-share, .button-share-twitter, .tw-share').each(function(){
       var share_url = $(this).attr('href');
       if ( ~share_url.indexOf("?") ){
-        var share_url_new = share_url + '&source=' + url_source;
+        var share_url_new = share_url + '%3Fsource%3D' + url_source;
       } else {
-        var share_url_new = share_url + '?source=' + url_source;
+        var share_url_new = share_url + '%26source%3D' + url_source;
       }
       $(this).attr('href', share_url_new);
     });

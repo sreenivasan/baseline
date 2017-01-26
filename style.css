@@ -647,6 +647,14 @@ a.area-link:hover .area-link-hover{
 a.text-color-default{
   color:inherit !important;}
 
+.text-unstyled,
+a.text-unstyled{
+  color:inherit !important;
+  font-weight:400;
+  text-decoration:none;}
+a.text-unstyled:hover{
+  text-decoration:underline;}
+
 .image-bleed{
   display:block;
   height:100%;
@@ -1335,20 +1343,20 @@ a.bg-sina-weibo-color:hover{
   padding-bottom:1.2rem;}
 .padding-medium,
 .padding-medium > .expando-link{
-  padding-top:1.5rem;
-  padding-bottom:1.5rem;}
+  padding-top:1.7rem;
+  padding-bottom:1.7rem;}
 .padding-large,
 .padding-large > .expando-link{
-  padding-bottom:5rem;
-  padding-top:5rem;}
+  padding-bottom:4rem;
+  padding-top:4rem;}
 .padding-huge,
 .padding-huge > .expando-link{
-  padding-top:7.5rem;
-  padding-bottom:7.5rem;}
+  padding-top:5rem;
+  padding-bottom:5rem;}
 .padding-gigantic,
 .padding-gigantic > .expando-link{
-  padding-bottom:10rem;
-  padding-top:10rem;}
+  padding-bottom:6rem;
+  padding-top:6rem;}
 
 
 .bg-position-bottom{
@@ -1839,6 +1847,22 @@ img.b-loaded {
   height:16px !important;
   width:22px !important;}
 
+/* Help AN's goofy code show/hide country select */
+.baseline #can_embed_form .country_drop_wrap select{
+    -webkit-appearance:none !important;
+    -moz-appearance:none !important;
+    appearance:none !important;
+    position:static !important;
+    opacity:1 !important;
+    height: auto !important;
+    width: 100%!important;}
+.baseline #can_embed_form .country_drop_wrap.clear{
+    display:none;
+    height:auto;
+    width:auto !important;}
+.baseline #can_embed_form .can_selectInner{
+    display:none !important;}
+
 .event_campaign #can_embed_form h2{
   margin-bottom:0.8em;}
 .event_campaign #can_embed_form{
@@ -1925,6 +1949,8 @@ img.b-loaded {
   display:none;}
 .an-subhead-hide #can_embed_form h4{
   display:none;}
+
+
 
 /* 350 logo */
 .tf-logo{
@@ -2154,8 +2180,8 @@ a:hover .tf-logo{
     padding-top:2rem;
     padding-bottom:2rem;}
   .padding-medium{
-    padding-top:3rem;
-    padding-bottom:3rem;}
+    padding-top:3.5rem;
+    padding-bottom:3.5rem;}
   .padding-large{
     padding-bottom:7rem;
     padding-top:7rem;}
@@ -2587,8 +2613,8 @@ body{
     padding-top:2rem;
     padding-bottom:2rem;}
   .padding-medium{
-    padding-top:3.5rem;
-    padding-bottom:3.5rem;}
+    padding-top:4rem;
+    padding-bottom:4rem;}
   .padding-large{
     padding-bottom:7rem;
     padding-top:7rem;}
