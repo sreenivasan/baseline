@@ -225,7 +225,7 @@ if ( !post_password_required() ): ?>
 			} else if ( $form_layout == 'horizontal' ){
 				$form_classes = array(
 					'section' => '',
-					'text' => 'left1 c8 margin-bottom-none',
+					'text' => 'margin-bottom-none',
 					'title' => '',
 					'desc' => '',
 					'form' => '',

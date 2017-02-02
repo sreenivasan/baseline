@@ -44,10 +44,11 @@ body.bg-on{
   height:100%;
   left:0;
   opacity:0.8;
+  pointer-events:none;
   position:fixed;
   top:0;
   width:100%;
-  z-index:-1;}
+  z-index:1;}
 h1,
 h2,
 h3,
@@ -167,7 +168,7 @@ ul li,
 ol ul li{
   list-style-type:disc;
   list-style-position:outside;
-  margin:0;}
+  margin:0 0 0.3em;}
 ul ul li{
   list-style-type:circle;}
 ul li:before,
@@ -755,7 +756,8 @@ a.text-unstyled:hover{
 .highlight,
 .text-highlight{
   display:inline;
-  padding:0.05rem 0.2rem;}
+  /* set min. optical size in px, then add relative size in em */
+  padding:1px calc(3px + 0.04em);}
 
 .text-small-caps,
 .sm-cp{
@@ -1301,7 +1303,8 @@ a.bg-sina-weibo-color:hover{
   background-position:center center;
   background-size:cover;
   padding:20px;
-  position:relative;}
+  position:relative;
+  z-index:2;}
 .section-inner{
   position:relative;
   max-width:550px;}
@@ -1488,7 +1491,8 @@ nav.section .heading a:hover,
   margin-bottom:0;}
 #site-header{
   overflow:visible; /* fixes invisible #nav-label */
-  padding:0;}
+  padding:0;
+  position:relative;}
 a.logo{
   color:inherit;
   display:inline-block;

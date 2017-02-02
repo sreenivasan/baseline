@@ -90,7 +90,7 @@
 	endif;
 ?>
 <!doctype html>  
-<html <?php language_attributes(); ?> class="no-js baseline">
+<html <?php language_attributes(); ?> class="no-js no-blend baseline">
 <head>
 	<title><?php bloginfo('name') ?> <?php wp_title('-'); ?></title>
 	<meta charset="utf-8">
@@ -137,7 +137,7 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 <?php endif; ?>
-	<div id="container" class="g10">
+	<div id="container">
 <?php if ( has_nav_menu('lang-nav') ):?>
 		<nav id="language-nav" class="section width-wide nav-desktop-dropdown nav-tablet-select nav-mobile-select padding-none bg-<?php echo $langnav_bgcolor; ?> <?php echo $header_alignment; ?> meta">
 			<div class="section-inner">
@@ -150,7 +150,7 @@
 			</div>
 		</nav>
 <?php endif; ?>
-		<header id="site-header" class="section <?php echo $header_alignment; ?>">
+		<header id="site-header" class="<?php echo $header_alignment; ?>">
 			<div id="site-topbar" class="header section width-wide padding-small <?php echo $header_alignment; ?> <?php if ($hide_header){ ?>header-hide<?php } ?> <?php if ($header_bgcolor){ ?> bg-<?php echo $header_bgcolor; } ?>">
 				<div id="site-header-inner" class="section-inner">
 					<h1 id="site-title">
