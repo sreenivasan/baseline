@@ -1,5 +1,9 @@
 #body-mobile-background{right:0;}
-body{direction:rtl;  unicode-bidi: embed;}
+body{
+    /* direction:rtl; seems to cause blank screen until scroll in chrome */
+    unicode-bidi: embed;}
+#container{
+    direction:rtl;}
 blockquote{border-right:0.4rem solid rgba(21,36,43,0.1);}
 ul, ol{padding-right:1em;padding-left:0;}
 ol{padding-right:1.3em;padding-left:0;}

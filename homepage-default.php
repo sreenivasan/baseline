@@ -29,24 +29,22 @@
 $i=1;
 if ( have_posts() ) :
 ?>
-	<div id="content" class="section bg-white width-normal padding-none notch">
+	<div id="content" class="section bg-white width-wide padding-medium notch posts-layout-list">
 		<section id="blog" class="section-inner">
-			<div class="c10 no-margin">
-				<?php if( is_paged() ): ?>
-					
-				<?php endif; ?>
-            	<?php while ( have_posts() ) : the_post(); ?>
-                	<?php get_template_part('content', 'post'); ?>						
-                <?php endwhile; ?>
-                <div class="pagination">
-                <?php 
-				$pagination_args = array(
-					'prev_text'          => __('← Newer Posts','baseline'),
-					'next_text'          => __('Older Posts →','baseline')
-				); 
-				echo paginate_links($pagination_args); 
-				?>
-				</div>
+			<?php if( is_paged() ): ?>
+				
+			<?php endif; ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+				<?php get_template_part('content', 'post'); ?>						
+			<?php endwhile; ?>
+			<div class="pagination">
+			<?php 
+			$pagination_args = array(
+				'prev_text'          => __('← Newer Posts','baseline'),
+				'next_text'          => __('Older Posts →','baseline')
+			); 
+			echo paginate_links($pagination_args); 
+			?>
 			</div>
 			<br class="clear"/>
 		</section> 

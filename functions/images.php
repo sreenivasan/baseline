@@ -8,6 +8,7 @@ function tfbase_images() {
 	add_image_size( 'page-background', 1280, 800);
 	add_image_size( 'page-background-medium', 768, 1024);
 	add_image_size( 'page-background-mob', 425, 700, true);
+    add_image_size( 'grid-square-img', 600, 600, true);
 	// set new default width for "medium" size
 	update_option('medium_size_w', 700);
 }
@@ -56,8 +57,10 @@ function scaled_image_path($attachment_id, $size) {
 
 function getDataURI($image_id) {
 	$image_path = scaled_image_path($image_id, "dataURI-preview");
-	$mimetype = mime_content_type($image_path);
-	return 'data:'.$mimetype.';base64,'.base64_encode(file_get_contents($image_path));
+    if ( $image_path ){
+        $mimetype = mime_content_type($image_path);
+        return 'data:'.$mimetype.';base64,'.base64_encode(file_get_contents($image_path));
+    }
 }
 
 // Display resized image URLs in admin

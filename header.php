@@ -139,11 +139,12 @@
 <?php endif; ?>
 	<div id="container">
 <?php if ( has_nav_menu('lang-nav') ):?>
-		<nav id="language-nav" class="section width-wide nav-desktop-dropdown nav-tablet-select nav-mobile-select padding-none bg-<?php echo $langnav_bgcolor; ?> <?php echo $header_alignment; ?> meta">
+		<nav id="language-nav" class="section width-wide nav-desktop-dropdown nav-tablet-collapsed nav-mobile-collapsed padding-none bg-<?php echo $langnav_bgcolor; ?> <?php echo $header_alignment; ?> meta">
 			<div class="section-inner">
 			<?php wp_nav_menu( array(
 				'container' => '',
 				'fallback_cb' => false,
+				'items_wrap'     => '<ul class="menu" id="menu-lang-nav"><li id="lang-label" class="lang-label"><a>' . __( 'Language', 'baseline' ) . '</a></li>%3$s</ul>',
 				'theme_location' => 'lang-nav' ) ); 
 			?>
 				<div class="clear"></div>

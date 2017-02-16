@@ -24,7 +24,7 @@ if ( $custom_fonts ){
 	<script type="text/javascript">
 		WebFontConfig = {
 		  custom: {
-				  families: ['GraphCondensedWeb:n7'],
+				  families: ['KlimaWeb:n8'],
 				  urls: ['<?php echo get_template_directory_uri(); ?>/fonts/fonts.css']
 		  },
 		  active: function() {

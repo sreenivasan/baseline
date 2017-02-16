@@ -266,7 +266,7 @@ if( function_exists("register_field_group") ){
 				'maxlength' => '',
 			),
 			array (
-				'key' => 'field_529e3ffc1a23c',
+				'key' => 'field_529e3ffc1a23c',	
 				'label' => 'Facebook Share Description',
 				'name' => 'post_fb_desc',
 				'type' => 'textarea',

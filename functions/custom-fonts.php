@@ -12,14 +12,14 @@ function site_fonts_page() {
         <div class="wrap">
             <h2><?php /* translators: admin settings */ _e( 'Fonts', 'baseline' ); ?></h2>
             <?php 
-				$site_display_font = stripslashes (get_option('site_display_font','GraphCondensedWeb') ); 
+				$site_display_font = stripslashes (get_option('site_display_font','KlimaWeb') ); 
 				$site_body_font = stripslashes (get_option('site_body_font','-apple-system,BlinkMacSystemFont,arial') ); 
 				$site_secondary_font = stripslashes (get_option('site_secondary_font','Menlo,Monaco,Courier,monospace') ); 
 				$site_fallback_font = stripslashes (get_option('site_fallback_font','sans-serif') ); 
 				$site_font_loader_code = stripslashes (get_option('site_font_loader_code') ); 
 				$site_text_on_image_classes = stripslashes (get_option('site_text_on_image_classes') ); 
-				$site_display_font_size_modifier = get_option('site_display_font_size_modifier',1.2);
-				$site_display_font_line_height = get_option('site_display_font_line_height', 0.95);
+				$site_display_font_size_modifier = get_option('site_display_font_size_modifier',1.1);
+				$site_display_font_line_height = get_option('site_display_font_line_height', 1);
 				
 			?>
 			<form method="POST" action="">  
