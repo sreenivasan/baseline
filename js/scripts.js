@@ -545,6 +545,8 @@ jQuery(document).ready(function($) {
 		},
 		offset: -70,
 	});
+  // Expandooooo
+  $(".expando, .js-expando").expando();
 	$.localScroll({
 		filter: ':not(.js-modal)',
 		// if anchor linking to an expando section, expand it before scrolling to it
@@ -636,7 +638,5 @@ jQuery(document).ready(function($) {
   }
 	// Truncate and add "Read More" link
 	$('[data-read-more-after], [data-readmore-after]').truncateAndReadMore();
-	// Expandooooo
-	$(".expando, .js-expando").expando();
 }); /* end of as page load scripts */
 
