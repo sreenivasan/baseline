@@ -3,10 +3,16 @@
 	//display Page x of y pages
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	$total_pages = $wp_query->max_num_pages;
-	// get category name and description
-	$cat_id = get_query_var('cat');
-	$cat_name = single_cat_title( $prefix = '', $display = false ); 
-	$cat_desc = strip_tags( category_description() );
+	
+	if(is_category()){
+	
+		// get category name and description
+		$cat_id = get_query_var('cat');
+		$cat_name = single_cat_title( $prefix = '', $display = false ); 
+		$cat_desc = strip_tags( category_description() );
+	} else if(is_post_type_archive()){
+		$cat_name = get_post_type();
+	}
 	//get taxonomy name
 	global $wp_query;
     $term = $wp_query->get_queried_object();
