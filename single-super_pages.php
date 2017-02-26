@@ -136,6 +136,7 @@ if ( !post_password_required() ): ?>
 		$i++;
 		$id = !empty( get_sub_field("sp-id") ) ? get_sub_field("sp-id") : 'section_' . $i;
 		$classes = get_sub_field("sp-css-classes");
+		$addl_attributes = get_sub_field("sp-addl-attributes");
 		$bgcolor = get_sub_field("sp-bg-color");
 		$padding = get_sub_field("sp-padding");
 		$width = get_sub_field("sp-width");
@@ -160,7 +161,7 @@ if ( !post_password_required() ): ?>
 		$classes = "b-lazy lazy bg-" . $bgcolor . " bg-repeat-" . $bg_img_repeat . " bg-image-" . $bg_img_status . " bg-attach-" . $bg_img_attach . " bg-size-". $bg_img_size . " width-" . $width . " padding-" . $padding . " " . $notch_class . " " . $classes;
 
 		if(get_row_layout() == "sp-section-texthtml"): // layout: Text/HTML ?>
-			<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section text-html <?php echo $classes; ?>" id="<?php echo $id; ?>">
+			<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section text-html <?php echo $classes; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 				<div class="section-inner text-html-inner">
 				<?php echo do_shortcode( get_sub_field("sp-section-content") ); ?>
 				
@@ -169,7 +170,7 @@ if ( !post_password_required() ): ?>
 			</div>
 			
 		<?php elseif(get_row_layout() == "sp-section-code") : ?>
-			<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section code <?php echo $classes; ?>" id="<?php echo $id; ?>">
+			<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section code <?php echo $classes; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 				<div class="section-inner code-inner">
 				<?php echo do_shortcode( get_sub_field("sp-section-content"), true); ?>
 				</div>
@@ -243,7 +244,7 @@ if ( !post_password_required() ): ?>
 			// $input_select_class = ( get_sub_field('sp-actionkit-horizontal') ) ? "c2" : "input select";
 			// $input_submit_class = ( get_sub_field('sp-actionkit-horizontal') ) ? "c2" : " ";
 			?>
-	<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section actionkit <?php echo $classes; ?> <?php echo $form_classes['section']; ?>" id="<?php echo $id; ?>">
+	<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section actionkit <?php echo $classes; ?> <?php echo $form_classes['section']; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 		<div id="action-kit-inner" class="section-inner code-inner">
 			<div class="form-text <?php echo $form_classes['text']; ?>">
 				<?php if ( get_sub_field('sp-actionkit-title') ){ ?><h3 class="<?php echo $form_classes['title']; ?>"><?php echo get_sub_field('sp-actionkit-title'); ?></h3><?php } ?>
@@ -337,7 +338,7 @@ if ( !post_password_required() ): ?>
 			$post_count = 0;
 		?>
 			<?php if ($sp_content_query->have_posts()) : ?>
-				<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section posts <?php echo $classes; ?>" id="<?php echo $id; ?>">
+				<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section posts <?php echo $classes; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 					<div class="section-inner posts-inner">
 						<?php if ( get_sub_field('sp-section-title') ): ?><h3 class="section-title meta c10"><?php echo get_sub_field('sp-section-title'); ?></h3><?php endif; ?>
 						<div class="clear"></div>
@@ -378,7 +379,7 @@ if ( !post_password_required() ): ?>
 			<?php $columns = get_sub_field('grid-square-columns'); ?>
 			<?php 
 				if( have_rows('grid-square') ): ?>
-				<div id="<?php echo $id; ?>" <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section section-img-grid <?php echo $classes; ?>">
+				<div id="<?php echo $id; ?>" <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section section-img-grid <?php echo $classes; ?>" <?php echo $addl_attributes; ?> >
 					<div class="section-inner img-grid-inner">
 				    <?php while ( have_rows('grid-square') ) : the_row(); ?>
 						<?php 
@@ -440,7 +441,7 @@ if ( !post_password_required() ): ?>
 				$nav_tablet_display = !empty( get_sub_field('sp-nav-tablet-display') ) ? get_sub_field('sp-nav-tablet-display') : 'nav-tablet-collapsed' ;
 				$nav_desktop_display = !empty( get_sub_field('sp-nav-desktop-display') ) ? get_sub_field('sp-nav-desktop-display') : 'nav-desktop-dropdown';
 			?>
-			<nav <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section nav text-center <?php echo $classes; ?> <?php echo $nav_mobile_display; ?> <?php echo $nav_tablet_display; ?> <?php echo $nav_desktop_display; ?>" id="<?php echo $id; ?>" data-nav-label="<?php echo $nav_label; ?>">
+			<nav <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section nav text-center <?php echo $classes; ?> <?php echo $nav_mobile_display; ?> <?php echo $nav_tablet_display; ?> <?php echo $nav_desktop_display; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> data-nav-label="<?php echo $nav_label; ?>">
 				<div class="section-inner nav-inner">
 					<?php // if menu source is set to "custom" and it has menu items... 
 						if ( ( $nav_menu_source == "nav-menu-custom" ) && have_rows('sp-nav-menu-items') ): 
@@ -470,7 +471,7 @@ if ( !post_password_required() ): ?>
 				</div>
 			</nav>
 		<?php elseif(get_row_layout() == "sp-section-ticker") : ?>
-			<div class="section ticker <?php echo $classes; ?>" id="<?php echo $id; ?>">
+			<div class="section ticker <?php echo $classes; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 				<div class="section-inner ticker-inner">
 				<?php $ticker_id = get_sub_field("sp-ticker-id"); ?>
 				<?php 
