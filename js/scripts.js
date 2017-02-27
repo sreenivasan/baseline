@@ -390,33 +390,34 @@ function urlParam(name){
 }(jQuery));
 // Expandooo
 (function($){
-  $.fn.expando = function(){
-    $(this).each(function(){
+  $.fn.expando = function(device){
+    $(this).not('.expanded, .collapsed').each(function(){
+      var screenSize = device ? device + '-' : '';
       var expandoText = $(this).attr("title");
-      var expandoText2 = $(this).find('h1,h2,h3,h4,h5,h6').first().addClass('hidden').html();
+      var expandoText2 = $(this).find('h1,h2,h3,h4,h5,h6').first().addClass('expando-title').text();
       var expandoText3raw = $(this).children().first().text();
       var expandoText3 = expandoText3raw.substring(0,60);
       var expandedOnLoad = $(this).hasClass('expanded');
       
       if ( expandoText ){
-        $(this).wrapInner('<div class="expando-inner" />').prepend('<a class="expando-link" href="#">' + expandoText + '</a>');
-        console.log('expandoText1!');
+        $(this).wrapInner('<div class="expando-inner expando-'+screenSize+'inner" />').prepend('<a class="expando-link" href="#">' + expandoText + '</a>');
+        //console.log('expandoText1!');
       } else if (expandoText2) {
-        $(this).wrapInner('<div class="expando-inner" />').prepend('<a class="expando-link" href="#">' + expandoText2 + '</a>');
-        console.log('expandoText2!');
+        $(this).wrapInner('<div class="expando-inner expando-'+screenSize+'inner" />').prepend('<a class="expando-link" href="#">' + expandoText2 + '</a>');
+        //console.log('expandoText2!');
       } else if (expandoText3) {
-        $(this).wrapInner('<div class="expando-inner" />').prepend('<a class="expando-link" href="#">' + expandoText3 + '...</a>');
-        console.log('expandoText3!');
+        $(this).wrapInner('<div class="expando-inner expando-'+screenSize+'inner" />').prepend('<a class="expando-link" href="#">' + expandoText3 + '...</a>');
+        //console.log('expandoText3!');
       } else {    
-        $(this).wrapInner('<div class="expando-inner" />').prepend('<a class="expando-link" href="#">Click to expand</a>');
+        $(this).wrapInner('<div class="expando-inner expando-'+screenSize+'inner" />').prepend('<a class="expando-link" href="#">Click to expand</a>');
       };
-      // if 
+      // if set to pre-expanded, don't add the "collapsed" class
       if ( !expandedOnLoad ){
         $(this).addClass('collapsed');
       }
 
     });
-    $("a.expando-link").click(function(e){
+    $("a.expando-link").unbind().click(function(e){
       e.preventDefault();
       $(this)
         .parent()
@@ -538,7 +539,7 @@ jQuery(document).ready(function($) {
 	$('.ajax-link').ajaxLink();
 	$.localScroll.hash({
 		onBefore: function( e, anchor, $target ){
-			var ifExpando = $(anchor).hasClass('expando');
+			var ifExpando = $(anchor).is('.expando, .mobile-expando');
 			if( ifExpando ){
 				$(anchor).find('.expando-link').trigger('click');
 			}
@@ -551,7 +552,7 @@ jQuery(document).ready(function($) {
 		filter: ':not(.js-modal)',
 		// if anchor linking to an expando section, expand it before scrolling to it
 		onBefore: function( e, anchor, $target ){
-			var ifExpando = $(anchor).hasClass('expando');
+			var ifExpando = $(anchor).is('.expando, .mobile-expando');
 			if( ifExpando ){
 				$(anchor).find('.expando-link').trigger('click');
 			}
@@ -578,19 +579,23 @@ jQuery(document).ready(function($) {
 	var initialWidth = $(window).width();
   console.log('intialWidth = ' + initialWidth);
   // Initialize "sticky" js only for large screens
-  if ( initialWidth > 1049 ){
+  if ( initialWidth > 900 ){
     $(".js-sticky, .sticky").sticky({zIndex:100});
+  } 
+  if ( initialWidth <= 900 ){
+    $(".expando-mobile").expando('mobile');
   }
-  // On window resize...
+  // On window resize... (debounced)
   var resizeTimer;
   $(window).on('resize', function(e) {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(function() {
     // Run code here, resizing has "stopped"
       var resizedWidth = $(window).width();
-      if ( resizedWidth < 1050 ){
+      if ( resizedWidth <= 900 ){
         // if small screen, unstick any sticky elements
         $(".js-sticky, .sticky").unstick();
+        $(".expando-mobile").expando('mobile');
       } else {
         // if large screen, re-stick any sticky elements
         $(".js-sticky, .sticky").sticky({zIndex:100});
