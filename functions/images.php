@@ -3,16 +3,25 @@
 function tfbase_images() {
 	add_theme_support('post-thumbnails');
 	set_post_thumbnail_size( 430, 400 ); // default Post Thumbnail dimensions
-	add_image_size( 'dataURI-preview', 20, 15); 
-	add_image_size( 'small', 270, 185, true ); //
-	add_image_size( 'page-background', 1280, 800);
-	add_image_size( 'page-background-medium', 768, 1024);
-	add_image_size( 'page-background-mob', 425, 700, true);
-    add_image_size( 'grid-square-img', 600, 600, true);
-	// set new default width for "medium" size
-	update_option('medium_size_w', 700);
+	add_image_size('dataURI-preview', 20, 15); 
+	add_image_size('small', 430, 400);
+	add_image_size('page-background', 1280, 800);
+	add_image_size('page-background-medium', 768, 1024);
+	add_image_size('page-background-mob', 425, 700, true);
+    add_image_size('grid-square-img', 600, 600, true);
+	// update default "medium" size
+    if (get_option('medium_size_h') != 300 ) {
+        update_option('medium_size_w', 700);
+        update_option('medium_size_h', 700);
+    }
 }
 add_action('after_setup_theme','tfbase_images');
+
+// Remove the image sizes settings page from the admin
+function remove_image_size_settings(){
+  remove_submenu_page( 'options-general.php', 'options-media.php' );
+}
+add_action( 'admin_menu', 'remove_image_size_settings', 999 );
 
 // remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
 function bones_filter_ptags_on_images($content){

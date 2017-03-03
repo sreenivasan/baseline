@@ -94,7 +94,8 @@ function baseline_custom_css() {
 		.bg-'. $site_color['slug'] .'.notch-tab::after{
 			background-color:'. $site_color['code'] .';}
 		/* Text Color */
-		.text-'. $site_color['slug'] .'{
+		.text-'. $site_color['slug'] .',
+		a.text-'. $site_color['slug'] .'{
 			color:'. $site_color['code'] .';}
 		/* Link Color */
 		.bg-'. $site_color['slug'] .' a{
