@@ -10,6 +10,11 @@
 		$cat_id = get_query_var('cat');
 		$cat_name = single_cat_title( $prefix = '', $display = false ); 
 		$cat_desc = strip_tags( category_description() );
+	} else if(is_tag()){
+	
+		// get category name and description
+		$cat_id = get_query_var('tag');
+		$cat_name = single_tag_title( $prefix = '', $display = false ); 
 	} else if(is_post_type_archive()){
 		$cat_name = get_post_type();
 	}
@@ -40,7 +45,7 @@
 		);
 		if ( $total_pages > 1 ): 
 		?>
-		<div class="c10 margin-bottom-large">
+		<div class="margin-bottom-large">
 			<?php echo paginate_links($pagination_args); ?>
 		</div>
 		<?php 
