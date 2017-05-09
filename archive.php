@@ -33,7 +33,7 @@
 </header>	
 <?php if ( have_posts() ) : ?>
 <div id="archive" class="page-content section bg-white width-wide padding-normal">
-	<div id="archive-inner" class="section-inner">
+	<div id="archive-inner" class="section-inner pagination">
 		<?php $pagination_args = array(
 			'prev_text'          => __('← Newer Posts','baseline'),
 			'next_text'          => __('Older Posts →','baseline')
