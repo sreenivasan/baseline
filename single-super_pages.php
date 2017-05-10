@@ -60,7 +60,6 @@ function tfArrayifyParams($params_string){
 if ($hp_query->have_posts()) : while ($hp_query->have_posts()) : $hp_query->the_post();
 
 if ( !post_password_required() ): ?>
-<section id="content" class="superpage">
 	<style>
 		<?php 
 			$showHeader = get_field("sp-show-header");
@@ -89,7 +88,7 @@ if ( !post_password_required() ): ?>
 				background-image:url('<?php echo $sp_bg_large[0]; ?>') !important;}
 		}
 		<?php 
-			elseif ($spBgChoice == 'none') :
+			elseif ($spBgChoice == 'none' || $spBgChoice == 'color') :
 		?>
 		#body-mobile-background{
 			background:transparent !important;}
@@ -345,7 +344,6 @@ if ( !post_password_required() ): ?>
 				<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section posts <?php echo $classes; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 					<div class="section-inner posts-inner">
 						<?php if ( get_sub_field('sp-section-title') ): ?><h3 class="section-title meta c10"><?php echo get_sub_field('sp-section-title'); ?></h3><?php endif; ?>
-						<div class="clear"></div>
 						<?php 
 							while ($sp_content_query->have_posts()) : $sp_content_query->the_post();
 								$post_count++;
@@ -440,7 +438,7 @@ if ( !post_password_required() ): ?>
 				$nav_tablet_display = !empty( get_sub_field('sp-nav-tablet-display') ) ? get_sub_field('sp-nav-tablet-display') : 'nav-tablet-collapsed' ;
 				$nav_desktop_display = !empty( get_sub_field('sp-nav-desktop-display') ) ? get_sub_field('sp-nav-desktop-display') : 'nav-desktop-dropdown';
 			?>
-			<nav <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section nav text-center <?php echo $classes; ?> <?php echo $nav_mobile_display; ?> <?php echo $nav_tablet_display; ?> <?php echo $nav_desktop_display; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> data-nav-label="<?php echo $nav_label; ?>">
+			<nav <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section nav <?php echo $classes; ?> <?php echo $nav_mobile_display; ?> <?php echo $nav_tablet_display; ?> <?php echo $nav_desktop_display; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> data-nav-label="<?php echo $nav_label; ?>">
 				<div class="section-inner nav-inner">
 					<?php // if menu source is set to "custom" and it has menu items... 
 						if ( ( $nav_menu_source == "nav-menu-custom" ) && have_rows('sp-nav-menu-items') ): 
@@ -486,8 +484,6 @@ if ( !post_password_required() ): ?>
 	endwhile;
 	endif; // end ACF flex field loop
 	?>
-	
-</section>
 
 <?php 
 else : 

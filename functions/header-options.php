@@ -41,12 +41,17 @@ function tf_header_options_page(){
 				<input value="true" type="radio" name="site_hide_header" id="site_hide_header_true" <?php if ( (get_option('site_hide_header')) ){ echo 'checked'; } ?> /> <label for="site_hide_header_true"><strong>Hide Header</strong> — Hides header bar, site title, and header buttons. Nav remains visible.</label>
 			</p>
 			<hr>
-			<h3>Header Layout/Alignment</h3>
+			<h3>Header Layout</h3>
+			<p>
+				<input value="site-header-layout-compact" type="checkbox" name="site_header_layout" id="site_header_layout_compact" <?php if ( (get_option('site_header_layout') == 'site-header-layout-compact' ) ){ echo 'checked'; } ?> /> <label for="site_header_layout_compact"><strong>Experimental Flexi-layout</strong></label>
+			</p>
+			<hr>
+			<h3>Header Alignment</h3>
 			<p>	
-				<input value="text-center" type="radio" name="site_header_alignment" id="site_header_alignment_center" <?php if ( (get_option('site_header_alignment','text-center') == 'text-center' ) ){ echo 'checked'; } ?> /> <label for="site_header_alignment_center"><strong>Center-aligned Logo (default)</strong></label>
+				<input value="text-center" type="radio" name="site_header_alignment" id="site_header_alignment_center" <?php if ( (get_option('site_header_alignment','text-center') == 'text-center' ) ){ echo 'checked'; } ?> /> <label for="site_header_alignment_center"><strong>Center-aligned (default)</strong></label>
 			</p>
 			<p>
-				<input value="text-left" type="radio" name="site_header_alignment" id="site_header_alignment_left" <?php if ( (get_option('site_header_alignment') == 'text-left' ) ){ echo 'checked'; } ?> /> <label for="site_header_alignment_left"><strong>Left-aligned Logo</strong></label>
+				<input value="text-left" type="radio" name="site_header_alignment" id="site_header_alignment_left" <?php if ( (get_option('site_header_alignment') == 'text-left' ) ){ echo 'checked'; } ?> /> <label for="site_header_alignment_left"><strong>Left-aligned</strong></label>
 			</p>
 			<hr>
 			<h3>Header + Nav colors</h3>
@@ -104,6 +109,7 @@ add_action('admin_menu', 'tf_header_options_menu');
 		update_option('site_mainnav_bgcolor',  $_POST['site_mainnav_bgcolor']);
 		update_option('site_langnav_bgcolor',  $_POST['site_langnav_bgcolor']);
 		update_option('site_hide_header',  $_POST['site_hide_header']);
+		update_option('site_header_layout',  $_POST['site_header_layout']);
 		update_option('site_header_alignment',  $_POST['site_header_alignment']);
 		update_option('header_buttons',  $_POST['header_buttons']);
 		update_option('site_nav_button_label',  $_POST['site_nav_button_label']);

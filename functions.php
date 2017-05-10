@@ -129,11 +129,11 @@ function bones_scripts_and_styles() {
 
 
 //adding scripts file in the footer
-    wp_register_script( 'tfbase-js', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
+    wp_register_script( 'baseline-js', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
 	// Optional Internal page-only scripts
 	// wp_register_script( 'tfbase-js-internal', get_stylesheet_directory_uri() . '/js/scripts-internal.js', array( 'jquery' ), '', true );
 
-    wp_enqueue_script( 'tfbase-js' );
+    wp_enqueue_script( 'baseline-js' );
 	/* if (!is_home()){
 		 wp_enqueue_script( 'tfbase-js-internal' );
 	}*/

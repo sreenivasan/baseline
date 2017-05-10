@@ -73,16 +73,18 @@ function baseline_custom_css() {
 		$cur_text_color = !empty( $site_color['text'] ) ? $site_color['text'] : 'dark';
 		if ( $cur_text_color == 'light') {
 			$text_color = '#ffffff';
-			$border_color = "rgba(255,255,255,0.15)";
+			$border_color = "rgba(255,255,255,0.2)";
 		} else {
 			$text_color = '#17292e';
-			$border_color = "rgba(21,36,43,0.14)";
+			$border_color = "rgba(21,36,43,0.25)";
 		}
 		$color_css_array[] = '.bg-'. $site_color['slug'] .',
 		.button.bg-'. $site_color['slug'] .'{
 			background-color:'. $site_color['code'] .';
 			border-color:'. $border_color .';
 			color:'. $text_color .';}
+		.body-bg-'. $site_color['slug'] .'{
+			background-color:'. $site_color['code'] .';}
 		/* Nav Color */
 		nav.bg-'. $site_color['slug'] .' li,
 		nav.bg-'. $site_color['slug'] .' .sub-menu{
@@ -102,6 +104,9 @@ function baseline_custom_css() {
 			color:'. $custom_link_color .';}
 		/* Link:hover Color */
 		.bg-'. $site_color['slug'] .' a:hover{
+			color:'. $custom_link_hover_color .';}
+		/* Area link:hover Color */
+		.bg-'. $site_color['slug'] .' .area-link:hover .area-link-hover{
 			color:'. $custom_link_hover_color .';}
 		/* Button Text Color */
 		a.bg-'. $site_color['slug'] .'{
@@ -143,7 +148,8 @@ function baseline_custom_css() {
 	.text-font-display{
 		display:inline-block;}
 	.text-font-secondary,
-	.meta{
+	.meta,
+	.expando-meta .expando-link{
 		font-family:'. $secondary_font .','. $fallback_font .';}
 	h1{
 		font-size:'. fontSize(2.2) .'em;}
@@ -158,15 +164,14 @@ function baseline_custom_css() {
 	  font-size:'. fontSize(1.5) .'rem;}
 	input.submit,
 	input[type="submit"],
-	.button,
-	.button-primary{
+	.button{
 		background-color:'. $button_color .';}
-	.button-secondary{
-		background-color:'. $link_color .';}
-	.button-big,
-	input.submit.button-big{
+	.button-primary{
+		background-color:'. $button_color .';
 		font-family:'. $display_font .','. $body_font .','. $fallback_font .';
 		font-size:'. fontSize(1.6) .'rem;}
+	.button-secondary{
+		background-color:'. $link_color .';}
 
 	.search-form-submit,
 	.pagination a.page-numbers,
@@ -204,6 +209,16 @@ function baseline_custom_css() {
 	.title4{
 	  font-size:'. fontSize(24) .'px;}
 
+	@media only screen and (max-width:650px){
+		.mobile-expando-meta > .mobile-expando-link,
+		.section.mobile-expando-meta > .mobile-expando-link{
+			font-family:'. $secondary_font .','. $fallback_font .';
+			font-size:0.9em;
+			font-weight:500;
+			letter-spacing:0.2em;
+			text-transform:uppercase;}
+	}
+
 	@media only screen and (min-width:650px){
 		#body-mobile-background{
 		    background-image:url(' . $theme_bg_medium[0] .');}
@@ -225,9 +240,17 @@ function baseline_custom_css() {
 			font-size:'. fontSize(34) .'px;}
 		#site-title{
 			font-size:'. fontSize(1.8) .'rem;}
+
+		.tablet-expando-meta > .tablet-expando-link,
+		.section.tablet-expando-meta > .tablet-expando-link{
+			font-family:'. $secondary_font .','. $fallback_font .';
+			font-size:0.9em;
+			font-weight:500;
+			letter-spacing:0.2em;
+			text-transform:uppercase;}
 	}
 
-	@media only screen and (min-width:1023px){
+	@media only screen and (min-width:900px){
 		#body-mobile-background{
 			background-image:url(' . $theme_bg_large[0] . ');}
 	  h1{
@@ -247,6 +270,14 @@ function baseline_custom_css() {
 	    font-size:'. fontSize(53) .'px;}
 	  .title4{
 	    font-size:'. fontSize(45) .'px;}
+
+	  .desktop-expando-meta > .desktop-expando-link,
+	  .section.desktop-expando-meta > .desktop-expando-link{
+			font-family:'. $secondary_font .','. $fallback_font .';
+			font-size:0.9em;
+			font-weight:500;
+			letter-spacing:0.2em;
+			text-transform:uppercase;}
 	}
 	';
 	$custom_css_combined = $custom_css . $color_css_string . $addl_custom_css;

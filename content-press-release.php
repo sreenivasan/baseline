@@ -1,12 +1,12 @@
 <?php /* Press Release loop template */ ?>
-<article class="press-release no-margin post">
+<article class="press-release no-margin">
 	<a class="area-link" href="<?php the_permalink(); ?>">
 		<div class="c10 ct10 cm10">
-			<div class="post-meta meta p c2 ct3_3 cm10">
-				<span class="post-time area-link-hover"><?php echo (get_the_date() ); ?></span>
+			<div class="press-release-meta meta p c2 ct3_3 cm10">
+				<span class="press-release-time area-link-hover"><?php echo (get_the_date() ); ?></span>
 			</div>	
-			<header class="post-title c8 ct6_6 cm10">
-				<h5 class="post-title graph area-link-hover"><?php the_title(); ?></h5>
+			<header class="c8 ct6_6 cm10">
+				<h5 class="press-release-title area-link-hover"><?php the_title(); ?></h5>
 			</header>
 		</div>		
 		<?php /*

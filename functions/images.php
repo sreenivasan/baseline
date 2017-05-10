@@ -95,7 +95,7 @@ function sizes_value( $column_name, $id ) {
         foreach ( $meta['sizes'] as $name=>$info) {
             // could limit which sizes are output here with a simple if $name ==
             echo "<strong>" . $name . "</strong><br>";
-            echo "<small>" . $dir_url . "/" . $info['file'] . " </small><br>";
+            echo "<small>" . $dir_url . "/" . $info['file'] . "</small><br>";
         }
     }
 }
