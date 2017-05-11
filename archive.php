@@ -58,7 +58,7 @@
 	<div class="clear"></div>
 </div>
 <div id="pagination" class="section bg-white width-wide padding-normal">
-	<div class="section-inner">
+	<div class="section-inner pagination">
 		<?php $pagination_args = array(
 			'prev_text'          => __('← Newer Posts','baseline'),
 			'next_text'          => __('Older Posts →','baseline')
