@@ -3,10 +3,21 @@
 	//display Page x of y pages
 	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 	$total_pages = $wp_query->max_num_pages;
-	// get category name and description
-	$cat_id = get_query_var('cat');
-	$cat_name = single_cat_title( $prefix = '', $display = false ); 
-	$cat_desc = strip_tags( category_description() );
+	
+	if(is_category()){
+	
+		// get category name and description
+		$cat_id = get_query_var('cat');
+		$cat_name = single_cat_title( $prefix = '', $display = false ); 
+		$cat_desc = strip_tags( category_description() );
+	} else if(is_tag()){
+	
+		// get category name and description
+		$cat_id = get_query_var('tag');
+		$cat_name = single_tag_title( $prefix = '', $display = false ); 
+	} else if(is_post_type_archive()){
+		$cat_name = get_post_type();
+	}
 	//get taxonomy name
 	global $wp_query;
     $term = $wp_query->get_queried_object();
@@ -27,14 +38,14 @@
 </header>	
 <?php if ( have_posts() ) : ?>
 <div id="archive" class="page-content section bg-white width-wide padding-normal">
-	<div id="archive-inner" class="section-inner">
+	<div id="archive-inner" class="section-inner pagination">
 		<?php $pagination_args = array(
 			'prev_text'          => __('← Newer Posts','baseline'),
 			'next_text'          => __('Older Posts →','baseline')
 		);
 		if ( $total_pages > 1 ): 
 		?>
-		<div class="c10 margin-bottom-large">
+		<div class="margin-bottom-large">
 			<?php echo paginate_links($pagination_args); ?>
 		</div>
 		<?php 
@@ -47,7 +58,7 @@
 	<div class="clear"></div>
 </div>
 <div id="pagination" class="section bg-white width-wide padding-normal">
-	<div class="section-inner">
+	<div class="section-inner pagination">
 		<?php $pagination_args = array(
 			'prev_text'          => __('← Newer Posts','baseline'),
 			'next_text'          => __('Older Posts →','baseline')
