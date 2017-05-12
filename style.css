@@ -3165,7 +3165,6 @@ nav.nav-desktop-dropdown .parent:hover > a,
   color:#fff;
   opacity:1;}
 
-
 nav.nav-desktop-dropdown .parent > a{
   padding-right:1.5em !important;
   padding-bottom:0.1em;}
@@ -3209,6 +3208,12 @@ nav.nav-desktop-dropdown .sub-menu a:hover{
   background:rgba(255,255,255,0.1);}
 nav.nav-desktop-dropdown .sub-menu .parent a::after{
   display:none;}
+/* if a menu item with children is last, re-align the dropdown to prevent it from going offscreen */
+nav.nav-desktop-dropdown .parent:last-child .sub-menu {
+    left: auto;
+    right: 0;
+}
+
 
 /* Submenu level 2 */
 nav.nav-desktop-dropdown .sub-menu .sub-menu{
@@ -3352,7 +3357,7 @@ a.page-bg-img-credit{
   width:40%;}
 .posts-layout-cards #post-1 .post-text{
   padding-top:2em;
-  width:60%;}
+  width:58%;}
 .posts-layout-cards #post-1 .post-title{
   font-size:2.5rem;}
 .posts-layout-cards #post-1 .post-excerpt{
