@@ -122,7 +122,7 @@ function baseline_custom_css() {
 
 	$color_css_string = implode( ' ', $color_css_array );
 
-	$custom_css = '
+	$custom_css ='
 	body,
 	button, input, select, textarea,
 	.text-font-body{

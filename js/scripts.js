@@ -647,6 +647,7 @@ jQuery(document).ready(function($) {
       $(this).attr('href', share_url_new);
     });
   }
+  
 	// Truncate and add "Read More" link
 	$('[data-read-more-after], [data-readmore-after]').truncateAndReadMore();
 }); /* end of as page load scripts */
