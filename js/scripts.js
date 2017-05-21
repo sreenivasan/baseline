@@ -68,7 +68,7 @@
         "iframe[src*='player.vimeo.com']",
         "iframe[src*='youtube.com']",
         "iframe[src*='youtube-nocookie.com']",
-        "iframe[src*='kickstarter.com'][src*='video.html']",
+        "iframe[src*='facebook.com/plugins/video.php']",
         "object",
         "embed"
       ];
@@ -320,7 +320,7 @@ function urlParam(name){
             // get the optional list of classes to add to the inner content area from the "data-modal-classes-inner" attribute in the HTML tag
             var modalInnerClassesAttr = $(this).attr('data-modal-classes-inner');
             // use the default classes to set the inner modal to be a white box with lots of padding
-            var modalInnerClasses = modalInnerClassesAttr ? modalInnerClassesAttr : 'box box-huge bg-white'; 
+            var modalInnerClasses = modalInnerClassesAttr ? modalInnerClassesAttr : 'box box-huge bg-white text-dark'; 
             // get the optional list of classes to add to the inner content area from the "data-modal-classes-outer" attribute in the HTML tag
             var modalOuterClassesAttr = $(this).attr('data-modal-classes-outer');
             // use the default classes to set the modal container to have a transparent dark gray background and lots of horizontal padding
@@ -335,11 +335,15 @@ function urlParam(name){
 
 			// set up the click event
 			$(this).on('click', function(e){
-                console.log('modal link clicked');
 				e.preventDefault();
                 // unhide the source element before appending it to the modal window
                 modalSourceElem.show();
                 $('#' + modalWrapperId).addClass('open').children('.section-inner').append(modalSourceElem);
+                // check for any lazy loading inside the modal and swap data-src into src and kill any spinners
+                $('#' + modalWrapperId).find('[data-src]').each(function(){
+                    var modalDataSrc = $(this).attr('data-src');
+                    $(this).attr('src',modalDataSrc).removeClass('lazy').parent().spin(false);;
+                });
 				// set up the "close modal" function
 				function modalClose(){
 					$('#' + modalWrapperId).removeClass('open');
@@ -647,7 +651,6 @@ jQuery(document).ready(function($) {
       $(this).attr('href', share_url_new);
     });
   }
-  
 	// Truncate and add "Read More" link
 	$('[data-read-more-after], [data-readmore-after]').truncateAndReadMore();
 }); /* end of as page load scripts */
