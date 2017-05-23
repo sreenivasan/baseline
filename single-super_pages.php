@@ -338,12 +338,13 @@ if ( !post_password_required() ): ?>
 			);
 			$sp_content_args = wp_parse_args( $sp_content_custom_args, $sp_content_default_args );
 			$sp_content_query = new WP_query( $sp_content_args );
+			$sp_content_after = get_sub_field('sp-posts-content-after');
 			$post_count = 0;
 		?>
 			<?php if ($sp_content_query->have_posts()) : ?>
 				<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section posts <?php echo $classes; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 					<div class="section-inner posts-inner">
-						<?php if ( get_sub_field('sp-section-title') ): ?><h3 class="section-title meta c10"><?php echo get_sub_field('sp-section-title'); ?></h3><?php endif; ?>
+						<?php if ( get_sub_field('sp-section-title') ): ?><h3 class="section-title meta c10 margin-bottom-medium"><?php echo get_sub_field('sp-section-title'); ?></h3><?php endif; ?>
 						<?php 
 							while ($sp_content_query->have_posts()) : $sp_content_query->the_post();
 								$post_count++;
@@ -358,6 +359,11 @@ if ( !post_password_required() ): ?>
 								}
 							endwhile;
 						?>
+					<?php if ( $sp_content_after ): ?>
+						<div class="content-more">
+							<?php echo $sp_content_after; ?>
+						</div>	
+					<?php elseif ( ($sp_content_args['post_type'] == "post") && ($posts_per_page > 2) ): ?>
 						<div class="pagination"><?php 
 							$pagination_args = array(
 								'prev_text'          => __('← Newer','baseline'),
@@ -365,6 +371,7 @@ if ( !post_password_required() ): ?>
 							); 
 							echo trim( paginate_links($pagination_args) );
 						?></div>
+					<?php endif; ?>
 					</div>
 					<?php spBgImgCredit($bg_img_credit, $bg_img_credit_url); ?>
 				</div>
