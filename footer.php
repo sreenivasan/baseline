@@ -1,3 +1,7 @@
+<?php if (is_active_sidebar('bottom-bar')) { ?> 
+	<?php get_sidebar( 'bottom-bar' ); ?>
+	<div class="clear"></div>		
+<?php } ?>
 <?php if (is_active_sidebar('footer-widgets')) { ?> 
 	<?php get_sidebar( 'footer' ); ?>
 	<div class="clear"></div>		

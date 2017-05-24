@@ -1,6 +1,6 @@
 <?php
 
-// Sidebars & Widgetizes Areas
+// Widget areas
 function tf_register_sidebars() {
     register_sidebar(array(
     	'id' => 'featboxes',
@@ -15,9 +15,7 @@ function tf_register_sidebars() {
 }
 add_action( 'widgets_init', 'tf_register_sidebars' );
 
-
-
-// Footer widgets are registered separately and with a lower priority to ensure they appear last in the list of sidebars
+// Footer and bottom bar widget areas (sidebars) are registered separately and with a lower priority to ensure they appear last in the list of sidebars
 function tf_register_footer_widg() {   
 	register_sidebar(array(
     	'id' => 'footer-widgets',
@@ -27,6 +25,15 @@ function tf_register_footer_widg() {
     	'after_widget' => '</div>',
     	'before_title' => '<h3 class="widgettitle">',
     	'after_title' => '</h3>',
+    ));
+    register_sidebar(array(
+        'id' => 'bottom-bar',
+        'name' => 'Bottom Bar',
+        'description' => "Optional row of widgets above the footer. Use to feature end-of-page but non-footer content.",
+        'before_widget' => '<div id="%1$s" class="widget bottombar-widget c2 %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widgettitle">',
+        'after_title' => '</h3>',
     ));
 }
 add_action( 'widgets_init', 'tf_register_footer_widg', 13 );
