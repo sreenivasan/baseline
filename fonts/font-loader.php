@@ -5,10 +5,10 @@
 <script>
     (function() {
       if (sessionStorage.fonts) {
-        console.log("Fonts installed.");
+        // console.log("Fonts installed.");
         document.documentElement.classList.add('wf-active');
       } else {
-        console.log("No fonts installed.");
+        // console.log("No fonts found in memory.");
       }
     })();
   </script>
@@ -34,7 +34,7 @@ if ( $custom_fonts ){
 		(function() {
 			var wf = document.createElement('script');
 			wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			'<?php echo get_template_directory_uri(); ?>/js/webfont.js';
 			wf.type = 'text/javascript';
 			wf.async = 'true';
 			var s = document.getElementsByTagName('script')[0];
