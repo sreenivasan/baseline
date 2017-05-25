@@ -43,7 +43,7 @@ body{
   display:block;
   height:100%;
   left:0;
-  opacity:0.7;
+  opacity:0.6;
   pointer-events:none;
   position:fixed;
   top:0;
@@ -612,7 +612,8 @@ nav.bg-ltgray .sub-menu{
 .nobullet li{
   line-height:1.4;
   list-style-type:none;
-  margin-bottom:0.3em;}
+  margin-bottom:0.3em;
+  margin-left:0.2em;}
 .image-link-parent{
   font-size:0 !important;}
 
@@ -3363,7 +3364,8 @@ a.page-bg-img-credit{
 .posts-layout-cards #post-1 .post-excerpt{
   font-size:1.1em;}
 
-
+.js-bg-rotator-container .section-img-credit{
+  opacity:1;}
 
 }
 /* AddThis buttons */

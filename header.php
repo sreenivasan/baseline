@@ -25,7 +25,7 @@
 	$site_logo = get_option('site_logo_url');
 // Background image options
 	$body_bg_color_class = '';
-	$body_bg_img_class = "bg-off";
+	$body_bg_img_class = "bg-on";
 	$theme_bg_id = get_option('theme_bg');
 	$superpageBgChoice = false;
 	if ( $acf_on ){
@@ -33,12 +33,7 @@
 	}
 	if ( $superpageBgChoice == 'color' ){
 		$body_bg_color_class = !empty( get_field("sp_default_bg_color") ) ? get_field("sp_default_bg_color") : $body_bg_color_class;
-	}
-	if ( $superpageBgChoice == 'custom' || ($superpageBgChoice == 'default' && $theme_bg_id) ) {
-		$body_bg_img_class = "bg-on";
-	}
-	if ( is_page() || (is_single() && get_post_thumbnail_id()) ){
-		$body_bg_img_class = "bg-on";
+		$body_bg_img_class = "bg-off";
 	}
 	$fb_app_id = get_option('site_fb_appid','148617041897246');
 	$site_twitter_account = get_option('site_twitter_account');
