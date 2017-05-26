@@ -645,6 +645,13 @@ nav.nav-desktop-dropdown .menu .nav-menu-label a:hover{
 
 
 /* Post styles */
+.section.posts h3.section-title{
+	margin-left: 0;
+}
+
+h3.section-title + .post{
+	clear: both;
+}
 .post-thumbnail{
   font-size:0; /* Fixes extra space beneath images */
   margin-bottom:15px;
