@@ -342,6 +342,13 @@ if ( !post_password_required() ): ?>
 			$post_count = 0;
 		?>
 			<?php if ($sp_content_query->have_posts()) : ?>
+				<?php // Defaulting to list layout
+					if (get_sub_field("sp-css-classes")){
+						$layout_class = '';
+					} else{
+						$layout_class = ' posts-layout-list';
+					}
+				?>			
 				<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section posts <?php echo $classes; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 					<div class="section-inner posts-inner">
 						<?php if ( get_sub_field('sp-section-title') ): ?><h3 class="section-title meta c10 margin-bottom-medium"><?php echo get_sub_field('sp-section-title'); ?></h3><?php endif; ?>
