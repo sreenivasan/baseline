@@ -64,46 +64,48 @@
 	<header id="page-header" class="page-header section padding-large title-section width-normal text-center bg-transparent">
 		<div id="page-header-inner" class="single-inner section-inner">
 			<div class="margin-bottom-large">
-			<?php if ( $show_author_name ): ?>
+<?php if ( $show_author_name ): ?>
 				<span class="post-meta-item meta bg-dkgray-trans margin-none">
-				<?php if ( $author_avatar): ?>
+	<?php if ( $author_avatar): ?>
 					<span class="post-author-img">
 						<?php echo $author_avatar; ?>
 					</span>
-				<?php endif; ?>
+	<?php endif; ?>
 				<span class="post-author"><?php the_author(); ?></span>
 				</span>
-			<?php endif; ?>
+<?php endif; ?>
 				<span id="post-time" class="meta post-meta-item bg-dkgray-trans margin-none"><?php echo (get_the_date() ); ?></span>
 			</div>
 			<h2 class="<?php echo $title_size; ?>"><span class="<?php echo $text_on_image_classes; ?>"><?php the_title(); ?></span></h2>
-			<?php if ( has_excerpt() ) {?>
+<?php if ( has_excerpt() ):?>
 			<p class="lead"><span class="text-shadow strong"><?php echo strip_tags( get_the_excerpt() ); ?></span></p>
-			<?php } ?>
+<?php endif; ?>
 		</div>
-	<?php if ( $bg_img_caption ): ?>
+<?php if ( $bg_img_caption ): ?>
 		<div class="section-img-credit meta"><?php echo $bg_img_caption; ?></div>
-	<?php endif; ?>
+<?php endif; ?>
 	</header>
+<?php if ( $show_vk || $show_fb || $show_tw || $show_sina_weibo ): ?>
 	<div id="post-meta" class="section bg-dkgray-trans padding-tiny width-wide text-center notch">
 		<div id="post-meta-inner" class="section-inner">
 			<span class="share post-meta-share post-meta-item">
-				<?php if ( $show_vk ): ?>
+	<?php if ( $show_vk ): ?>
 				<a class="vk-share bg-vk-icon bg-vk-color button-share-medium" href="hhttp://vk.com/share.php?url=<?php the_permalink(); ?>" target="_blank"><?php _e('VK','baseline'); ?></a>
-				<?php endif; ?> 
-				<?php if ( $show_sina_weibo ): ?>
+	<?php endif; ?> 
+	<?php if ( $show_sina_weibo ): ?>
 				<a class="sina-weibo-share bg-sina-weibo-icon bg-sina-weibo-color button-share-medium" href="http://service.weibo.com/share/share.php?url=<?php the_permalink(); ?>&title=<?php urlencode( the_title() ); ?>" target="_blank"><?php _e('分享到新浪微博','baseline'); ?></a>
-				<?php endif; ?>
-				<?php if ( $show_fb ): ?>
+	<?php endif; ?>
+	<?php if ( $show_fb ): ?>
 				<a class="fb-share bg-facebook-icon bg-facebook-color button-share-medium" href="https://www.facebook.com/sharer/sharer.php?u=<?php if ( get_field("post_fb_url")){ the_field("post_fb_url"); } else { the_permalink(); } ?>" target="_blank"><?php _e('Share','baseline'); ?></a> 
-				<?php endif; ?> 
-				<?php if ( $show_tw ): ?>
+	<?php endif; ?> 
+	<?php if ( $show_tw ): ?>
 				<a class="tw-share bg-twitter-icon bg-twitter-color button-share-medium" href="http://twitter.com/home?status=<?php echo urlencode(html_entity_decode(rawurldecode($tweet))); ?>" target="_blank"><?php _e('Tweet','baseline'); ?></a> 
-				<?php endif; ?> 
+	<?php endif; ?> 
 				<span class="clear"></span>
 			</span>
 		</div>
 	</div>
+<?php endif; ?>
 	<article id="page-content" class="content section bg-white width-narrow padding-medium">
 		<div id="page-content-inner" class="section-inner">
 			<?php the_content(); ?>
