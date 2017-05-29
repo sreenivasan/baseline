@@ -119,5 +119,4 @@
 <footer class="clear"></footer>
 </section>
 <?php endwhile; endif;?>
-<?php get_sidebar('featboxes'); ?>
 <?php get_footer(); ?>

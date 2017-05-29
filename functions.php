@@ -216,7 +216,6 @@ function ignore_ie_css($excluded){
 }
 
 function threefifty_theme_features() {
-	
 	register_nav_menus(
 		array(
 			'main-nav' => 'Main Navigation',   // main nav in header
@@ -224,7 +223,6 @@ function threefifty_theme_features() {
 		)
 	);
 	add_filter('get_post_meta', array($GLOBALS['wp_embed'], 'autoembed'), 9);
-	
 }
 add_action('after_setup_theme','threefifty_theme_features');
 
