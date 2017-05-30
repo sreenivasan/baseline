@@ -523,7 +523,7 @@ jQuery(document).ready(function($) {
 	$('.js-modal-onload').trigger('click');
 	$('img.lazy').parent().spin('tiny');
 	// for AK-style form fields, wrap adjacent sibs in fieldset
-	$('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text', 'fieldset class="input-group"');
+	$('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'fieldset class="input-group"');
 	$('[data-preselect]').preselect();
 	var bLazy = new Blazy({ 
 		breakpoints: [
@@ -599,23 +599,7 @@ jQuery(document).ready(function($) {
     // Initialize "sticky" js only for large screens
     if ( initialWidth > 900 ){
         $(".js-sticky, .sticky").sticky({zIndex:100});
-    } 
-    // On window resize... (debounced)
-    var resizeTimer;
-    $(window).on('resize', function(e) {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-        // Run code here, resizing has "stopped"
-          var resizedWidth = $(window).width();
-          if ( resizedWidth <= 900 ){
-            // if small screen, unstick any sticky elements
-            $(".js-sticky, .sticky").unstick();
-          } else {
-            // if large screen, re-stick any sticky elements
-            $(".js-sticky, .sticky").sticky({zIndex:100});
-          }
-        }, 250);
-    });
+    }
 
 	if ("ontouchstart" in document.documentElement){
 		// block first click on .parent nav elements
