@@ -25,7 +25,7 @@ if ( $custom_fonts ){
 		WebFontConfig = {
 		  custom: {
 				  families: ['KlimaWeb:n8'],
-				  urls: ['<?php echo get_template_directory_uri(); ?>/fonts/fonts.css']
+				  urls: ['<?php echo get_stylesheet_directory_uri(); ?>/fonts/fonts.css']
 		  },
 		  active: function() {
 		    sessionStorage.fonts = true;
@@ -33,8 +33,7 @@ if ( $custom_fonts ){
 		};
 		(function() {
 			var wf = document.createElement('script');
-			wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-			'<?php echo get_template_directory_uri(); ?>/js/webfont.js';
+			wf.src = '<?php echo get_template_directory_uri(); ?>/js/webfont.js';
 			wf.type = 'text/javascript';
 			wf.async = 'true';
 			var s = document.getElementsByTagName('script')[0];
