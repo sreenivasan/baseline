@@ -19,5 +19,4 @@
 		<footer class="clear"></footer>
 	</div>
 </section>
-<?php get_sidebar('featboxes'); ?>
 <?php get_footer(); ?>

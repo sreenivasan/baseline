@@ -157,7 +157,6 @@
 	<?php endif; ?>
 		<header id="site-header" class="section header-layout-flex margin-none width-extrawide bg-<?php echo $header_bgcolor; ?>">
 			<div id="site-header-inner" class="section-inner">
-	<?php // Logo ?>
 				<h1 id="site-title" class="site-header-item">
 	<?php if ( $site_logo ): ?>
 					<a class="logo" href="<?php bloginfo('url'); ?>">
