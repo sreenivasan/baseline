@@ -204,7 +204,7 @@ if ( !post_password_required() ): ?>
 			$ak_country = get_sub_field( 'sp-actionkit-country' );
 			$ak_country_label = get_sub_field( 'sp-actionkit-country-label' );
 			$ak_confirm = get_sub_field( 'sp-actionkit-confirmation' );
-			$ak_custom = get_sub_field( 'sp-actionkit-custom' );
+			$ak_custom = get_sub_field('sp-actionkit-custom');
 			$form_layout = get_sub_field('sp-actionkit-layout'); 
 			$ak_country_preselect = get_sub_field( 'sp-actionkit-country-preselect' );
 			$ak_postformtext = get_sub_field( 'sp-actionkit-postformtext' );
@@ -353,19 +353,21 @@ if ( !post_password_required() ): ?>
 					<div class="section-inner posts-inner">
 						<?php if ( get_sub_field('sp-section-title') ): ?><h3 class="section-title meta c10 margin-bottom-medium"><?php echo get_sub_field('sp-section-title'); ?></h3><?php endif; ?>
 						<?php 
-							while ($sp_content_query->have_posts()) : $sp_content_query->the_post();
-								$post_count++;
-								// check if post_type query parameter is set and if so, use that template part:
-								$post_type_param = $sp_content_args['post_type'];
-								if ( $post_type_param ){
-									include(locate_template('content-' . $post_type_param . '.php'));
-									// get_template_part('content', $post_type_param );
-								} else {
-									include(locate_template('content-post.php'));
-									// get_template_part('content','post');
-								}
-							endwhile;
-						?>
+						while ($sp_content_query->have_posts()) : $sp_content_query->the_post();
+							$post_count++;
+							// check if post_type query parameter is set and if so, use that template part:
+							$post_type_param = $sp_content_args['post_type'];
+							$post_number = $sp_content_args['posts_per_page'];
+							if ( $post_type_param && ( $post_number == 1 ) ):
+								include(locate_template('content_single-' . $post_type_param . '.php'));
+							elseif ( $post_type_param ):
+								include(locate_template('content-' . $post_type_param . '.php'));
+							else:
+								include(locate_template('content-post.php'));
+								// get_template_part('content','post');
+							endif;
+						endwhile;
+					?>
 					<?php if ( $sp_content_after ): ?>
 						<div class="content-more">
 							<?php echo $sp_content_after; ?>
