@@ -61,9 +61,9 @@
 </style>
 <?php endif; ?>
 <section id="content" class="section single">
-	<header id="page-header" class="page-header section padding-large title-section width-normal text-center bg-transparent">
+	<header id="page-header" class="page-header section padding-large title-section-60 width-normal text-center bg-transparent">
 		<div id="page-header-inner" class="single-inner section-inner">
-			<div class="margin-bottom-large">
+			<div class="margin-bottom-medium">
 <?php if ( $show_author_name ): ?>
 				<span class="post-meta-item meta bg-dkgray-trans margin-none">
 	<?php if ( $author_avatar): ?>

@@ -8,11 +8,15 @@ get_header(); ?>
 <?php 
 
 ?>
-<section id="content" class="content section bg-white width-narrow padding-medium">
+<div id="press-release-header" class="section width-narrow padding-medium bg-transparent">
+	<div class="section-inner">
+		<p><span id="post-time" class="meta"><?php echo (get_the_date() ); ?></span></p>
+		<h2 class="margin-bottom-large"><span class=""><?php the_title(); ?></span></h2>
+	</div>
+</div>
+<section id="content" class="content section bg-white width-narrow padding-normal">
 	<div id="page-content-inner" class="section-inner">
 		<article class="clearfix">
-			<p><span id="post-time" class="meta"><?php echo (get_the_date() ); ?></span></p>
-			<h2 class="margin-bottom-large"><span class=""><?php the_title(); ?></span></h2>
 			<?php the_content(); ?>
 		</article>
 	</div>

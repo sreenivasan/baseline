@@ -229,15 +229,15 @@ function baseline_custom_css() {
 		h3{
 			font-size:'. fontSize(1.8) .'em;}
 		.title0{
-  	  		font-size:'. fontSize(72) .'px;}
+  	  		font-size:'. fontSize(80) .'px;}
 		.title1{
-			font-size:'. fontSize(60) .'px;}
+			font-size:'. fontSize(72) .'px;}
 		.title2{
-			font-size:'. fontSize(50) .'px;}
+			font-size:'. fontSize(55) .'px;}
 		.title3{
-			font-size:'. fontSize(42) .'px;}
+			font-size:'. fontSize(45) .'px;}
 		.title4{
-			font-size:'. fontSize(34) .'px;}
+			font-size:'. fontSize(36) .'px;}
 		#site-title{
 			font-size:'. fontSize(1.8) .'rem;}
 
