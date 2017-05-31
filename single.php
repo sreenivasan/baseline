@@ -78,7 +78,7 @@
 			</div>
 			<h2 class="<?php echo $title_size; ?>"><span class="<?php echo $text_on_image_classes; ?>"><?php the_title(); ?></span></h2>
 <?php if ( has_excerpt() ):?>
-			<p class="lead"><span class="text-shadow strong"><?php echo strip_tags( get_the_excerpt() ); ?></span></p>
+			<p class="text-style-lead"><span class="text-shadow strong"><?php echo strip_tags( get_the_excerpt() ); ?></span></p>
 <?php endif; ?>
 		</div>
 <?php if ( $bg_img_caption ): ?>
