@@ -6,10 +6,10 @@
 	$tm_image = $tm_image_array[0];
 	$tm_image_preview_array = wp_get_attachment_image_src($attachment_id, 'dataURI-preview' );
 	$tm_image_preview = $tm_image_preview_array[0];
-	$tm_image_preview_data_uri = '';
 	if ( $tm_image_preview && function_exists(getDataURI)){
 		$tm_image_preview_data_uri = getDataURI( $attachment_id );
 	}
+
 	
 	/* Team member name */
 	$tm_first_name = get_field('tm_first_name', $id);
@@ -31,7 +31,7 @@
 ?>
 <div class="team-member c2 ct3_3 cm5">
 	<div class="team-member-photo bg-ltgray image-link-parent margin-bottom-small">
-		<img class="lazy image-data-preview" data-src="<?php echo $tm_image; ?>" src="<?php echo $tm_image_preview_data_uri; ?>" alt="<?php echo $tm_name; ?>"/>
+		<img class="lazy image-data-preview" data-src="<?php echo $tm_image; ?>" src="<?php if ( $tm_image_preview_data_uri ){ echo $tm_image_preview_data_uri; } else { echo "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"; } ?>" alt="<?php echo $tm_name; ?>"/>
 		<noscript>
 			<img src="<?php echo $tm_image; ?>" alt="<?php echo $tm_name; ?>"/>
 		</noscript>
