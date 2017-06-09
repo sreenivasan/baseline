@@ -782,15 +782,20 @@ a.text-unstyled:hover{
 
 
 /* Text styles */
-.title0{
+.title0,
+.text-style-title-huge{
   font-size:60px;}
-.title1{
+.title1,
+.text-style-title-large{
   font-size:55px;}
-.title2{
+.title2,
+.text-style-title-medium{
   font-size:45px;}
-.title3{
+.title3,
+.text-style-title-normal{
   font-size:30px;}
-.title4{
+.title4,
+text-style-title-small{
   font-size:24px;}
 
 
