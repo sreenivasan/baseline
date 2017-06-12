@@ -39,7 +39,7 @@ foreach($query_args as $key => $string) {
 	<div class="section-inner">
 		<form action="<?php echo home_url(); ?>" method="get" class="lead">
 			<input type="search" name="s" class="search-form-field c7" value="<?php echo $the_search; ?>" placeholder="<?php _e('Search...','baseline'); ?>" />
-			<input type="submit" value="<?php _e('→','baseline'); ?>" class="search-form-submit c3" />
+			<input type="submit" value="<?php _e('→','baseline'); ?>" class="search-form-submit c3 bg-icon-search" />
 			<div class="clear"></div>
 		</form>
 	</div>
