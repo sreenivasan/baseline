@@ -5,7 +5,7 @@
  Description:  350 Baseline parent theme 
  Author:       Matthew Anderson
  Author URI:   http://350.org
- Version:      1.1.4
+ Version:      1.1.5
  Text Domain:  baseline
  GitHub Theme URI: https://github.com/350org/baseline
 */
@@ -626,7 +626,9 @@ nav.bg-ltgray .sub-menu{
 
 /* Nav */
 nav.section{
-  z-index:999;}
+  z-index:999;
+  text-align: center;
+}
 nav.section .nav-inner{
   z-index:1000;} /* puts nav contents on top of notches and effects */
 
