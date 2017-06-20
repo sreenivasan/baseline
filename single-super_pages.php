@@ -352,6 +352,7 @@ if ( !post_password_required() ): ?>
 				<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section posts <?php echo $classes . $layout_class; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 					<div class="section-inner posts-inner">
 						<?php if ( get_sub_field('sp-section-title') ): ?><h3 class="section-title meta c10 margin-bottom-medium"><?php echo get_sub_field('sp-section-title'); ?></h3><?php endif; ?>
+						<div class="posts-wrapper">						
 						<?php 
 						while ($sp_content_query->have_posts()) : $sp_content_query->the_post();
 							$post_count++;
@@ -367,7 +368,8 @@ if ( !post_password_required() ): ?>
 								// get_template_part('content','post');
 							endif;
 						endwhile;
-					?>
+						?>
+						</div>
 					<?php if ( $sp_content_after ): ?>
 						<div class="content-more">
 							<?php echo $sp_content_after; ?>
