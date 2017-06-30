@@ -651,7 +651,8 @@ nav.nav-desktop-dropdown .menu .nav-menu-label a:hover{
 	margin-left: 0;
 }
 
-h3.section-title + .post{
+h3.section-title + .post,
+.posts-wrapper{
 	clear: both;
 }
 .post-thumbnail{
@@ -1621,9 +1622,11 @@ a.logo img{
   position:absolute;
   top:0;
   width:100%;
-  z-index:5;}
+  z-index:5;
+  pointer-events: none;}
 #header-buttons-wrap-inner{
-  position:relative;}
+  position:relative;
+  pointer-events: all;}
 #header-custom-buttons{
   display:inline-block;
   line-height:34px;
