@@ -243,11 +243,16 @@ function urlParam(name){
 		var readMoreTranslations = {
 			en: "Read&nbsp;More",
 			fr: "Lire&nbsp;la&nbsp;Suite",
-            ar: "اقرأ أكثر"
+      ar: "اقرأ أكثر",
+      pt: "Leia mais",
+      es: "Leer más",
+      de: "Weiterlesen"
         };
 		var readMoreText = readMoreTranslations['en'];
 		// Detect language
 		var htmlLangAttr = $('html').attr('lang');
+		var htmlLangAttr = htmlLangAttr.substring(0,2);
+				
 		if ( htmlLangAttr && readMoreTranslations[htmlLangAttr] ){
 			readMoreText = readMoreTranslations[htmlLangAttr];
 		}
