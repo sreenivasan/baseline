@@ -3,7 +3,7 @@
 /* Wrap '350' in site title with <span class="tf-logo"> so CSS can style it */
 function tf_site_title(){
 	$title = get_bloginfo('title');
-	$new_title = preg_replace('/350/', '<span class="tf-logo">350</span>', $title);
+	$new_title = preg_replace('/350/', '<span class="tf-logo title-350logo">350</span><span class="title-text">', $title . '</span>');
 	return $new_title;
 }
 
@@ -43,7 +43,6 @@ function tf_header_options_page(){
 			<hr>
 			<h3>Header Layout</h3>
 			<p>
-				<input value="site-header-layout-compact" type="checkbox" name="site_header_layout" id="site_header_layout_compact" <?php if ( (get_option('site_header_layout') == 'site-header-layout-compact' ) ){ echo 'checked'; } ?> /> <label for="site_header_layout_compact"><strong>Experimental Flexi-layout</strong></label>
 			</p>
 			<hr>
 			<h3>Header Alignment</h3>
