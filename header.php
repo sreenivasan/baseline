@@ -1,5 +1,5 @@
-<?php 
-	$lang = substr(get_locale(),0,2); 
+<?php
+	$lang = substr(get_locale(),0,2);
 	$hide_header = get_option('site_hide_header');
 // check for ACF support for custom share info
 	$acf_on = function_exists('get_field');
@@ -92,7 +92,7 @@
 		endif;
 	endif;
 ?>
-<!doctype html>  
+<!doctype html>
 <html <?php language_attributes(); ?> class="no-js no-blend baseline">
 <head>
 	<title><?php bloginfo('name') ?> <?php wp_title('-'); ?></title>
@@ -123,7 +123,6 @@
 	<meta name="twitter:description" content="<?php echo $description; ?>">
 	<meta name="twitter:image" content="<?php echo $share_img_url; ?>">
 	<meta name="twitter:url" content="<?php echo !empty($tw_url) ? $tw_url : $page_url ?>">
-	<link rel="amphtml" href="https://mercury.postlight.com/amp?url=<?php echo urlencode( get_the_permalink() ); ?>">
 <?php get_template_part( 'fonts/font', 'loader' ); ?>
 <?php wp_head(); ?>
 <?php echo $custom_code; ?>
@@ -150,7 +149,7 @@
 		<?php wp_nav_menu( array(
 			'container' => '',
 			'fallback_cb' => false,
-			'theme_location' => 'lang-nav' ) ); 
+			'theme_location' => 'lang-nav' ) );
 		?>
 			</div>
 		</nav>
@@ -160,7 +159,7 @@
 				<h1 id="site-title" class="site-header-item">
 	<?php if ( $site_logo ): ?>
 					<a class="logo" href="<?php bloginfo('url'); ?>">
-						<img src="<?php echo $site_logo; ?>" alt="<?php bloginfo('title'); ?>" /> 
+						<img src="<?php echo $site_logo; ?>" alt="<?php bloginfo('title'); ?>" />
 					</a>
 	<?php else: ?>
 					<a class="<?php if ( $header_bgcolor == 'transparent' ){ echo $text_on_image_classes_header; } ?> text-color-default" href="<?php bloginfo('url'); ?>"><?php echo tf_site_title(); ?></a>
@@ -171,7 +170,7 @@
 				<a id="site-nav-label" class="site-header-item js-modal <?php echo $nav_desktop_display; ?>" data-modal-source=".site-nav" data-modal-show-source="true" data-modal-classes-outer="width-narrow slide-out" data-modal-classes-inner="-"><?php if ( $site_nav_button_label ): ?><span id="site-nav-button-label"><?php echo $site_nav_button_label; ?></span><?php endif; ?></a>
 	<?php endif; ?>
 	<?php if ( has_nav_menu('main-nav') ): ?>
-		<?php 
+		<?php
 			$locations = get_nav_menu_locations();
 			$menu_location_name = 'main-nav';
 			$menu_id = $locations[ $menu_location_name ] ;
@@ -185,11 +184,11 @@
 		?>
 				<nav class="site-nav site-header-item <?php echo $menu_width; ?> <?php echo $nav_desktop_display; ?> bg-<?php echo $nav_desktop_bgcolor; ?>">
 					<h3 class="meta main-nav-label"><?php echo $menu_array['name']; ?></h3>
-					<?php 
+					<?php
 						wp_nav_menu( array(
 							'container' => '',
 							'fallback_cb' => false,
-							'theme_location' => $menu_location_name 
+							'theme_location' => $menu_location_name
 							)
 					 	);
 					 ?>
@@ -214,7 +213,7 @@
 				'container' => '',
 				'fallback_cb' => false,
 				'items_wrap'     => '<ul class="menu" id="menu-lang-nav"><li id="lang-label" class="lang-label"><a>' . __( 'Language', 'baseline' ) . '</a></li>%3$s</ul>',
-				'theme_location' => 'lang-nav' ) ); 
+				'theme_location' => 'lang-nav' ) );
 			?>
 				<div class="clear"></div>
 			</div>
@@ -226,7 +225,7 @@
 					<h1 id="site-title">
 	<?php if ( $site_logo ): ?>
 						<a class="logo " href="<?php bloginfo('url'); ?>">
-							<img src="<?php echo $site_logo; ?>" alt="<?php bloginfo('title'); ?>" /> 
+							<img src="<?php echo $site_logo; ?>" alt="<?php bloginfo('title'); ?>" />
 						</a>
 	<?php else: ?>
 						<a class="<?php if ( $header_bgcolor == 'transparent' ){ echo $text_on_image_classes_header; } ?> text-color-default" href="<?php bloginfo('url'); ?>"><?php echo tf_site_title(); ?></a>
@@ -249,7 +248,7 @@
 				</div>
 			</div>
 	<?php if ( has_nav_menu('main-nav') ): ?>
-	<?php 
+	<?php
 		$locations = get_nav_menu_locations();
 		$menu_location_name = 'main-nav';
 		$menu_id = $locations[ $menu_location_name ] ;
@@ -264,11 +263,11 @@
 			<nav class="section site-nav <?php echo $menu_width; ?> <?php echo $header_alignment; ?> <?php echo $nav_desktop_display; ?> bg-<?php echo $nav_desktop_bgcolor; ?>">
 				<div class="section-inner">
 					<h3 class="meta main-nav-label"><?php echo $menu_array['name']; ?></h3>
-					<?php 
+					<?php
 						wp_nav_menu( array(
 							'container' => '',
 							'fallback_cb' => false,
-							'theme_location' => $menu_location_name 
+							'theme_location' => $menu_location_name
 							)
 					 	);
 					 ?>

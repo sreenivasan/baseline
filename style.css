@@ -2,10 +2,10 @@
 /*
  Theme Name:   350 Baseline
  Theme URI:    http://world.350.org/baseline
- Description:  350 Baseline parent theme 
+ Description:  350 Baseline parent theme
  Author:       Matthew Anderson
  Author URI:   http://350.org
- Version:      1.1.9
+ Version:      1.1.10
  Text Domain:  baseline
  GitHub Theme URI: https://github.com/350org/baseline
 */
@@ -60,8 +60,8 @@ h5{
   text-rendering:optimizelegibility;}
 h1:last-child,
 h2:last-child,
-h3:last-child, 
-h4:last-child, 
+h3:last-child,
+h4:last-child,
 h5:last-child{
   margin-bottom:0;}
 h1 a,
@@ -822,7 +822,7 @@ text-style-title-small{
   direction:rtl;
   letter-spacing:0;}
 .meta.text-light{
-  color:rgba(255,255,255,0.7);}  
+  color:rgba(255,255,255,0.7);}
 .highlight,
 .text-highlight{
   display:inline;
@@ -1005,7 +1005,7 @@ text-style-title-small{
   opacity:0.75;}
 .opacity-50{
   opacity:0.5;}
-/* 
+/*
   The transitions are a little crazy so that the tooltip finishes fading in/out _before_ being being moved off-screen
   The transforms are used b/c apparently it's cheaper to animate transforms instead of abs. positioning
  */
@@ -1222,7 +1222,7 @@ input.submit.button-big{
 .button-arrow-right::after,
 .arrow-right::after{
   transform:rotate(-90deg);}
- 
+
 .fb-share,
 .tw-share,
 .button-share-medium,
@@ -1384,9 +1384,9 @@ a.bg-youtube-color{
 
 
 /* Sections */
-#container{ 
+#container{
   /* allows for:
-  - columned sections to be equal height, regardless of content 
+  - columned sections to be equal height, regardless of content
   - re-ordering of sections with CSS */
   display:flex;
   flex-wrap:wrap;}
@@ -1580,7 +1580,7 @@ nav.section .heading a,
 nav.section .heading a:hover,
 .menu .heading a:hover{
   color:inherit;
-  background:transparent !important;}  
+  background:transparent !important;}
 
 /* Site */
 #site-title{
@@ -1665,7 +1665,7 @@ a.logo img{
     url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4yIiBiYXNlUHJvZmlsZT0idGlueSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiDQoJIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNjAgNjAiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHJlY3QgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8cmVjdCB5PSI0OCIgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8cmVjdCB5PSIyNCIgZmlsbD0iIzE3MjkyRSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjEyIi8+DQo8L3N2Zz4NCg==)
     no-repeat
     center center;
-  background-size:18px 18px;  
+  background-size:18px 18px;
   border-radius:2px;
   color:inherit;
   cursor:pointer;
@@ -1692,7 +1692,7 @@ a.logo img{
   display:none;
   margin:0 1rem;}
 .main-nav-label{
-  display:none;}  
+  display:none;}
 
 /* modal nav styles */
 .modal-wrapper .menu li{
@@ -1791,7 +1791,7 @@ input.search-form-submit{
   text-decoration:none;}
 .page-numbers.current{
   cursor:default;
-  opacity:0.5;} 
+  opacity:0.5;}
 
 /* Image grid section */
 .img-grid-square-title{
@@ -2052,7 +2052,7 @@ img.b-loaded {
   margin-bottom:0.8em;}
 .event_campaign #can_embed_form{
   max-width:100%;}
-.event_campaign #can_embed_form #event_map_wrap, 
+.event_campaign #can_embed_form #event_map_wrap,
 .event_campaign #can_embed_form #map_canvas{
   height:300px;}
 
@@ -2105,7 +2105,7 @@ img.b-loaded {
   margin-left:2%;
   top:-1.5em;
   width:58%;}
-.event_campaign #can_embed_form #event_map_wrap, 
+.event_campaign #can_embed_form #event_map_wrap,
 .event_campaign #can_embed_form #map_canvas{
   height:380px;}
 .event_campaign .zip_search_results_col,
@@ -2150,7 +2150,7 @@ img.b-loaded {
   justify-content:center;
   line-height:2.5rem;
   width:100%;}
-.mlp_inner label select, 
+.mlp_inner label select,
 .mlp_inner label input{
   display:inline-block;
   flex:1 1 auto;
@@ -2226,7 +2226,7 @@ img.b-loaded {
   .cm6_6.no-margin{
     width:66.666%;}
   .cm7_5.no-margin{
-    width:75%;} 
+    width:75%;}
   .cm10.no-margin{
     width:100%;}
 
@@ -2398,7 +2398,7 @@ img.b-loaded {
 /* Mobile-only and tablet-only */
 @media only screen and (max-width:900px){
 
-  
+
 
 }
 
@@ -2452,7 +2452,7 @@ img.b-loaded {
   .text-style-lead3{
     line-height:1.35;}
 
-    
+
   .two-col,
   .three-col,
   .four-col{
@@ -2620,7 +2620,7 @@ img.b-loaded {
   .ct6{
     width:56%;}
   .ct6_6{
-    width:62.666%;} 
+    width:62.666%;}
   .ct7{
     width:66%;}
   .ct7_5{
@@ -2639,7 +2639,7 @@ img.b-loaded {
   .ct6.no-margin{
     width:60%;}
   .ct6_6.no-margin{
-    width:66.666%;} 
+    width:66.666%;}
   .ct7_5.no-margin{
     width:75%;}
   .ct10.no-margin{
@@ -3153,7 +3153,7 @@ body{
     padding:20px;
     text-align: center;
   }
-  
+
   nav#language-nav{
 	  text-align: left;
   }
@@ -3241,9 +3241,9 @@ nav.nav-desktop-dropdown .parent > a::after{
 nav.nav-desktop-dropdown .sub-menu{
   background:#17292e;
   /* For clarity on black-on-black */
-  border-bottom:1px solid rgba(255,255,255,0.2); 
-  border-left:1px solid rgba(255,255,255,0.2); 
-  border-right:1px solid rgba(255,255,255,0.2); 
+  border-bottom:1px solid rgba(255,255,255,0.2);
+  border-left:1px solid rgba(255,255,255,0.2);
+  border-right:1px solid rgba(255,255,255,0.2);
   color:#fff;
   display:none;
   margin:0;
@@ -3297,7 +3297,7 @@ nav.nav-desktop-dropdown.meta .menu a{
   text-transform: uppercase;}
 /* AR */
 nav.nav-desktop-dropdown.meta .menu .lang-ar a{
-  direction:rtl; 
+  direction:rtl;
   letter-spacing:0;}
 nav.nav-desktop-dropdown.meta .menu .current-menu-item a{
   font-weight:bold;}
@@ -3341,7 +3341,7 @@ a.page-bg-img-credit{
 
 .form-layout-horizontal{
   margin-bottom:1.3em;}
-.form-layout-horizontal input, 
+.form-layout-horizontal input,
 .form-layout-horizontal select,
 .form-layout-horizontal .input,
 .form-layout-horizontal .select,
@@ -3435,4 +3435,3 @@ a.page-bg-img-credit{
     top:50% !important;
     z-index:9000 !important;}
 }
-
