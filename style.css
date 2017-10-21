@@ -5,7 +5,7 @@
  Description:  350 Baseline parent theme
  Author:       Matthew Anderson
  Author URI:   http://350.org
- Version:      1.1.10
+ Version:      1.1.11
  Text Domain:  baseline
  GitHub Theme URI: https://github.com/350org/baseline
 */
@@ -782,25 +782,6 @@ a.text-unstyled:hover{
   padding:0;
   visibility:hidden;}
 
-
-/* Text styles */
-.title0,
-.text-style-title-huge{
-  font-size:60px;}
-.title1,
-.text-style-title-large{
-  font-size:55px;}
-.title2,
-.text-style-title-medium{
-  font-size:45px;}
-.title3,
-.text-style-title-normal{
-  font-size:30px;}
-.title4,
-text-style-title-small{
-  font-size:24px;}
-
-
 .bigquote{
   background:#ebedef;
   border-radius:3px;
@@ -810,9 +791,10 @@ text-style-title-small{
 .text-font-secondary,
 .meta{
   font-family: Menlo,Monaco,Courier,monospace;
-  font-size:0.8em;
   letter-spacing:0.05em;
   letter-spacing:calc(0.03rem + 0.02em);}
+.meta{
+  font-size:0.8em;}
 .meta.lang-ar,
 .meta .lang-ar,
 .lang-ar .meta,
@@ -1426,6 +1408,9 @@ a.bg-youtube-color{
   width:100%;}
 .title-section-60{
   min-height:calc(100vh - 60px);}
+.title-section .section-inner,
+.title-section-60 .section-inner{
+  width:100%;}
 
 .padding-none{
   padding:0;}
@@ -2392,6 +2377,9 @@ img.b-loaded {
   .section.mobile-expando > .mobile-expando-link::after {
     top:calc(1rem + 0.6em);
     left:1rem;}
+
+  #side-share{
+    display:none;}
 
 }
 
