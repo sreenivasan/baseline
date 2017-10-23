@@ -91,13 +91,17 @@ function my_run_excerpt_meta_box() {
 add_action( 'edit_form_after_title', 'my_run_excerpt_meta_box' );
 
 function my_remove_normal_excerpt() { /*this added on my own*/
-    remove_meta_box( 'postexcerpt' , 'post' , 'normal' ); 
+    remove_meta_box( 'postexcerpt' , 'post' , 'normal' );
 }
 add_action( 'admin_menu' , 'my_remove_normal_excerpt' );
 
 // Custom CSS to reposition excerpt metabox
 function my_post_edit_page_footer(){
 	echo '<style>
+	  .acf_postbox .field textarea{
+	  	font-family: menlo,monaco,monospace;
+    	font-size: 13px;
+    	line-height: 1.6;}
 		#test-sortables{
 			position:relative;
 			top:18px;}
@@ -137,7 +141,7 @@ add_filter( 'nav_menu_link_attributes', 'add_menu_item_language__atts', 10, 3 );
 
 
 function threefifty_admin_features(){
-	remove_action( 'welcome_panel', 'wp_welcome_panel' );	
+	remove_action( 'welcome_panel', 'wp_welcome_panel' );
 
 	//Add instructions to post editing page
 	$pstInstrTypes = array( 'post','page' );
@@ -173,7 +177,7 @@ function threefifty_admin_features(){
 			<a class="style-tip" target="_blank" href="http://350.org/_/expandos/">
 			<strong>Adding Expandos</strong>
 			</a></p>
-			
+
 			</div>
 				';
 		};
@@ -191,7 +195,7 @@ if( !function_exists('base_extended_editor_mce_buttons') ){
 	}
 	add_filter("mce_buttons", "base_extended_editor_mce_buttons", 0);
 }
- 
+
 // TinyMCE: Second line toolbar customizations
 if( !function_exists('base_extended_editor_mce_buttons_2') ){
 	function base_extended_editor_mce_buttons_2($buttons) {
@@ -210,7 +214,7 @@ function make_mce_awesome( $init ) {
     $init['theme_advanced_styles'] = "button=button, expando=expando, bigquote=bigquote";
     return $init;
 }
- 
+
 add_filter('tiny_mce_before_init', 'make_mce_awesome');
 
 
@@ -265,7 +269,7 @@ add_action( 'admin_init', 'add_ed_caps');
 
 function add_admin_caps() {
 	$role = get_role( 'administrator' );
-    $role->add_cap( 'unfiltered_html' );  
+    $role->add_cap( 'unfiltered_html' );
 }
 add_action( 'admin_init', 'add_admin_caps');
 ?>
