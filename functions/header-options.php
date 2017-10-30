@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /* Wrap '350' in site title with <span class="tf-logo"> so CSS can style it */
 function tf_site_title(){
@@ -7,25 +7,25 @@ function tf_site_title(){
 	return $new_title;
 }
 
-function tf_header_options_menu(){  
-	// here's where we add our theme options page link to the dashboard sidebar  
-	add_submenu_page('themes.php', "Header Options", "Header", 'manage_options', basename(__FILE__), 'tf_header_options_page'); 
-} 
+function tf_header_options_menu(){
+	// here's where we add our theme options page link to the dashboard sidebar
+	add_submenu_page('themes.php', "Header Options", "Header", 'manage_options', basename(__FILE__), 'tf_header_options_page');
+}
 
-function tf_header_options_page(){ 
-	// here is the main function that will generate our options page 
-	 ?>  
-    <div class="wrap">  
-        <h2>Header Options</h2>  
-        <form method="POST" action="">  
-            <input type="hidden" name="update_tf_header_options" value="true" />  	
+function tf_header_options_page(){
+	// here is the main function that will generate our options page
+	 ?>
+    <div class="wrap">
+        <h2>Header Options</h2>
+        <form method="POST" action="">
+            <input type="hidden" name="update_tf_header_options" value="true" />
 
-			<?php 
+			<?php
 				/* Check for site_colors option, use default 350 colors if not present */
 				$site_colors_default_string = "White:white:rgb(255,255,255):dark:default\nBlue:blue:rgb(15,129,233):light:light\nOrange:orange:rgb(255,169,2):light:light\nDark Gray:dkgray:rgb(23,41,46):light:light\nDark Gray (transparent):dkgray-trans:rgba(23,41,46,0.6):light:light\nLight Gray:ltgray:rgb(218,230,242):dark:dark\nTransparent:transparent:rgba(0,0,0,0):light:light";
 				$site_colors_option = trim( get_option('site_colors', $site_colors_default_string) );
 				$site_colors_raw = !empty( $site_colors_option ) ? $site_colors_option : $site_colors_default_string;
-				$site_colors = tfArrayifyColors( $site_colors_raw ); 
+				$site_colors = tfArrayifyColors( $site_colors_raw );
 
 				$header_buttons = stripslashes( get_option('header_buttons') );
 				 /* translators: admin settings */
@@ -37,16 +37,17 @@ function tf_header_options_page(){
 			<p>
 				<input value="" type="radio" name="site_hide_header" id="site_hide_header_false" <?php if ( !(get_option('site_hide_header')) ){ echo 'checked'; } ?> /> <label for="site_hide_header_false"><strong>Show Header</strong> (default)</label>
 			</p>
-			<p>	
+			<p>
 				<input value="true" type="radio" name="site_hide_header" id="site_hide_header_true" <?php if ( (get_option('site_hide_header')) ){ echo 'checked'; } ?> /> <label for="site_hide_header_true"><strong>Hide Header</strong> — Hides header bar, site title, and header buttons. Nav remains visible.</label>
 			</p>
 			<hr>
 			<h3>Header Layout</h3>
 			<p>
+				<input value="site-header-layout-compact" type="checkbox" name="site_header_layout" id="site_header_layout" <?php if ( (get_option('site_header_layout')) ){ echo 'checked'; } ?>  <label for="site_header_layout">Enable experimental compact layout (CSS flexbox-mode).</label>
 			</p>
 			<hr>
 			<h3>Header Alignment</h3>
-			<p>	
+			<p>
 				<input value="text-center" type="radio" name="site_header_alignment" id="site_header_alignment_center" <?php if ( (get_option('site_header_alignment','text-center') == 'text-center' ) ){ echo 'checked'; } ?> /> <label for="site_header_alignment_center"><strong>Center-aligned (default)</strong></label>
 			</p>
 			<p>
@@ -74,7 +75,7 @@ function tf_header_options_page(){
 				<option <?php if ( get_option('site_langnav_bgcolor') == $color['slug'] ){ echo 'selected'; } ?> value="<?php echo $color['slug']; ?>"><?php echo $color['name']; ?></option>
 				<?php } ?>
 			</select>
-			<p><input type="submit" value="Save Changes" name="search"  class="button button-primary" /></p>  
+			<p><input type="submit" value="Save Changes" name="search"  class="button button-primary" /></p>
 			<hr/>
 			<label for="header_buttons"><strong>Code for Header buttons, top right</strong></label><br />
 			<textarea style="font-family:monospace;" name="header_buttons" id="header_buttons" rows="6" cols="75"><?php echo ( $header_buttons ); ?></textarea><br />
@@ -90,20 +91,20 @@ function tf_header_options_page(){
 				<option value="nav-desktop-dropdown" <?php if ( get_option('site_nav_display_desktop','nav-desktop-dropdown') == 'nav-desktop-dropdown' ){ echo 'selected'; } ?> >Drop-down Menu</option>
 				<option value="nav-desktop-modal" <?php if ( get_option('site_nav_display_desktop') == 'nav-desktop-modal' ){ echo 'selected'; } ?> >Slide-out Modal Overlay</option>
 			</select>
-			<p><input type="submit" value="Save Changes" name="search"  class="button button-primary" /></p>  
+			<p><input type="submit" value="Save Changes" name="search"  class="button button-primary" /></p>
 		</form>
 	</div>
-	<?php  
-} 
- 
-add_action('admin_menu', 'tf_header_options_menu');  
+	<?php
+}
+
+add_action('admin_menu', 'tf_header_options_menu');
 
 //////////////////
 // Update the DB with new theme options
 //////////////////
- 
-    function tf_header_options_update(){  
-        // this is where validation would go   
+
+    function tf_header_options_update(){
+        // this is where validation would go
 		update_option('site_header_bgcolor',  $_POST['site_header_bgcolor']);
 		update_option('site_mainnav_bgcolor',  $_POST['site_mainnav_bgcolor']);
 		update_option('site_langnav_bgcolor',  $_POST['site_langnav_bgcolor']);
@@ -112,9 +113,9 @@ add_action('admin_menu', 'tf_header_options_menu');
 		update_option('site_header_alignment',  $_POST['site_header_alignment']);
 		update_option('header_buttons',  $_POST['header_buttons']);
 		update_option('site_nav_button_label',  $_POST['site_nav_button_label']);
-		update_option('site_nav_display_desktop',  $_POST['site_nav_display_desktop']);		
+		update_option('site_nav_display_desktop',  $_POST['site_nav_display_desktop']);
 	}
 $update_tf_header_options = isset( $_POST['update_tf_header_options'] ) ? $_POST['update_tf_header_options'] : '';
-  if ( $update_tf_header_options == 'true' ) { tf_header_options_update(); } 
+  if ( $update_tf_header_options == 'true' ) { tf_header_options_update(); }
 
 ?>

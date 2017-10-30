@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 function baseline_custom_css() {
 	/* get options from WP */
 	$lang = substr(get_locale(),0,2);
-	$theme_bg_id = get_option('theme_bg'); 
+	$theme_bg_id = get_option('theme_bg');
 	  $theme_bg_small = wp_get_attachment_image_src( $theme_bg_id, 'page-background-mob');
 	  $theme_bg_medium = wp_get_attachment_image_src( $theme_bg_id, 'page-background-medium');
 	  $theme_bg_large = wp_get_attachment_image_src( $theme_bg_id, 'page-background');
@@ -47,7 +47,7 @@ function baseline_custom_css() {
 	/* Colors */
 	/* Check for site_colors option, use default 350 colors if not present */
 	$color_css_array = array();
-	foreach ($site_colors as $site_color){ 
+	foreach ($site_colors as $site_color){
 		$cur_link_color = !empty( $site_color['link'] ) ? $site_color['link'] : 'auto';
 		if ( $cur_link_color != 'auto' && $cur_link_color != 'default') {
 			$custom_link_color = $site_color['link'];
@@ -142,7 +142,7 @@ function baseline_custom_css() {
 	.text-display,
 	.text-font-display{
 		font-family:'. $display_font .','. $body_font .','. $fallback_font .';
-		line-height:'. $display_font_lineheight .';' . 
+		line-height:'. $display_font_lineheight .';' .
 		$turkish_text_transform . '}
 	.text-display,
 	.text-font-display{
@@ -263,7 +263,7 @@ function baseline_custom_css() {
   	  	font-size:'. fontSize(85) .'px;
   	  	line-height:' . $display_font_lineheight * 0.9 .';}
 	  .title1{
-	    font-size:'. fontSize(70) .'px;}
+	    font-size:'. fontSize(80) .'px;}
 	  .title2{
 	    font-size:'. fontSize(60) .'px;}
 	  .title3{
