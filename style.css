@@ -834,6 +834,9 @@ a.text-unstyled:hover{
 .text-large3,
 .text-style-lead3{
   font-size:1.25em;}
+.text-large4,
+.text-style-lead4{
+  font-size:1.4em;}
 
 .text-small{
   font-size:0.85em;}
@@ -847,6 +850,9 @@ a.text-unstyled:hover{
   line-height:1.5;}
 .text-style-lead3{
   line-height:1.4;}
+.text-lineheight-small3,
+.text-style-lead4{
+  line-height:1.3;}
 
 .text-shadow,
 .text-shadow-blur{
@@ -2434,6 +2440,10 @@ img.b-loaded {
   .text-large3,
   .text-style-lead3{
     font-size:1.6em;}
+  .text-large4,
+  .text-style-lead4{
+    font-size:2em;
+    letter-spacing:-0.01em;}
 
   .text-lineheight-small,
   .text-style-lead{
@@ -2442,6 +2452,9 @@ img.b-loaded {
   .text-style-lead2,
   .text-style-lead3{
     line-height:1.35;}
+  .text-lineheight-small4,
+  .text-style-lead4{
+    line-height:1.2;}
 
 
   .two-col,
