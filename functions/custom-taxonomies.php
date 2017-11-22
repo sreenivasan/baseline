@@ -1,5 +1,5 @@
 <?php
-add_action( 'init', array( $this, 'create_crosspost_taxonomy') , 0 );
+add_action( 'init', 'create_crosspost_taxonomy', 0 );
 
 function create_crosspost_taxonomy() {
 	// Add new taxonomy, NOT hierarchical (like tags)
