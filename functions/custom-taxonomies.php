@@ -32,5 +32,5 @@ function create_crosspost_taxonomy() {
 		'rewrite'               => array( 'slug' => 'crosspost-location' ),
 	);
 
-	register_taxonomy( 'crosspost-location', array( 'post','press-release' ), $args );
+	register_taxonomy( 'crosspost-location', array( 'post','press_release' ), $args );
 }	
