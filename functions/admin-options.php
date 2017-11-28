@@ -111,6 +111,23 @@ function my_post_edit_page_footer(){
 }
 add_action( 'admin_footer-post.php', 'my_post_edit_page_footer' );
 
+// Repositioning Multisite Post Duplicator's aggressive metabox position
+function mpd_reposition_metabox(){
+	echo '<style>
+/* multisite post duplicator styles */
+		#side-sortables{
+		  display: flex;
+    	flex-wrap: wrap;}
+		#multisite_clone_metabox,
+		#multisite_create_link{
+		    order: 5;}
+		#mpd_blogschecklist{
+			max-height:200px;
+			overflow:scroll;}
+	</style>';
+}
+add_action( 'admin_footer-post.php', 'mpd_reposition_metabox' );
+
 // Add "lang" attribtues to language menu items
 function add_menu_item_language__atts( $atts, $item, $args ) {
     // check if the item is in the primary menu
