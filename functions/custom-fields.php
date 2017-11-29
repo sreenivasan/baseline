@@ -196,6 +196,54 @@ if( function_exists("register_field_group") )
 		),
 		'menu_order' => 0,
 	));
+
+	register_field_group(array (
+		'id' => 'acf_crosspost-locations',
+		'title' => 'Crosspost Locations',
+		'fields' => array (
+			array (
+				'key' => 'field_5a1dcbedbad59',
+				'label' => '',
+				'name' => 'crosspost_location_field',
+				'type' => 'taxonomy',
+				'instructions' => 'Make a copy of this content on the sites listed below (in the language-version that matches this site). Contact the Web team to create a new crosspost location.',
+				'taxonomy' => 'crosspost-location',
+				'field_type' => 'checkbox',
+				'allow_null' => 1,
+				'load_save_terms' => 1,
+				'return_format' => 'id',
+				'multiple' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'post',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'press-release',
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'side',
+			'layout' => 'default',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 2,
+	));
+
 }
 
 ?>
