@@ -25,7 +25,8 @@ function create_crosspost_taxonomy() {
 	$args = array(
 		'hierarchical'          => false,
 		'labels'                => $labels,
-		'show_ui'               => true,
+		'show_ui'               => false,
+		'show_in_menu'          => true,
 		'show_admin_column'     => true,
 		'update_count_callback' => '_update_post_term_count',
 		'query_var'             => true,
