@@ -130,7 +130,6 @@ function mpd_reposition_metabox(){
 }
 add_action( 'admin_footer-post.php', 'mpd_reposition_metabox' );
 
-
 // Add "lang" attribtues to language menu items
 function add_menu_item_language__atts( $atts, $item, $args ) {
     // check if the item is in the primary menu

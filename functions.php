@@ -9,6 +9,7 @@ require_once('functions/custom-css.php');
 require_once('functions/custom-fonts.php');
 require_once('functions/custom-logo.php'); 
 require_once('functions/custom-post-type.php');
+require_once('functions/custom-taxonomies.php');
 require_once('functions/header-options.php');
 require_once('functions/favicon.php'); 
 require_once('functions/images.php'); 
