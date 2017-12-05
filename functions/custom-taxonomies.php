@@ -50,7 +50,7 @@ if( function_exists("register_field_group") )
 				'instructions' => 'Make a copy of this content on the sites listed below (in the language-version that matches this site). Contact the Web team to create a new crosspost location.',
 				'taxonomy' => 'crosspost-location',
 				'field_type' => 'checkbox',
-				'allow_null' => 1,
+				'allow_null' => 0,
 				'load_save_terms' => 1,
 				'return_format' => 'id',
 				'multiple' => 0,
