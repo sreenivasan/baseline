@@ -36,6 +36,8 @@ function create_crosspost_taxonomy() {
 	register_taxonomy( 'crosspost-location', array( 'post','press_release' ), $args );
 }	
 
+if( function_exists("register_field_group") )
+{
 	register_field_group(array (
 		'id' => 'acf_crosspost-locations',
 		'title' => 'Crosspost Locations',
@@ -82,7 +84,5 @@ function create_crosspost_taxonomy() {
 		),
 		'menu_order' => 2,
 	));
-
 }
-
 ?>
