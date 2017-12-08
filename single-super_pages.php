@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 * Template for Single SuperPages
 *
@@ -18,7 +18,7 @@ $sp_args = array(
 );
 $hp_query = new WP_query($sp_args);
 $hp_query->reset_postdata();
-get_header(); 
+get_header();
 
 // convert array-formatted string to actual array
 function tfArrayifyParams($params_string){
@@ -33,7 +33,7 @@ function tfArrayifyParams($params_string){
     // split the string into array values by comma
     $params = explode(',', trim( $params_string ) );
     // iterate through the lines.
-	foreach( $params as $param ) { 
+	foreach( $params as $param ) {
     //  make sure that the line's whitespace is cleared away
         $param = trim( $param );
         if( $param ){
@@ -50,28 +50,28 @@ function tfArrayifyParams($params_string){
 			        $param_values[] = $v;
 			    }
 			}
-		}		           
+		}
     }
     // recombine into an associative array
-	$params_array = array_combine($param_keys, $param_values);		
-	return $params_array;  
+	$params_array = array_combine($param_keys, $param_values);
+	return $params_array;
 }
 
 if ($hp_query->have_posts()) : while ($hp_query->have_posts()) : $hp_query->the_post();
 
 if ( !post_password_required() ): ?>
 	<style>
-		<?php 
+		<?php
 			$showHeader = get_field("sp-show-header");
 			if ($showHeader): else :
 		?>
 		#site-header,
 		#site-nav{
 			display:none !important;}
-		<?php 
+		<?php
 			endif;
 			$spBgChoice = get_field("sp_default_bg_choice");
-			if ( $spBgChoice == 'custom' ) : 
+			if ( $spBgChoice == 'custom' ) :
 				$spBgImgId = get_field("sp_default_bg");
 				$sp_bg_small = wp_get_attachment_image_src( $spBgImgId, 'page-background-mob');
 				$sp_bg_medium = wp_get_attachment_image_src( $spBgImgId, 'page-background-medium');
@@ -87,18 +87,18 @@ if ( !post_password_required() ): ?>
 			#body-mobile-background{
 				background-image:url('<?php echo $sp_bg_large[0]; ?>') !important;}
 		}
-		<?php 
+		<?php
 			elseif ($spBgChoice == 'none' || $spBgChoice == 'color') :
 		?>
 		#body-mobile-background{
 			background:transparent !important;}
-		<?php 
+		<?php
 			endif;
 		?>
 	</style>
 
-	<?php 
-		function spBgImg($imgID, $imgAttach) {	
+	<?php
+		function spBgImg($imgID, $imgAttach) {
 			if ( $imgID ){
 				$desktop = "page-background"; // (thumbnail, medium, large, full or custom size)
 				$mobile = "page-background-mob";
@@ -113,16 +113,16 @@ if ( !post_password_required() ): ?>
 					$sp_section_bg_preview_data_uri = getDataURI( $imgID );
 				}
 				$sp_section_bg_img_string = 'data-src-small="' . $sp_section_bg_img_mob[0] . '" data-src-medium="' . $sp_section_bg_img_medium[0] .'" data-src="' . $sp_section_bg_img_large[0] . '" style="background-image:url(' . $sp_section_bg_preview_data_uri . ');"';
-				echo $sp_section_bg_img_string;	
+				echo $sp_section_bg_img_string;
 			} else {
 				return false;
 			}
 		}
-		function spBgImgCredit($imgCred, $imgCredUrl) {	
+		function spBgImgCredit($imgCred, $imgCredUrl) {
 			if ( $imgCred ){
 				if ($imgCredUrl){
 					$bg_cred_link_open = '<a href="' . $imgCredUrl . '" target="_blank">';
-					$bg_cred_link_close = '</a>'; 
+					$bg_cred_link_close = '</a>';
 				}
 				$bg_cred_string = '<div class="section-img-credit meta">' . $bg_cred_link_open . $imgCred . $bg_cred_link_close . '</div>';
 				echo $bg_cred_string;
@@ -131,7 +131,7 @@ if ( !post_password_required() ): ?>
 			}
 		}
 		$i = 0;
-		if( have_rows( "sp-sections" ) ): while( have_rows( "sp-sections" ) ): the_row(); 
+		if( have_rows( "sp-sections" ) ): while( have_rows( "sp-sections" ) ): the_row();
 		$i++;
 		$id = !empty( get_sub_field("sp-id") ) ? get_sub_field("sp-id") : 'section_' . $i;
 		$classes = get_sub_field("sp-css-classes");
@@ -156,18 +156,18 @@ if ( !post_password_required() ): ?>
 			$notch_class = 'notch';
 		} else {
 			$notch_class = $notch_value;
-		} 
+		}
 		$classes = "b-lazy lazy bg-" . $bgcolor . " bg-repeat-" . $bg_img_repeat . " bg-image-" . $bg_img_status . " bg-attach-" . $bg_img_attach . " bg-size-". $bg_img_size . " width-" . $width . " padding-" . $padding . " " . $notch_class . " " . $classes;
 
 		if(get_row_layout() == "sp-section-texthtml"): // layout: Text/HTML ?>
 			<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section text-html <?php echo $classes; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 				<div class="section-inner text-html-inner">
 				<?php echo do_shortcode( get_sub_field("sp-section-content") ); ?>
-				
+
 				</div>
 				<?php spBgImgCredit($bg_img_credit, $bg_img_credit_url); ?>
 			</div>
-			
+
 		<?php elseif(get_row_layout() == "sp-section-code") : ?>
 			<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section code <?php echo $classes; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 				<div class="section-inner code-inner">
@@ -185,14 +185,14 @@ if ( !post_password_required() ): ?>
 						<p><strong>Site Admin:</strong> Insert your ActionKit Page ID in the widget settings to activate this form.</p>
 					</div>
 				</div>
-				<?php }else{ 
+				<?php }else{
 			$ak_title = get_sub_field( 'sp-actionkit-title' );
 			$ak_intro =  get_sub_field( 'sp-actionkit-intro' );
 			$ak_submit = get_sub_field( 'sp-actionkit-submit' );
-			$ak_name = get_sub_field( 'sp-actionkit-name' ); 
+			$ak_name = get_sub_field( 'sp-actionkit-name' );
 			$ak_name_label = get_sub_field( 'sp-actionkit-name-label' );
-			$ak_email = get_sub_field( 'sp-actionkit-email' ); 
-			$ak_email_label = get_sub_field( 'sp-actionkit-email-label' ); 
+			$ak_email = get_sub_field( 'sp-actionkit-email' );
+			$ak_email_label = get_sub_field( 'sp-actionkit-email-label' );
 			$ak_city = get_sub_field( 'sp-actionkit-city' );
 			$ak_city_label = get_sub_field( 'sp-actionkit-city-label' );
 			$ak_phone = get_sub_field( 'sp-actionkit-phone' );
@@ -205,7 +205,7 @@ if ( !post_password_required() ): ?>
 			$ak_country_label = get_sub_field( 'sp-actionkit-country-label' );
 			$ak_confirm = get_sub_field( 'sp-actionkit-confirmation' );
 			$ak_custom = get_sub_field('sp-actionkit-custom');
-			$form_layout = get_sub_field('sp-actionkit-layout'); 
+			$form_layout = get_sub_field('sp-actionkit-layout');
 			$ak_country_preselect = get_sub_field( 'sp-actionkit-country-preselect' );
 			$ak_postformtext = get_sub_field( 'sp-actionkit-postformtext' );
 			$lang = substr(get_locale(),0,2);
@@ -263,36 +263,36 @@ if ( !post_password_required() ): ?>
 			<?php if ($ak_name) { ?>
 				<div class="input-text input-name ak-input-type-user">
 					<label for="ak-name"><?php echo ( $ak_name_label ) ? $ak_name_label : "Name";?></label>
-					<input value="" id="ak-name" type="text" name="name" /> 
-				</div>		
+					<input value="" id="ak-name" type="text" name="name" />
+				</div>
 			<?php } ?>
 				<div class="input-text input-email ak-input-type-user">
 					<label for="ak-email"><?php echo ( $ak_email_label ) ? $ak_email_label : "Email Address";?></label>
-					<input value="" id="ak-email" type="text" name="email"/> 
+					<input value="" id="ak-email" type="text" name="email"/>
 				</div>
 			<?php if ($ak_city) { ?>
 				<div class="input-text input-city ak-input-type-user">
 					<label for="ak-city"><?php echo ( $ak_city_label ) ? $ak_city_label : "City";?></label>
-					<input value="" id="ak-city" type="text" name="city"/> 
+					<input value="" id="ak-city" type="text" name="city"/>
 				</div>
 			<?php }; ?>
 			<?php if ($ak_postal) { ?>
 				<div class="input-text input-postal ak-input-type-user">
 					<label for="ak-postal"><?php echo ( $ak_postal_label ) ? $ak_postal_label : "Postal Code";?></label>
-					<input value="" id="ak-postal" type="text" name="postal"/> 
+					<input value="" id="ak-postal" type="text" name="postal"/>
 				</div>
 			<?php }; ?>
 			<?php if ($ak_zip) { ?>
 				<div class="input-text input-numeric input-zip ak-input-type-user">
 					<label for="ak-zip"><?php echo ( $ak_zip_label ) ? $ak_zip_label : "Zip Code";?></label>
-					<input value="" id="ak-zip" type="text" name="zip"/> 
+					<input value="" id="ak-zip" type="text" name="zip"/>
 				</div>
 			<?php }; ?>
 				<div class="input-select input-country ak-input-type-user">
 					<label for="ak-country"><?php echo ( $ak_country_label ) ? $ak_country_label : "Country";?></label>
 					<select name="country" <?php if ( $ak_country_preselect ): ?>data-preselect="<?php echo $ak_country_preselect; ?>"<?php endif; ?> id="ak-country" title="<?php echo ( $ak_country_label ) ? $ak_country_label : "Country";?>" >
 						<option selected> </option>
-						<?php 
+						<?php
 							$country_list_filename = "country-list_" . $lang . ".php";
 							$country_list_path = get_template_directory() . "/languages/" . $country_list_filename ;
 							if ( file_exists( $country_list_path ) ) {
@@ -306,7 +306,7 @@ if ( !post_password_required() ): ?>
 			<?php if ($ak_phone): ?>
 				<div class="input-text input-number input-phone ak-input-type-user">
 					<label for="ak-phone"><?php echo ( $ak_phone_label ) ? $ak_phone_label : "Phone Number";?></label>
-					<input value="" id="ak-phone" type="text" name="phone" /> 
+					<input value="" id="ak-phone" type="text" name="phone" />
 				</div>
 			<?php endif; ?>
 			<?php if ($ak_custom): ?>
@@ -328,9 +328,9 @@ if ( !post_password_required() ): ?>
 		<script src="https://act.350.org/samples/widget.js"></script>
 		</div>
 		<?php spBgImgCredit($bg_img_credit, $bg_img_credit_url); ?>
-	</div>	
+	</div>
 		<?php elseif(get_row_layout() == "sp-section-posts") : ?>
-		<?php 
+		<?php
 			$sp_content_custom_args = tfArrayifyParams( get_sub_field('sp-posts-query-params', false ) );
 			$sp_content_default_args = array(
 				'post_type' => 'post',
@@ -348,12 +348,12 @@ if ( !post_password_required() ): ?>
 					} else{
 						$layout_class = ' posts-layout-list';
 					}
-				?>			
+				?>
 				<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section posts <?php echo $classes . $layout_class; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 					<div class="section-inner posts-inner">
-						<?php if ( get_sub_field('sp-section-title') ): ?><h3 class="section-title meta c10 margin-bottom-medium"><?php echo get_sub_field('sp-section-title'); ?></h3><?php endif; ?>
-						<div class="posts-wrapper">						
-						<?php 
+						<?php if ( get_sub_field('sp-section-title') ): ?><h3 class="section-title meta margin-bottom-medium"><?php echo get_sub_field('sp-section-title'); ?></h3><?php endif; ?>
+						<div class="posts-wrapper">
+						<?php
 						while ($sp_content_query->have_posts()) : $sp_content_query->the_post();
 							$post_count++;
 							// check if post_type query parameter is set and if so, use that template part:
@@ -373,13 +373,13 @@ if ( !post_password_required() ): ?>
 					<?php if ( $sp_content_after ): ?>
 						<div class="content-more">
 							<?php echo $sp_content_after; ?>
-						</div>	
+						</div>
 					<?php elseif ( ($sp_content_args['post_type'] == "post") && ($posts_per_page > 2) ): ?>
-						<div class="pagination"><?php 
+						<div class="pagination"><?php
 							$pagination_args = array(
 								'prev_text'          => __('← Newer','baseline'),
 								'next_text'          => __('Older →','baseline')
-							); 
+							);
 							echo trim( paginate_links($pagination_args) );
 						?></div>
 					<?php endif; ?>
@@ -389,20 +389,20 @@ if ( !post_password_required() ): ?>
 				<?php $hp_query->reset_postdata(); ?>
 			<?php endif; ?>
 		<?php elseif(get_row_layout() == "sp-section-sidebar") : ?>
-			<?php 
-				$sidebar_slug = get_sub_field("sp-section-sidebar-slug"); 
+			<?php
+				$sidebar_slug = get_sub_field("sp-section-sidebar-slug");
 				if ( is_active_sidebar( $sidebar_slug ) ):
 					get_sidebar( $sidebar_slug );
-				endif; 
+				endif;
 			?>
 		<?php elseif(get_row_layout() == "sp-section-grid") : ?>
 			<?php $columns = get_sub_field('grid-square-columns'); ?>
-			<?php 
+			<?php
 				if( have_rows('grid-square') ): ?>
 				<div id="<?php echo $id; ?>" <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section section-img-grid <?php echo $classes; ?>" <?php echo $addl_attributes; ?> >
 					<div class="section-inner img-grid-inner">
 				    <?php while ( have_rows('grid-square') ) : the_row(); ?>
-						<?php 
+						<?php
 							$attachment_id = get_sub_field('grid-square-img');
 							$size = "grid-square-img"; // (thumbnail, medium, large, full or custom size)
 							$grid_img = wp_get_attachment_image_src($attachment_id, $size );
@@ -431,11 +431,11 @@ if ( !post_password_required() ): ?>
 				        </a>
 						</div>
 				    <?php endwhile; ?>
-				    
+
 					</div>
 					<?php spBgImgCredit($bg_img_credit, $bg_img_credit_url); ?>
 				</div>
-				<?php 
+				<?php
 				else :
 				 // no rows found
 				endif;
@@ -445,7 +445,7 @@ if ( !post_password_required() ): ?>
  				// get nav menu settings
 				$nav_menu_source = get_sub_field("sp-nav-menu-source");
 				$nav_custom_menu_name = get_sub_field("sp-nav-menu-label");
-				$navslug = get_sub_field("sp-section-navslug"); 
+				$navslug = get_sub_field("sp-section-navslug");
 				if ( $navslug ):
 					$menu_object = wp_get_nav_menu_object( $navslug );
 					$menu_array = get_object_vars( $menu_object );
@@ -458,8 +458,8 @@ if ( !post_password_required() ): ?>
 			?>
 			<nav <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section nav <?php echo $classes; ?> <?php echo $nav_mobile_display; ?> <?php echo $nav_tablet_display; ?> <?php echo $nav_desktop_display; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> data-nav-label="<?php echo $nav_label; ?>">
 				<div class="section-inner nav-inner">
-					<?php // if menu source is set to "custom" and it has menu items... 
-						if ( ( $nav_menu_source == "nav-menu-custom" ) && have_rows('sp-nav-menu-items') ): 
+					<?php // if menu source is set to "custom" and it has menu items...
+						if ( ( $nav_menu_source == "nav-menu-custom" ) && have_rows('sp-nav-menu-items') ):
 					?>
 					<ul class="menu custom-menu">
 						<?php if ( $nav_custom_menu_name ): ?>
@@ -475,10 +475,10 @@ if ( !post_password_required() ): ?>
 					</ul>
 					<?php else: ?>
 					<h4 class="meta nav-label"><?php echo $nav_label; ?></h4>
-					<?php 
+					<?php
 						wp_nav_menu(array(
 							'menu' => $navslug,
-							'container' => false,	
+							'container' => false,
 							'fallback_cb' => '',
 						));
 					?>
@@ -489,22 +489,22 @@ if ( !post_password_required() ): ?>
 			<div class="section ticker <?php echo $classes; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 				<div class="section-inner ticker-inner">
 				<?php $ticker_id = get_sub_field("sp-ticker-id"); ?>
-				<?php 
+				<?php
 					if (function_exists('ditty_news_ticker') ){
 						ditty_news_ticker( $ticker_id );
-					} 
+					}
 				?>
 				</div>
 			</div>
 			<?php $hp_query->reset_postdata(); ?>
 		<?php endif; ?>
-	<?php 
+	<?php
 	endwhile;
 	endif; // end ACF flex field loop
 	?>
 
-<?php 
-else : 
+<?php
+else :
 // if password protect is enabled, get the pw form ?>
 		<section id="content" class="bg-white box-white section width-normal padding-large">
 			<div class="section-inner">
@@ -513,9 +513,9 @@ else :
 				?>
 			</div>
 		</section>
-<?php 
+<?php
 endif;
 
 endwhile;
 endif;
-get_footer(); 
+get_footer();
