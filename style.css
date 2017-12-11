@@ -5,7 +5,7 @@
  Description:  350 Baseline parent theme
  Author:       Matthew Anderson + suzi grishpul
  Author URI:   http://350.org
- Version:      1.1.17
+ Version:      1.1.18
  Text Domain:  baseline
  GitHub Theme URI: https://github.com/350org/baseline
 */
@@ -810,7 +810,7 @@ a.text-unstyled:hover{
 .text-highlight{
   display:inline;
   /* set min. optical size in px, then add relative size in em */
-  padding:1px calc(3px + 0.04em);}
+  padding:calc(1px + 0.07em) calc(3px + 0.04em);}
 
 .text-small-caps,
 .sm-cp{
