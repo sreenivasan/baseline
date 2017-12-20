@@ -1,10 +1,10 @@
 <?php
 
 
-function smoptions_admin_menu(){  
-	add_submenu_page('options-general.php', "Social Media", "Social Media", 'manage_options', 'social-media', 'smoptions_page'); 
-} 
-add_action('admin_menu', 'smoptions_admin_menu', 5);  
+function smoptions_admin_menu(){
+	add_submenu_page('options-general.php', "Social Media", "Social Media", 'manage_options', 'social-media', 'smoptions_page');
+}
+add_action('admin_menu', 'smoptions_admin_menu', 5);
 
 function smoptions_settings_init(){
 	// register a new section in the "social media" page
@@ -50,13 +50,13 @@ function smoptions_settings_init(){
 		'social-media',
 		'smoptions_general',
 		array(
-		    'label_for' => 'site_share_img', 
-		    'id' => 'site_share_img' 
+		    'label_for' => 'site_share_img',
+		    'id' => 'site_share_img'
 		)
-	); 
+	);
     register_setting( 'social-media', 'site_share_img' );
     function site_share_img_callback( $args ){
-    	$site_share_img = get_option('site_share_img'); 
+    	$site_share_img = get_option('site_share_img');
 		$site_share_img_url = wp_get_attachment_image_src( $site_share_img, "small" );
 		echo '<input type="hidden" id="site_share_img_id" name="site_share_img" value="'. $site_share_img .'" />
 		<div class="image-upload-preview" style="border:1px solid rgba(0,0,0,0.1);padding:5px;margin-bottom:10px;max-width:200px;">
@@ -66,7 +66,7 @@ function smoptions_settings_init(){
 		<p><small>Used whenever a more specific share image is not available. Recommended minimum size: 843px by 504px</small></p>
 		<script>
 			jQuery(document).ready(function(){
-				wp_image_upload("site_share_img");	
+				wp_image_upload("site_share_img");
 			});
 		</script>';}
 
@@ -79,15 +79,15 @@ function smoptions_settings_init(){
 		'social-media',
 		'smoptions_general',
 		array(
-		    'label_for' => 'post_sharing_buttons', 
-		    'id' => 'post_sharing_buttons' 
+		    'label_for' => 'post_sharing_buttons',
+		    'id' => 'post_sharing_buttons'
 		)
-	); 
+	);
     register_setting( 'social-media', 'site_show_fb_share'  );
     register_setting( 'social-media', 'site_show_tw_share'  );
     register_setting( 'social-media', 'site_show_vk_share'  );
     register_setting( 'social-media', 'site_show_sina_weibo_share'  );
-  
+
     function post_sharing_buttons_callback( $args ){
      /* translators: admin settings */
 		echo '<input type="checkbox" name="site_show_fb_share" id="site_show_fb_share" value="1" ' . checked( get_option( 'site_show_fb_share', 'true' ), '1', 0 ) . ' /> <label for="site_show_fb_share">' .  /* translators: admin settings */ __("Facebook","baseline") .'</label><br>
@@ -105,10 +105,10 @@ function smoptions_settings_init(){
 		'social-media',
 		'smoptions_facebook',
 		array(
-		    'label_for' => 'site_fb_active', 
-		    'id' => 'site_fb_active' 
+		    'label_for' => 'site_fb_active',
+		    'id' => 'site_fb_active'
 		)
-	); 
+	);
     register_setting( 'social-media', 'site_fb_active'  );
     function site_fb_active_callback( $args ){
 		echo '<input type="checkbox" id="' . $args['id'] . '" name="'  . $args['id'] . '" value="1" ' . checked( get_option( $args['id'] ), '1', 0 ) . ' /><br>
@@ -123,10 +123,10 @@ function smoptions_settings_init(){
 		'social-media',
 		'smoptions_facebook',
 		array(
-		    'label_for' => 'site_fb_appid', 
-		    'id' => 'site_fb_appid' 
+		    'label_for' => 'site_fb_appid',
+		    'id' => 'site_fb_appid'
 		)
-	); 
+	);
     register_setting( 'social-media', 'site_fb_appid'  );
     function site_fb_appid_callback( $args ){
 		echo '<input type="text" id="' . $args['id'] . '" name="'  . $args['id'] . '" value="' . get_option( $args['id'] ) . '" /><br>
@@ -142,10 +142,10 @@ function smoptions_settings_init(){
 		'social-media',
 		'smoptions_twitter',
 		array(
-		    'label_for' => 'site_twitter_account', 
-		    'id' => 'site_twitter_account' 
+		    'label_for' => 'site_twitter_account',
+		    'id' => 'site_twitter_account'
 		)
-	); 
+	);
     register_setting( 'social-media', 'site_twitter_account'  );
     function site_twitter_account_callback( $args ){
 		echo '<input type="text" id="' . $args['id'] . '" name="'  . $args['id'] . '" value="' . get_option( $args['id'] ) . '" /><br>
@@ -156,50 +156,50 @@ function smoptions_settings_init(){
 add_action('admin_init', 'smoptions_settings_init');
 
 
-function smoptions_page(){ 
-	 ?>  
-    <div class="wrap">  
-        <h2>Social Media Options</h2>  
+function smoptions_page(){
+	 ?>
+    <div class="wrap">
+        <h2>Social Media Options</h2>
 
         <form method="post" action="options.php">
             <?php
- 
+
             // Output the settings sections.
             do_settings_sections( 'social-media' );
- 
+
             // Output the hidden fields, nonce, etc.
             settings_fields( 'social-media' );
- 
+
             // Submit button.
             submit_button();
- 
+
             ?>
         </form>
 
-    </div>  
-    <?php  
-} 
- 
+    </div>
+    <?php
+}
+
 
 
 //////////////////
 // Update the DB with new theme options
 //////////////////
- 
-    function smoptions_update(){  
-        // this is where validation would go   
 
-        update_option('site_show_fb_share',  $_POST['site_show_fb_share']); 
-        update_option('site_show_tw_share',  $_POST['site_show_tw_share']); 
-        update_option('site_show_vk_share',  $_POST['site_show_vk_share']); 
-        update_option('site_show_sina_weibo_share',  $_POST['site_show_sina_weibo_share']); 
-		update_option('site_fb_appid',  $_POST['site_fb_appid']);  
-		update_option('site_fb_active',  $_POST['site_fb_active']);    
-		update_option('site_share_img',  $_POST['site_share_img']);  
+    function smoptions_update(){
+        // this is where validation would go
+
+        update_option('site_show_fb_share',  $_POST['site_show_fb_share']);
+        update_option('site_show_tw_share',  $_POST['site_show_tw_share']);
+        update_option('site_show_vk_share',  $_POST['site_show_vk_share']);
+        update_option('site_show_sina_weibo_share',  $_POST['site_show_sina_weibo_share']);
+		update_option('site_fb_appid',  $_POST['site_fb_appid']);
+		update_option('site_fb_active',  $_POST['site_fb_active']);
+		update_option('site_share_img',  $_POST['site_share_img']);
 		update_option('site_twitter_account',  $_POST['site_twitter_account']);
 	}
 $update_smoptions = isset( $_POST['update_smoptions'] ) ? $_POST['update_smoptions'] : '';
-  if ( $update_smoptions == 'true' ) { smoptions_update(); } 
+  if ( $update_smoptions == 'true' ) { smoptions_update(); }
 
 /* Add ACF custom fields */
 
@@ -266,7 +266,7 @@ if( function_exists("register_field_group") ){
 				'maxlength' => '',
 			),
 			array (
-				'key' => 'field_529e3ffc1a23c',	
+				'key' => 'field_529e3ffc1a23c',
 				'label' => 'Facebook Share Description',
 				'name' => 'post_fb_desc',
 				'type' => 'textarea',
@@ -341,7 +341,7 @@ if( function_exists("register_field_group") ){
 				'name' => 'post_tw_url',
 				'type' => 'text',
 				'instructions' => 'A custom URL for the post when it\'s shared on Twitter. Useful if the page URL has a shortened version, ("350.org/shortlink") or if you want to add tracking codes into the url ("350.org/my-post-name-here?tracking-code=123") <em>Default: The Permalink, as defined in the field below the title of the post</em>
-	
+
 	Note: Special AddThis buttons aren\'t currently customizable, and will use the default values. The built-in "Share on Twitter" button will use the custom URL. ',
 				'conditional_logic' => array (
 					'status' => 1,
@@ -377,6 +377,15 @@ if( function_exists("register_field_group") ){
 					'param' => 'post_type',
 					'operator' => '==',
 					'value' => 'page',
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'press-release',
 					'order_no' => 0,
 					'group_no' => 1,
 				),
