@@ -3,8 +3,12 @@
 /* Wrap '350' in site title with <span class="tf-logo"> so CSS can style it */
 function tf_site_title(){
 	$title = get_bloginfo('title');
-	$new_title = preg_replace('/350/', '<span class="tf-logo title-350logo">350</span><span class="title-text">', $title . '</span>');
-	return $new_title;
+	if  ( preg_match('/350/', $title) ){
+		$new_title = preg_replace('/350/', '<span class="tf-logo title-350logo">350</span><span class="title-text">', $title . '</span>');
+		return $new_title;
+	} else {
+		return $title;
+	}
 }
 
 function tf_header_options_menu(){
