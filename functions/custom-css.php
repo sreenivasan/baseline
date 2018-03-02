@@ -199,15 +199,15 @@ function baseline_custom_css() {
 
 
 	.title0{
-  	  font-size:'. fontSize(55) .'px;}
+  	font-size:'. fontSize(55) .'px;}
 	.title1{
 	  font-size:'. fontSize(46) .'px;}
 	.title2{
 	  font-size:'. fontSize(38) .'px;}
 	.title3{
-	  font-size:'. fontSize(30) .'px;}
+	  font-size:'. fontSize(34) .'px;}
 	.title4{
-	  font-size:'. fontSize(24) .'px;}
+	  font-size:'. fontSize(30) .'px;}
 
 	@media only screen and (max-width:650px){
 		.mobile-expando-meta > .mobile-expando-link,
@@ -221,15 +221,15 @@ function baseline_custom_css() {
 
 	@media only screen and (min-width:650px){
 		#body-mobile-background{
-		    background-image:url(' . $theme_bg_medium[0] .');}
-	    h1{
+			background-image:url(' . $theme_bg_medium[0] .');}
+		h1{
 			font-size:'. fontSize(2.4) .'em;}
 		h2{
 			font-size:'. fontSize(2.1) .'em;}
 		h3{
 			font-size:'. fontSize(1.8) .'em;}
 		.title0{
-  	  		font-size:'. fontSize(80) .'px;}
+			font-size:'. fontSize(80) .'px;}
 		.title1{
 			font-size:'. fontSize(72) .'px;}
 		.title2{
