@@ -175,7 +175,7 @@ function urlParam(name){
 				var ajaxSourceURL = jQuery(this).href;
 				var ajaxSourceElem = jQuery(this).attr('data-ajax-source');
 				var ajaxDest = jQuery(this).attr('data-ajax-dest');
-				if (!isSingle){ 
+				if (!isSingle){
 					jQuery('.ajax-link.active').removeClass('active');
 					jQuery(this).addClass('active');
 				}
@@ -201,7 +201,7 @@ function urlParam(name){
 	$.fn.localizeTime = function(options){
 		return this.each(function(){
 			var timeFormat = $.extend({
-				hour:"2-digit", 
+				hour:"2-digit",
 				minute:"2-digit",
 				timeZoneName:"short",
 			}, options );
@@ -220,8 +220,8 @@ function urlParam(name){
 	$.fn.localizeDate = function(dateOptions){
 		return this.each(function(){
 			var dateFormat = $.extend({
-				month:"short", 
-				day:"2-digit", 
+				month:"short",
+				day:"2-digit",
 			}, dateOptions );
 			var actionDate = new Date( jQuery(this).attr('data-time') );
 			if ( typeof actionDate.toLocaleDateString === "function" ){
@@ -234,8 +234,10 @@ function urlParam(name){
 	};
 }(jQuery));
 /**
+ * data-read-more-after
  * Take multiple children, hide all but the first N, and add a "read more" link
  * option: data-read-more-after-link-position="new-line"
+ * option: data-read-more-after-link-classes="text-caps text-blue" etc.
  */
 (function($){
 	jQuery.fn.truncateAndReadMore = function(){
@@ -247,28 +249,28 @@ function urlParam(name){
       pt: "Leia mais",
       es: "Leer más",
       de: "Weiterlesen"
-        };
+    };
 		var readMoreText = readMoreTranslations['en'];
 		// Detect language
 		var htmlLangAttr = $('html').attr('lang');
 		var htmlLangAttr = htmlLangAttr.substring(0,2);
-				
+
 		if ( htmlLangAttr && readMoreTranslations[htmlLangAttr] ){
 			readMoreText = readMoreTranslations[htmlLangAttr];
 		}
 		// For each element targeted...
 		return this.each(function(){
-            // get number of paragraphs to hide
-            var visElems = $(this).attr('data-read-more-after');
-            // check for alternate display options
-            var display = $(this).attr('data-read-more-after-link-position');
-            display = display ? display : '';
-            // check for optional classes to add
-            var readMoreLinkClasses = $(this).attr('data-read-more-after-link-classes');
-            readMoreLinkClasses = readMoreLinkClasses ? readMoreLinkClasses : '';
-            // check if visible elements is a positive number, if not set default to 2
-            var visElems = (visElems > 0) ? visElems : 2 ;
-			// Set up click handler function 
+      // get number of paragraphs to hide
+      var visElems = $(this).attr('data-read-more-after');
+      // check for alternate display options
+      var display = $(this).attr('data-read-more-after-link-position');
+      display = display ? display : '';
+      // check for optional classes to add
+      var readMoreLinkClasses = $(this).attr('data-read-more-after-link-classes');
+      readMoreLinkClasses = readMoreLinkClasses ? readMoreLinkClasses : '';
+      // check if visible elements is a positive number, if not set default to 2
+      var visElems = (visElems > 0) ? visElems : 2 ;
+			// Set up click handler function
 			jQuery(this).on('readMoreEventSetup', function(){
 				var target = jQuery(this);
 				jQuery(this).find('.read-more').on('click', function(e){
@@ -277,27 +279,27 @@ function urlParam(name){
 					target.children(':hidden').fadeIn();
 				});
 			});
-			// Make sure there's more than N children element in the container
 			var firstParaSibs = jQuery(this).children();
-			// Hide extra para's, add "read more", trigger click handler setup event
+			// Make sure there's more than N children element in the container
 			if ( firstParaSibs.length > visElems){
-                if ( display == 'new-line' ){
-                    var readMoreBlockLink = '<p class="read-more-wrapper"><a class="read-more arrow-down ' + readMoreLinkClasses +'">' + readMoreText +'</a></p>';
-                    var readMoreInlineLink = '';
-                } else {
-                    var readMoreBlockLink = '';
-                    var readMoreInlineLink = '<a class="read-more read-more-inline arrow-down ' + readMoreLinkClasses +'">' + readMoreText +'</a>';
-                }
-                $(this).append( readMoreBlockLink );
-                firstParaSibs
-                    .not('.do-not-hide')
-                    .hide()
-                    .siblings(":lt(" + (visElems-1) + ")") // uses zero-based index counting
-                    .addBack(":eq(0)") // .siblings excludes the first element, so add it back
-                    .show()
-                    .last()
-                    .append( readMoreInlineLink )
-                    .trigger('readMoreEventSetup');
+        if ( display == 'new-line' ){
+            var readMoreBlockLink = '<p class="read-more-wrapper"><a class="read-more arrow-down ' + readMoreLinkClasses +'">' + readMoreText +'</a></p>';
+            var readMoreInlineLink = '';
+        } else {
+            var readMoreBlockLink = '';
+            var readMoreInlineLink = '<a class="read-more read-more-inline arrow-down ' + readMoreLinkClasses +'">' + readMoreText +'</a>';
+        }
+        $(this).append( readMoreBlockLink );
+        // Hide extra para's, add "read more", trigger click handler setup event
+        firstParaSibs
+            .not('.do-not-hide')
+            .hide()
+            .siblings(":lt(" + (visElems-1) + ")") // uses zero-based index counting
+            .addBack(":eq(0)") // .siblings excludes the first element, so add it back
+            .show()
+            .last()
+            .append( readMoreInlineLink )
+            .trigger('readMoreEventSetup');
 			}
 
 		});
@@ -305,50 +307,50 @@ function urlParam(name){
 }(jQuery));
 // Modal
 (function($){
-    $.fn.modal = function(){
-        return this.each(function(index){
-            // switch index to start from 1 instead of 0 for readability in the markup
-            index++;
-            // check for option to disable automatic hiding of source element
-            var showSourceElem = $(this).attr('data-modal-show-source');
-            // get the ID of the element that contains the content for the modal from the "data-modal-source" attribute in the HTML tag
-            var modalSourceID = $(this).attr('data-modal-source');
-            var modalSourceElem = $( modalSourceID );
-            var modalWrapperId = 'modal-' + index;
-            // if showing the source element...
-            if (showSourceElem){
-                modalSourceElem.removeClass('hidden js-hidden');
-            } else {
-                // Make sure the modal source element is hidden only with inline styles
-                modalSourceElem.hide().removeClass('hidden js-hidden');
-            }
-            // get the optional list of classes to add to the inner content area from the "data-modal-classes-inner" attribute in the HTML tag
-            var modalInnerClassesAttr = $(this).attr('data-modal-classes-inner');
-            // use the default classes to set the inner modal to be a white box with lots of padding
-            var modalInnerClasses = modalInnerClassesAttr ? modalInnerClassesAttr : 'box box-huge bg-white text-dark'; 
-            // get the optional list of classes to add to the inner content area from the "data-modal-classes-outer" attribute in the HTML tag
-            var modalOuterClassesAttr = $(this).attr('data-modal-classes-outer');
-            // use the default classes to set the modal container to have a transparent dark gray background and lots of horizontal padding
-            var modalOuterClasses = modalOuterClassesAttr ? modalOuterClassesAttr : 'bg-dkgray-trans width-narrow'; 
+  $.fn.modal = function(){
+    return this.each(function(index){
+      // switch index to start from 1 instead of 0 for readability in the markup
+      index++;
+      // check for option to disable automatic hiding of source element
+      var showSourceElem = $(this).attr('data-modal-show-source');
+      // get the ID of the element that contains the content for the modal from the "data-modal-source" attribute in the HTML tag
+      var modalSourceID = $(this).attr('data-modal-source');
+      var modalSourceElem = $( modalSourceID );
+      var modalWrapperId = 'modal-' + index;
+      // if showing the source element...
+      if (showSourceElem){
+          modalSourceElem.removeClass('hidden js-hidden');
+      } else {
+          // Make sure the modal source element is hidden only with inline styles
+          modalSourceElem.hide().removeClass('hidden js-hidden');
+      }
+      // get the optional list of classes to add to the inner content area from the "data-modal-classes-inner" attribute in the HTML tag
+      var modalInnerClassesAttr = $(this).attr('data-modal-classes-inner');
+      // use the default classes to set the inner modal to be a white box with lots of padding
+      var modalInnerClasses = modalInnerClassesAttr ? modalInnerClassesAttr : 'box box-huge bg-white text-dark';
+      // get the optional list of classes to add to the inner content area from the "data-modal-classes-outer" attribute in the HTML tag
+      var modalOuterClassesAttr = $(this).attr('data-modal-classes-outer');
+      // use the default classes to set the modal container to have a transparent dark gray background and lots of horizontal padding
+      var modalOuterClasses = modalOuterClassesAttr ? modalOuterClassesAttr : 'bg-dkgray-trans width-narrow';
 
-            // set up modal wrappers
-            // assemble the outer and inner modal wrappers around the content
-            var modal = '<div id="' + modalWrapperId + '" class="modal-wrapper section ' + modalOuterClasses + '"><div class="modal-content section-inner ' + modalInnerClasses + '"><a class="modal-close">X</a></div></div>';
-            // append the modal before the closing </body> tag and add the class "open" (which hooks into CSS3 animations)
-            // NOTE: animate() is used just to provide a slight delay before adding the 'open' class, which is necessary to trigger CSS3 animation (for some reason)
-            $(modal).appendTo('body');
+      // set up modal wrappers
+      // assemble the outer and inner modal wrappers around the content
+      var modal = '<div id="' + modalWrapperId + '" class="modal-wrapper section ' + modalOuterClasses + '"><div class="modal-content section-inner ' + modalInnerClasses + '"><a class="modal-close">X</a></div></div>';
+      // append the modal before the closing </body> tag and add the class "open" (which hooks into CSS3 animations)
+      // NOTE: animate() is used just to provide a slight delay before adding the 'open' class, which is necessary to trigger CSS3 animation (for some reason)
+      $(modal).appendTo('body');
 
 			// set up the click event
 			$(this).on('click', function(e){
 				e.preventDefault();
-                // unhide the source element before appending it to the modal window
-                modalSourceElem.show();
-                $('#' + modalWrapperId).addClass('open').children('.section-inner').append(modalSourceElem);
-                // check for any lazy loading inside the modal and swap data-src into src and kill any spinners
-                $('#' + modalWrapperId).find('[data-src]').each(function(){
-                    var modalDataSrc = $(this).attr('data-src');
-                    $(this).attr('src',modalDataSrc).removeClass('lazy').parent().spin(false);;
-                });
+        // unhide the source element before appending it to the modal window
+        modalSourceElem.show();
+        $('#' + modalWrapperId).addClass('open').children('.section-inner').append(modalSourceElem);
+        // check for any lazy loading inside the modal and swap data-src into src and kill any spinners
+        $('#' + modalWrapperId).find('[data-src]').each(function(){
+            var modalDataSrc = $(this).attr('data-src');
+            $(this).attr('src',modalDataSrc).removeClass('lazy').parent().spin(false);;
+        });
 				// set up the "close modal" function
 				function modalClose(){
 					$('#' + modalWrapperId).removeClass('open');
@@ -369,10 +371,10 @@ function urlParam(name){
 				});
 				// call modalClose() when the Esc key is pressed
 				$(document).keyup(function(e){
-		     		if (e.keyCode == 27) { 
-		     			modalClose();
-		     		}
-		    	});
+	     		if (e.keyCode == 27) {
+	     			modalClose();
+	     		}
+	    	});
 			});
 		});
 	}
@@ -407,6 +409,7 @@ function urlParam(name){
 	    });
 	}
 }(jQuery));
+
 // Expandooo
 (function($){
   $.fn.expando = function(device){
@@ -417,7 +420,7 @@ function urlParam(name){
       var expandoText3raw = $(this).children().first().text();
       var expandoText3 = expandoText3raw.substring(0,60);
       var expandedOnLoad = $(this).hasClass(screenSize+'expando-expanded');
-      
+
       if ( expandoText ){
         $(this).wrapInner('<div class="'+screenSize+'expando-inner" />').prepend('<a class="'+screenSize+'expando-link" href="#">' + expandoText + '</a>');
         //console.log('expandoText1!');
@@ -427,7 +430,7 @@ function urlParam(name){
       } else if (expandoText3) {
         $(this).wrapInner('<div class="'+screenSize+'expando-inner" />').prepend('<a class="'+screenSize+'expando-link" href="#">' + expandoText3 + '...</a>');
         //console.log('expandoText3!');
-      } else {    
+      } else {
         $(this).wrapInner('<div class="'+screenSize+'expando-inner" />').prepend('<a class="'+screenSize+'expando-link" href="#">Click to expand</a>');
       };
       // if set to pre-expanded, don't add the "collapsed" class
@@ -477,20 +480,20 @@ function urlParam(name){
 			var akCount = akPagesStart ? akPagesStart : 0;
 			akPages = akPages ? ( (akPages).trim() ).split(' ') : null;
 
-		    if ( akPages ){ 
-			    for ( var i = 0, akPagesLength = akPages.length; i < akPagesLength; i++ ){
-			    	$.ajax({
-			    		context: this,
-						url: '//350.actionkit.com/progress/?page=' + akPages[i],
-						dataType: 'jsonp',
-						success: function(data) {
-							var returnCount = parseInt( data.total.actions );
-							akCount = akCount + returnCount;
-		    				$(this).html( akCount );
-						}
-					});
-			    }
+	    if ( akPages ){
+		    for ( var i = 0, akPagesLength = akPages.length; i < akPagesLength; i++ ){
+		    	$.ajax({
+		    		context: this,
+  					url: '//350.actionkit.com/progress/?page=' + akPages[i],
+  					dataType: 'jsonp',
+  					success: function(data) {
+  						var returnCount = parseInt( data.total.actions );
+  						akCount = akCount + returnCount;
+  	    			$(this).html( akCount );
+  					}
+  				});
 		    }
+	    }
 		});
 	}
 }(jQuery));
@@ -530,7 +533,8 @@ jQuery(document).ready(function($) {
 	// for AK-style form fields, wrap adjacent sibs in fieldset
 	$('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'fieldset class="input-group"');
 	$('[data-preselect]').preselect();
-	var bLazy = new Blazy({ 
+	var bLazy = new Blazy({
+    container: '.page-container',
 		breakpoints: [
 			{
 				width: 650,
@@ -557,6 +561,7 @@ jQuery(document).ready(function($) {
     $('.js-localize-date').localizeDate();
 	$('.ajax-link').ajaxLink();
 	$.localScroll.hash({
+    target:'.page-container',
 		onBefore: function( e, anchor, $target ){
 			var ifExpando = $(anchor).is('.expando, .mobile-expando');
 			if( ifExpando ){
@@ -572,6 +577,7 @@ jQuery(document).ready(function($) {
     $(".tablet-expando").expando('tablet');
 
 	$.localScroll({
+    target:'.page-container',
 		filter: ':not(.js-modal)',
 		// if anchor linking to an expando section, expand it before scrolling to it
 		onBefore: function( e, anchor, $target ){
@@ -586,7 +592,7 @@ jQuery(document).ready(function($) {
 	$(".iframe-wrapper, .video-wrapper").fitVids();
 	$(".ak-action-count").akGetActionCount();
 	$(".tw-share, .fb-share, .button-dot.facebook, .button-share-facebook, .button-share-twitter").newWindowPopup();
-	$(".section-img-credit").hover( 
+	$(".section-img-credit").hover(
 		function(){
 			$(this).stop().prev('.section-inner').animate({opacity:0});
 		}, function(){
@@ -600,11 +606,11 @@ jQuery(document).ready(function($) {
   $(".nav-desktop-collapsed").collapseMenu('desktop');
 
 	var initialWidth = $(window).width();
-    console.log('intialWidth = ' + initialWidth);
-    // Initialize "sticky" js only for large screens
-    if ( initialWidth > 900 ){
-        $(".js-sticky, .sticky").sticky({zIndex:100});
-    }
+  console.log('intialWidth = ' + initialWidth);
+  // Initialize "sticky" js only for large screens
+  if ( initialWidth > 900 ){
+      $(".js-sticky, .sticky").sticky({zIndex:100});
+  }
 
 	if ("ontouchstart" in document.documentElement){
 		// block first click on .parent nav elements
@@ -643,4 +649,3 @@ jQuery(document).ready(function($) {
 	// Truncate and add "Read More" link
 	$('[data-read-more-after], [data-readmore-after]').truncateAndReadMore();
 }); /* end of as page load scripts */
-

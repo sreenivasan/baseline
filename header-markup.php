@@ -1,9 +1,23 @@
 <?php
 /* Header markup sub-template
 /  includes the header container, site title/logo, menus and header Buttons
-*/
+*/?>
 
-/* if header is flexbox-enabled, let's throw everything into one container within the header */
+<body <?php body_class($lang .' '. $body_bg_img_class .' body-bg-' . $body_bg_color_class); ?> ontouchstart >
+
+<?php if ( get_option('site_fb_active') ): ?>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/<?php echo get_locale(); ?>/all.js#xfbml=1&appId=<?php if ( get_option('site_fb_appid') ){ echo get_option('site_fb_appid'); } else { ?>148617041897246<?php } ?>";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+<?php endif; ?>
+	<div id="container" class="page-container">
+
+<?php /* if header is flexbox-enabled, let's throw everything into one container within the header */
 if ( $site_header_layout_option ): ?>
 
 	<?php // Language Nav ?>
