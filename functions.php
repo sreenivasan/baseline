@@ -1,23 +1,23 @@
-<?php 
+<?php
 
 require_once('functions/admin-options.php');
-require_once('functions/colors.php'); 
+require_once('functions/colors.php');
 require_once('functions/comments.php');
-require_once('functions/custom-background.php'); 
+require_once('functions/custom-background.php');
 require_once('functions/custom-code.php');
 require_once('functions/custom-css.php');
 require_once('functions/custom-fonts.php');
-require_once('functions/custom-logo.php'); 
+require_once('functions/custom-logo.php');
 require_once('functions/custom-post-type.php');
 require_once('functions/custom-taxonomies.php');
 require_once('functions/header-options.php');
-require_once('functions/favicon.php'); 
-require_once('functions/images.php'); 
+require_once('functions/favicon.php');
+require_once('functions/images.php');
 require_once('functions/plugin-loader-config.php');
-require_once('functions/posts.php'); 
+require_once('functions/posts.php');
 require_once('functions/sidebars.php');
 require_once('functions/social-media.php');
- 
+
 
 // we're firing all out initial functions at the start
 add_action('after_setup_theme','cleanup_functions', 15);
@@ -40,10 +40,10 @@ function cleanup_functions() {
 
     // launching this stuff after theme setup
     add_action('after_setup_theme','bones_theme_support');
-   
+
 
     // cleaning up random code around images
-    
+
 
 } /* end bones ahoy */
 
@@ -154,12 +154,12 @@ function bones_theme_support() {
 
 	// wp menus
 	add_theme_support( 'menus' );
-		
+
 	// registering menus
 	register_nav_menus(
 		array(
-			'main-nav' => 'Main Navigation', 
-			'lang-nav' => 'Translations Menu' 
+			'main-nav' => 'Main Navigation',
+			'lang-nav' => 'Translations Menu'
 		)
 	);
 } /* end bones theme support */
@@ -167,22 +167,38 @@ function bones_theme_support() {
 // Add 'parent' class to menu items with children
 add_filter( 'wp_nav_menu_objects', 'add_menu_parent_class' );
 function add_menu_parent_class( $items ) {
-	
+
 	$parents = array();
 	foreach ( $items as $item ) {
 		if ( $item->menu_item_parent && $item->menu_item_parent > 0 ) {
 			$parents[] = $item->menu_item_parent;
 		}
 	}
-	
+
 	foreach ( $items as $item ) {
 		if ( in_array( $item->ID, $parents ) ) {
-			$item->classes[] = 'parent'; 
+			$item->classes[] = 'parent';
 		}
 	}
-	
-	return $items;    
+
+	return $items;
 }
+
+function body_class_add_categories( $classes ) {
+	// Only proceed if we're on a single post page
+	if ( !is_single() )
+		return $classes;
+	// Get the categories that are assigned to this post
+	$post_categories = get_the_category();
+	// Loop over each category in the $categories array
+	foreach( $post_categories as $current_category ) {
+		// Add the current category's slug to the $body_classes array
+		$classes[] = 'category-' . $current_category->slug;
+	}
+	// Finally, return the $body_classes array
+	return $classes;
+}
+add_filter( 'body_class', 'body_class_add_categories' );
 
 
 
@@ -209,7 +225,7 @@ RANDOM CLEANUP ITEMS
      unregister_widget('Twenty_Eleven_Ephemera_Widget');
  }
 add_action('widgets_init', 'unregister_default_widgets', 11);
-	
+
 add_filter('bwp_minify_style_ignore','ignore_ie_css');
 function ignore_ie_css($excluded){
 	$excluded = array('ie');
