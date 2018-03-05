@@ -1930,13 +1930,6 @@ input.search-form-submit{
 .expando-mobile > .expando-link{
   display:none;}
 
-.sticky-wrapper{
-  order:5;
-  width:100%;}
-.sticky-wrapper.is-sticky > *{
-  border-bottom-style:solid;
-  border-bottom-width:1px;}
-
 .read-more-inline::before{
   content:'…';
   margin-right:0.5em;
@@ -3331,7 +3324,8 @@ nav.nav-desktop-dropdown.meta .menu a{
   letter-spacing:0.2em;
   padding:0.6em 1.2em;
   text-transform: uppercase;}
-/* AR */
+
+/* Arabic */
 nav.nav-desktop-dropdown.meta .menu .lang-ar a{
   direction:rtl;
   letter-spacing:0;}
@@ -3376,6 +3370,9 @@ a.page-bg-img-credit{
   text-decoration:none;}
 
 .form-layout-horizontal{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
   margin-bottom:1.3em;}
 .form-layout-horizontal input,
 .form-layout-horizontal select,
@@ -3383,6 +3380,7 @@ a.page-bg-img-credit{
 .form-layout-horizontal .select,
 .form-layout-horizontal .submit{
   display:inline-block;
+  height:100%;
   max-width:220px;}
 .form-layout-horizontal .input-text,
 .form-layout-horizontal .input-select,
@@ -3405,7 +3403,8 @@ a.page-bg-img-credit{
 .form-layout-horizontal .submit{
   margin:0 0.3em;}
 .form-layout-horizontal .ak-postform-text{
-  margin-top:1.2rem;}
+  margin-top:1.2rem;
+  width:100%;}
 
 /* Posts */
 
@@ -3459,6 +3458,14 @@ a.page-bg-img-credit{
 
 .js-bg-rotator-container .section-img-credit{
   opacity:1;}
+
+.sticky,
+.js-sticky{
+  -webkit-position:sticky;
+  position:sticky;
+  top:-1px; /* fixes weird little 1px gap */
+  width:100%;
+  z-index:100;}
 
 }
 /* AddThis buttons */
