@@ -12,7 +12,7 @@ function baseline_custom_css() {
 	$display_font_option = stripslashes(get_option('site_display_font','GraphCondensedWeb') );
 	$display_font_lineheight_option = get_option('site_display_font_line_height',0.95);
 	$body_font_option = stripslashes( get_option('site_body_font','-apple-system,BlinkMacSystemFont,Arial') );
-	$secondary_font_option = stripslashes( get_option('site_secondary_font','Menlo,Monaco,Courier,monospace') );
+	$secondary_font_option = stripslashes( get_option('site_secondary_font','Menlo, Monaco, Consolas, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,Courier,monospace') );
 	$fallback_font_option = stripslashes( get_option('site_fallback_font','sans-serif') );
 	$link_color_option = get_option('site_link_color','rgb(15,129,232)');
 	$button_color_option = get_option('site_button_color','rgb(255,169,2)' );
@@ -25,7 +25,7 @@ function baseline_custom_css() {
 	/* provide backups in case options are set to an empty string */
 	$display_font = !empty( $display_font_option ) ? $display_font_option : 'GraphCondensedWeb';
 	$body_font = !empty( $body_font_option ) ? $body_font_option : '-apple-system,BlinkMacSystemFont,Arial';
-	$secondary_font = !empty( $secondary_font_option ) ? $secondary_font_option : 'Menlo,Monaco,Courier,monospace';
+	$secondary_font = !empty( $secondary_font_option ) ? $secondary_font_option : 'Menlo, Monaco, Consolas, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono,Courier,monospace';
 	$fallback_font = !empty( $fallback_font_option ) ? $fallback_font_option : 'sans-serif';
 	$display_font_lineheight = !empty( $display_font_lineheight_option ) ? $display_font_lineheight_option : 0.95;
 	$link_color = !empty( $link_color_option ) ? $link_color_option : 'rgb(15,129,232)';
