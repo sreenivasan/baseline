@@ -5,7 +5,7 @@
  Description:  350 Baseline parent theme
  Author:       Matthew Anderson + suzi grishpul
  Author URI:   http://350.org
- Version:      1.1.18
+ Version:      1.1.19
  Text Domain:  baseline
  GitHub Theme URI: https://github.com/350org/baseline
 */
@@ -46,12 +46,13 @@ body{
   background:center/cover no-repeat scroll transparent;
   display:block;
   height:100%;
-  left:0;
+  margin:0 auto;
   opacity:0.6;
   pointer-events:none;
   position:fixed;
   top:0;
   width:100%;
+  max-width:1400px;
   z-index:1;}
 h1,
 h2,
