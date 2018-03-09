@@ -5,7 +5,7 @@
  Description:  350 Baseline parent theme
  Author:       Matthew Anderson + suzi grishpul
  Author URI:   http://350.org
- Version:      1.1.19
+ Version:      1.1.20
  Text Domain:  baseline
  GitHub Theme URI: https://github.com/350org/baseline
 */
@@ -3286,7 +3286,8 @@ nav.nav-desktop-dropdown .sub-menu{
   margin:0;
   position:absolute;
   text-align:left;
-  min-width:300px;}
+  min-width:300px;
+  z-index:9999;}}
 nav.nav-desktop-dropdown .parent:hover .sub-menu{
   display:block;}
 nav.nav-desktop-dropdown .sub-menu li,
