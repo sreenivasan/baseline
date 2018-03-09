@@ -1624,7 +1624,7 @@ nav.section .heading a:hover,
   padding:0;
   position:relative;
   width:100%;
-  z-index:100;}
+  z-index:1000;}
 .header-layout-flex #site-header-inner{
   display:flex;
   align-items:center;}
