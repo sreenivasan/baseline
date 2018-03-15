@@ -31,11 +31,17 @@
 	if ( $acf_on ){
 		$superpageBgChoice = get_field("sp_default_bg_choice");
 	}
-	if ( $theme_bg_id || $superpageBgChoice == 'custom' ){
+	if ( $superpageBgChoice == 'custom' ){
 		$body_bg_img_class = "bg-on";
-	}
-	if ( $superpageBgChoice == 'color' ){
+	} else if ( $superpageBgChoice == 'default' && $theme_bg_id ){
+		$body_bg_img_class = "bg-on";
+	} else if ( $superpageBgChoice == 'color'){
 		$body_bg_color_class = !empty( get_field("sp_default_bg_color") ) ? get_field("sp_default_bg_color") : $body_bg_color_class;
+	} else if ( $superpageBgChoice == 'none'){
+		// leave bg off
+	} else if ( $theme_bg_id ){
+		// if not a superpage && there's a theme bg:
+		$body_bg_img_class = "bg-on";
 	}
 	$fb_app_id = get_option('site_fb_appid','148617041897246');
 	$site_twitter_account = get_option('site_twitter_account');

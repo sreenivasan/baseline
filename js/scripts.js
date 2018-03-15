@@ -558,7 +558,6 @@ jQuery(document).ready(function($) {
     $('.js-localize-date').localizeDate();
 	$('.ajax-link').ajaxLink();
 	$.localScroll.hash({
-    target:'.page-container',
 		onBefore: function( e, anchor, $target ){
 			var ifExpando = $(anchor).is('.expando, .mobile-expando');
 			if( ifExpando ){
@@ -574,7 +573,6 @@ jQuery(document).ready(function($) {
     $(".tablet-expando").expando('tablet');
 
 	$.localScroll({
-    target:'.page-container',
 		filter: ':not(.js-modal)',
 		// if anchor linking to an expando section, expand it before scrolling to it
 		onBefore: function( e, anchor, $target ){

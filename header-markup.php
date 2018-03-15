@@ -15,7 +15,7 @@
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 <?php endif; ?>
-	<div id="container" class="page-container">
+	<div id="container">
 
 <?php /* if header is flexbox-enabled, let's throw everything into one container within the header */
 if ( $site_header_layout_option ): ?>
