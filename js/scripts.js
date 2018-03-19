@@ -280,23 +280,23 @@ function urlParam(name){
 			// Make sure there's more than N children element in the container
 			if ( firstParaSibs.length > visElems){
         if ( display == 'new-line' ){
-            var readMoreBlockLink = '<p class="read-more-wrapper"><a class="read-more arrow-down ' + readMoreLinkClasses +'">' + readMoreText +'</a></p>';
-            var readMoreInlineLink = '';
+          var readMoreBlockLink = '<p class="read-more-wrapper"><a class="read-more arrow-down ' + readMoreLinkClasses +'">' + readMoreText +'</a></p>';
+          var readMoreInlineLink = '';
         } else {
-            var readMoreBlockLink = '';
-            var readMoreInlineLink = '<a class="read-more read-more-inline arrow-down ' + readMoreLinkClasses +'">' + readMoreText +'</a>';
+          var readMoreBlockLink = '';
+          var readMoreInlineLink = '<a class="read-more read-more-inline arrow-down ' + readMoreLinkClasses +'">' + readMoreText +'</a>';
         }
         $(this).append( readMoreBlockLink );
         // Hide extra para's, add "read more", trigger click handler setup event
         firstParaSibs
-            .not('.do-not-hide')
-            .hide()
-            .siblings(":lt(" + (visElems-1) + ")") // uses zero-based index counting
-            .addBack(":eq(0)") // .siblings excludes the first element, so add it back
-            .show()
-            .last()
-            .append( readMoreInlineLink )
-            .trigger('readMoreEventSetup');
+          .not('.do-not-hide')
+          .hide()
+          .siblings(":lt(" + (visElems-1) + ")") // uses zero-based index counting
+          .addBack(":eq(0)") // .siblings excludes the first element, so add it back
+          .show()
+          .last()
+          .append( readMoreInlineLink )
+          .trigger('readMoreEventSetup');
 			}
 
 		});
@@ -310,21 +310,30 @@ function urlParam(name){
       index++;
       // check for option to disable automatic hiding of source element
       var showSourceElem = $(this).attr('data-modal-show-source');
-      // get the ID of the element that contains the content for the modal from the "data-modal-source" attribute in the HTML tag
-      var modalSourceID = $(this).attr('data-modal-source');
-      var modalSourceElem = $( modalSourceID );
-      var modalWrapperId = 'modal-' + index;
+      // get the ID of the element that contains the content for the modal from the "data-modal-source" attribute
+      var modalSourceId = $(this).attr('data-modal-source');
+      var modalSourceElem = $( modalSourceId );
+      var modalLinkId = $(this).attr('id');
+
+      if ( modalSourceId ) {
+        modalIdSlug = modalSourceId.replace( /(#|\.)/, '');
+      } else if (modalLinkId) {
+        modalIdSlug = modalLinkId;
+      } else {
+        modalIdSlug = index;
+      }
+      var modalWrapperId = 'modal-' + modalIdSlug;
       // if showing the source element...
       if (showSourceElem){
-          modalSourceElem.removeClass('hidden js-hidden');
+        modalSourceElem.removeClass('hidden js-hidden');
       } else {
-          // Make sure the modal source element is hidden only with inline styles
-          modalSourceElem.hide().removeClass('hidden js-hidden');
+        // Make sure the modal source element is hidden only with inline styles
+        modalSourceElem.hide().removeClass('hidden js-hidden');
       }
       // get the optional list of classes to add to the inner content area from the "data-modal-classes-inner" attribute in the HTML tag
       var modalInnerClassesAttr = $(this).attr('data-modal-classes-inner');
       // use the default classes to set the inner modal to be a white box with lots of padding
-      var modalInnerClasses = modalInnerClassesAttr ? modalInnerClassesAttr : 'box box-huge bg-white text-dark';
+      var modalInnerClasses = modalInnerClassesAttr ? modalInnerClassesAttr : 'padding-medium bg-white text-dark';
       // get the optional list of classes to add to the inner content area from the "data-modal-classes-outer" attribute in the HTML tag
       var modalOuterClassesAttr = $(this).attr('data-modal-classes-outer');
       // use the default classes to set the modal container to have a transparent dark gray background and lots of horizontal padding
@@ -332,7 +341,7 @@ function urlParam(name){
 
       // set up modal wrappers
       // assemble the outer and inner modal wrappers around the content
-      var modal = '<div id="' + modalWrapperId + '" class="modal-wrapper section ' + modalOuterClasses + '"><div class="modal-content section-inner ' + modalInnerClasses + '"><a class="modal-close">X</a></div></div>';
+      var modal = '<div id="' + modalWrapperId + '" class="modal-wrapper section ' + modalOuterClasses + '"><div class="modal-inner section-inner ' + modalInnerClasses + '"><a class="modal-close">X</a><div class="modal-content"></div></div></div>';
       // append the modal before the closing </body> tag and add the class "open" (which hooks into CSS3 animations)
       // NOTE: animate() is used just to provide a slight delay before adding the 'open' class, which is necessary to trigger CSS3 animation (for some reason)
       $(modal).appendTo('body');
@@ -342,7 +351,7 @@ function urlParam(name){
 				e.preventDefault();
         // unhide the source element before appending it to the modal window
         modalSourceElem.show();
-        $('#' + modalWrapperId).addClass('open').children('.section-inner').append(modalSourceElem);
+        $('#' + modalWrapperId).addClass('open').find('.modal-content').append(modalSourceElem);
         // check for any lazy loading inside the modal and swap data-src into src and kill any spinners
         $('#' + modalWrapperId).find('[data-src]').each(function(){
             var modalDataSrc = $(this).attr('data-src');
@@ -350,7 +359,10 @@ function urlParam(name){
         });
 				// set up the "close modal" function
 				function modalClose(){
-					$('#' + modalWrapperId).removeClass('open');
+					$('#' + modalWrapperId)
+            .removeClass('open')
+            .children('.modal-content')
+            .empty();
 					$(document).unbind("keyup", modalClose );
 				}
 				// call modalClose() when the "close" button is clicked
