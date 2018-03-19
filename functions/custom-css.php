@@ -97,16 +97,20 @@ function baseline_custom_css() {
 			background-color:'. $site_color['code'] .';}
 		/* Text Color */
 		.text-'. $site_color['slug'] .',
-		a.text-'. $site_color['slug'] .'{
+		a.text-'. $site_color['slug'] .',
+		.text-color-override.text-'. $site_color['slug'] .',{
 			color:'. $site_color['code'] .';}
 		/* Link Color */
-		.bg-'. $site_color['slug'] .' a{
+		.bg-'. $site_color['slug'] .' a,
+		.bg-'. $site_color['slug'] .'.text-color-override. a{
 			color:'. $custom_link_color .';}
 		/* Link:hover Color */
-		.bg-'. $site_color['slug'] .' a:hover{
+		.bg-'. $site_color['slug'] .' a:hover,
+		.bg-'. $site_color['slug'] .'.text-color-override a:hover{
 			color:'. $custom_link_hover_color .';}
 		/* Area link:hover Color */
-		.bg-'. $site_color['slug'] .' .area-link:hover .area-link-hover{
+		.bg-'. $site_color['slug'] .' .area-link:hover .area-link-hover,
+		.bg-'. $site_color['slug'] .'.text-color-override .area-link:hover .area-link-hover{
 			color:'. $custom_link_hover_color .';}
 		/* Button Text Color */
 		a.bg-'. $site_color['slug'] .'{
