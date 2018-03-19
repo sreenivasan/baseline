@@ -39,6 +39,9 @@
 		$body_bg_color_class = !empty( get_field("sp_default_bg_color") ) ? get_field("sp_default_bg_color") : $body_bg_color_class;
 	} else if ( $superpageBgChoice == 'none'){
 		// leave bg off
+	} else if ( is_singular( $post_types = 'post' ) ){
+		// if is single blog post_tw_url
+		$body_bg_img_class = "bg-on";
 	} else if ( $theme_bg_id ){
 		// if not a superpage && there's a theme bg:
 		$body_bg_img_class = "bg-on";
