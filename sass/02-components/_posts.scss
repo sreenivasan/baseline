@@ -1,0 +1,180 @@
+/* Post styles */
+.section.posts h3.section-title{
+	margin-left: 0;
+}
+
+h3.section-title + .post,
+.posts-wrapper{
+	clear: both;
+}
+.post-thumbnail{
+  font-size:0; /* Fixes extra space beneath images */
+  margin-bottom:15px;
+  position:relative;}
+.post-thumbnail img{
+  position:absolute;}
+.post-title,
+.post .post-title{
+  font-size:1.75rem;}
+.post-author{
+  margin-top:-6px;}
+.post-author-img img{
+  border-radius:100px;
+  height:24px;
+  margin-right:3px;
+  overflow:hidden;
+  vertical-align:middle;
+  width:24px;}
+p.wp-caption-text{
+  font-size:0.85rem;
+  font-style:italic;
+  margin-bottom:1rem;}
+
+.post-meta-item{
+  display:inline-block;
+  height:35px;
+  line-height:35px;
+  margin-bottom:0.2em;
+  padding:0 0.7em;
+  vertical-align:middle;}
+
+	/* List-style posts layout */
+.posts-layout-list .post{
+  border-bottom:1px solid rgba(0,0,0,0.2);
+  margin-bottom:2em;
+  padding-bottom:2em;}
+.posts-layout-list .post-thumbnail{
+  float:right;
+  margin:0 0 1em 1em;
+  width:30%;}
+
+/* Mobile Only */
+@media only screen and (max-width:$mobile-tablet-breakpoint){
+
+	/* Post layout: cards (mobile) */
+	.posts-layout-cards .post{
+	  border-bottom:1px solid rgba(21,36,43,0.2);
+	  font-size:0.9em;
+	  margin-bottom:1em;
+	  padding-bottom:1em;
+	  position:relative;}
+	.posts-layout-cards .post-thumbnail{
+	  float:right;
+	  margin:1rem 0 1rem 1rem;
+	  width:37%;}
+	.posts-layout-cards .post-text{
+	  line-height:1.5;}
+	.posts-layout-cards .post-title{
+	  font-size:1.4rem;}
+
+	.posts-layout-cards #post-1{
+	  margin-top:1em;}
+	.posts-layout-cards #post-1 .post-thumbnail{
+	  float:none;
+	  margin:0;
+	  width:100%;}
+	.posts-layout-cards #post-1 .post-text{
+	  padding-top:1em;
+	  width:100%;}
+	.posts-layout-cards #post-1 .post-meta{
+	  background:rgba(21,36,43,0.8);
+	  color:#fff;
+	  position:absolute;
+	  top:-10px;
+	  padding:0.1em 0.4em;}
+	.posts-layout-cards #post-1 .post-title{
+	  font-size:2rem;}
+	.posts-layout-cards #post-1 .post-excerpt{
+	  font-size:1rem;}
+
+}
+
+
+/* Tablet Only */
+@media only screen and (min-width:$mobile-tablet-breakpoint) and (max-width:$tablet-desktop-breakpoint){
+
+    /* Post layout: cards (tablet) */
+  .posts-layout-cards .post{
+    border-bottom:1px solid rgba(21,36,43,0.2);
+    font-size:0.9em;
+    margin-bottom:1em;
+    padding-bottom:1em;
+    position:relative;}
+  .posts-layout-cards .post-thumbnail{
+    float:right;
+    margin:1rem 0 1rem 1rem;
+    width:37%;}
+  .posts-layout-cards .post-text{
+    line-height:1.5;}
+  .posts-layout-cards .post-title{
+    font-size:1.4rem;}
+
+  .posts-layout-cards #post-1{
+    margin-top:1em;}
+  .posts-layout-cards #post-1 .post-thumbnail{
+    float:right;
+    margin:0;
+    width:48%;}
+  .posts-layout-cards #post-1 .post-text{
+    margin-right:4%;
+    width:48%;}
+  .posts-layout-cards #post-1 .post-title{
+    font-size:2rem;}
+  .posts-layout-cards #post-1 .post-excerpt{
+    font-size:1rem;}
+
+}
+
+
+/* Desktop and larger */
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+	  
+	/* Post layout: list (desktop) */
+	.posts-layout-list .post{
+	  margin:1.5em 0;}
+	.posts-layout-list .post-text{
+	  margin:0 1% 0 10%;
+	  width:58%;}
+	.posts-layout-list .post-meta{
+	  position:absolute;
+	  left:0;
+	  width:8%;}
+	.posts-layout-list .post-thumbnail{
+	  float:right;
+	  margin:0 1%;
+	  width:28%;}
+
+	/* Post layout: cards (desktop) */
+	.posts-layout-cards .post{
+	  float:left;
+	  margin:1.5em 1%;
+	  position:relative;
+	  width:31%;}
+	.posts-layout-cards .post-text{
+	  padding-top:0.5em;}
+	.posts-layout-cards .post-meta{
+	  background:rgba(21,36,43,0.7);
+	  color:#fff;
+	  display:inline-block;
+	  padding:0 4px;
+	  position:absolute;
+	  top:-10px;}
+
+	.posts-layout-cards #post-1{
+	  border-bottom:1px solid rgba(21,36,43,0.2);
+	  margin-bottom:3em;
+	  padding-bottom:3em;
+	  width:98%;}
+	.posts-layout-cards #post-1 .post-thumbnail{
+	  float:right;
+	  margin:0;
+	  width:40%;}
+	.posts-layout-cards #post-1 .post-text{
+	  padding-top:2em;
+	  width:58%;}
+	.posts-layout-cards #post-1 .post-title{
+	  font-size:2.5rem;}
+	.posts-layout-cards #post-1 .post-excerpt{
+	  font-size:1.1em;}
+
+}

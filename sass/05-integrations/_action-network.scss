@@ -1,0 +1,156 @@
+a/* Action Network - CSS for signup forms, events */
+
+#can_embed_form{
+  max-width:33em;}
+#can_embed_form h2,
+#donate_auto_modal h2{
+  font-weight:bold !important;}
+#can_embed_form #can_thank_you #action_info{
+  border-top:1px dotted !important;}
+#can_embed_form #can_thank_you h1{
+  font-size:25px !important;
+  text-shadow:none !important;}
+#can_embed_form #can_thank_you h4,
+#can_embed_form #can_thank_you p{
+  text-shadow:none !important;}
+.gen_wrapper #can_embed_form #can_thank_you{
+  background:rgba(255,255,255,0.2);
+  border:0 none;
+  box-shadow:0 0 0 rgba(0,0,0,0);
+  padding:60px;
+  margin-bottom:40px;}
+#d_sharing,
+#can_embed_form h2,
+#action_info{
+  display:none !important;}
+#can_embed_form #action_welcome_message #action_welcome_message_inner{
+  border:0 none !important;
+  background:rgba(21,36,43,0.1) !important;
+  font-size:1.2em;
+  padding:1em;}
+#can_embed_form li.control-group{
+  list-style-type:none;
+  margin-top:0.3em;}
+#can_embed_form li.control-group label{
+  font-weight:bold;}
+#can_embed_form .international_link{
+  font-size:0.8rem;
+  font-style:italic;}
+
+.baseline #can_embed_form input[type="submit"]{
+  margin-top:0.5rem;}
+
+#can_embed_form #logo_wrap{
+  display:none;}
+#can_embed_form .ajax-loading {
+  display:none;
+  position:relative !important;
+  top:4px !important;
+  float:right !important;
+  margin-top:-44px !important;
+  margin-right:10px !important;
+  height:16px !important;
+  width:22px !important;}
+
+/* Help AN's goofy code show/hide country select */
+.baseline #can_embed_form .country_drop_wrap select{
+    -webkit-appearance:none !important;
+    -moz-appearance:none !important;
+    appearance:none !important;
+    position:static !important;
+    opacity:1 !important;
+    height: auto !important;
+    width: 100%!important;}
+.baseline #can_embed_form .country_drop_wrap.clear{
+    display:none;
+    height:auto;
+    width:auto !important;}
+.baseline #can_embed_form .can_selectInner{
+    display:none !important;}
+
+.event_campaign #can_embed_form h2{
+  margin-bottom:0.8em;}
+.event_campaign #can_embed_form{
+  max-width:100%;}
+.event_campaign #can_embed_form #event_map_wrap,
+.event_campaign #can_embed_form #map_canvas{
+  height:300px;}
+
+.event_campaign #can_zip_search{
+  margin-bottom:1.5em;}
+.event_campaign #form-zip_code{
+  display:inline-block;
+  width:65%;}
+.event_campaign #form-zip_code-submit{
+  display:inline-block;
+  font-size:1.2em !important;
+  width:32%;}
+
+.event_campaign #form_col1 h4{
+  font-size:1.1em;
+  font-weight:400;
+  margin-bottom:0.5em;}
+.event_campaign .zip_search_results_col{
+  background-color:rgba(21,36,43,0.1);
+  margin-top:2em;
+  padding:1.2em;}
+.event_campaign #host_your_own{
+  background-color:rgba(21,36,43,0.2);
+  padding:1.2em;}
+.event_campaign #host_your_own .button{
+  font-size:1.2em;}
+
+.event_campaign #search_location_list span{
+  display:block;}
+.event_campaign .choose_location_button{
+  display:inline-block;
+  font-size:1.1em;
+  margin:0.5em 0;}
+
+
+/* AN media query */
+@media screen and (min-width:1050px){
+
+.event_campaign #form_col1 h4{
+  float:left;
+  width:38%;}
+.event_campaign #can_embed_form #can_zip_search{
+  clear:left;
+  float:left;
+  margin-right:2%;
+  width:38%;}
+.event_campaign #can_embed_form #event_map_wrap{
+  float:right;
+  position:relative;
+  margin-left:2%;
+  top:-1.5em;
+  width:58%;}
+.event_campaign #can_embed_form #event_map_wrap,
+.event_campaign #can_embed_form #map_canvas{
+  height:380px;}
+.event_campaign .zip_search_results_col,
+.event_campaign #host_your_own{
+  clear:left;
+  width:38%;}
+
+}
+
+#can_embed_form .ajax-loading {
+  -webkit-animation: spin 1s infinite linear;
+  -moz-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+
+/* Action Network option classes */
+.an-header-hide #can_embed_form h2{
+  display:none;}
+.an-subhead-hide #can_embed_form h4{
+  display:none;}

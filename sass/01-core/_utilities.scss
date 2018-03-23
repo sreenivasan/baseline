@@ -1,0 +1,50 @@
+/* General purpose utility classes */
+
+.clear{
+  clear:both !important;
+  display:block;
+  height:0;
+  line-height:0 !important;
+  margin:0 !important;
+  overflow:hidden;
+  padding:0 !important;
+  width:0 !important;}
+
+.hidden{
+  display:none !important;
+  font-size:0;
+  height:0;
+  margin:0;
+  padding:0;
+  visibility:hidden;}
+
+/* Mobile Only */
+@media only screen and (max-width:$mobile-tablet-breakpoint){
+  .mobile-hide{
+    display:none !important;}
+}
+/* Tablet Only */
+@media only screen and (min-width:$mobile-tablet-breakpoint) and (max-width:$tablet-desktop-breakpoint){
+  .tablet-hide{
+    display:none !important;}
+}
+/* Desktop and larger */
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+  .desktop-hide{
+    display:none !important;}
+}
+
+.opacity-100{
+  opacity:1;}
+.opacity-75{
+  opacity:0.75;}
+.opacity-50{
+  opacity:0.5;}
+
+
+.sticky,
+.js-sticky{
+  position:sticky;
+  top:-1px; /* fixes weird little 1px gap */
+  width:100%;
+  z-index:100;}

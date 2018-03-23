@@ -1,0 +1,12 @@
+/* Images + Media */
+
+/* removes awkward gap beneath an image due to line height */
+.image-link-parent{
+  font-size:0 !important;}
+
+
+.image-bleed{
+  display:block;
+  height:100%;
+  object-fit:cover;
+  width:100%;}

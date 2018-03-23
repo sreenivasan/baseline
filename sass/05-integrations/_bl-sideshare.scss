@@ -1,0 +1,27 @@
+/* CSS for Baseline "Side Share buttons" plugin */
+
+
+/* Side share buttons */
+#side-share{
+  order:8;}
+
+
+/* Mobile Only */
+@media only screen and (max-width:$mobile-tablet-breakpoint){
+  #side-share{
+    display:none;}
+}
+
+
+/* Tablet and up */
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+  .buttons-share-side{
+    margin-top:-75px;
+    position:fixed;
+    right:0;
+    top:50%;
+    z-index:999;}
+  .buttons-share-side-left{
+    right:auto;
+    left:0;}
+}

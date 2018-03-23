@@ -1,0 +1,210 @@
+/*
+  Site Header
+  - Site header container
+  - Logo/site title
+  - Site Nav controls
+  - Custom header buttons (from site option)
+  - Header layouts (compact and left-aligned is default)
+*/
+
+
+/* ----- Site header container + general----- */
+#site-header{
+  order:0;
+  overflow:visible; // fixes invisible #nav-label
+  padding:0;
+  position:relative;
+  width:100%;
+  z-index:1000;}
+#site-header-inner{
+  align-items:center;
+  display:flex;
+  flex-wrap:nowrap;
+  padding:0 0.8rem;}
+.site-header-item{
+  align-items:center;
+  display:flex;
+  flex:0 1 auto;
+  height:3rem;
+  margin:0 1rem;}
+
+
+/* ----- Logo/site title ----- */
+#site-title{
+  flex:1 1 auto;
+  font-size:1.2rem;
+  min-height:3rem;
+  height:auto;
+  padding:0.7rem 0;
+  margin-bottom:0;}
+#site-title-link.logo-image{
+  color:inherit;
+  display:inline-block;
+  line-height:1;
+  margin:0;
+  padding:0;
+  max-height:100px;
+  max-width:250px;}
+#site-title-link.logo-image img{
+  margin:0.3rem;}
+.bg-white #site-title-link.logo,
+.bg-white #site-title-link.logo:hover{
+  color:inherit;}
+#site-title-link.logo-image img{
+  max-height:5rem;
+  max-width:10rem;}
+
+
+
+/* ----- Site Nav Controls ----- */
+#site-header .site-nav{
+  display:none;
+  order:4;
+  margin-top:0;}
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+  #site-header.site-header-layout-compact .nav-desktop-dropdown{
+    background-color:transparent;} //when a dropdown nav bar is within the header, don't use a bg color
+  #site-header.site-header-layout-compact .nav-desktop-dropdown,
+  #site-header.site-header-layout-compact .nav-desktop-dropdown a{
+    color:currentColor;}
+  #site-header.site-header-layout-compact .nav-desktop-dropdown a:hover{
+    color:#fff;}
+  #site-header .site-nav{
+    display:flex;}
+}
+
+/* CSS-only hamburger menu w/ borders */
+#site-nav-label{
+  cursor:pointer;
+  line-height:1.6;
+  margin-bottom:0;
+  margin-top:0;
+  order:10;
+  padding:5px 5px 5px 1.3em;
+  position:relative;
+  min-width:1.6em;
+  text-decoration:none;
+  width:auto;
+  z-index:1000;}
+#site-nav-label::before {
+  border-top:0.2em solid;
+  content:' ';
+  position:absolute;
+  margin-top:-0.15em;
+  top:50%;
+  left:0;
+  width:1.3em;}
+#site-nav-label::after{
+  border-color:inherit;
+  border-width:0.2em 0;
+  border-style: solid;
+  content:' ';
+  height:28%;
+  position:absolute;
+  top:27%;
+  left:0;
+  width:1.3em;}
+/* Tablet and up */
+#site-nav-button-label{
+  font-size:1rem;
+  letter-spacing:1px;
+  line-height:2.3;
+  text-transform:uppercase;
+  margin-left:8px;
+  display:none;}
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+  #site-nav-button-label{
+    display:inline-block;}
+}
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+  #site-nav-label.nav-desktop-dropdown,
+  #site-nav-label.nav-desktop-list{
+    display:none;}
+}
+
+
+/* ----- Custom header buttons ----- */
+#header-buttons-container{
+  display:none;
+  flex:0 0 auto;
+  height:100%;
+  order:12;}
+/* tablet and up */
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+  #header-buttons-container{
+    display:flex;}
+}
+
+
+/* ----- Site header layouts ----- */
+
+
+/* Stacked */
+#site-header.site-header-layout-stacked #site-header-inner{
+  padding:0;
+  max-width:100%;}
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+  #site-header.site-header-layout-stacked #site-header-inner{
+    flex-wrap:wrap;}
+  #site-header.site-header-layout-stacked #site-title{
+    margin-left:2.5vw;}
+}
+
+#site-header.site-header-layout-stacked .site-nav{
+  margin:0;
+  padding-left:1.4vw;
+  order:15;
+  width:100%;}
+#site-header.site-header-layout-stacked #header-buttons-container{
+  height:auto;}
+
+
+/* Center-aligned + Compact */
+#site-header.text-center #site-title{
+  flex:0 0 100%;
+  height:auto;
+  margin:0;
+  text-align:center;
+  width:100%;}
+#site-header.text-center #site-title-link{
+  margin:0 auto;
+  max-width:calc(100vw - 6rem);}
+#site-header.text-center #site-nav-label{
+  position:absolute;
+  left:0;}
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+  #site-header.text-center #site-nav-label{
+    display:block;}
+  #site-header.text-center .site-nav.nav-desktop-dropdown{
+    display:none;}
+}
+#site-header.text-center #header-buttons-container{
+  margin:0;
+  position:absolute;
+  right:0.8rem;
+  top:0;}
+
+
+/* Center-aligned + Stacked */
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+  #site-header.text-center.site-header-layout-stacked #site-nav-label{
+    display:none;}
+  #site-header.text-center.site-header-layout-stacked .nav-desktop-dropdown{
+    display:flex;
+    justify-content:center;}
+}
+#site-header.text-center.site-header-layout-stacked #header-buttons-container{
+  top:0.8rem;}
+
+
+
+/* ----- Language nav ----- */
+
+#language-nav{
+  border-bottom-style:solid;
+  border-bottom-width:1px;}
+#language-nav.bg-transparent{
+  border:0 none;}
+#language-nav li,
+#language-nav a{
+  font-size:0.9rem;}

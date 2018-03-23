@@ -1,0 +1,212 @@
+/* Forms + Inputs */
+button, input, select, textarea{
+  font-family:$text-font-body;} // some browsers overwrite custom fonts on inputs
+input{
+  line-height:normal}
+input,
+select,
+textarea{
+  background:#fff;
+  border:1px solid rgba(21,36,43,0.3);
+  border-radius:2px;
+  font-size:1.1rem;
+  font-weight:bold;
+  margin-bottom:0.3em;
+  padding:0.7em 0.6em;
+  width:100%;
+  max-width:35em;}
+button[disabled],
+input[disabled]{
+  cursor:not-allowed;}
+input[type="checkbox"],
+input[type="radio"]{
+  box-sizing:border-box;
+  display:inline-block;
+  padding:0;
+  height:auto !important;
+  width:auto !important;}
+select{
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAh0lEQVQ4T93TMQrCUAzG8V9x8QziiYSuXdzFC7h4AcELOPQAdXYovZCHEATlgQV5GFTe1ozJlz/kS1IpjKqw3wQBVyy++JI0y1GTe7DCBbMAckeNIQKk/BanALBB+16LtnDELoMcsM/BESDlz2heDR3WePwKSLo5eoxz3z6NNcFD+vu3ij14Aqz/DxGbKB7CAAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  background-position:98% center;
+  cursor:pointer;}
+select[multiple]{
+  background-image:none;}
+option{
+  font-size:0.9em;
+  font-weight:normal;}
+fieldset{
+  border:0 none;
+  margin:0;
+  padding:0;}
+textarea{
+  line-height:1.4;
+  overflow:auto;
+  vertical-align:top;
+  max-width:none;}
+
+
+
+/* Input wrappers */
+.input-radio input{
+  margin-right:0.3em;}
+.input-radio label{
+  cursor:pointer;}
+
+.checkbox-wrapper,
+.input-checkbox{
+  padding-left:20px;
+  position:relative;}
+.input-checkbox input,
+.checkbox-wrapper input{
+  left:0;
+  position:absolute;
+  top:0.15rem;}
+.input-checkbox label,
+.checkbox-wrapper label{
+  cursor:pointer;}
+
+/* Form styles */
+/* Change.org-style form */
+.form-style-labelabove .input-text,
+.form-style-labelabove .input-textarea,
+.form-style-labelabove .input-number,
+.form-style-labelabove .input-multiple,
+.form-style-labelabove .input-select,
+.form-style-labelabove .input-group{
+  border:1px solid rgba(21,36,43,0.3);
+  border-radius:4px;
+  background:#fff;
+  overflow:hidden;
+  margin-bottom:0.8em;
+  position:relative;}
+.form-style-labelabove label{
+  color:#0f81e8;
+  display:block;
+  font-size:0.85em;
+  font-weight:bold;
+  padding:0.5em 0.6em 0;}
+.form-style-labelabove .input-group{
+  border:1px solid rgba(21,36,43,0.3);}
+.form-style-labelabove .input-group .input-text,
+.form-style-labelabove .input-group .input-select,
+.form-style-labelabove .input-group .input-number,
+.form-style-labelabove .input-group .input-textarea{
+  border-width:1px 0 0;
+  border-style:solid none none;
+  border-radius:0;
+  margin-bottom:0;
+  margin-top:0;}
+.form-style-labelabove .input-group div:first-child{
+  border-top:0 none;}
+.form-style-labelabove .input-select,
+.form-style-labelabove .input-textarea{
+  margin:0.9rem 0;}
+.form-style-labelabove .ak-input-type-user.input-text input,
+.form-style-labelabove .ak-input-type-user.input-select select,
+.form-style-labelabove .ak-input-type-user.input-textarea textarea{
+  border:0 none;
+  margin:0;
+  padding-top:1.9em;
+  padding-top:calc(5px + 1.6em);}
+.form-style-labelabove .ak-input-type-user.input-select select{
+  background-position:97% 70%;}
+.form-style-labelabove .input-text input:focus,
+.form-style-labelabove .input-number input:focus
+.form-style-labelabove .input-textarea textarea:focus{
+  -webkit-appearance:none;
+  outline:none;
+  box-shadow:inset 0 0 0 1px #0f81e8;}
+.form-style-labelabove .ak-input-type-user.input-text label,
+.form-style-labelabove .ak-input-type-user.input-select label,
+.form-style-labelabove .ak-input-type-user.input-textarea label{
+  font-size:0.75em;
+  letter-spacing:0.05em;
+  text-transform:uppercase;}
+.form-style-labelabove .input-radio label:first-child,
+.form-style-labelabove .input-checkbox label:first-child{
+  color:inherit;
+  cursor:default;
+  display:block;
+  font-size:0.85em;
+  font-weight:bold;
+  margin-bottom:0.5em;
+  padding:0;}
+.form-style-labelabove .input-radio .ak-userfield-radio-choice,
+.form-style-labelabove .input-checkbox .ak-userfield-checkbox-choice{
+  color:inherit;
+  font-weight:normal;
+  padding:0;
+  margin-bottom:0.2em;
+  padding-left:20px;
+  text-indent:-19px;}
+.form-style-labelabove .ak-input-type-user.input-text label,
+.form-style-labelabove .ak-input-type-user.input-select label,
+.form-style-labelabove .ak-input-type-user.input-textarea label{
+  position:absolute;
+  top:0.2em;
+  left:0;}
+
+/* Horizontal form - stack on small screens, line up on larger*/
+.form-layout-horizontal .input-text,
+.form-layout-horizontal .input-select,
+.form-layout-horizontal .input-group,
+.form-layout-horizontal .input-submit{
+  width:100%;}
+
+input.submit.small,
+.button-small{
+  font-family:inherit;
+  font-size:1rem;}
+.button-big,
+.button-large,
+input[type="submit"].button-big,
+input[type="submit"].button-large,
+input.submit.button-big{
+  font-size:1.6rem;}
+
+
+/* Desktop and larger */
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+
+  .form-layout-horizontal{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-bottom:1.3em;}
+  .form-layout-horizontal input,
+  .form-layout-horizontal select,
+  .form-layout-horizontal .input,
+  .form-layout-horizontal .select,
+  .form-layout-horizontal .submit{
+    display:inline-block;
+    height:100%;
+    max-width:220px;}
+  .form-layout-horizontal .input-text,
+  .form-layout-horizontal .input-select,
+  .form-layout-horizontal .input-submit,
+  .form-layout-horizontal .input-group{
+    display:inline-block;
+    line-height:1;
+    margin-bottom:0;
+    margin-top:0;
+    vertical-align:middle;
+    width:auto;}
+  .form-layout-horizontal .input-text,
+  .form-layout-horizontal .input-select{
+    min-width:220px;}
+  .form-layout-horizontal .input-group{
+    margin-right:0.5em;}
+  .form-layout-horizontal .input-group .input-text + .input-text{
+    border-left:1px solid rgba(21,36,43,0.3);
+    border-top:0 none;}
+  .form-layout-horizontal .submit{
+    margin:0 0.3em;}
+  .form-layout-horizontal .ak-postform-text{
+    margin-top:1.2rem;
+    width:100%;}
+
+}

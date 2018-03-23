@@ -1,0 +1,99 @@
+/* Layout utlities */
+
+
+/* Sections */
+#container{
+  /* flex allows for:
+  - columned sections to be equal height, regardless of content
+  - re-ordering of sections with 'order' property */
+  display:flex;
+  flex-wrap:wrap;
+  margin:0 auto;
+  position:relative;
+  min-width:15rem;
+  max-width:1550px;
+  z-index:5;}
+.section{
+  background-position:center center;
+  background-size:cover;
+  order:5;
+  position:relative;
+  width:100%;
+  z-index:2;}
+.section-inner{
+  position:relative;}
+.section-inner,
+.section.expando .expando-link{
+  margin:0 auto;}
+.section-inner::after,
+.clearfix::after{
+  clear:both;
+  content:'';
+  display:block;
+  height:0;
+  visibility:hidden;}
+
+/* Specialized section classes */
+.section-order-beforeheader{
+  order:-5;}
+.section.section-position-outer .section-inner{
+  position:static;}
+
+.title-section-60,
+.title-section{
+  align-items:center;
+  display:flex;
+  min-height:min-content;
+  height:auto;
+  height:calc(100vh - 25px);
+  max-height:900px;
+  justify-content:center;
+  width:100%;}
+.title-section-60{
+  height:calc(100vh - 60px);}
+.title-section .section-inner,
+.title-section-60 .section-inner{
+  width:100%;}
+
+/* Site Optons */
+.header-hide{
+  height:0 !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+  padding:0 !important;}
+
+
+/* Tablet and up */
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+
+  .two-col,
+  .three-col,
+  .four-col{
+    columns:2;}
+
+  .right,
+  .float-right{
+    float:right;}
+  .float-left{
+    float:left;}
+
+}
+
+
+/* Desktop and larger */
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+
+  .two-col{
+    -webkit-columns:2;
+    -moz-columns:2;
+    columns:2;}
+  .three-col{
+    -webkit-columns:3;
+    -moz-columns:3;
+    columns:3;}
+  .four-col{
+    -webkit-columns:4;
+    -moz-columns:4;
+    columns:4;}
+
+}

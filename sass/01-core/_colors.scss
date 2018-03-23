@@ -1,0 +1,145 @@
+/* default 350 colors */
+.bg-transparent{
+  color:#fff;}
+.bg-blue,
+.button.bg-blue{
+  background-color:#0f81e8;
+  border-color:rgba(255,255,255,0.2);
+  color:#fff;}
+.bg-orange,
+.button.bg-orange{
+  background-color:#ffa902;
+  border-color:rgba(255,255,255,0.2);
+  color:#fff;}
+.bg-teal,
+.button.bg-teal{
+  background-color:#35c9c5;
+  border-color:rgba(255,255,255,0.2);
+  color:#fff;}
+.bg-red,
+.button.bg-red{
+  background-color:#ff6753;
+  border-color:rgba(255,255,255,0.2);
+  color:#fff;}
+.bg-dkgray,
+.button.bg-dkgray{
+  background-color:#17292e;
+  border-color:rgba(255,255,255,0.2);
+  color:#fff;}
+.bg-dkgray-trans,
+.button.bg-dkgray-trans{
+  background-color:rgba(23,41,46,0.6);
+  border-color:rgba(255,255,255,0.6);
+  color:#fff;}
+.bg-ltgray,
+.button.bg-ltgray{
+  background-color:#e1eaf2;
+  border-color:rgba(21,36,43,0.2);
+  color:#17292e;}
+.bg-white,
+.button.bg-white{
+  background-color:#fff;
+  border-color:rgba(21,36,43,0.2);
+  color:#17292e;}
+.bg-white-trans,
+.button.bg-white-trans{
+  background-color:rgba(255,255,255,0.85);
+  border-color:rgba(21,36,43,0.2);
+  color:#17292e;}
+
+.text-light{
+  color:#fff !important;}
+a.text-light,
+.text-light a{
+  color:rgba(255,255,255,0.8) !important;}
+.text-dark{
+  color:#17292e !important;}
+a.text-dark,
+.text-dark a{
+  color:rgba(21,36,43,0.9) !important;}
+.text-blue{
+  color:#0f81e8;}
+.text-orange
+.text-red{
+  color:#ff6753;}
+.text-teal{
+  color:#35c9c5;}
+.text-ltgray{
+  color:#e1eaf2;}
+
+
+.bg-blue.notch::after{
+  border-bottom-color:#0f81e8;}
+.bg-orange.notch::after{
+  border-bottom-color:#ffa902;}
+.bg-teal.notch::after{
+  border-bottom-color:#35c9c5;}
+.bg-red.notch::after{
+  border-bottom-color:#ff6753;}
+.bg-dkgray.notch::after{
+  border-bottom-color:#2b2e2f;}
+.bg-dkgray-trans.notch::after{
+  border-bottom-color:rgba(23,41,46,0.6);}
+.bg-ltgray.notch::after{
+  border-bottom-color:#dae6f2;}
+.bg-white.notch::after{
+  border-bottom-color:#fff;}
+
+.bg-blue.notch-semicircle::after,
+.bg-blue.notch-tab::after{
+  background-color:#0f81e8;}
+.bg-orange.notch-semicircle::after,
+.bg-orange.notch-tab::after{
+  background-color:#ffa902;}
+.bg-teal.notch-semicircle::after,
+.bg-teal.notch-tab::after{
+  background-color:#35c9c5;}
+.bg-red.notch-semicircle::after,
+.bg-red.notch-tab::after{
+  background-color:#ff6753;}
+.bg-dkgray.notch-semicircle::after,
+.bg-dkgray.notch-tab::after{
+  background-color:#2b2e2f;}
+.bg-dkgray-trans.notch-semicircle::after{
+  /* semicircle notch will have visible overlap with transparent colors, so just hide it :( */
+  display:none;}
+.bg-dkgray-trans.notch-tab{
+  background-color:rgba(23,41,46,0.6);}
+.bg-ltgray.notch-semicircle::after,
+.bg-ltgray.notch-tab::after{
+  background-color:#dae6f2;}
+.bg-white.notch-semicircle::after,
+.bg-white.notch-tab::after{
+  background-color:#fff;}
+
+.bg-blue a,
+.bg-orange a,
+.bg-teal a,
+.bg-red a,
+.bg-dkgray-trans a,
+.bg-dkgray a{
+  color:#fff;}
+
+.bg-white-trans a{
+  color:rgba(15,130,230,1)}
+.bg-white-trans a:hover{
+  color:rgba(15,130,230,0.7);}
+
+nav.bg-blue li,
+nav.bg-blue .sub-menu,
+nav.bg-orange li,
+nav.bg-orange .sub-menu,
+nav.bg-dkgray li,
+nav.bg-dkgray .sub-menu,
+nav.bg-teal li,
+nav.bg-teal .sub-menu,
+nav.bg-red li,
+nav.bg-red .sub-menu,
+nav.bg-transparent li,
+nav.bg-transparent .sub-menu{
+  border-color:rgba(255,255,255,0.15);}
+nav.bg-white li,
+nav.bg-white .sub-menu,
+nav.bg-ltgray li,
+nav.bg-ltgray .sub-menu{
+  border-color:rgba(21,36,43,0.2);}

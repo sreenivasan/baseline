@@ -1,0 +1,22 @@
+.pagination{
+  clear:both;
+  padding:2em 0;}
+.pagination:empty{
+  padding:0;}
+.pagination .search-form{
+  margin: 0 2%;
+  max-width: 400px;}
+
+.pagination a.page-numbers,
+.pagination .page-numbers.current{
+  background-color:#0f81e8;
+  border-radius:2px;
+  color:#fff;
+  display:inline-block;
+  font-weight:bold;
+  margin:0;
+  padding:0.2em 0.5em;
+  text-decoration:none;}
+.page-numbers.current{
+  cursor:default;
+  opacity:0.5;}

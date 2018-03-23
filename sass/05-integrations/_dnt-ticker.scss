@@ -1,0 +1,17 @@
+/* Ditty News Ticker plugin styles */
+
+.mtphr-dnt-tick-container{
+  font-size:0.9em;}
+.mtphr-dnt-tick::before{
+  background-color:rgba(0,0,0,0.2);
+  border-radius:1em;
+  content:'';
+  display:inline-block !important;
+  height:1.1ex;
+  margin:0 1ex;
+  width:1.1ex;}
+.mtphr-dnt-tick{
+  will-change:left;}
+.mtphr-dnt-tick a{
+  font-weight:normal;
+  text-decoration:none;}

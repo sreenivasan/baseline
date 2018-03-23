@@ -1,0 +1,34 @@
+/* pre-flexbox header */
+
+.text-center #header-buttons{
+  width:100%;}
+.bg-white + #header-buttons-wrap .button-dot:hover{
+  background-color:rgba(21,36,43,0.2);}
+#header-buttons-wrap{
+  height:0;
+  left:0;
+  overflow:visible;
+  position:absolute;
+  top:0;
+  width:100%;
+  z-index:5;
+  pointer-events: none;}
+#header-buttons-wrap-inner{
+  position:relative;
+  pointer-events: all;}
+#header-custom-buttons{
+  display:inline-block;
+  line-height:34px;
+  margin:0 1rem;}
+.text-center #header-custom-buttons{
+  right:0;
+  margin:0;
+  position:absolute;}
+#header-buttons{
+  display:flex;
+  position:absolute;
+  right:0;
+  top:0;
+  z-index:10;}
+
+  

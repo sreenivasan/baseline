@@ -1,0 +1,95 @@
+
+/* Site background */
+
+/* .bg-on is a WP variable that's active when a fullscreen background image is present.
+   Combines a dark bg color with a semi-transparent image to darken the image,
+   increasing text contrast. */
+.bg-on{
+  background-color:#17292e;}
+
+#body-mobile-background{
+  background:center/cover no-repeat scroll transparent;
+  display:block;
+  height:100%;
+  left:0;
+  opacity:0.6;
+  pointer-events:none;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1;}
+
+
+
+.bg-position-bottom{
+  background-position:center bottom;}
+.bg-position-bottomright{
+  background-position:right bottom;}
+.bg-position-bottomleft{
+  background-position:left bottom;}
+.bg-position-top{
+  background-position:center top;}
+.bg-position-topright{
+  background-position:right top;}
+.bg-position-topleft{
+  background-position:left top;}
+.bg-position-right{
+  background-position:right center;}
+.bg-position-left{
+  background-position:left center;}
+
+.bg-attach-fixed{
+  background-attachment:fixed;}
+
+.bg-repeat-none{
+  background-repeat:no-repeat;}
+.bg-repeat-x{
+  background-repeat:repeat-x;}
+.bg-repeat-y{
+  background-repeat:repeat-y;}
+.bg-repeat-both{
+  background-repeat:repeat;}
+
+.bg-size-cover{
+  background-size:cover;}
+.bg-size-full-width{
+  background-size:100% auto;}
+.bg-size-normal{
+  background-size:auto;}
+
+.section-img-credit{
+  display:none;}
+
+/* Desktop and larger */
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+
+.section-img-credit{
+  border-radius:2px;
+  bottom:10px;
+  color:#fff !important;
+  text-align:right !important;
+  text-shadow:2px 1px 1px #000;
+  display:block;
+  font-size:0.75rem;
+  opacity:0.6;
+  position:absolute;
+  right:10px;
+  max-width:70vw;}
+.page-bg-img-credit{
+  border-radius:2px;
+  display:inline-block;
+  padding:2px 5px;
+  position:relative;}
+.section-img-credit:hover,
+.page-bg-img-credit:hover{
+  background:#17292e;
+  background:rgba(30,40,50,0.8);
+  opacity:1;}
+.section-img-credit a,
+.page-bg-img-credit a,
+a.page-bg-img-credit{
+  color:#fff !important;
+  font-weight:normal;
+  text-decoration:none;}
+
+}

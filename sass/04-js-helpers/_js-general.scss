@@ -1,0 +1,12 @@
+/* general JS support styles */
+
+.js-hide{
+  display:none;}
+.nojs-hide{
+  visibility:hidden;}
+.js .nojs-hide{
+  visibility:visible;}
+
+
+.js-bg-rotator-container .section-img-credit{
+  opacity:1;}

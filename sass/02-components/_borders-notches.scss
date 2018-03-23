@@ -1,0 +1,86 @@
+/* Borders + Notches */
+
+/* Borders */
+.border{
+  border-style:solid;
+  border-width:1px;}
+.border-bottom{
+  border-bottom-style:solid;
+  border-bottom-width:1px;}
+.border-left{
+  border-left-style:solid;
+  border-left-width:1px;}
+.border-right{
+  border-right-style:solid;
+  border-right-width:1px;}
+.border-top{
+  border-top-style:solid;
+  border-top-width:1px;}
+
+
+/* Notches */
+.section.notch-down{
+  z-index:6;}
+.notch::after{
+  border-bottom:12px solid transparent;
+  border-left:18px solid transparent;
+  border-right:18px solid transparent;
+  content:'';
+  height:0;
+  left:50%;
+  margin-left:-18px;
+  position:absolute;
+  top:-12px;
+  width:0;
+  z-index:999;}
+.notch-down::after{
+  top:auto;
+  bottom:-12px;
+  -webkit-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
+  transform:rotate(180deg);}
+
+.notch-semicircle::after{
+  content:'';
+  position:absolute;
+  top:-25px;
+  border-radius:100px 100px 0 0;
+  width:90px;
+  height:45px;
+  left:50%;
+  margin-left:-45px;
+  -webkit-transform:scale(0.8, 0.7);
+  -moz-transform:scale(0.8, 0.7);
+  transform:scale(0.8, 0.7);}
+.notch-semicircle.notch-down::after{
+  bottom:-25px;
+  top:auto;
+  -webkit-transform:rotate(180deg);
+  -moz-transform:rotate(180deg);
+  transform:rotate(180deg);}
+
+
+/* Tablet and up */
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+
+  .notch::after{
+    border-bottom:17px solid transparent;
+    border-left:26px solid transparent;
+    border-right:26px solid transparent;
+    margin-left:-26px;
+    top:-17px;}
+  .notch-down::after{
+    bottom:-17px;
+    top:auto;}
+
+}
+
+/* Desktop and larger */
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+
+  .notch-semicircle::after{
+    -webkit-transform:scale(1, 0.9);
+    -moz-transform:scale(1, 0.9);
+    transform:scale(1, 0.9);}
+
+}
