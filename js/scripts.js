@@ -349,20 +349,27 @@ function urlParam(name){
 			// set up the click event
 			$(this).on('click', function(e){
 				e.preventDefault();
+        var modalWrapper = $('#' + modalWrapperId)
+        var modalContent = modalWrapper.find('.modal-content');
         // unhide the source element before appending it to the modal window
-        modalSourceElem.show();
-        $('#' + modalWrapperId).addClass('open').find('.modal-content').append(modalSourceElem);
+        modalSourceElem
+          .clone()
+          .removeClass('nav-desktop-dropdown')
+          .show()
+          .appendTo(modalContent);
+        // Open the modal
         // check for any lazy loading inside the modal and swap data-src into src and kill any spinners
-        $('#' + modalWrapperId).find('[data-src]').each(function(){
+        modalWrapper
+          .addClass('open')
+          .find('[data-src]')
+          .each(function(){
             var modalDataSrc = $(this).attr('data-src');
             $(this).attr('src',modalDataSrc).removeClass('lazy').parent().spin(false);;
         });
 				// set up the "close modal" function
 				function modalClose(){
-					$('#' + modalWrapperId)
-            .removeClass('open')
-            .children('.modal-content')
-            .empty();
+					modalWrapper.removeClass('open')
+          modalContent.empty();
 					$(document).unbind("keyup", modalClose );
 				}
 				// call modalClose() when the "close" button is clicked
@@ -371,11 +378,11 @@ function urlParam(name){
 					event.stopPropagation();
 				});
 				// call modalClose() when the modal background is clicked
-				$('#' + modalWrapperId).on('click', function(){
+				modalWrapper.on('click', function(){
 					modalClose();
 				});
 				// stop clicks in the modal content from propagating up and triggering a "close" event
-				$('.modal-content').on('click',function(event){
+				modalContent.on('click',function(event){
 					event.stopPropagation();
 				});
 				// call modalClose() when the Esc key is pressed
