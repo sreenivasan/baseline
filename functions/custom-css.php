@@ -85,25 +85,30 @@ function baseline_custom_css() {
 			color:'. $text_color .';}
 		.body-bg-'. $site_color['slug'] .'{
 			background-color:'. $site_color['code'] .';}
+
 		/* Nav Color */
 		nav.bg-'. $site_color['slug'] .' li,
 		nav.bg-'. $site_color['slug'] .' .sub-menu{
 			border-color:'. $border_color .';}
+
 		/* Notch Color */
 		.bg-'. $site_color['slug'] .'.notch::after{
 			border-bottom-color:'. $site_color['code'] .';}
 		.bg-'. $site_color['slug'] .'.notch-semicircle::after,
 		.bg-'. $site_color['slug'] .'.notch-tab::after{
 			background-color:'. $site_color['code'] .';}
+
 		/* Text Color */
 		.text-'. $site_color['slug'] .',
 		a.text-'. $site_color['slug'] .',
-		.text-color-override.text-'. $site_color['slug'] .',{
+		.text-color-override.text-'. $site_color['slug'] .'{
 			color:'. $site_color['code'] .';}
+
 		/* Link Color */
 		.bg-'. $site_color['slug'] .' a,
-		.bg-'. $site_color['slug'] .'.text-color-override. a{
+		.bg-'. $site_color['slug'] .'.text-color-override a{
 			color:'. $custom_link_color .';}
+
 		/* Link:hover Color */
 		.bg-'. $site_color['slug'] .' a:hover,
 		.bg-'. $site_color['slug'] .'.text-color-override a:hover{
@@ -113,7 +118,8 @@ function baseline_custom_css() {
 		.bg-'. $site_color['slug'] .'.text-color-override .area-link:hover .area-link-hover{
 			color:'. $custom_link_hover_color .';}
 		/* Button Text Color */
-		a.bg-'. $site_color['slug'] .'{
+		a.bg-'. $site_color['slug'] .',
+		a.bg-'. $site_color['slug'] .'.text-color-override{
 			color:'. $text_color .';}
 		/* Button:hover Text Color */
 		a.bg-'. $site_color['slug'] .':hover{
@@ -165,7 +171,7 @@ function baseline_custom_css() {
 	a.area-link:hover .area-link-hover{
 		color:'. $link_color .';}
 	#site-title{
-	  font-size:'. fontSize(1.5) .'rem;}
+	  font-size:'. fontSize(1.2) .'rem;}
 	input.submit,
 	input[type="submit"],
 	.button{
@@ -243,7 +249,7 @@ function baseline_custom_css() {
 		.title4{
 			font-size:'. fontSize(36) .'px;}
 		#site-title{
-			font-size:'. fontSize(1.8) .'rem;}
+			font-size:'. fontSize(1.4) .'rem;}
 
 		.tablet-expando-meta > .tablet-expando-link,
 		.section.tablet-expando-meta > .tablet-expando-link{
@@ -289,4 +295,14 @@ function baseline_custom_css() {
 }
 add_action( 'wp_enqueue_scripts', 'baseline_custom_css' );
 
+/* Add custom generated styles to WYSIWYG preview CSS */
+function theme_editor_dynamic_styles( $mceInit ) {
+    if ( isset( $mceInit['content_style'] ) ) {
+        $mceInit['content_style'] .= ' ' . $custom_css_combined . ' ';
+    } else {
+        $mceInit['content_style'] = $custom_css_combined . ' ';
+    }
+    return $mceInit;
+}
+add_filter('tiny_mce_before_init','theme_editor_dynamic_styles');
 ?>
