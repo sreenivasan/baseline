@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-<?php 
+<?php
 /* Adjust header type size based on title length */
 	$title_char_count = strlen ( get_the_title() );
 	$title_size = "title2";
@@ -15,9 +15,9 @@
 	$custom_comments = stripslashes( get_option('tfcomments_code') );
 // Post featured image
 	$post_thumb_id = get_post_thumbnail_id();
-	$post_thumb_small = wp_get_attachment_image_src( $post_thumb_id, 'page-background-mob'); 
-	$post_thumb_medium = wp_get_attachment_image_src( $post_thumb_id, 'page-background-tablet'); 
-	$post_thumb_large = wp_get_attachment_image_src( $post_thumb_id, 'page-background'); 
+	$post_thumb_small = wp_get_attachment_image_src( $post_thumb_id, 'page-background-mob');
+	$post_thumb_medium = wp_get_attachment_image_src( $post_thumb_id, 'page-background-tablet');
+	$post_thumb_large = wp_get_attachment_image_src( $post_thumb_id, 'page-background');
 	if ( $post_thumb_id ){
 		$thumb_img = get_post( $post_thumb_id ); // Get post by ID
 		$bg_img_caption =  $thumb_img->post_excerpt; // Display Caption
@@ -50,11 +50,11 @@
 <style>
 #body-mobile-background{
 	background-image:url(<?php echo $post_thumb_small[0]; ?>);}
-@media screen and ( min-width:650px ) and ( max-width:1023px ){ 
+@media screen and ( min-width:650px ) and ( max-width:1023px ){
 	#body-mobile-background{
 		background-image:url(<?php echo $post_thumb_medium[0]; ?>);}
 }
-@media screen and ( min-width:1023px ){ 
+@media screen and ( min-width:1023px ){
 	#body-mobile-background{
 		background-image:url(<?php echo $post_thumb_large[0]; ?>);}
 }
@@ -91,28 +91,28 @@
 			<span class="share post-meta-share post-meta-item">
 	<?php if ( $show_vk ): ?>
 				<a class="vk-share bg-vk-icon bg-vk-color button-share-medium" href="hhttp://vk.com/share.php?url=<?php the_permalink(); ?>" target="_blank"><?php _e('VK','baseline'); ?></a>
-	<?php endif; ?> 
+	<?php endif; ?>
 	<?php if ( $show_sina_weibo ): ?>
 				<a class="sina-weibo-share bg-sina-weibo-icon bg-sina-weibo-color button-share-medium" href="http://service.weibo.com/share/share.php?url=<?php the_permalink(); ?>&title=<?php urlencode( the_title() ); ?>" target="_blank"><?php _e('分享到新浪微博','baseline'); ?></a>
 	<?php endif; ?>
 	<?php if ( $show_fb ): ?>
-				<a class="fb-share bg-facebook-icon bg-facebook-color button-share-medium" href="https://www.facebook.com/sharer/sharer.php?u=<?php if ( get_field("post_fb_url")){ the_field("post_fb_url"); } else { the_permalink(); } ?>" target="_blank"><?php _e('Share','baseline'); ?></a> 
-	<?php endif; ?> 
+				<a class="fb-share bg-facebook-icon bg-facebook-color button-share-medium" href="https://www.facebook.com/sharer/sharer.php?u=<?php if ( get_field("post_fb_url")){ the_field("post_fb_url"); } else { the_permalink(); } ?>" target="_blank"><?php _e('Share','baseline'); ?></a>
+	<?php endif; ?>
 	<?php if ( $show_tw ): ?>
-				<a class="tw-share bg-twitter-icon bg-twitter-color button-share-medium" href="http://twitter.com/home?status=<?php echo urlencode(html_entity_decode(rawurldecode($tweet))); ?>" target="_blank"><?php _e('Tweet','baseline'); ?></a> 
-	<?php endif; ?> 
+				<a class="tw-share bg-twitter-icon bg-twitter-color button-share-medium" href="http://twitter.com/home?status=<?php echo urlencode(html_entity_decode(rawurldecode($tweet))); ?>" target="_blank"><?php _e('Tweet','baseline'); ?></a>
+	<?php endif; ?>
 				<span class="clear"></span>
 			</span>
 		</div>
 	</div>
 <?php endif; ?>
-	<article id="page-content" class="content section bg-white width-narrow padding-medium">
+	<article id="page-content" class="content section bg-white width-normal padding-medium">
 		<div id="page-content-inner" class="section-inner">
 			<?php the_content(); ?>
 		</div>
 	</article>
 <?php if ( $custom_comments ): ?>
-	<div id="post-comments" class="section bg-ltgray width-narrow padding-medium">
+	<div id="post-comments" class="section bg-ltgray width-normal padding-medium">
 		<div id="post-comments-inner" class="section-inner">
 			<?php echo stripslashes($custom_comments); ?>
 		</div>
