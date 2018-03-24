@@ -16,6 +16,7 @@
   -webkit-transition:0.4s opacity;
   transition:0.4s opacity;
   width:100%;
+  will-change:opacity;
   z-index:9999;}
 .modal-wrapper.open{
   height:auto;
@@ -41,7 +42,8 @@
   -webkit-transition:0.4s all;
   transition:0.4s all;
   width:90%;
-  max-width:500px;}
+  max-width:500px;
+  will-change:left, right;}
 .modal-wrapper.slide-out.open .modal-inner{
   left:0;}
 .modal-wrapper.slide-out.open .modal-content{

@@ -17,13 +17,19 @@ $text-font-secondary: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, 
 $mobile-tablet-breakpoint: 720px;
 $tablet-desktop-breakpoint: 950px;
 
+$max-width-skinny:25rem;
+$max-width-narrow:30rem;
+$max-width-normal:36rem;
+$max-width-medium:44rem;
+$max-width-wide:56rem;
+$max-width-extrawide:58rem;
+
 
 $primary-color: #333;
 
 @import 'sass/01-core/_basics';
 @import 'sass/01-core/_colors';
 @import 'sass/01-core/_text';
-@import 'sass/01-core/_utilities';
 
 @import 'sass/02-components/_background';
 @import 'sass/02-components/_borders-notches';
@@ -39,6 +45,7 @@ $primary-color: #333;
 @import 'sass/03-layout/_columns';
 @import 'sass/03-layout/_header';
 @import 'sass/03-layout/_footer';
+@import 'sass/03-layout/_sections';
 @import 'sass/03-layout/_layout-general';
 @import 'sass/03-layout/_spacing';
 
@@ -46,6 +53,7 @@ $primary-color: #333;
 @import 'sass/04-js-helpers/_js-general';
 @import 'sass/04-js-helpers/_js-lazyload';
 @import 'sass/04-js-helpers/_js-modal';
+@import 'sass/04-js-helpers/_js-headroom'; 
 
 @import 'sass/05-integrations/_action-network';
 @import 'sass/05-integrations/_actionkit';
@@ -56,8 +64,9 @@ $primary-color: #333;
 @import 'sass/05-integrations/_social';
 @import 'sass/05-integrations/_wordpress';
 
+@import 'sass/06-utilities/_utilities';
 /*
-@import 'sass/06-misc/_legacy-header';
-@import 'sass/06-misc/_legacy';
-@import 'sass/06-misc/_questionable';
+@import 'sass/07-misc/_legacy-header';
+@import 'sass/07-misc/_legacy';
+@import 'sass/07-misc/_questionable';
 */

@@ -46,7 +46,7 @@ html {
 
 @supports (font-size: calc(1vw + 1px)) {
   html {
-    font-size: calc(.42vw + 12.6px); } }
+    font-size: calc(.4vw + 14px); } }
 
 body {
   color: #17292e;
@@ -63,6 +63,7 @@ h3,
 h4,
 h5 {
   font-weight: bold;
+  letter-spacing: calc(0.8px - 0.03em);
   margin: 0 0 1rem;
   text-rendering: geometricPrecision; }
 
@@ -82,23 +83,21 @@ h5 a {
   text-decoration: none; }
 
 h1 {
-  font-size: 2.2em;
-  letter-spacing: -0.01em; }
+  font-size: calc(1.3vw + 1.3rem); }
 
 h2 {
-  font-size: 1.9em;
-  letter-spacing: -0.005em; }
+  font-size: calc(1.3vw + 0.9rem); }
 
 h3 {
-  font-size: 1.4em; }
+  font-size: calc(1.3vw + 0.6rem); }
 
 h4 {
-  font-size: 1.25em;
+  font-size: calc(1.3vw + 0.4rem);
   line-height: 1.15;
   margin-bottom: 0.5rem; }
 
 h5 {
-  font-size: 1.15em;
+  font-size: calc(1.3vw + 0.4rem);
   line-height: 1.3;
   margin-bottom: 0.3rem; }
 
@@ -123,7 +122,7 @@ a.active {
 
 /* Paragraphs */
 p {
-  margin-bottom: 0.8em; }
+  margin: 0 0 0.8em; }
 
 p:last-child, ul:last-child, ol:last-child {
   margin-bottom: 0; }
@@ -147,7 +146,7 @@ ol {
   padding-left: calc(0.2rem + 0.9em); }
 
 li {
-  margin-bottom: 0.4em;
+  margin: 0 0 0.4em;
   text-align: start; }
 
 ol li {
@@ -238,7 +237,6 @@ td, th {
 /* Other text elements */
 blockquote {
   background: rgba(21, 36, 43, 0.04);
-  border-left: 0.4rem solid rgba(21, 36, 43, 0.1);
   margin: 1.5em 0;
   padding: 1.3em; }
 
@@ -303,33 +301,6 @@ small {
 
 dd {
   margin: 0; }
-
-/* Tablet and up */
-@media only screen and (min-width: 720px) {
-  h1 {
-    font-size: 2.4em; }
-  h2 {
-    font-size: 2.1em; }
-  h3 {
-    font-size: 1.8em; }
-  h4 {
-    font-size: 1.4em; }
-  h5 {
-    font-size: 1.2em; } }
-
-/* Desktop and larger */
-@media only screen and (min-width: 950px) {
-  h1 {
-    font-size: 2.5em;
-    letter-spacing: -0.02em; }
-  h2 {
-    font-size: 2.2em; }
-  h3 {
-    font-size: 1.8em; }
-  h4 {
-    font-size: 1.4em; }
-  h5 {
-    font-size: 1.2em; } }
 
 /* default 350 colors */
 .bg-transparent {
@@ -513,6 +484,23 @@ nav.bg-ltgray .sub-menu {
 .text-strong {
   font-weight: bold; }
 
+/* Titles */
+.title0 {
+  font-size: calc(3.8vw + 55px); }
+
+.title1 {
+  font-size: calc(3.8vw + 46px); }
+
+.title2 {
+  font-size: calc(3.8vw + 38px); }
+
+.title3 {
+  font-size: calc(3.8vw + 34px); }
+
+.title3 {
+  font-size: calc(3.8vw + 30px); }
+
+/* Meta / Secondary */
 .text-font-secondary,
 .meta {
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
@@ -731,21 +719,6 @@ a.text-unstyled:hover {
 
 /* Tablet and up */
 @media only screen and (min-width: 720px) {
-  .title0 {
-    font-size: 72px;
-    letter-spacing: 0; }
-  .title1 {
-    font-size: 60px;
-    letter-spacing: -0.005em; }
-  .title2 {
-    font-size: 53px;
-    letter-spacing: 0em; }
-  .title3 {
-    font-size: 42px;
-    letter-spacing: 0em; }
-  .title4 {
-    font-size: 34px;
-    letter-spacing: 0em; }
   .text-large,
   .text-large1,
   .text-style-lead {
@@ -787,74 +760,7 @@ a.text-unstyled:hover {
   .desktop-text-center {
     text-align: center; }
   .desktop-text-right {
-    text-align: right; }
-  .title0 {
-    font-size: 85px;
-    letter-spacing: 0; }
-  .title1 {
-    font-size: 70px;
-    letter-spacing: -0.01em; }
-  .title2 {
-    font-size: 60px;
-    letter-spacing: -0.005em; }
-  .title3 {
-    font-size: 53px;
-    letter-spacing: 0em; }
-  .title4 {
-    font-size: 45px;
-    letter-spacing: 0em; } }
-
-/* General purpose utility classes */
-.clear {
-  clear: both !important;
-  display: block;
-  height: 0;
-  line-height: 0 !important;
-  margin: 0 !important;
-  overflow: hidden;
-  padding: 0 !important;
-  width: 0 !important; }
-
-.hidden {
-  display: none !important;
-  font-size: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
-  visibility: hidden; }
-
-/* Mobile Only */
-@media only screen and (max-width: 720px) {
-  .mobile-hide {
-    display: none !important; } }
-
-/* Tablet Only */
-@media only screen and (min-width: 720px) and (max-width: 950px) {
-  .tablet-hide {
-    display: none !important; } }
-
-/* Desktop and larger */
-@media only screen and (min-width: 950px) {
-  .desktop-hide {
-    display: none !important; } }
-
-.opacity-100 {
-  opacity: 1; }
-
-.opacity-75 {
-  opacity: 0.75; }
-
-.opacity-50 {
-  opacity: 0.5; }
-
-.sticky,
-.js-sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  top: -1px;
-  /* fixes weird little 1px gap */
-  width: 100%;
-  z-index: 100; }
+    text-align: right; } }
 
 /* Site background */
 /* .bg-on is a WP variable that's active when a fullscreen background image is present.
@@ -2397,9 +2303,6 @@ input.search-form-submit {
       -ms-flex-order: 0;
           order: 0;
   overflow: visible;
-  padding: 0;
-  position: relative;
-  width: 100%;
   z-index: 1000; }
 
 #site-header-inner {
@@ -2527,7 +2430,7 @@ input.search-form-submit {
   #site-nav-button-label {
     display: inline-block; } }
 
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 950px) {
   #site-nav-label.nav-desktop-dropdown,
   #site-nav-label.nav-desktop-list {
     display: none; } }
@@ -2645,23 +2548,10 @@ input.search-form-submit {
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem; }
 
-/* Layout utlities */
-/* Sections */
-#container {
-  /* flex allows for:
-  - columned sections to be equal height, regardless of content
-  - re-ordering of sections with 'order' property */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  margin: 0 auto;
-  position: relative;
-  min-width: 15rem;
-  max-width: 1550px;
-  z-index: 5; }
-
+/*
+  Sections
+  Styles for the full-width page blocks that baseline is built on.
+*/
 .section {
   background-position: center center;
   background-size: cover;
@@ -2721,6 +2611,42 @@ input.search-form-submit {
 .title-section .section-inner,
 .title-section-60 .section-inner {
   width: 100%; }
+
+/* Width */
+.width-skinny .section-inner {
+  max-width: 25rem; }
+
+.width-narrow .section-inner {
+  max-width: 30rem; }
+
+.width-normal .section-inner {
+  max-width: 36rem; }
+
+.width-medium .section-inner {
+  max-width: 44rem; }
+
+.width-wide .section-inner {
+  max-width: 56rem; }
+
+.width-extrawide .section-inner {
+  max-width: 58rem; }
+
+/* Layout utlities */
+/* Sections */
+#container {
+  /* flex allows for:
+  - columned sections to be equal height, regardless of content
+  - re-ordering of sections with 'order' property */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: 0 auto;
+  position: relative;
+  min-width: 15rem;
+  max-width: 85rem;
+  z-index: 5; }
 
 /* Site Optons */
 .header-hide {
@@ -3168,24 +3094,18 @@ input.search-form-submit {
 
 /* Desktop and larger */
 @media only screen and (min-width: 950px) {
-  .width-skinny .section-inner,
   .width-skinny.expando > .expando-link {
-    max-width: 450px; }
-  .width-narrow .section-inner,
+    max-width: 25rem; }
   .width-narrow.expando > .expando-link {
-    max-width: 600px; }
-  .width-normal .section-inner,
+    max-width: 30rem; }
   .width-normal.expando > .expando-link {
-    max-width: 750px; }
-  .width-medium .section-inner,
+    max-width: 36rem; }
   .width-medium.expando > .expando-link {
-    max-width: 950px; }
-  .width-wide .section-inner,
+    max-width: 44rem; }
   .width-wide.expando > .expando-link {
-    max-width: 1050px; }
-  .width-extrawide .section-inner,
+    max-width: 56rem; }
   .width-extrawide.expando > .expando-link {
-    max-width: 1200px; } }
+    max-width: 58rem; } }
 
 /* general JS support styles */
 .js-hide {
@@ -3227,6 +3147,7 @@ img.b-loaded {
   -webkit-transition: 0.4s opacity;
   transition: 0.4s opacity;
   width: 100%;
+  will-change: opacity;
   z-index: 9999; }
 
 .modal-wrapper.open {
@@ -3255,7 +3176,8 @@ img.b-loaded {
   -webkit-transition: 0.4s all;
   transition: 0.4s all;
   width: 90%;
-  max-width: 500px; }
+  max-width: 500px;
+  will-change: left, right; }
 
 .modal-wrapper.slide-out.open .modal-inner {
   left: 0; }
@@ -3313,6 +3235,29 @@ img.b-loaded {
     right: 1rem;
     top: 1rem;
     width: 2.5rem; } }
+
+/*
+  CSS to support the "shy" sticky behavior via headroom.js
+*/
+.headroom {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  -webkit-transition: -webkit-transform 100ms ease-in-out;
+  transition: -webkit-transform 100ms ease-in-out;
+  transition: transform 100ms ease-in-out;
+  transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
+  will-change: transform; }
+
+.headroom--pinned {
+  -webkit-box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%); }
+
+.headroom--unpinned {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%); }
 
 a
 #can_embed_form {
@@ -3741,9 +3686,61 @@ div.alignright {
     margin: 0 1%;
     padding: 1rem; } }
 
+/* General purpose utility classes */
+.clear {
+  clear: both !important;
+  display: block;
+  height: 0;
+  line-height: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
+  padding: 0 !important;
+  width: 0 !important; }
+
+.hidden {
+  display: none !important;
+  font-size: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  visibility: hidden; }
+
+/* Mobile Only */
+@media only screen and (max-width: 720px) {
+  .mobile-hide {
+    display: none !important; } }
+
+/* Tablet Only */
+@media only screen and (min-width: 720px) and (max-width: 950px) {
+  .tablet-hide {
+    display: none !important; } }
+
+/* Desktop and larger */
+@media only screen and (min-width: 950px) {
+  .desktop-hide {
+    display: none !important; } }
+
+.opacity-100 {
+  opacity: 1; }
+
+.opacity-75 {
+  opacity: 0.75; }
+
+.opacity-50 {
+  opacity: 0.5; }
+
+.sticky,
+.js-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+  /* fixes weird little 1px gap */
+  width: 100%;
+  z-index: 100; }
+
 /*
-@import 'sass/06-misc/_legacy-header';
-@import 'sass/06-misc/_legacy';
-@import 'sass/06-misc/_questionable';
+@import 'sass/07-misc/_legacy-header';
+@import 'sass/07-misc/_legacy';
+@import 'sass/07-misc/_questionable';
 */
 /*# sourceMappingURL=style.css.map */

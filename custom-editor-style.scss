@@ -23,7 +23,6 @@ $primary-color: #333;
 @import 'sass/01-core/_basics';
 @import 'sass/01-core/_colors';
 @import 'sass/01-core/_text';
-@import 'sass/01-core/_utilities';
 
 @import 'sass/02-components/_background';
 @import 'sass/02-components/_borders-notches';
@@ -59,7 +58,9 @@ $primary-color: #333;
 @import 'sass/05-integrations/_wordpress';
 
 /*
-@import 'sass/06-misc/_legacy-header';
-@import 'sass/06-misc/_legacy';
-@import 'sass/06-misc/_questionable';
+@import 'sass/06-utilities/_utilities';
+
+@import 'sass/07-misc/_legacy-header';
+@import 'sass/07-misc/_legacy';
+@import 'sass/07-misc/_questionable';
 */

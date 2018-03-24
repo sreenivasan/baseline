@@ -162,11 +162,11 @@ function baseline_custom_css() {
 	.expando-meta .expando-link{
 		font-family:'. $secondary_font .','. $fallback_font .';}
 	h1{
-		font-size:'. fontSize(2.2) .'em;}
+		font-size:calc(1.3vw + '. fontSize(1.3) .'rem);}
 	h2{
-		font-size:'. fontSize(1.9) .'em;}
+		font-size:calc(1.3vw + '. fontSize(0.9) .'rem);}
 	h3{
-		font-size:'. fontSize(1.4) .'em;}
+		font-size:calc(1.3vw + '. fontSize(0.6) .'rem);}
 	a,
 	a.area-link:hover .area-link-hover{
 		color:'. $link_color .';}
@@ -209,17 +209,17 @@ function baseline_custom_css() {
 
 
 	.title0{
-  	font-size:'. fontSize(55) .'px;}
+  	font-size:calc(3.8vw + '. fontSize(55) .'px);}
 	.title1{
-	  font-size:'. fontSize(46) .'px;}
+	  font-size:calc(3.8vw + '. fontSize(46) .'px;}
 	.title2{
-	  font-size:'. fontSize(38) .'px;}
+	  font-size:calc(3.8vw + '. fontSize(38) .'px;}
 	.title3{
-	  font-size:'. fontSize(34) .'px;}
+	  font-size:calc(3.8vw + '. fontSize(34) .'px;}
 	.title4{
-	  font-size:'. fontSize(30) .'px;}
+	  font-size:calc(3.8vw + '. fontSize(30) .'px;}
 
-	@media only screen and (max-width:650px){
+	@media only screen and (max-width:720px){
 		.mobile-expando-meta > .mobile-expando-link,
 		.section.mobile-expando-meta > .mobile-expando-link{
 			font-family:'. $secondary_font .','. $fallback_font .';
@@ -229,65 +229,24 @@ function baseline_custom_css() {
 			text-transform:uppercase;}
 	}
 
-	@media only screen and (min-width:650px){
+	@media only screen and (min-width:720px){
 		#body-mobile-background{
 			background-image:url(' . $theme_bg_medium[0] .');}
-		h1{
-			font-size:'. fontSize(2.4) .'em;}
-		h2{
-			font-size:'. fontSize(2.1) .'em;}
-		h3{
-			font-size:'. fontSize(1.8) .'em;}
-		.title0{
-			font-size:'. fontSize(80) .'px;}
-		.title1{
-			font-size:'. fontSize(72) .'px;}
-		.title2{
-			font-size:'. fontSize(55) .'px;}
-		.title3{
-			font-size:'. fontSize(45) .'px;}
-		.title4{
-			font-size:'. fontSize(36) .'px;}
 		#site-title{
 			font-size:'. fontSize(1.4) .'rem;}
 
 		.tablet-expando-meta > .tablet-expando-link,
 		.section.tablet-expando-meta > .tablet-expando-link{
-			font-family:'. $secondary_font .','. $fallback_font .';
-			font-size:0.9em;
-			font-weight:500;
-			letter-spacing:0.2em;
-			text-transform:uppercase;}
+			font-family:'. $secondary_font .','. $fallback_font .';}
 	}
 
-	@media only screen and (min-width:900px){
+	@media only screen and (min-width:950px){
 		#body-mobile-background{
 			background-image:url(' . $theme_bg_large[0] . ');}
-	  h1{
-	    font-size:'. fontSize(2.5) .'em;}
-	  h2{
-	    font-size:'. fontSize(2.2) .'em;}
-	  h3{
-	    font-size:'. fontSize(1.8) .'em;}
-	  .title0{
-  	  	font-size:'. fontSize(85) .'px;
-  	  	line-height:' . $display_font_lineheight * 0.9 .';}
-	  .title1{
-	    font-size:'. fontSize(80) .'px;}
-	  .title2{
-	    font-size:'. fontSize(60) .'px;}
-	  .title3{
-	    font-size:'. fontSize(53) .'px;}
-	  .title4{
-	    font-size:'. fontSize(45) .'px;}
 
 	  .desktop-expando-meta > .desktop-expando-link,
 	  .section.desktop-expando-meta > .desktop-expando-link{
-			font-family:'. $secondary_font .','. $fallback_font .';
-			font-size:0.9em;
-			font-weight:500;
-			letter-spacing:0.2em;
-			text-transform:uppercase;}
+			font-family:'. $secondary_font .','. $fallback_font .';}
 	}
 	';
 	$custom_css_combined = $custom_css . $color_css_string . $addl_custom_css;

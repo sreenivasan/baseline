@@ -12,9 +12,6 @@
 #site-header{
   order:0;
   overflow:visible; // fixes invisible #nav-label
-  padding:0;
-  position:relative;
-  width:100%;
   z-index:1000;}
 #site-header-inner{
   align-items:center;
@@ -116,7 +113,7 @@
   #site-nav-button-label{
     display:inline-block;}
 }
-@media only screen and (min-width:$mobile-tablet-breakpoint){
+@media only screen and (min-width:$tablet-desktop-breakpoint){
   #site-nav-label.nav-desktop-dropdown,
   #site-nav-label.nav-desktop-list{
     display:none;}

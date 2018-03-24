@@ -1,0 +1,60 @@
+/*
+  Sections
+  Styles for the full-width page blocks that baseline is built on.
+*/
+
+.section{
+  background-position:center center;
+  background-size:cover;
+  order:5;
+  position:relative;
+  width:100%;
+  z-index:2;}
+.section-inner{
+  position:relative;}
+.section-inner,
+.section.expando .expando-link{
+  margin:0 auto;}
+.section-inner::after,
+.clearfix::after{
+  clear:both;
+  content:'';
+  display:block;
+  height:0;
+  visibility:hidden;}
+
+/* Specialized section classes */
+.section-order-beforeheader{
+  order:-5;}
+.section.section-position-outer .section-inner{
+  position:static;}
+
+.title-section-60,
+.title-section{
+  align-items:center;
+  display:flex;
+  min-height:min-content;
+  height:auto;
+  height:calc(100vh - 25px);
+  max-height:900px;
+  justify-content:center;
+  width:100%;}
+.title-section-60{
+  height:calc(100vh - 60px);}
+.title-section .section-inner,
+.title-section-60 .section-inner{
+  width:100%;}
+
+/* Width */
+.width-skinny .section-inner{
+  max-width:$max-width-skinny;}
+.width-narrow .section-inner{
+  max-width:$max-width-narrow;}
+.width-normal .section-inner{
+  max-width:$max-width-normal;}
+.width-medium .section-inner{
+  max-width:$max-width-medium;}
+.width-wide .section-inner{
+  max-width:$max-width-wide;}
+.width-extrawide .section-inner{
+  max-width:$max-width-extrawide;}

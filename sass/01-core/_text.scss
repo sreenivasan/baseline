@@ -2,6 +2,22 @@
 .text-strong{
   font-weight:bold;}
 
+
+/* Titles */
+.title0{
+  font-size:calc(3.8vw + 55px);}
+.title1{
+  font-size:calc(3.8vw + 46px);}
+.title2{
+  font-size:calc(3.8vw + 38px);}
+.title3{
+  font-size:calc(3.8vw + 34px);}
+.title3{
+  font-size:calc(3.8vw + 30px);}
+
+
+
+/* Meta / Secondary */
 .text-font-secondary,
 .meta{
   font-family: $text-font-secondary;
@@ -19,6 +35,8 @@
   letter-spacing:0;}
 .meta.text-light{
   color:rgba(255,255,255,0.7);}
+
+
 
 h1.meta,
 h2.meta,
@@ -213,21 +231,6 @@ a.text-unstyled:hover{
 /* Tablet and up */
 @media only screen and (min-width:$mobile-tablet-breakpoint){
 
-  .title0{
-    font-size:72px;
-    letter-spacing:0;}
-  .title1{
-    font-size:60px;
-    letter-spacing:-0.005em;}
-  .title2{
-    font-size:53px;
-    letter-spacing:0em;}
-  .title3{
-    font-size:42px;
-    letter-spacing:0em;}
-  .title4{
-    font-size:34px;
-    letter-spacing:0em;}
 
   .text-large,
   .text-large1,
@@ -281,20 +284,5 @@ a.text-unstyled:hover{
   .desktop-text-right{
     text-align:right;}
 
-  .title0{
-    font-size:85px;
-    letter-spacing:0;}
-  .title1{
-    font-size:70px;
-    letter-spacing:-0.01em;}
-  .title2{
-    font-size:60px;
-    letter-spacing:-0.005em;}
-  .title3{
-    font-size:53px;
-    letter-spacing:0em;}
-  .title4{
-    font-size:45px;
-    letter-spacing:0em;}
 
 }

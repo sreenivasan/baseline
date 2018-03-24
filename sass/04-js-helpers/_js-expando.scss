@@ -210,23 +210,17 @@
 /* Desktop and larger */
 @media only screen and (min-width:$tablet-desktop-breakpoint){
 
-  .width-skinny .section-inner,
   .width-skinny.expando > .expando-link{
-    max-width:450px;}
-  .width-narrow .section-inner,
+    max-width:$max-width-skinny;}
   .width-narrow.expando > .expando-link{
-    max-width:600px;}
-  .width-normal .section-inner,
+    max-width:$max-width-narrow;}
   .width-normal.expando > .expando-link{
-    max-width:750px;}
-  .width-medium .section-inner,
+    max-width:$max-width-normal;}
   .width-medium.expando > .expando-link{
-    max-width:$tablet-desktop-breakpoint;}
-  .width-wide .section-inner,
+    max-width:$max-width-medium;}
   .width-wide.expando > .expando-link{
-    max-width:1050px;}
-  .width-extrawide .section-inner,
+    max-width:$max-width-wide;}
   .width-extrawide.expando > .expando-link{
-    max-width:1200px;}
+    max-width:$max-width-extrawide;}
 
 }

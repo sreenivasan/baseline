@@ -1530,19 +1530,6 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/01-core\/_utilities.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 5,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/sass\/01-core\/_utilities.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"\/sass\/02-components\/_background.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -1725,6 +1712,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/sass\/03-layout\/_sections.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 5,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/sass\/03-layout\/_sections.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/sass\/03-layout\/_spacing.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -1760,6 +1760,19 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/sass\/04-js-helpers\/_js-general.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/sass\/04-js-helpers\/_js-headroom.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 5,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/sass\/04-js-helpers\/_js-headroom.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -1894,7 +1907,7 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/06-misc\/_legacy-header.scss": {
+	"\/sass\/06-utilities\/_utilities.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 5,
@@ -1902,12 +1915,12 @@
 		"ft": 4,
 		"ma": 1,
 		"oA": 1,
-		"oAP": "\/sass\/06-misc\/_legacy-header.css",
+		"oAP": "\/sass\/06-utilities\/_utilities.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/06-misc\/_legacy.scss": {
+	"\/sass\/07-misc\/_legacy-header.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 5,
@@ -1915,12 +1928,12 @@
 		"ft": 4,
 		"ma": 1,
 		"oA": 1,
-		"oAP": "\/sass\/06-misc\/_legacy.css",
+		"oAP": "\/sass\/07-misc\/_legacy-header.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/06-misc\/_questionable.scss": {
+	"\/sass\/07-misc\/_legacy.scss": {
 		"aP": 1,
 		"bl": 0,
 		"dP": 5,
@@ -1928,7 +1941,20 @@
 		"ft": 4,
 		"ma": 1,
 		"oA": 1,
-		"oAP": "\/sass\/06-misc\/_questionable.css",
+		"oAP": "\/sass\/07-misc\/_legacy.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/sass\/07-misc\/_questionable.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 5,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/sass\/07-misc\/_questionable.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
