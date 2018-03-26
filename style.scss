@@ -10,22 +10,7 @@
  GitHub Theme URI: https://github.com/350org/baseline
 */
 
-$text-font-display: -apple-system,BlinkMacSystemFont,arial,sans-serif;
-$text-font-body: -apple-system,BlinkMacSystemFont,arial,sans-serif;
-$text-font-secondary: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-
-$mobile-tablet-breakpoint: 720px;
-$tablet-desktop-breakpoint: 950px;
-
-$max-width-skinny:25rem;
-$max-width-narrow:30rem;
-$max-width-normal:36rem;
-$max-width-medium:44rem;
-$max-width-wide:56rem;
-$max-width-extrawide:58rem;
-
-
-$primary-color: #333;
+@import 'sass/00-variables/_variables';
 
 @import 'sass/01-core/_basics';
 @import 'sass/01-core/_colors';
@@ -53,7 +38,7 @@ $primary-color: #333;
 @import 'sass/04-js-helpers/_js-general';
 @import 'sass/04-js-helpers/_js-lazyload';
 @import 'sass/04-js-helpers/_js-modal';
-@import 'sass/04-js-helpers/_js-headroom'; 
+@import 'sass/04-js-helpers/_js-headroom';
 
 @import 'sass/05-integrations/_action-network';
 @import 'sass/05-integrations/_actionkit';
