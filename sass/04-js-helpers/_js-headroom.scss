@@ -2,13 +2,16 @@
   CSS to support the "shy" sticky behavior via headroom.js
 */
 
-.headroom {
-  position:sticky;
+.headroom{
+  box-shadow:0 0 0.5rem rgba(0,0,0,0);
   top:0;
-  transition:transform 100ms ease-in-out;
-  will-change:transform;}
-.headroom--pinned {
-  box-shadow:0 0 0.5rem rgba(0,0,0,0.4);
+  transition:
+    transform 100ms ease-in-out,
+    box-shadow 500ms;}
+.headroom--pinned{
+  position:sticky;}
+.headroom--pinned.headroom--not-top{
+  box-shadow:0 0 0.5rem rgba(0,0,0,0.3);
   transform:translateY(0%);}
-.headroom--unpinned {
+.headroom--unpinned{
   transform:translateY(-100%);}

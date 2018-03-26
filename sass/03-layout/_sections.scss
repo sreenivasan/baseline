@@ -11,6 +11,7 @@
   width:100%;
   z-index:2;}
 .section-inner{
+  justify-content:inherit; // if parent is set to .text-center and uses flex, inherit the alignment
   position:relative;}
 .section-inner,
 .section.expando .expando-link{

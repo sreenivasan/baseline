@@ -38,11 +38,10 @@
   overflow-y:auto;
   position:absolute;
   top:0;
-  -moz-transition:0.4s all;
-  -webkit-transition:0.4s all;
   transition:0.4s all;
-  width:90%;
-  max-width:500px;
+  min-width:22rem;
+  max-width:35rem;
+  width:86%;
   will-change:left, right;}
 .modal-wrapper.slide-out.open .modal-inner{
   left:0;}
@@ -63,7 +62,7 @@
   background-repeat:no-repeat;
   background-position:center center;
   background-size:42% auto;
-  border-radius:40px;
+  border-radius:2rem;
   cursor:pointer;
   height:2rem;
   position:absolute;
@@ -80,7 +79,7 @@
   height:100vh;
   overflow:auto;
   margin:0;
-  padding:25px;
+  padding:2.5rem;
   text-align:left;}
 
 .modal-wrapper .site-language-nav{

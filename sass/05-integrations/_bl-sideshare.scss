@@ -4,6 +4,12 @@
 /* Side share buttons */
 #side-share{
   order:8;}
+.buttons-share-side .button-square{
+  float:right;
+  clear:both;}
+.buttons-share-side .button-square:hover{
+  width:60px;}
+
 
 
 /* Mobile Only */
@@ -20,6 +26,7 @@
     position:fixed;
     right:0;
     top:50%;
+    transition:all 1s; //smooth the awkward resizing when a mobile browser address bar hides
     z-index:999;}
   .buttons-share-side-left{
     right:auto;
