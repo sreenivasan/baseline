@@ -10,15 +10,7 @@
  GitHub Theme URI: https://github.com/350org/baseline
 */
 
-$text-font-display: -apple-system,BlinkMacSystemFont,arial,sans-serif;
-$text-font-body: -apple-system,BlinkMacSystemFont,arial,sans-serif;
-$text-font-secondary: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
-
-$mobile-tablet-breakpoint: 720px;
-$tablet-desktop-breakpoint: 900px;
-
-
-$primary-color: #333;
+@import 'sass/00-variables/_variables';
 
 @import 'sass/01-core/_basics';
 @import 'sass/01-core/_colors';
