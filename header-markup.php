@@ -42,7 +42,7 @@
 				</h1>
 <?php // Site Nav ?>
 <?php if ( has_nav_menu('main-nav') ): ?>
-				<a id="site-nav-label" class="site-header-item js-modal <?php echo $nav_desktop_display; ?>" data-modal-source=".site-nav" data-modal-show-source="true" data-modal-classes-outer="width-narrow slide-out" data-modal-classes-inner="-"><?php if ( $site_nav_button_label ): ?><span id="site-nav-button-label"><?php echo $site_nav_button_label; ?></span><?php endif; ?></a>
+				<a id="site-nav-toggle" class="site-header-item js-modal <?php echo $nav_desktop_display; ?>" data-modal-source=".site-nav" data-modal-show-source="true" data-modal-classes-outer="slide-out" data-modal-classes-inner="-"><?php if ( $site_nav_button_label ): ?><span id="site-nav-toggle-text"><?php echo $site_nav_button_label; ?></span><?php endif; ?></a>
 <?php endif; ?>
 <?php if ( has_nav_menu('main-nav') ): ?>
 	<?php
@@ -57,7 +57,7 @@
 		endif;
 
 	?>
-				<nav class="site-nav site-header-item <?php echo $menu_width; ?> <?php echo $nav_desktop_display; ?> bg-<?php echo $nav_desktop_bgcolor; ?>">
+				<nav id="site-nav" class="site-nav site-header-item <?php echo $menu_width; ?> <?php echo $nav_desktop_display; ?> bg-<?php echo $nav_desktop_bgcolor; ?> text-color-override">
 					<h3 class="meta main-nav-label"><?php echo $menu_array['name']; ?></h3>
 	<?php
 		wp_nav_menu( array(
@@ -71,11 +71,12 @@
 				</nav>
 	<?php endif; ?>
 	<?php if ( has_nav_menu('lang-nav') ):?>
-				<a id="site-language-nav-label" class="language-nav-label language-label js-modal site-header-item" data-modal-source=".site-language-nav" data-modal-classes-outer="slide-out slide-out-right width-narrow bg-<?php echo $langnav_bgcolor; ?>" data-modal-classes-inner="text-large2"><?php _e('Language', 'baseline'); ?></a>
+				<a id="site-language-nav-toggle" class="language-nav-label language-label js-modal site-header-item" data-modal-source=".site-language-nav" data-modal-classes-outer="slide-out slide-out-right width-narrow bg-<?php echo $langnav_bgcolor; ?>" data-modal-classes-inner="text-large2"><span id="site-language-nav-toggle-text" class="language-nav-toggle-text nav-toggle-text"><?php _e('Language', 'baseline'); ?></span></a>
 	<?php endif; ?>
 	<?php if ( $header_buttons ): ?>
 				<div id="header-buttons-container" class="site-header-item">
 					<?php echo stripslashes( $header_buttons ); ?>
 				</div>
 	<?php endif; ?>
+				<div class="site-header-item site-header-divider"></div>
 		</header>
