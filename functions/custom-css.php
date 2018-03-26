@@ -134,11 +134,12 @@ function baseline_custom_css() {
 
 	$custom_css ='
 	body,
-	button, input, select, textarea,
+	button,
+	input,
+	select,
+	textarea,
 	.text-font-body{
 		font-family:'. $body_font .','. $fallback_font .';}
-	body{
-	 	font-family:'. $body_font .','. $fallback_font .';}
 	#body-mobile-background{
 		background-image:url(' . $theme_bg_small[0] . ');}
 	h1,
@@ -152,7 +153,8 @@ function baseline_custom_css() {
 	.text-display,
 	.text-font-display{
 		font-family:'. $display_font .','. $body_font .','. $fallback_font .';
-		line-height:'. $display_font_lineheight .';' .
+		line-height:'. $display_font_lineheight .';' . '
+		line-height:calc(('. $display_font_lineheight .' * 0.85em) + 0.8rem)' .
 		$turkish_text_transform . '}
 	.text-display,
 	.text-font-display{
@@ -161,25 +163,28 @@ function baseline_custom_css() {
 	.meta,
 	.expando-meta .expando-link{
 		font-family:'. $secondary_font .','. $fallback_font .';}
+
 	h1{
-		font-size:calc(1.3vw + '. fontSize(1.3) .'rem);}
+		font-size:calc(0.8vw + '. fontSize(1.5) .'rem);}
 	h2{
-		font-size:calc(1.3vw + '. fontSize(0.9) .'rem);}
+		font-size:calc(0.68vw + '. fontSize(1.4) .'rem);}
 	h3{
-		font-size:calc(1.3vw + '. fontSize(0.6) .'rem);}
+		font-size:calc(0.5vw + '. fontSize(1.3) .'rem);}
+
 	a,
 	a.area-link:hover .area-link-hover{
 		color:'. $link_color .';}
 	#site-title{
-	  font-size:'. fontSize(1.2) .'rem;}
+		font-size:'. fontSize(1.2) .'rem;}
 	input.submit,
 	input[type="submit"],
 	.button{
 		background-color:'. $button_color .';}
-	.button-primary{
+	.button-primary,
+	.button-big{
 		background-color:'. $button_color .';
 		font-family:'. $display_font .','. $body_font .','. $fallback_font .';
-		font-size:'. fontSize(1.6) .'rem;}
+		font-size:'. fontSize(1.15) .'em;}
 	.button-secondary{
 		background-color:'. $link_color .';}
 
@@ -199,7 +204,7 @@ function baseline_custom_css() {
 		font-family:'. $display_font .','. $body_font .','. $fallback_font .';
 		font-size:'. fontSize(1.5) .'rem;
 		text-shadow:none;
-	  	border-width:0 0 3px;
+	  border-width:0 0 3px;
 		border-bottom:3px solid rgba(21,35,43,0.15);}
 	.form #can_embed_form input[type="submit"]:hover,
 	.form #can_embed_form .button:hover,
@@ -209,15 +214,17 @@ function baseline_custom_css() {
 
 
 	.title0{
-  	font-size:calc(3.8vw + '. fontSize(55) .'px);}
+		font-size:calc(3.8vw + '. fontSize(55) .'px);}
 	.title1{
-	  font-size:calc(3.8vw + '. fontSize(46) .'px;}
+	  font-size:calc(3.8vw + '. fontSize(44) .'px);}
 	.title2{
-	  font-size:calc(3.8vw + '. fontSize(38) .'px;}
+	  font-size:calc(3.8vw + '. fontSize(35) .'px);}
 	.title3{
-	  font-size:calc(3.8vw + '. fontSize(34) .'px;}
+	  font-size:calc(3.8vw + '. fontSize(28) .'px);}
 	.title4{
-	  font-size:calc(3.8vw + '. fontSize(30) .'px;}
+	  font-size:calc(3.8vw + '. fontSize(22) .'px);}
+	.title5{
+	  font-size:calc(3.8vw + '. fontSize(18) .'px);}
 
 	@media only screen and (max-width:720px){
 		.mobile-expando-meta > .mobile-expando-link,
@@ -232,8 +239,6 @@ function baseline_custom_css() {
 	@media only screen and (min-width:720px){
 		#body-mobile-background{
 			background-image:url(' . $theme_bg_medium[0] .');}
-		#site-title{
-			font-size:'. fontSize(1.4) .'rem;}
 
 		.tablet-expando-meta > .tablet-expando-link,
 		.section.tablet-expando-meta > .tablet-expando-link{
