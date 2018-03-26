@@ -90,16 +90,16 @@
 		<div id="post-meta-inner" class="section-inner">
 			<span class="share post-meta-share post-meta-item">
 	<?php if ( $show_vk ): ?>
-				<a class="vk-share bg-vk-icon bg-vk-color button-share-medium" href="hhttp://vk.com/share.php?url=<?php the_permalink(); ?>" target="_blank"><?php _e('VK','baseline'); ?></a>
+				<a class="button button-icon vk-share bg-vk-icon bg-vk-color" href="http://vk.com/share.php?url=<?php the_permalink(); ?>" target="_blank"><?php _e('VK','baseline'); ?></a>
 	<?php endif; ?>
 	<?php if ( $show_sina_weibo ): ?>
-				<a class="sina-weibo-share bg-sina-weibo-icon bg-sina-weibo-color button-share-medium" href="http://service.weibo.com/share/share.php?url=<?php the_permalink(); ?>&title=<?php urlencode( the_title() ); ?>" target="_blank"><?php _e('分享到新浪微博','baseline'); ?></a>
+				<a class="button button-icon sina-weibo-share bg-sina-weibo-icon bg-sina-weibo-color" href="http://service.weibo.com/share/share.php?url=<?php the_permalink(); ?>&title=<?php urlencode( the_title() ); ?>" target="_blank"><?php _e('分享到新浪微博','baseline'); ?></a>
 	<?php endif; ?>
 	<?php if ( $show_fb ): ?>
-				<a class="fb-share bg-facebook-icon bg-facebook-color button-share-medium" href="https://www.facebook.com/sharer/sharer.php?u=<?php if ( get_field("post_fb_url")){ the_field("post_fb_url"); } else { the_permalink(); } ?>" target="_blank"><?php _e('Share','baseline'); ?></a>
+				<a class="button button-icon fb-share bg-facebook-icon bg-facebook-color" href="https://www.facebook.com/sharer/sharer.php?u=<?php if ( get_field("post_fb_url")){ the_field("post_fb_url"); } else { the_permalink(); } ?>" target="_blank"><?php _e('Share','baseline'); ?></a>
 	<?php endif; ?>
 	<?php if ( $show_tw ): ?>
-				<a class="tw-share bg-twitter-icon bg-twitter-color button-share-medium" href="http://twitter.com/home?status=<?php echo urlencode(html_entity_decode(rawurldecode($tweet))); ?>" target="_blank"><?php _e('Tweet','baseline'); ?></a>
+				<a class="button button-icon tw-share bg-twitter-icon bg-twitter-color" href="http://twitter.com/home?status=<?php echo urlencode(html_entity_decode(rawurldecode($tweet))); ?>" target="_blank"><?php _e('Tweet','baseline'); ?></a>
 	<?php endif; ?>
 				<span class="clear"></span>
 			</span>
