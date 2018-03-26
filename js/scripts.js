@@ -616,8 +616,15 @@ jQuery(document).ready(function($) {
 
   // Headroom - "shy" sticky
   // grab an element, construct an instance of Headroom and init
+  var headroomOptions = {
+    // pecify tolerance individually for up/down scroll
+    tolerance : {
+      up : 5,
+      down : 10
+    }
+  }
   var shyStickyElem = document.querySelector(".site-header-layout-compact");
-  var headroom  = new Headroom(shyStickyElem);
+  var headroom  = new Headroom(shyStickyElem, headroomOptions);
   headroom.init();
 
 	$(".iframe-wrapper, .video-wrapper").fitVids();
