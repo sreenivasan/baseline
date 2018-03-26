@@ -1,3 +1,12 @@
+/*
+  Buttons
+  - Basics
+  - Modifiers/Options
+  - Other button shapes
+
+*/
+
+/* Button basics */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -8,8 +17,7 @@ input[type="submit"]{
 input.submit,
 input[type="submit"],
 button,
-.button,
-.button-primary{
+.button{
   background-color:#ffa902;
   border-radius:1.4em;
   border:0 none;
@@ -18,13 +26,14 @@ button,
   display:block;
   display:inline-block;
   font-weight:bold;
-  font-size:1.3rem;
+  font-size:1em;
   height:auto;
   line-height:0.9;
   padding:0.6em 1em;
   position:relative;
   text-align:center;
   text-decoration:none;
+  transition:transform 0.1s;
   white-space:normal;}
 input.submit:hover,
 input[type="submit"]:hover,
@@ -36,45 +45,27 @@ button:hover{
 input.submit:active,
 input[type="submit"]:active,
 .button:active,
-button.active,{
-  top:2px;}
+.button.active,
+button:active,
+button.active{
+  transform:scale(0.96);}
 
+/* Button modifiers */
+.button-small{
+  font-size:0.85em;}
+.button-large,
+.button-big{
+  font-size:1.15em;}
+.button-huge{
+  font-size:1.3em;}
+.button-massive{
+  font-size:1.7em;}
 
-.button-dot{
-  background-color:rgba(255,255,255,0.1);
-  background-position:center center;
-  background-repeat:no-repeat;
-  background-size:50%;
-  border-radius:2rem;
-  display:inline-block;
-  height:1.75rem;
-  text-indent:-9999px;
-  width:1.75rem;}
-.button-dot:hover{
-  background-color:rgba(255,255,255,0.25);}
-.bg-white .button-dot{
-  background-color:rgba(21,36,43,0.3);}
-.bg-white .button-dot:hover{
-  background-color:rgba(21,36,43,0.5);}
-
-.button-square{
-  background-position:center center;
-  background-size:21px auto;
-  border-radius:0;
-  display:block;
-  height:50px;
-  margin:0;
-  position:relative;
-  text-indent:-9999px;
-  transition:0.3s all;
-  width:50px;}
-.buttons-share-side .button-square{
-  float:right;
-  clear:both;}
-.buttons-share-side .button-square:hover{
-  width:60px;}
-
-
+.button-icon {
+  background-size:1em;
+  background-position:0.75em center;
+  padding-left:2.1em;
+  padding-right:1em;}
 
 .button-arrow::after,
 .button-arrow-down::after,
@@ -104,3 +95,34 @@ button.active,{
 .button-arrow-right::after,
 .arrow-right::after{
   transform:rotate(-90deg);}
+
+
+/* Other button shapes */
+.button-dot{
+  background-color:rgba(255,255,255,0.1);
+  background-position:center center;
+  background-repeat:no-repeat;
+  background-size:50%;
+  border-radius:2rem;
+  display:inline-block;
+  height:1.75rem;
+  text-indent:-9999px;
+  width:1.75rem;}
+.button-dot:hover{
+  background-color:rgba(255,255,255,0.25);}
+.bg-white .button-dot{
+  background-color:rgba(21,36,43,0.3);}
+.bg-white .button-dot:hover{
+  background-color:rgba(21,36,43,0.5);}
+
+.button-square{
+  background-position:center center;
+  background-size:21px auto;
+  border-radius:0;
+  display:block;
+  height:50px;
+  margin:0;
+  position:relative;
+  text-indent:-9999px;
+  transition:0.3s all;
+  width:50px;}
