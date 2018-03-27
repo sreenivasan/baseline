@@ -1491,6 +1491,19 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"\/sass\/00-variables\/_variables.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 5,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/sass\/00-variables\/_variables.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/sass\/01-core\/_basics.scss": {
 		"aP": 1,
 		"bl": 0,
