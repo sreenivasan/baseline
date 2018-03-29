@@ -214,17 +214,17 @@ function baseline_custom_css() {
 
 
 	.title0{
-		font-size:calc(3.8vw + '. fontSize(55) .'px);}
+		font-size:calc(2.8vw + '. fontSize(55) .'px);}
 	.title1{
-	  font-size:calc(3.8vw + '. fontSize(44) .'px);}
+	  font-size:calc(2.6vw + '. fontSize(44) .'px);}
 	.title2{
-	  font-size:calc(3.8vw + '. fontSize(35) .'px);}
+	  font-size:calc(2.4vw + '. fontSize(35) .'px);}
 	.title3{
-	  font-size:calc(3.8vw + '. fontSize(28) .'px);}
+	  font-size:calc(2.3vw + '. fontSize(28) .'px);}
 	.title4{
-	  font-size:calc(3.8vw + '. fontSize(22) .'px);}
+	  font-size:calc(2.25vw + '. fontSize(22) .'px);}
 	.title5{
-	  font-size:calc(3.8vw + '. fontSize(18) .'px);}
+	  font-size:calc(2.2vw + '. fontSize(18) .'px);}
 
 	@media only screen and (max-width:720px){
 		.mobile-expando-meta > .mobile-expando-link,
