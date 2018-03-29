@@ -99,7 +99,7 @@ button.active{
 
 /* Other button shapes */
 .button-dot{
-  background-color:rgba(255,255,255,0.1);
+  background-color:rgba(21,36,43,0.15);
   background-position:center center;
   background-repeat:no-repeat;
   background-size:50%;
@@ -109,11 +109,11 @@ button.active{
   text-indent:-9999px;
   width:1.75rem;}
 .button-dot:hover{
-  background-color:rgba(255,255,255,0.25);}
-.bg-white .button-dot{
   background-color:rgba(21,36,43,0.3);}
-.bg-white .button-dot:hover{
-  background-color:rgba(21,36,43,0.5);}
+.bg-dkgray .button-dot{
+  background-color:rgba(255,255,255,0.1);}
+.bg-dkgray .button-dot:hover{
+  background-color:rgba(255,255,255,0.3);}
 
 .button-square{
   background-position:center center;
