@@ -69,6 +69,23 @@ function edit_menu_options(){
 add_action( 'admin_menu', 'edit_menu_options', 999 );
 
 
+function bl_network_admin_indicator(){
+	echo '<style>
+/* Network Admin visual indicator */
+.network-admin #adminmenuwrap::before {
+  content:"Network Admin";
+  display:block;
+  background:aquamarine;
+  text-align:center;
+  padding:1rem 0;
+  font-weight:900;
+  text-transform: uppercase;
+}
+</style>';
+}
+add_action('admin_head', 'bl_network_admin_indicator');
+
+
 // Move excerpt metabox above editor
 function my_add_excerpt_meta_box( $post_type ) {
     if ( in_array( $post_type, array( 'post' ) ) ) {
@@ -115,18 +132,19 @@ add_action( 'admin_footer-post.php', 'my_post_edit_page_footer' );
 function mpd_reposition_metabox(){
 	echo '<style>
 /* multisite post duplicator styles */
-		#side-sortables{
-		  display: flex;
-    	flex-wrap: wrap;}
-		#multisite_clone_metabox,
-		#multisite_create_link{
-		    order: 5;}
-		#mpd_blogschecklist{
-			border:1px solid rgba(0,0,0,0.2);
-			max-height:200px;
-			padding:8px;
-			overflow:scroll;}
-	</style>';
+#side-sortables{
+  display: flex;
+	flex-wrap: wrap;}
+#multisite_clone_metabox,
+#multisite_create_link{
+    order: 5;}
+#mpd_blogschecklist{
+	border:1px solid rgba(0,0,0,0.2);
+	max-height:200px;
+	padding:8px;
+	overflow:scroll;}
+
+</style>';
 }
 add_action( 'admin_footer-post.php', 'mpd_reposition_metabox' );
 
