@@ -15,6 +15,7 @@
   z-index:1000;}
 #site-header-inner{
   align-items:stretch;
+  background-color:inherit; // pass bg color down to children
   display:flex;
   flex-wrap:nowrap;
   padding:0;}
@@ -37,7 +38,7 @@
 #site-title{
   flex:1 1 auto;
   font-size:1.2rem;
-  padding:0.7rem 0;
+  padding:0.55rem 0;
   margin-bottom:0;}
 #site-title-link.logo-image{
   color:inherit;
@@ -112,8 +113,7 @@
 
 /* ----- Custom header buttons ----- */
 #header-buttons-container{
-  flex:0 0 auto;
-  height:100%;}
+  flex:0 0 auto;}
 
 
 /* ----- Site header layouts ----- */
@@ -137,13 +137,11 @@
   .site-header-layout-compact.text-left #site-title{
     white-space:nowrap;} //make sure other header junk doesn't force the site title to wrap
   .site-header-layout-compact.text-left #site-nav.nav-desktop-dropdown{
-    background-color:transparent; //when a dropdown nav bar is within the title bar, don't use a bg color
+    background-color:inherit; //when a dropdown nav bar is within the title bar, pass along the bg color
     display:flex;}
   .site-header-layout-compact.text-left #site-nav.nav-desktop-dropdown,
   .site-header-layout-compact.text-left #site-nav.nav-desktop-dropdown a{
     color:currentColor;}
-  .site-header-layout-compact.text-left #site-nav.nav-desktop-dropdown a:hover{
-    color:#fff;}
 
 }
 

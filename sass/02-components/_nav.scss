@@ -241,24 +241,28 @@ nav.section .heading a:hover,
 
   nav.section{
     font-size:0; /* removes whitespace between menu items */
-    padding:0; }
+    padding:0;}
   nav.nav-desktop-dropdown.bg-transparent{
     border:0 none;}
   nav.nav-desktop-dropdown.text-center .section-inner{
+    background-color:inherit; // pass the bg color down to children
     display:flex;}
   nav.nav-desktop-dropdown .menu-label{
     display:none;}
   nav.nav-desktop-dropdown .menu{
     align-items:center;
+    background-color:inherit;
     display:flex;
     height:100%;}
-  nav.nav-desktop-dropdown .menu li{
+  nav.nav-desktop-dropdown li{
+    background-color:inherit;
     font-size:1rem;
     height:100%;
     margin-bottom:0;
     position:relative;}
-  nav.nav-desktop-dropdown .menu a{
+  nav.nav-desktop-dropdown a{
     align-items:center;
+    background-color:inherit;
     border-bottom:0 none;
     display:flex;
     font-size:1rem;
@@ -266,25 +270,17 @@ nav.section .heading a:hover,
     height:100%;
     line-height:1.2;
     padding:0.5rem 1rem;}
-  nav.nav-desktop-dropdown.bg-transparent a{
-    background-color:rgba(21,36,43,0.6);
-    color:#fff;}
-  nav.nav-desktop-dropdown.bg-transparent a:hover{
-    background-color:rgba(21,36,43,1);}
-  nav.nav-desktop-dropdown.meta.text-left .menu li{
-    left:-0.8rem;
-    position:relative;}
+  nav.nav-desktop-dropdown a:hover,
+  nav.nav-desktop-dropdown li:hover a{
+    background-color:rgba(21,36,43,0.25);}
+  nav.nav-desktop-dropdown.bg-dkgray a:hover,
+  nav.nav-desktop-dropdown.bg-dkgray li:hover a,
+  .bg-dkgray nav.nav-desktop-dropdown a:hover,
+  .bg-dkgray nav.nav-desktop-dropdown li:hover a{
+    background-color:rgba(255,255,255,0.15);}
 
-  /* .parent styles */
-  nav.nav-desktop-dropdown.bg-dkgray .menu a:hover,
-  .header-layout-flex.bg-dkgray .nav-desktop-dropdown .menu a:hover{
-    background-color:rgba(255,255,255,0.2);}
 
-  nav.nav-desktop-dropdown .menu a:hover,
-  nav.nav-desktop-dropdown .menu-item-has-children:hover > a{
-    background-color:#17292e;
-    color:#fff;
-    opacity:1;}
+/* Parent styles */
   nav.nav-desktop-dropdown .menu-item-has-children > a::after{
     border-top:0.4em solid;
     border-left:0.28em solid transparent;
@@ -299,11 +295,7 @@ nav.section .heading a:hover,
 
   /* Submenu level 1 */
   nav.nav-desktop-dropdown .sub-menu{
-    background:#17292e;
-    /* For clarity on black-on-black */
-    border-left:1px solid rgba(255,255,255,0.2);
-    border-right:1px solid rgba(255,255,255,0.2);
-    color:#fff;
+    background-color:inherit;
     display:none;
     margin:0;
     position:absolute;
@@ -312,18 +304,25 @@ nav.section .heading a:hover,
     min-width:330px;
     z-index:9999;}
   nav.nav-desktop-dropdown .parent:hover .sub-menu{
-    border-bottom:1px solid rgba(255,255,255,0.2);
     display:block;}
+  nav.nav-desktop-dropdown .sub-menu li{
+    background-color:transparent;
+    z-index:3;} //scoot above submenu ::after darkening element
   nav.nav-desktop-dropdown .sub-menu a{
-    color:#fff;
     font-size:1rem;
     padding-top:0.75em;
     padding-bottom:0.75em;}
   nav.nav-desktop-dropdown .sub-menu a::before{
-    content:'';
+    content:''; // remove bullet point from submenu item
     margin:0;}
-  nav.nav-desktop-dropdown .sub-menu a:hover{
-    background:rgba(255,255,255,0.1);}
+  nav.nav-desktop-dropdown .sub-menu a:hover,
+  nav.nav-desktop-dropdown .sub-menu li:hover a{
+    background:rgba(21,36,43,0.4);}
+  nav.nav-desktop-dropdown.bg-dkgray .sub-menu a:hover,
+  nav.nav-desktop-dropdown.bg-dkgray .sub-menu li:hover a,
+  .bg-dkgray nav.nav-desktop-dropdown .sub-menu a:hover,
+  .bg-dkgray nav.nav-desktop-dropdown .sub-menu li:hover a{
+      background:rgba(255,255,255,0.3);}
   nav.nav-desktop-dropdown .sub-menu .parent a::after{
     display:none;}
   /* if a menu item with children is last, re-align the dropdown to prevent it from going offscreen */
