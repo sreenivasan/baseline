@@ -5,7 +5,7 @@
  Description:  350 Baseline parent theme
  Author:       Matthew Hinders-Anderson + suzi grishpul
  Author URI:   https://350.org
- Version:      1.2
+ Version:      1.5.1
  Text Domain:  baseline
  GitHub Theme URI: https://github.com/350org/baseline
 */
@@ -60,7 +60,7 @@ html {
     font-size: calc(.25 * (1vw + 1vh - 1vmin) + 15.5px); }
   @media only screen and (min-width: 1260px) {
     html {
-      font-size: calc(.3 * (1vw + 1vh - 1vmin) + 15.5px); } } }
+      font-size: calc(.35 * (1vw + 1vh - 1vmin) + 14px); } } }
 
 body {
   margin: 0; }
@@ -510,6 +510,10 @@ nav.bg-ltgray .sub-menu {
 .text-size-h5 {
   font-size: calc(0.44vw + 1rem); }
 
+.text-size-normal,
+.text-size-default {
+  font-size: 1rem; }
+
 .text-large,
 .text-large1,
 .text-style-lead,
@@ -541,22 +545,22 @@ nav.bg-ltgray .sub-menu {
 
 /* Titles */
 .title0 {
-  font-size: calc(3.8vw + 55px); }
+  font-size: calc(2.8vw + 55px); }
 
 .title1 {
-  font-size: calc(3.8vw + 44px); }
+  font-size: calc(2.6vw + 44px); }
 
 .title2 {
-  font-size: calc(3.8vw + 35px); }
+  font-size: calc(2.4vw + 35px); }
 
 .title3 {
-  font-size: calc(3.8vw + 28px); }
+  font-size: calc(2.3vw + 28px); }
 
 .title4 {
-  font-size: calc(3.8vw + 22px); }
+  font-size: calc(2.25vw + 22px); }
 
 .title5 {
-  font-size: calc(3.8vw + 18px); }
+  font-size: calc(2.2vw + 18px); }
 
 /* Meta / Secondary */
 .text-font-secondary,
@@ -1060,7 +1064,7 @@ button.active {
 
 /* Other button shapes */
 .button-dot {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(21, 36, 43, 0.15);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 50%;
@@ -1071,13 +1075,13 @@ button.active {
   width: 1.75rem; }
 
 .button-dot:hover {
-  background-color: rgba(255, 255, 255, 0.25); }
-
-.bg-white .button-dot {
   background-color: rgba(21, 36, 43, 0.3); }
 
-.bg-white .button-dot:hover {
-  background-color: rgba(21, 36, 43, 0.5); }
+.bg-dkgray .button-dot {
+  background-color: rgba(255, 255, 255, 0.1); }
+
+.bg-dkgray .button-dot:hover {
+  background-color: rgba(255, 255, 255, 0.3); }
 
 .button-square {
   background-position: center center;
@@ -1625,6 +1629,7 @@ nav.section .heading a:hover,
   nav.nav-desktop-dropdown.bg-transparent {
     border: 0 none; }
   nav.nav-desktop-dropdown.text-center .section-inner {
+    background-color: inherit;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
@@ -1634,19 +1639,22 @@ nav.section .heading a:hover,
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    background-color: inherit;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     height: 100%; }
-  nav.nav-desktop-dropdown .menu li {
+  nav.nav-desktop-dropdown li {
+    background-color: inherit;
     font-size: 1rem;
     height: 100%;
     margin-bottom: 0;
     position: relative; }
-  nav.nav-desktop-dropdown .menu a {
+  nav.nav-desktop-dropdown a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    background-color: inherit;
     border-bottom: 0 none;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1656,23 +1664,15 @@ nav.section .heading a:hover,
     height: 100%;
     line-height: 1.2;
     padding: 0.5rem 1rem; }
-  nav.nav-desktop-dropdown.bg-transparent a {
-    background-color: rgba(21, 36, 43, 0.6);
-    color: #fff; }
-  nav.nav-desktop-dropdown.bg-transparent a:hover {
-    background-color: #15242b; }
-  nav.nav-desktop-dropdown.meta.text-left .menu li {
-    left: -0.8rem;
-    position: relative; }
-  /* .parent styles */
-  nav.nav-desktop-dropdown.bg-dkgray .menu a:hover,
-  .header-layout-flex.bg-dkgray .nav-desktop-dropdown .menu a:hover {
-    background-color: rgba(255, 255, 255, 0.2); }
-  nav.nav-desktop-dropdown .menu a:hover,
-  nav.nav-desktop-dropdown .menu-item-has-children:hover > a {
-    background-color: #17292e;
-    color: #fff;
-    opacity: 1; }
+  nav.nav-desktop-dropdown a:hover,
+  nav.nav-desktop-dropdown li:hover a {
+    background-color: rgba(21, 36, 43, 0.25); }
+  nav.nav-desktop-dropdown.bg-dkgray a:hover,
+  nav.nav-desktop-dropdown.bg-dkgray li:hover a,
+  .bg-dkgray nav.nav-desktop-dropdown a:hover,
+  .bg-dkgray nav.nav-desktop-dropdown li:hover a {
+    background-color: rgba(255, 255, 255, 0.15); }
+  /* Parent styles */
   nav.nav-desktop-dropdown .menu-item-has-children > a::after {
     border-top: 0.4em solid;
     border-left: 0.28em solid transparent;
@@ -1685,11 +1685,7 @@ nav.section .heading a:hover,
     padding-right: 0.5em; }
   /* Submenu level 1 */
   nav.nav-desktop-dropdown .sub-menu {
-    background: #17292e;
-    /* For clarity on black-on-black */
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
-    border-right: 1px solid rgba(255, 255, 255, 0.2);
-    color: #fff;
+    background-color: inherit;
     display: none;
     margin: 0;
     position: absolute;
@@ -1698,18 +1694,25 @@ nav.section .heading a:hover,
     min-width: 330px;
     z-index: 9999; }
   nav.nav-desktop-dropdown .parent:hover .sub-menu {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     display: block; }
+  nav.nav-desktop-dropdown .sub-menu li {
+    background-color: transparent;
+    z-index: 3; }
   nav.nav-desktop-dropdown .sub-menu a {
-    color: #fff;
     font-size: 1rem;
     padding-top: 0.75em;
     padding-bottom: 0.75em; }
   nav.nav-desktop-dropdown .sub-menu a::before {
     content: '';
     margin: 0; }
-  nav.nav-desktop-dropdown .sub-menu a:hover {
-    background: rgba(255, 255, 255, 0.1); }
+  nav.nav-desktop-dropdown .sub-menu a:hover,
+  nav.nav-desktop-dropdown .sub-menu li:hover a {
+    background: rgba(21, 36, 43, 0.4); }
+  nav.nav-desktop-dropdown.bg-dkgray .sub-menu a:hover,
+  nav.nav-desktop-dropdown.bg-dkgray .sub-menu li:hover a,
+  .bg-dkgray nav.nav-desktop-dropdown .sub-menu a:hover,
+  .bg-dkgray nav.nav-desktop-dropdown .sub-menu li:hover a {
+    background: rgba(255, 255, 255, 0.3); }
   nav.nav-desktop-dropdown .sub-menu .parent a::after {
     display: none; }
   /* if a menu item with children is last, re-align the dropdown to prevent it from going offscreen */
@@ -2345,6 +2348,7 @@ input.search-form-submit {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
+  background-color: inherit;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2383,7 +2387,7 @@ input.search-form-submit {
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   font-size: 1.2rem;
-  padding: 0.7rem 0;
+  padding: 0.55rem 0;
   margin-bottom: 0; }
 
 #site-title-link.logo-image {
@@ -2467,8 +2471,7 @@ input.search-form-submit {
 #header-buttons-container {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
-  height: 100%; }
+          flex: 0 0 auto; }
 
 /* ----- Site header layouts ----- */
 /* Compact + Left-aligned */
@@ -2501,15 +2504,13 @@ input.search-form-submit {
   .site-header-layout-compact.text-left #site-title {
     white-space: nowrap; }
   .site-header-layout-compact.text-left #site-nav.nav-desktop-dropdown {
-    background-color: transparent;
+    background-color: inherit;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
   .site-header-layout-compact.text-left #site-nav.nav-desktop-dropdown,
   .site-header-layout-compact.text-left #site-nav.nav-desktop-dropdown a {
-    color: currentColor; }
-  .site-header-layout-compact.text-left #site-nav.nav-desktop-dropdown a:hover {
-    color: #fff; } }
+    color: currentColor; } }
 
 /* Compact + Center-aligned */
 .site-header-layout-compact.text-center #site-title {
@@ -3326,8 +3327,7 @@ img.b-loaded {
   CSS to support the "shy" sticky behavior via headroom.js
 */
 .headroom {
-  -webkit-box-shadow: 0 0 0.5rem transparent;
-          box-shadow: 0 0 0.5rem transparent;
+  border-bottom: 0 none;
   top: 0;
   -webkit-transition: -webkit-transform 100ms ease-in-out, -webkit-box-shadow 500ms;
   transition: -webkit-transform 100ms ease-in-out, -webkit-box-shadow 500ms;
@@ -3339,8 +3339,7 @@ img.b-loaded {
   position: sticky; }
 
 .headroom--pinned.headroom--not-top {
-  -webkit-box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
-          box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(21, 36, 43, 0.2);
   -webkit-transform: translateY(0%);
           transform: translateY(0%); }
 
