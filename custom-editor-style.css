@@ -1820,20 +1820,20 @@ input.submit.button-big {
   z-index: 1000; }
 
 #site-nav-toggle::before {
-  border-top: 0.18em solid;
+  border-top: 0.15em solid;
   content: ' ';
   position: absolute;
-  margin-top: -0.09em;
+  margin-top: -0.075em;
   top: 50%;
   left: 0;
   width: 1.25rem; }
 
 #site-nav-toggle::after {
   border-color: inherit;
-  border-width: 0.18em 0;
+  border-width: 0.15em 0;
   border-style: solid;
   content: ' ';
-  height: 0.8rem;
+  height: 0.6rem;
   left: 0;
   position: absolute;
   -webkit-transform: translateZ(1px);
