@@ -5,7 +5,7 @@
  Description:  350 Baseline parent theme
  Author:       Matthew Anderson + suzi grishpul
  Author URI:   http://350.org
- Version:      1.1.22
+ Version:      1.1.23
  Text Domain:  baseline
  GitHub Theme URI: https://github.com/350org/baseline
 */
@@ -493,7 +493,7 @@ input[type="submit"]:active,
   border-color:rgba(21,36,43,0.2);
   color:#17292e;}
 .button.bg-white:hover{
-	color:#000 !important;}  
+	color:#17292e !important;}  
 .bg-white-trans,
 .button.bg-white-trans{
   background-color:rgba(255,255,255,0.85);
