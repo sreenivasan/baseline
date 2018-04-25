@@ -16,12 +16,11 @@ var addthis_share = addthis_share || {}
 addthis_share = {
 	passthrough : {
 		twitter: {
-			text: "<?php urlencode( the_field('post_tw_text') ); ?>"
+			text: "<?php urlencode( get_field('post_tw_text') ); ?>"
 		}
 	}
 }
 </script>
-<!-- TEST -->
 <?php
 		endif;
 	endif;
