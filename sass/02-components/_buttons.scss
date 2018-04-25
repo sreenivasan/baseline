@@ -18,29 +18,31 @@ input.submit,
 input[type="submit"],
 button,
 .button{
-  background-color:#ffa902;
-  border-radius:1.4em;
-  border:0 none;
-  color:#fff !important;
+  align-items:center;
+  background-color:#999;
+  border-radius:1.8em;
+  border:1px solid transparent;
+  color:#fff;
   cursor:pointer;
   display:block;
-  display:inline-block;
+  display:inline-flex;// vertically center any icons/misc stuff in the button
   font-weight:bold;
-  font-size:1em;
+  font-size:1.1em;
   height:auto;
-  line-height:0.9;
-  padding:0.6em 1em;
+  justify-content:center;
+  line-height:1.1;
+  padding:0.8em 1.4em;
   position:relative;
   text-align:center;
   text-decoration:none;
-  transition:transform 0.1s;
+  transition:transform 70ms;
   white-space:normal;}
 input.submit:hover,
 input[type="submit"]:hover,
 .button:hover,
 button:hover{
-  box-shadow:0 0 0px 1px rgba(0,0,0,0.2);
-  color:rgba(255,255,255,0.8) !important;
+  border-color:rgba(0,0,0,.2);
+  color:rgba(255,255,255,0.8);
   text-decoration:none;}
 input.submit:active,
 input[type="submit"]:active,
@@ -48,24 +50,23 @@ input[type="submit"]:active,
 .button.active,
 button:active,
 button.active{
-  transform:scale(0.96);}
+  transform:scale(0.97);}
 
 /* Button modifiers */
 .button-small{
   font-size:0.85em;}
 .button-large,
 .button-big{
-  font-size:1.15em;}
+  font-size:1.2em;}
 .button-huge{
   font-size:1.3em;}
 .button-massive{
-  font-size:1.7em;}
+  font-size:1.5em;}
 
 .button-icon {
   background-size:1em;
   background-position:0.75em center;
-  padding-left:2.1em;
-  padding-right:1em;}
+  padding-left:2.3em;}
 
 .button-arrow::after,
 .button-arrow-down::after,
@@ -73,7 +74,7 @@ button.active{
 .arrow::after,
 .arrow-down::after,
 .arrow-right::after{
-  background-color:rgba(20, 35, 43, 0.1);
+  background-color:rgba(20, 35, 43, 0.2);
   background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIxLjAuMiwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMDAgMTAwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU+CjxnPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTQuNCw1NC4zTDE5LDQwTDM5LDYwLjJWMS43aDE5LjhWNjBMNzksNDBsMTQuNSwxNC40TDQ5LDk5LjJMNC40LDU0LjN6Ii8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
   background-position:center center;
   background-repeat:no-repeat;
@@ -86,9 +87,7 @@ button.active{
   height:1.2em;
   line-height:1.3em;
   margin-left:0.35em;
-  position:relative;
   text-align:center;
-  top:-1px;
   vertical-align:middle;
   width:1.2em;}
 .button-arrow::after,
