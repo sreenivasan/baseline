@@ -243,6 +243,21 @@ function urlParam(name){
 		});
 	};
 }(jQuery));
+/* add .focus class to parent when direct child input has focus */
+(function($){
+	$.fn.parentFocus = function(){
+		return this.each(function(){
+      $(this).on({
+        focus: function(){
+          $(this).parent().addClass('focus');
+        },
+        blur: function(){
+          $(this).parent().removeClass('focus');
+        }
+      });
+		});
+	};
+}(jQuery));
 /**
  * data-read-more-after
  * Take multiple children, hide all but the first N, and add a "read more" link
@@ -260,13 +275,13 @@ function urlParam(name){
       es: "Leer más",
       de: "Weiterlesen"
     };
-		var readMoreText = readMoreTranslations['en'];
+		var defaultReadMoreText = readMoreTranslations['en'];
 		// Detect language
 		var htmlLangAttr = $('html').attr('lang');
 		var htmlLangAttr = htmlLangAttr.substring(0,2);
 
 		if ( htmlLangAttr && readMoreTranslations[htmlLangAttr] ){
-			readMoreText = readMoreTranslations[htmlLangAttr];
+			defaultReadMoreText = readMoreTranslations[htmlLangAttr];
 		}
 		// For each element targeted...
 		return this.each(function(){
@@ -274,6 +289,8 @@ function urlParam(name){
       var visElems = $(this).attr('data-read-more-after');
       // check for alternate display options
       var display = $(this).attr('data-read-more-after-link-position');
+      var customReadMoreText = $(this).attr('data-read-more-after-link-text');
+      var readMoreText = customReadMoreText ? customReadMoreText : defaultReadMoreText;
       display = display ? display : '';
       // check for optional classes to add
       var readMoreLinkClasses = $(this).attr('data-read-more-after-link-classes');
@@ -550,6 +567,122 @@ function urlParam(name){
     });
   }
 }(jQuery));
+/* Horizontally overflowing sidescrolling section */
+(function($){
+	jQuery.fn.horzScrollControls = function(){
+		return this.each(function(index){
+			// check for data- attribute options, or else use this element and it's first child as the target
+			var horzScrollFrame = this;
+			$(this).wrapInner('<div class="horizontal-scroll-inner"></div>');
+			var horzScrollContent = $(this).children('.horizontal-scroll-inner')[0];
+
+			// duration of scroll animation
+			var scrollDuration = 1000;
+			// Set up controls wrapper
+			var controlsWrapper = $('<div class="horizontal-scroll-nav-controls"></div>').prependTo(this);
+			// Control Labels
+			var controlLabelForward = $(this).attr('data-horizontal-scroll-forward-label') ? $(this).attr('data-horizontal-scroll-forward-label') : 'Forward';
+			var controlLabelBackward = $(this).attr('data-horizontal-scroll-back-label') ? $(this).attr('data-horizontal-scroll-back-label') : 'Back';
+			// Set up control elements, hiding the back control initial
+			var controlForward = $('<div class="horizontal-scroll-nav-control horizontal-scroll-nav-control-forward">' + controlLabelForward + '</div>').prependTo(controlsWrapper);
+			var controlBackward = $('<div class="horizontal-scroll-nav-control horizontal-scroll-nav-control-back">' + controlLabelBackward + '</div>').prependTo(controlsWrapper);
+
+			// get outer container width
+			var getHorzFrameSize = function() {
+				return $(horzScrollFrame).outerWidth();
+			}
+			var horzFrameSize = getHorzFrameSize();
+			// get inner container width
+			var getHorzContentSize = function() {
+				return $(horzScrollContent).outerWidth();
+			}
+			var horzContentSize = getHorzContentSize();
+
+			// re-measure widths when window is resized
+			$(window).on('resize', function() {
+				horzFrameSize = getHorzFrameSize();
+				horzContentSize = getHorzContentSize();
+			});
+
+			// get how much of horz is invisible
+			var horzHiddenSize = Math.abs(horzContentSize - horzFrameSize);
+
+			// get how much have we scrolled to the left
+			var getHorzPosition = function() {
+				return $(horzScrollFrame).scrollLeft();
+			};
+
+			// determine whether scroll controls are active or inactive
+			var setControlState = function(){
+				horzPosition = getHorzPosition();
+				if (horzPosition <= 30) {
+					$(controlBackward).addClass('inactive');
+					$(controlForward).removeClass('inactive');
+				} else if (horzPosition < horzHiddenSize) {
+					// show both controls
+					$(controlBackward).removeClass('inactive');
+					$(controlForward).removeClass('inactive');
+				} else if (horzPosition >= horzHiddenSize) {
+					$(controlBackward).removeClass('inactive');
+					$(controlForward).addClass('inactive');
+				}
+			}
+			setControlState();
+
+			// update variables when scrolled
+			$(horzScrollFrame).on('scroll', function() {
+				horzHiddenSize =  Math.abs(horzContentSize - horzFrameSize);
+				setControlState();
+			});
+
+			// determine whether to scroll one screen width or all the way to the end
+			var calculateScrollIncrement = function(direction){
+				// current window width
+				var horzFrameSizeOffset = 0.8 * horzFrameSize;
+				// current scroll horzPosition
+				var horzPosition = getHorzPosition();
+				// debug console.log('horzHiddenSize: ' + horzHiddenSize + ', horzFrameSize: ' + horzFrameSize + ', currentPosition: ' + currentPosition);
+				if ( direction == 'forward'){
+					if ( horzHiddenSize > horzFrameSizeOffset + horzPosition){
+						// if there's more hidden content than the screen width,
+						// only scroll one screen width over
+						return horzFrameSizeOffset + horzPosition;
+					} else {
+						return horzHiddenSize;
+					}
+				} else {
+					if ( horzHiddenSize < horzFrameSizeOffset + horzPosition){
+						return horzPosition - horzFrameSizeOffset;
+					} else {
+						return 0;
+					}
+				}
+
+			}
+
+			// scroll forward click event
+			$(controlForward).on('click', function() {
+				scrollIncrement = calculateScrollIncrement('forward');
+				$(horzScrollFrame).animate( { scrollLeft: scrollIncrement}, scrollDuration);
+			});
+
+			// scroll backward click event
+			$(controlBackward).on('click', function() {
+				scrollIncrement = calculateScrollIncrement('backward');
+				$(horzScrollFrame).animate( { scrollLeft: (scrollIncrement) }, scrollDuration);
+			});
+
+			/* debug */
+			console.log(this);
+			console.log(horzScrollContent);
+			console.log('horzFrameSize: ' + horzFrameSize);
+			console.log('horzContentSize: ' + horzContentSize);
+			console.log('horzHiddenSize: ' + horzHiddenSize);
+		});
+	}
+}(jQuery));
+
+
 
 
 // as the page loads, call these scripts
@@ -604,6 +737,7 @@ jQuery(document).ready(function($) {
   $(".expando-mobile, .mobile-expando").expando('mobile');
   $(".tablet-expando").expando('tablet');
 
+  $('.horizontal-scroll').horzScrollControls();
 	$.localScroll({
 		filter: ':not(.js-modal)',
 		// if anchor linking to an expando section, expand it before scrolling to it
@@ -651,6 +785,12 @@ jQuery(document).ready(function($) {
 		}
 	);
 
+  $("input, select, textarea").parentFocus();
+  /* for AJAX Action Network widgets, re-run this script when they finish loading */
+  $(document).on('can_embed_loaded', function(){
+      $("input, select, textarea").off().parentFocus();
+    }
+  );
 
   $(".nav-mobile-collapsed").collapseMenu('mobile');
   $(".nav-tablet-collapsed").collapseMenu('tablet');
@@ -658,13 +798,6 @@ jQuery(document).ready(function($) {
 
 	var initialWidth = $(window).width();
   console.log('intialWidth = ' + initialWidth);
-
-	if ("ontouchstart" in document.documentElement){
-		// block first click on .parent nav elements
-		$('.desktop-dropdown .menu > .parent > a').on('touchstart',function(e){
-			e.preventDefault();
-		});
-	}
 
 	// Add URL param "source" as hidden input on any AK forms
 	var url_source = urlParam('source');
