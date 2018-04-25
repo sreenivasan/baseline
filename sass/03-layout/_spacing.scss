@@ -1,17 +1,18 @@
 /* Spacing - padding, margin and other spacing styles */
-.no-margin{
+.margin-none,
+.no-margin /*LEGACY*/{
   margin:0 !important;}
-.no-margin-top,
-.margin-top-none{
+.margin-top-none,
+.no-margin-top /*LEGACY*/{
   margin-top:0 !important;}
-.no-margin-bottom,
-.margin-bottom-none{
+.margin-bottom-none,
+.no-margin-bottom /*LEGACY*/{
   margin-bottom:0 !important;}
-.no-margin-left,
-.margin-left-none{
+.margin-left-none,
+.no-margin-left/*LEGACY*/{
   margin-left:0 !important;}
-.no-margin-right,
-.margin-right-none{
+.margin-right-none,
+.no-margin-right/*LEGACY*/{
   margin-right:0 !important;}
 .margin-bottom-small{
   margin-bottom:0.4rem;}
@@ -24,20 +25,20 @@
 .margin-bottom-huge{
   margin-bottom:2rem;}
 
-.no-padding,
-.padding-none{
+.padding-none,
+.no-padding /*LEGACY*/{
   padding:0 !important;}
-.no-padding-top,
-.padding-top-none{
+.padding-top-none,
+.no-padding-top /*LEGACY*/{
   padding-top:0 !important;}
-.no-padding-bottom,
-.padding-bottom-none{
+.padding-bottom-none,
+.no-padding-bottom /*LEGACY*/{
   padding-bottom:0 !important;}
-.no-padding-left,
-.padding-left-none{
+.padding-left-none,
+.no-padding-left /*LEGACY*/{
   padding-left:0 !important;}
-.no-padding-right,
-.padding-right-none{
+.padding-right-none,
+.no-padding-right /*LEGACY*/{
   padding-right:0 !important;}
 
 
