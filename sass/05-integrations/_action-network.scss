@@ -1,4 +1,4 @@
-a/* Action Network - CSS for signup forms, events */
+/* Action Network - CSS for signup forms, events */
 
 #can_embed_form{
   max-width:33em;}
@@ -37,7 +37,7 @@ a/* Action Network - CSS for signup forms, events */
   font-size:0.8rem;
   font-style:italic;}
 
-.baseline #can_embed_form input[type="submit"]{
+#can_embed_form input[type="submit"]{
   margin-top:0.5rem;}
 
 #can_embed_form #logo_wrap{
@@ -76,29 +76,44 @@ a/* Action Network - CSS for signup forms, events */
 .event_campaign #can_embed_form #map_canvas{
   height:300px;}
 
+
+.event_campaign #form_co1{
+  display:flex;
+  flex-wrap:wrap;}
+.event_campaign #form_co1 > *{
+  width:100%;}
+.event_campaign #form_co1{
+  order:5;}
+
 .event_campaign #can_zip_search{
-  margin-bottom:1.5em;}
+  background-color:rgba(21,36,43,.04);
+  padding:1.2em;}
+.event_campaign #can_zip_search div.clearfix{
+  display:flex;
+  flex-wrap:wrap;}
+.event_campaign #can_zip_search .floatlabel-wrapper{
+  display:flex;
+  flex:1 1 60%;
+  margin-right:0.5em;}
+.event_campaign #can_zip_search label{
+  display:none;}
 .event_campaign #form-zip_code{
-  display:inline-block;
-  width:65%;}
+  margin:0;}
 .event_campaign #form-zip_code-submit{
-  display:inline-block;
-  font-size:1.2em !important;
-  width:32%;}
+  flex:1;
+  font-size:0.9rem;
+  margin:0 !important;}
 
 .event_campaign #form_col1 h4{
-  font-size:1.1em;
-  font-weight:400;
-  margin-bottom:0.5em;}
+  font-size:1.1em;}
 .event_campaign .zip_search_results_col{
   background-color:rgba(21,36,43,0.1);
-  margin-top:2em;
   padding:1.2em;}
 .event_campaign #host_your_own{
   background-color:rgba(21,36,43,0.2);
-  padding:1.2em;}
+  padding:1.1em;}
 .event_campaign #host_your_own .button{
-  font-size:1.2em;}
+  font-size:1.1em;}
 
 .event_campaign #search_location_list span{
   display:block;}
@@ -109,16 +124,20 @@ a/* Action Network - CSS for signup forms, events */
 
 
 /* AN media query */
-@media screen and (min-width:1050px){
+@media screen and (min-width:$tablet-desktop-breakpoint){
 
 .event_campaign #form_col1 h4{
   float:left;
   width:38%;}
 .event_campaign #can_embed_form #can_zip_search{
+  background-color:rgba(21,36,43,.04);
   clear:left;
   float:left;
+  margin-bottom:0;
   margin-right:2%;
+  padding:1.2em;
   width:38%;}
+
 .event_campaign #can_embed_form #event_map_wrap{
   float:right;
   position:relative;
@@ -129,8 +148,10 @@ a/* Action Network - CSS for signup forms, events */
 .event_campaign #can_embed_form #map_canvas{
   height:380px;}
 .event_campaign .zip_search_results_col,
+.event_campaign #form_col2,
 .event_campaign #host_your_own{
   clear:left;
+  float:left;
   width:38%;}
 
 }
