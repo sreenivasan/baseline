@@ -9,34 +9,71 @@ textarea{
   background:#fff;
   border:1px solid rgba(21,36,43,0.3);
   border-radius:2px;
-  font-size:1.1rem;
+  font-size:1em;
   font-weight:bold;
   margin-bottom:0.3em;
   padding:0.7em 0.6em;
   width:100%;
   max-width:35em;}
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:rgba(21,36,43,0.6);}
+input::placeholder,
+select::placeholder,
+textarea::placeholder{
+  color:rgba(21,36,43,0.5);}
 button[disabled],
 input[disabled]{
   cursor:not-allowed;}
 input[type="checkbox"],
 input[type="radio"]{
+  appearance:none;
+  background:#fff;
+  border:1px solid rgba(21,36,43,.25);
   box-sizing:border-box;
   display:inline-block;
+  height:calc(0.4em + 0.7rem);
+  margin:0;
   padding:0;
-  height:auto !important;
-  width:auto !important;}
+  width:calc(0.4em + 0.7rem);}
+
+input[type="radio"]{
+  border-radius:1em;}
+input[type="radio"]:focus{
+  box-shadow:0 0 0 0.12rem rgba(21,36,43,.4);}
+input[type="radio"]:checked{
+  box-shadow:0 0 0 calc(0.1em + 0.25rem) #fff inset; // adding a white border along w/ a bg color creates illusion of a dot in the center of the radio input
+  background-color:#0f81e8;}
+input[type="radio"]:checked:focus{
+  box-shadow:
+    0 0 0 0.12rem rgba(21,36,43,.25) // external outline to indicate :focus
+    0 0 0 calc(0.1em + 0.25rem) #fff inset; // inset shadow to indicate :checked
+  }
+
+input[type="checkbox"]:focus{
+  box-shadow:0 0 0 0.12rem rgba(21,36,43,.4);}
+input[type="checkbox"]:checked{
+  background-color:#0f81e8;
+  background-image:url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNOTkgMjlMODMgMTMgMzkgNTYgMTcgMzQgMSA1MWwzOCAzOCAxNi0xNnoiLz48L3N2Zz4=);
+  background-repeat:no-repeat;
+  background-position:48% 45%;
+  background-size:80% auto;}
+
 select{
-  -webkit-appearance:none;
-  -moz-appearance:none;
   appearance:none;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAh0lEQVQ4T93TMQrCUAzG8V9x8QziiYSuXdzFC7h4AcELOPQAdXYovZCHEATlgQV5GFTe1ozJlz/kS1IpjKqw3wQBVyy++JI0y1GTe7DCBbMAckeNIQKk/BanALBB+16LtnDELoMcsM/BESDlz2heDR3WePwKSLo5eoxz3z6NNcFD+vu3ij14Aqz/DxGbKB7CAAAAAElFTkSuQmCC');
-  background-repeat: no-repeat;
-  background-position:98% center;
+  background-image:url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCA3MCI+PHBhdGggZD0iTTE1IDBMMCAyNmgzMHpNMTUgNzFsMTUtMjZIMHoiLz48L3N2Zz4K');
+  background-repeat:no-repeat;
+	background-position:right 0.6em center 0;
+  background-position:calc(100% - 0.3em - 0.3rem) center;
+	background-size:1rem;
+	background-size:auto calc(0.6rem + 0.4em);
   cursor:pointer;}
 select[multiple]{
   background-image:none;}
 option{
-  font-size:0.9em;
+  font-size:1rem;
+  font-size:calc(0.5em + 0.5rem);
   font-weight:normal;}
 fieldset{
   border:0 none;
@@ -47,7 +84,8 @@ textarea{
   overflow:auto;
   vertical-align:top;
   max-width:none;}
-
+label[for]{
+  cursor:pointer;}
 
 
 /* Input wrappers */
@@ -56,21 +94,40 @@ textarea{
 .input-radio label{
   cursor:pointer;}
 
-.checkbox-wrapper,
+.input-radio,
 .input-checkbox{
-  padding-left:20px;
-  position:relative;}
-.input-checkbox input,
-.checkbox-wrapper input{
-  left:0;
-  position:absolute;
-  top:0.15rem;}
-.input-checkbox label,
-.checkbox-wrapper label{
-  cursor:pointer;}
+  align-items:baseline;
+  display:flex;}
+.input-radio input,
+.input-checkbox input{
+  flex:0 0 auto;
+  margin-right:0.3em;
+  position:relative;
+  top:0.15em;}
 
 /* Form styles */
+
 /* Change.org-style form */
+.form-style-labelabove input,
+.form-style-labelabove textarea,
+.form-style-labelabove select{
+  border:0 none;
+  margin:0;}
+.js .form-style-labelabove input:focus,
+.js .form-style-labelabove textarea:focus,
+.js .form-style-labelabove select:focus{
+  border:0 none;
+  outline:0;}
+.js .form-style-labelabove .focus{
+  box-shadow:0 0 0.25em 0.2em rgba(70,170,255,0.8);
+  z-index:2;}
+.form-style-labelabove input[type="text"],
+.form-style-labelabove input[type="email"],
+.form-style-labelabove input[type="number"],
+.form-style-labelabove textarea,
+.form-style-labelabove select{
+  background-color:transparent;
+  padding-top:2em;}
 .form-style-labelabove .input-text,
 .form-style-labelabove .input-textarea,
 .form-style-labelabove .input-number,
@@ -80,7 +137,6 @@ textarea{
   border:1px solid rgba(21,36,43,0.3);
   border-radius:4px;
   background:#fff;
-  overflow:hidden;
   margin-bottom:0.8em;
   position:relative;}
 .form-style-labelabove label{
@@ -88,38 +144,39 @@ textarea{
   display:block;
   font-size:0.85em;
   font-weight:bold;
-  padding:0.5em 0.6em 0;}
+  padding:0.5em 0.6em 0;
+  text-align:start;}
+.form-style-labelabove .input-checkbox label{
+  color:inherit;
+  display:inline-block;
+  margin-left:0.5em;
+  padding:0;}
 .form-style-labelabove .input-group{
   border:1px solid rgba(21,36,43,0.3);}
 .form-style-labelabove .input-group .input-text,
 .form-style-labelabove .input-group .input-select,
 .form-style-labelabove .input-group .input-number,
 .form-style-labelabove .input-group .input-textarea{
+  background-color:transparent;
   border-width:1px 0 0;
   border-style:solid none none;
   border-radius:0;
   margin-bottom:0;
   margin-top:0;}
-.form-style-labelabove .input-group div:first-child{
+.form-style-labelabove .input-group *:first-child{
+  border-radius:4px 4px 0 0;
   border-top:0 none;}
+.form-style-labelabove .input-group *:last-child{
+  border-radius:0 0 4px 4px;}
 .form-style-labelabove .input-select,
-.form-style-labelabove .input-textarea{
+.form-style-labelabove .input-textarea,
+.form-style-labelabove .input-checkbox,
+.form-style-labelabove .input-radio{
   margin:0.9rem 0;}
-.form-style-labelabove .ak-input-type-user.input-text input,
-.form-style-labelabove .ak-input-type-user.input-select select,
-.form-style-labelabove .ak-input-type-user.input-textarea textarea{
-  border:0 none;
-  margin:0;
-  padding-top:1.9em;
-  padding-top:calc(5px + 1.6em);}
+
 .form-style-labelabove .ak-input-type-user.input-select select{
   background-position:97% 70%;}
-.form-style-labelabove .input-text input:focus,
-.form-style-labelabove .input-number input:focus
-.form-style-labelabove .input-textarea textarea:focus{
-  -webkit-appearance:none;
-  outline:none;
-  box-shadow:inset 0 0 0 1px #0f81e8;}
+
 .form-style-labelabove .ak-input-type-user.input-text label,
 .form-style-labelabove .ak-input-type-user.input-select label,
 .form-style-labelabove .ak-input-type-user.input-textarea label{
@@ -150,6 +207,7 @@ textarea{
   top:0.2em;
   left:0;}
 
+
 /* Horizontal form - stack on small screens, line up on larger*/
 .form-layout-horizontal .input-text,
 .form-layout-horizontal .input-select,
@@ -157,54 +215,89 @@ textarea{
 .form-layout-horizontal .input-submit{
   width:100%;}
 
-input.submit.small,
-.button-small{
-  font-family:inherit;
-  font-size:1rem;}
-.button-big,
-.button-large,
-input[type="submit"].button-big,
-input[type="submit"].button-large,
-input.submit.button-big{
-  font-size:1.6rem;}
+.form-layout-horizontal input,
+.form-layout-horizontal input[type="text"],
+.form-layout-horizontal input[type="email"],
+.form-layout-horizontal input[type="number"],
+.form-layout-horizontal textarea,
+.form-layout-horizontal select{
+  align-self:stretch;
+  padding-top:0.7em;}
 
+.form-layout-horizontal .input-text label,
+.form-layout-horizontal .input-select label{
+  margin:0;
+  position:static;}
 
 /* Desktop and larger */
 @media only screen and (min-width:$tablet-desktop-breakpoint){
 
   .form-layout-horizontal{
-    display:flex;
+    align-items:stretch;
+    display:inline-flex;
     flex-wrap:wrap;
     justify-content:center;
-    margin-bottom:1.3em;}
+    margin:1.3em 0;}
+  .form-layout-horizontal::before{ // force line break between main row and secondary
+    background-color:transparent;
+    content:'';
+    height:1px;
+    order:7;
+    width:100%;}
+
+  .form-layout-horizontal:first-child{
+    margin-top:0;}
+  .form-layout-horizontal:last-child{
+    margin-bottom:0;}
   .form-layout-horizontal input,
   .form-layout-horizontal select,
   .form-layout-horizontal .input,
   .form-layout-horizontal .select,
   .form-layout-horizontal .submit{
-    display:inline-block;
-    height:100%;
-    max-width:220px;}
+    max-width:12em;}
   .form-layout-horizontal .input-text,
   .form-layout-horizontal .input-select,
   .form-layout-horizontal .input-submit,
   .form-layout-horizontal .input-group{
-    display:inline-block;
-    line-height:1;
+    align-items:center;
+    border-radius:0;
+    display:flex;
+    min-height:100%; // not sure why this is necessary when the parent is set to align-items:stretch, but wtvs
     margin-bottom:0;
     margin-top:0;
-    vertical-align:middle;
+    order:3;
     width:auto;}
+
   .form-layout-horizontal .input-text,
   .form-layout-horizontal .input-select{
-    min-width:220px;}
+    min-width:12em;}
   .form-layout-horizontal .input-group{
-    margin-right:0.5em;}
+    border-radius:0;}
+
+  .form-layout-horizontal .input-text label,
+  .form-layout-horizontal .input-select label{
+      padding:0 0 0 .6em;}
+  .form-layout-horizontal > *:first-child{
+    border-radius:4px 0 0 4px;}
+  .form-layout-horizontal > *:last-child{
+    border-radius:0 4px 4px 0;}
   .form-layout-horizontal .input-group .input-text + .input-text{
     border-left:1px solid rgba(21,36,43,0.3);
     border-top:0 none;}
-  .form-layout-horizontal .submit{
-    margin:0 0.3em;}
+  .form-layout-horizontal .input-submit{
+    order:6;}
+  .form-layout-horizontal .input-submit button,
+  .form-layout-horizontal button[type="submit"],
+  .form-layout-horizontal button.submit{
+    border-radius:0 4px 4px 0;}
+  .form-layout-horizontal .input-radio,
+  .form-layout-horizontal .input-checkbox,
+  .form-layout-horizontal .input-textarea{
+    flex:0 0 auto;
+    justify-content:inherit; // match the alignment of the parent;
+    order:10;
+    width:auto;}
+
   .form-layout-horizontal .ak-postform-text{
     margin-top:1.2rem;
     width:100%;}
