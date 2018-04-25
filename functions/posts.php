@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 /* Add options to Settings > Reading */
 
-add_action('admin_init', 'baseline_post_options_section');  
-function baseline_post_options_section() {  
+add_action('admin_init', 'baseline_post_options_section');
+function baseline_post_options_section() {
     add_settings_section(
         'baseline_post_options',
         'Post Display Options',
@@ -17,7 +17,7 @@ function baseline_post_options_section() {
         'settings_checkbox_callback',
         'reading',
         'baseline_post_options',
-        array( 
+        array(
             'label_for' => 'post_show_author',
             'id' => 'post_show_author'
         )
@@ -30,19 +30,19 @@ function baseline_post_options_section() {
         'reading',
         'baseline_post_options',
         array(
-            'label_for' => 'post_show_categories', 
-            'id' => 'post_show_categories' 
+            'label_for' => 'post_show_categories',
+            'id' => 'post_show_categories'
         )
-    ); 
+    );
     register_setting( 'reading', 'post_show_author'  );
     register_setting( 'reading', 'post_show_categories'  );
 }
 
 function settings_section_callback( $arg ){ // Section Callback
-    echo '';  
+    echo '';
 }
-function settings_checkbox_callback( $args ){ 
-    $value = get_option( $args['id'] ); 
+function settings_checkbox_callback( $args ){
+    $value = get_option( $args['id'] );
     echo '<input type="checkbox" id="'  . $args['id'] . '" name="'  . $args['id'] . '" value="1" ' . checked( $value, '1', 0 ) . '>';
 }
 
@@ -55,7 +55,7 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 // Change default "more..." text to language-agnostic "..."
 function new_excerpt_more( $more ) {
-    return '...';
+    return '<span class="text-cutoff">...</span>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
