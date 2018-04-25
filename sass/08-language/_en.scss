@@ -1,0 +1,29 @@
+/*
+  English-only style customizations
+*/
+
+.en{
+
+  nav.nav-desktop-dropdown a{
+    font-size:0.82em;
+    letter-spacing:$default-caps-letterspace-calc;
+    text-transform:uppercase;}
+  nav.nav-desktop-dropdown .sub-menu a{
+    font-size:1rem;
+    letter-spacing:0;
+    text-transform:none;}
+
+
+.form-layout-horizontal .input-text label,
+.form-layout-horizontal .input-select label{
+  letter-spacing:$default-caps-letterspace-calc;
+  text-transform:uppercase;}
+
+  input.submit,
+  input[type="submit"],
+  button,
+  .button{
+    letter-spacing:$default-caps-letterspace-calc;
+    text-transform:uppercase;}
+
+}
