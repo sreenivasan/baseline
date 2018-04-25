@@ -7,7 +7,7 @@
 		"uuidString": "1B2CD570-BB21-4370-91C3-11B27997182B"
 		}
 	],
-"creatorBuild": "26330",
+"creatorBuild": "26680",
 "files": {
 	"\/.gitignore": {
 		"cB": 0,
@@ -1106,6 +1106,13 @@
 		"oAP": "\/functions\/tab-shortcode.php",
 		"oF": 0
 		},
+	"\/header-markup-additional.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/header-markup-additional.php",
+		"oF": 0
+		},
 	"\/header-markup.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1206,6 +1213,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/languages\/baseline.pot",
+		"oF": 0
+		},
+	"\/languages\/country-list.csv": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/languages\/country-list.csv",
 		"oF": 0
 		},
 	"\/languages\/country-list_ar.php": {
@@ -1712,6 +1726,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/sass\/03-layout\/_horizontal-scroll.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 5,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/sass\/03-layout\/_horizontal-scroll.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/sass\/03-layout\/_layout-general.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -1933,6 +1960,19 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"\/sass\/07-misc\/_legacy-columns.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 5,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/sass\/07-misc\/_legacy-columns.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"\/sass\/07-misc\/_legacy-header.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -1968,6 +2008,32 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/sass\/07-misc\/_questionable.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/sass\/08-language\/_ar.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 5,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/sass\/08-language\/_ar.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/sass\/08-language\/_en.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 5,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/sass\/08-language\/_en.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
@@ -2082,6 +2148,7 @@
 	"displayValue": "baseline",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-ariel",
+	"iconImageWasSetByUser": 0,
 	"lastBuiltDate": 543376364
 	},
 "projectSettings": {
@@ -3885,6 +3952,7 @@
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
+		"outputFormat": 0,
 		"quality": 100
 		},
 	"languageDefaultsJS": {
