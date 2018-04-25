@@ -29,7 +29,7 @@
 			</div>
 		</nav>
 <?php endif; ?>
-		<header id="site-header" class="section site-header-layout-<?php if ( $site_header_layout_option ){ ?>compact<?php } else { ?>stacked<?php } ?> margin-none bg-<?php echo $header_bgcolor; ?> <?php echo $header_alignment; ?>">
+		<header id="site-header" class="section site-header-layout-<?php if ( $site_header_layout_option ){ ?>compact<?php } else { ?>stacked<?php } ?> site-header-<?php echo $nav_desktop_display; ?> margin-none bg-<?php echo $header_bgcolor; ?> <?php echo $header_alignment; ?>">
 			<div id="site-header-inner" class="section-inner">
 				<h1 id="site-title" class="site-header-item">
 <?php if ( $site_logo ): ?>
@@ -78,5 +78,6 @@
 					<?php echo stripslashes( $header_buttons ); ?>
 				</div>
 	<?php endif; ?>
+	<?php include(locate_template('header-markup-additional.php')); ?>
 				<div class="site-header-item site-header-divider"></div>
 		</header>
