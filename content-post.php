@@ -1,7 +1,7 @@
 <?php
-	/* If we have a featured image... */			
-	$post_thumb_id = get_post_thumbnail_id();	
-	$post_thumb_src = wp_get_attachment_image_src( $post_thumb_id , 'medium'); 
+	/* If we have a featured image... */
+	$post_thumb_id = get_post_thumbnail_id();
+	$post_thumb_src = wp_get_attachment_image_src( $post_thumb_id , 'medium');
 	$post_thumb_meta = wp_get_attachment_metadata( $post_thumb_id );
 	if ( $post_thumb_meta ){
 		$post_thumb_width = $post_thumb_meta['width'];
@@ -30,10 +30,10 @@
 				<span class="post-time"><?php echo (get_the_date() ); ?></span>
 			</div>
 			<header class="post-header margin-bottom-normal">
-				<h3 class="post-title graph title5 area-link-hover"><?php the_title(); ?></h3>
+				<h3 class="post-title title5 area-link-hover"><?php the_title(); ?></h3>
 			</header>
-			<div class="post-excerpt margin-bottom-normal  area-link-hover">
-				<p><?php echo get_the_excerpt(); ?></p>
+			<div class="post-excerpt margin-bottom-normal area-link-hover">
+				<?php the_excerpt(); ?>
 			</div>
 			<footer class="post-footer">
 				<?php if ( $show_author_name ): ?>
@@ -49,18 +49,18 @@
 				<?php if ( $show_categories ): ?>
 				<div class="post-categories text-small2 opacity-50">
 					<p><?php
-						foreach((get_the_category()) as $category) { 
+						foreach((get_the_category()) as $category) {
 							if ( $category->slug !== 'uncategorized' ) {
 								$output = '<a class="cat-link text-underline-none bg-ltgray text-highlight cat-'. $category->slug .'" href="'. get_category_link( $category->term_id ) .'" title="'. $category->description .'">'. $category->name .'</a>&nbsp; ';
-								echo $output;	
+								echo $output;
 							}
-						} 
+						}
 					?></p>
 				</div>
 				<?php endif; ?>
 			</footer>
 		</div>
-	</a>		
-		
+	</a>
+
 	<div class="clear"></div>
 </article>
