@@ -13,6 +13,8 @@
   order:0;
   overflow:visible; // fixes invisible #nav-toggle
   z-index:1000;}
+.bg-on #site-header.bg-transparent{
+  background-image:linear-gradient(to bottom,rgba(23,41,46,0.7) 0,rgba(23,41,46,0) 100%);}
 #site-header-inner{
   align-items:stretch;
   background-color:inherit; // pass bg color down to children
@@ -37,7 +39,8 @@
 /* ----- Logo/site title ----- */
 #site-title{
   flex:1 1 auto;
-  font-size:1.2rem;
+  font-size:1.1rem;
+  order:1;
   padding:0.55rem 0;
   margin-bottom:0;}
 #site-title-link.logo-image{
@@ -63,34 +66,35 @@
 /* CSS-only hamburger menu w/ borders */
 #site-nav-toggle{
   cursor:pointer;
+  font-size:1.3em;
   line-height:1.6;
   margin-bottom:0;
   margin-top:0;
-  order:10;
+  order:5;
   padding:0 0 0 1.3rem;
   position:relative;
-  min-width:1.6em;
+  min-width:1.3em;
   text-decoration:none;
   width:auto;
   z-index:1000;}
-#site-nav-toggle::before {
+#site-nav-toggle::before{
   border-top:0.15em solid;
   content:' ';
   position:absolute;
-  margin-top:-0.075em;
+  margin-top:-0.075rem;
   top:50%;
   left:0;
-  width:1.25rem;}
+  width:1.4rem;}
 #site-nav-toggle::after{
   border-color:inherit;
-  border-width:0.15em 0;
+  border-width:0.15rem 0;
   border-style: solid;
   content:' ';
-  height:0.6rem;;
+  height:0.9rem;;
   left:0;
   position:absolute;
   transform:translateZ(1px);
-  width:1.25rem;}
+  width:1.4rem;}
 #site-nav-toggle-text{
   display:none;
   font-size:0.9rem;
@@ -109,39 +113,60 @@
   #site-nav-toggle.nav-desktop-list{
     display:none;}
 }
+@media only screen and (pointer:fine){
+  #site-nav-toggle{
+    font-size:1rem;}
+  #site-nav-toggle::before {
+    width:1.25rem;}
+  #site-nav-toggle::after{
+    height:0.6rem;
+    width:1.25rem;}
+}
+
+/*
+  Hide site nav on mobile, to be revealed by 'burger menu
+  Show when menu is set to 'dropdown' on a larger screen
+*/
+#site-nav{
+  display:none;
+  order:5;}
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+  #site-nav.nav-desktop-dropdown{
+    display:flex;}
+}
 
 
 /* ----- Custom header buttons ----- */
 #header-buttons-container{
-  flex:0 0 auto;}
+  display:none;
+  flex:0 0 auto;
+  order:9;}
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+  #header-buttons-container{
+    display:flex;}
+}
 
 
 /* ----- Site header layouts ----- */
 
 /* Compact + Left-aligned */
 .site-header-layout-compact #site-header-inner{
-  padding:0 0.5rem;}
-.site-header-layout-compact.text-left #site-title{
-  order:1;}
+  padding:0 0.5vw;;}
 .site-header-layout-compact.text-left .site-header-divider{
+  display:block;
   order:4;}
-.site-header-layout-compact.text-left #site-nav{
-  display:none;}
-.site-header-layout-compact.text-left #header-buttons-container{
-  display:none;}
-@media only screen and (min-width:$mobile-tablet-breakpoint){
-  .site-header-layout-compact.text-left #header-buttons-container{
-    display:flex;}
-}
 @media only screen and (min-width:$tablet-desktop-breakpoint){
   .site-header-layout-compact.text-left #site-title{
     white-space:nowrap;} //make sure other header junk doesn't force the site title to wrap
-  .site-header-layout-compact.text-left #site-nav.nav-desktop-dropdown{
-    background-color:inherit; //when a dropdown nav bar is within the title bar, pass along the bg color
-    display:flex;}
-  .site-header-layout-compact.text-left #site-nav.nav-desktop-dropdown,
-  .site-header-layout-compact.text-left #site-nav.nav-desktop-dropdown a{
-    color:currentColor;}
+
+  .site-header-layout-compact #site-nav.nav-desktop-dropdown,
+  .site-header-layout-compact #site-nav.nav-desktop-dropdown .section-inner,
+  .site-header-layout-compact #site-nav.nav-desktop-dropdown .menu,
+  .site-header-layout-compact #site-nav.nav-desktop-dropdown li{
+    background-color:inherit;} /* if dropdown is inside header bar, inherit the header bg + pass it down to children */
+  .site-header-layout-compact #site-nav.nav-desktop-dropdown,
+  .site-header-layout-compact #site-nav.nav-desktop-dropdown a{
+    color:currentColor;} /* if dropdown is inside header bar, inherit the header text color + pass it down to children */
 
 }
 
@@ -174,45 +199,54 @@
 .site-header-layout-compact.text-center .site-header-divider{
   order:5;}
 .site-header-layout-compact.text-center #header-buttons-container{
-  display:none;
   order:8;}
-@media only screen and (min-width:$mobile-tablet-breakpoint){
-  .site-header-layout-compact.text-center #header-buttons-container{
-    display:flex;}
-}
 
 
 
 
-/* Stacked, both Center + Left-aligned*/
+
+/* Stacked, both Center + Left-aligned */
 .site-header-layout-stacked #site-nav{
   margin:0;
   padding-left:1.4vw;
   order:15;
   width:100%;}
-.site-header-layout-stacked #header-buttons-container{
-  height:auto;
-  min-height:0;}
 @media only screen and (min-width:$tablet-desktop-breakpoint){
   .site-header-layout-stacked #site-header-inner{
     flex-wrap:wrap;}
-  .site-header-layout-stacked #site-title{
-    margin-left:2.5vw;}
+
 }
 
+/* Stacked, Left-aligned
+.site-header-layout-stacked.text-left #site-title{
+  margin-left:2.5vw;}*/
 
 
 
 /* Stacked + Center-aligned */
+.site-header-layout-stacked.text-center #site-title{
+  align-items:center;
+  display:flex;
+  height:0;
+  justify-content:center;
+  left:0;
+  margin:0;
+  position:absolute;
+  top:0;
+  width:100%;
+}
+.site-header-layout-stacked.text-center .site-header-divider{
+  display:block;
+  order:7;}
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+  .site-header-layout-stacked.text-center #header-buttons-container{
+    display:flex;}
+}
 @media only screen and (min-width:$tablet-desktop-breakpoint){
-  .site-header-layout-stacked.text-center #site-nav-toggle{
-    display:none;}
   .site-header-layout-stacked.text-center #site-nav.nav-desktop-dropdown{
-    display:flex;
     justify-content:center;}
 }
-.site-header-layout-stacked.text-center #header-buttons-container{
-  top:0.8rem;}
+
 
 
 
