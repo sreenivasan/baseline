@@ -10,13 +10,24 @@ $desktop-bigscreen-breakpoint:1260px;
 
 $text-font-display:-apple-system,BlinkMacSystemFont,arial,sans-serif;
 $text-font-body:-apple-system,BlinkMacSystemFont,arial,sans-serif;
-$text-font-secondary: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+$text-font-secondary: Menlo, Monaco, Consolas, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
 
-$default-lineheight-calc:calc(.85em + 0.85rem);
+$ja-text-font-display:'Hiragino Kaku Gothic StdN','Hiragino Kaku Gothic Std',-apple-system,BlinkMacSystemFont,'HiraKakuPro-W3', 'Hiragino Kaku Gothic Pro W3', 'Hiragino Kaku Gothic Pro', YuGothic,sans-serif;
+$ja-text-font-body:-apple-system,BlinkMacSystemFont,HiraKakuPro-W3, 'Hiragino Kaku Gothic Pro W3', 'Hiragino Kaku Gothic Pro', YuGothic,sans-serif;
 
-$max-width-skinny:25rem;
-$max-width-narrow:30rem;
-$max-width-normal:36rem;
-$max-width-medium:44rem;
+
+$default-lineheight-calc:calc(.8em + 0.85rem);
+$default-letterspace-calc:calc(0.025rem - 0.025em);
+$default-caps-letterspace-calc:calc(0.07rem - 0.01em);
+
+@mixin default-letterspace-lineheight-calc{
+letter-spacing:$default-letterspace-calc;
+line-height:$default-lineheight-calc;
+}
+
+$max-width-skinny:35rem;
+$max-width-narrow:38rem;
+$max-width-normal:42rem;
+$max-width-medium:48rem;
 $max-width-wide:56rem;
 $max-width-extrawide:68rem;
