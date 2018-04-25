@@ -1,118 +1,113 @@
-.strong,
-.text-strong{
-  font-weight:bold;}
+/*
+  Text styles.
+*/
 
-/* Text Size */
+/*
+  Multilingual – for mixing multiple langauges within a single site
+  (for single language i18n, see "languages" folder) Baseline is built for a
+  multisite, one-language-per-site approach, but sometimes you just need to pop a
+  little AR text into your EN site.
+*/
+.lang-rtl{
+  direction:rtl !important;}
+.lang-ltr{
+  direction:rtl !important;}
+.lang-ar{
+  direction:rtl !important;
+  letter-spacing:0 !important;}
 
+
+/* Headings */
+h1{
+  font-size:calc(0.8vw + 1.5rem);}
+h2{
+  font-size:calc(0.68vw + 1.4rem);}
+h3{
+  font-size:calc(0.35vw + 1.3rem);}
+h4{
+  font-size:calc(0.25vw + 1.25rem);}
+h5{
+  font-size:calc(0.15vw + 1.1rem);}
+
+
+/* Text Size
+      "@include default-letterspace-lineheight-calc" is repeated so
+      many times because calc functions aren't re-calculated when they're
+      inherited from a parent element.
+*/
 .text-size-h1{
-  font-size:calc(0.9vw + 1.5rem);}
+  font-size:calc(0.9vw + 1.5rem);
+  @include default-letterspace-lineheight-calc;}
 .text-size-h2{
-  font-size:calc(0.77vw + 1.4rem);}
+  font-size:calc(0.77vw + 1.4rem);
+  @include default-letterspace-lineheight-calc;}
 .text-size-h3{
-  font-size:calc(0.62vw + 1.3rem);}
+  font-size:calc(0.62vw + 1.3rem);
+  @include default-letterspace-lineheight-calc;}
 .text-size-h4{
-  font-size:calc(0.5vw + 1.25rem);}
+  font-size:calc(0.5vw + 1.25rem);
+  @include default-letterspace-lineheight-calc;}
 .text-size-h5{
-  font-size:calc(0.44vw + 1rem);}
+  font-size:calc(0.44vw + 1rem);
+  @include default-letterspace-lineheight-calc;}
 
 .text-size-normal,
 .text-size-default{
-  font-size:1rem;}
+  font-size:1rem;
+  @include default-letterspace-lineheight-calc;}
 
 .text-large,
 .text-large1,
 .text-style-lead,
 .text-size-large{
-  font-size:1.25rem;}
+  font-size:1.25rem;
+  @include default-letterspace-lineheight-calc;}
 .text-large2,
 .text-style-lead2,
 .text-size-large2{
-  font-size:calc(0.1vw + 1.3rem);}
+  font-size:calc(0.1vw + 1.3rem);
+  @include default-letterspace-lineheight-calc;}
 .text-large3,
 .text-style-lead3,
 .text-size-large3{
-  font-size:calc(0.15vw + 1.4rem);}
+  font-size:calc(0.15vw + 1.4rem);
+  @include default-letterspace-lineheight-calc;}
 .text-large4,
 .text-style-lead4,
 .text-size-large4{
-  font-size:calc(0.2vw + 1.5rem);}
+  font-size:calc(0.2vw + 1.5rem);
+  @include default-letterspace-lineheight-calc;}
 
 .text-small{
   font-size:0.85em;
-  line-height:1.55;}
+  letter-spacing:$default-letterspace-calc;}
 .text-small2{
   font-size:0.75em;
-  line-height:1.6;}
+  letter-spacing:$default-letterspace-calc;}
 
 
 /* Titles */
 .title0{
-  font-size:calc(2.8vw + 55px);}
+  font-size:calc(2.8vw + 55px);
+  @include default-letterspace-lineheight-calc;}
 .title1{
-  font-size:calc(2.6vw + 44px);}
+  font-size:calc(2.6vw + 44px);
+  @include default-letterspace-lineheight-calc;}
 .title2{
-  font-size:calc(2.4vw + 35px);}
+  font-size:calc(2.4vw + 35px);
+  @include default-letterspace-lineheight-calc;}
 .title3{
-  font-size:calc(2.3vw + 28px);}
+  font-size:calc(2.3vw + 28px);
+  @include default-letterspace-lineheight-calc;}
 .title4{
-  font-size:calc(2.25vw + 22px);}
+  font-size:calc(2.25vw + 22px);
+  @include default-letterspace-lineheight-calc;}
 .title5{
-  font-size:calc(2.2vw + 18px);}
+  font-size:calc(2.2vw + 18px);
+  @include default-letterspace-lineheight-calc;}
 
 
-
-/* Meta / Secondary */
-.text-font-secondary,
-.meta{
-  font-family: $text-font-secondary;
-  letter-spacing:0.05em;
-  letter-spacing:calc(0.03rem + 0.02em);}
-.meta{
-  font-size:0.8em;}
-.meta.lang-ar,
-.meta .lang-ar,
-.lang-ar .meta,
-.text-font-secondary.lang-ar,
-.text-font-secondary .lang-ar,
-.lang-ar .text-font-secondary{
-  direction:rtl;
-  letter-spacing:0;}
-.meta.text-light{
-  color:rgba(255,255,255,0.7);}
-
-
-
-h1.meta,
-h2.meta,
-h3.meta,
-h4.meta,
-h5.meta{
-  font-size:1.25rem;
-  letter-spacing:0.3em;
-  text-transform:uppercase;}
-h3.meta{
-  font-size:1rem;}
-h4.meta,
-h5.meta{
-  font-size:0.85rem;
-  letter-spacing:0.15em;}
-
-
-/* Horizontal Rules */
-hr{
-  border-style:dashed;
-  border-width:1px 0 0 0;
-  border-color:#cccdcf;
-  border-color:rgba(130,160,180,0.8);
-  clear:both;
-  margin-bottom:1em;}
-hr.margin-medium{
-  margin:1.3rem 0;}
-hr.margin-large{
-  margin:2.5rem 0;}
-
-/* Text utlities */
-
+/* Text Alignment */
 .text-left{
   text-align:left;
   justify-content:flex-start;}
@@ -150,36 +145,30 @@ hr.margin-large{
       text-align:right;}
   }
 
-.text-wrap-none{
-  white-space:nowrap;}
 
-.nobullet{
-  padding-left:0.7em !important;
-  text-indent:-0.7em;}
-.nobullet li{
-  list-style-type:none;
-  margin-bottom:0.3em;
-  margin-left:0.2em;}
+/* Text Styles */
+.text-bold,
+.text-strong,
+.strong{
+  font-weight:bold;}
 
-.highlight,
-.text-highlight{
+.text-highlight,
+.highlight{
   display:inline;
   /* set min. optical size in px, then add relative size in em */
   padding:0.1em 0.08em;
-  padding:calc(1px + 0.07em) calc(3px + 0.04em);}
+  padding:calc(2px + 0.02em) calc(3px + 0.04em)}
 
-.text-small-caps,
-.sm-cp{
+.text-small-caps{
   font-variant:small-caps;
   letter-spacing:0.07em;
-  letter-spacing:calc(0.05rem + 0.02em);
+  letter-spacing:$default-caps-letterspace-calc;
   text-transform:lowercase;}
 .text-caps,
 .text-uppercase{
   letter-spacing:0.1em;
-  letter-spacing:calc(0.07rem + 0.03em);
+  letter-spacing:$default-caps-letterspace-calc;
   text-transform:uppercase;}
-
 
 .text-shadow,
 .text-shadow-blur{
@@ -202,6 +191,57 @@ hr.margin-large{
     3px 3px 0 rgba(255,255,255, 0.3),
     4px 4px 0 rgba(255,255,255, 0.3),
     6px 6px 0 rgba(255,255,255, 0.3);}
+
+
+/* Meta / Secondary */
+.text-font-secondary,
+.meta{
+  font-family: $text-font-secondary;
+  letter-spacing:0.05em;
+  letter-spacing:calc(0.03rem + 0.02em);}
+.meta{
+  font-size:0.8em;}
+
+h1.meta,
+h2.meta,
+h3.meta,
+h4.meta,
+h5.meta{
+  font-size:1.25rem;
+  letter-spacing:0.3em;
+  text-transform:uppercase;}
+h3.meta{
+  font-size:1rem;}
+h4.meta,
+h5.meta{
+  font-size:0.85rem;
+  letter-spacing:0.15em;}
+
+
+/* Horizontal Rules */
+hr{
+  border-style:dashed;
+  border-width:1px 0 0 0;
+  border-color:#cccdcf;
+  border-color:rgba(130,160,180,0.8);
+  clear:both;
+  margin-bottom:1em;}
+hr.margin-medium{
+  margin:1.3rem 0;}
+hr.margin-large{
+  margin:2.5rem 0;}
+
+/* Text utlities */
+.text-wrap-none{
+  white-space:nowrap;}
+
+.nobullet{
+  padding-left:0.7em !important;
+  text-indent:-0.7em;}
+.nobullet li{
+  list-style-type:none;
+  margin-bottom:0.3em;
+  margin-left:0.2em;}
 
 
 /* Link utlities */
@@ -234,7 +274,6 @@ a.text-unstyled:hover{
 
 
 /* Inline shapes */
-
 .inline-dot{
   background-position:center;
   background-size:55%;
