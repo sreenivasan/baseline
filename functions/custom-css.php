@@ -78,7 +78,10 @@ function baseline_custom_css() {
 			$text_color = '#17292e';
 			$border_color = "rgba(21,36,43,0.25)";
 		}
-		$color_css_array[] = '.bg-'. $site_color['slug'] .',
+		$color_css_array[] = '/* --- '. $site_color['name'] .' custom color CSS --- */
+
+		/* '. $site_color['name'] .' General BG classes */
+		.bg-'. $site_color['slug'] .',
 		.button.bg-'. $site_color['slug'] .'{
 			background-color:'. $site_color['code'] .';
 			border-color:'. $border_color .';
@@ -86,49 +89,55 @@ function baseline_custom_css() {
 		.body-bg-'. $site_color['slug'] .'{
 			background-color:'. $site_color['code'] .';}
 
-		/* Nav Color */
+		/* '. $site_color['name'] .' Nav Color */
 		nav.bg-'. $site_color['slug'] .' li,
 		nav.bg-'. $site_color['slug'] .' .sub-menu{
 			border-color:'. $border_color .';}
 
-		/* Notch Color */
+		/* '. $site_color['name'] .' Notch Color */
 		.bg-'. $site_color['slug'] .'.notch::after{
 			border-bottom-color:'. $site_color['code'] .';}
 		.bg-'. $site_color['slug'] .'.notch-semicircle::after,
 		.bg-'. $site_color['slug'] .'.notch-tab::after{
 			background-color:'. $site_color['code'] .';}
 
-		/* Text Color */
+		/* '. $site_color['name'] .' Text Color */
 		.text-'. $site_color['slug'] .',
 		a.text-'. $site_color['slug'] .',
 		.text-color-override.text-'. $site_color['slug'] .'{
 			color:'. $site_color['code'] .';}
 
-		/* Link Color */
-		.bg-'. $site_color['slug'] .' a,
-		.bg-'. $site_color['slug'] .'.text-color-override a{
+		/* '. $site_color['name'] .' Link Color */
+		.bg-'. $site_color['slug'] .' a:not(.button),
+		.bg-'. $site_color['slug'] .'.text-color-override a:not(.button){
 			color:'. $custom_link_color .';}
 
-		/* Link:hover Color */
-		.bg-'. $site_color['slug'] .' a:hover,
+		/* '. $site_color['name'] .' Link:hover Color */
+		.bg-'. $site_color['slug'] .' a:not(.button):hover,
 		.bg-'. $site_color['slug'] .'.text-color-override a:hover{
 			color:'. $custom_link_hover_color .';}
-		/* Area link:hover Color */
+
+		/* '. $site_color['name'] .' Area link:hover Color */
 		.bg-'. $site_color['slug'] .' .area-link:hover .area-link-hover,
 		.bg-'. $site_color['slug'] .'.text-color-override .area-link:hover .area-link-hover{
 			color:'. $custom_link_hover_color .';}
-		/* Button Text Color */
+
+
+		/* '. $site_color['name'] .' Button Text Color */
 		a.bg-'. $site_color['slug'] .',
 		a.bg-'. $site_color['slug'] .'.text-color-override{
 			color:'. $text_color .';}
-		/* Button:hover Text Color */
+
+		/* '. $site_color['name'] .' Button:hover Text Color */
 		a.bg-'. $site_color['slug'] .':hover{
 			color:'. $custom_link_color .';}
-		/* Thick Underline */
+
+		/* '. $site_color['name'] .' Thick Underline */
 		.text-underline-thick-'. $site_color['slug'] .'{
 			box-shadow:0 -0.35em 0 '. $site_color['code'] .' inset;}
-		';
-		}
+		'
+		;
+	}
 
 	$color_css_string = implode( ' ', $color_css_array );
 
@@ -171,14 +180,21 @@ function baseline_custom_css() {
 	h3{
 		font-size:calc(0.5vw + '. fontSize(1.3) .'rem);}
 
+	/* Links */
 	a,
 	a.area-link:hover .area-link-hover{
 		color:'. $link_color .';}
+
+	/* Form Labels */
+	.form-style-labelabove label{
+		color:'. $link_color .';}
+
 	#site-title{
-		font-size:'. fontSize(1.2) .'rem;}
+		font-size:'. fontSize(1.1) .'rem;}
 	input.submit,
 	input[type="submit"],
-	.button{
+	button,
+	a.button{
 		background-color:'. $button_color .';}
 	.button-primary,
 	.button-big{
