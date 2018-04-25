@@ -6,23 +6,23 @@ function fonts_menu_options() {
 }
 // Load the Admin Options page
 add_action('admin_menu', 'fonts_menu_options');
- 
+
 function site_fonts_page() {
     ?>
         <div class="wrap">
             <h2><?php /* translators: admin settings */ _e( 'Fonts', 'baseline' ); ?></h2>
-            <?php 
-				$site_display_font = stripslashes (get_option('site_display_font','KlimaWeb') ); 
-				$site_body_font = stripslashes (get_option('site_body_font','-apple-system,BlinkMacSystemFont,arial') ); 
-				$site_secondary_font = stripslashes (get_option('site_secondary_font','Menlo,Monaco,Courier,monospace') ); 
-				$site_fallback_font = stripslashes (get_option('site_fallback_font','sans-serif') ); 
-				$site_font_loader_code = stripslashes (get_option('site_font_loader_code') ); 
-				$site_text_on_image_classes = stripslashes (get_option('site_text_on_image_classes') ); 
-				$site_display_font_size_modifier = get_option('site_display_font_size_modifier',1.1);
+            <?php
+				$site_display_font = stripslashes (get_option('site_display_font',' ') );
+				$site_body_font = stripslashes (get_option('site_body_font',' ') );
+				$site_secondary_font = stripslashes (get_option('site_secondary_font','Menlo, Monaco, Consolas, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace') );
+				$site_fallback_font = stripslashes (get_option('site_fallback_font','-apple-system, BlinkMacSystemFont, arial, sans-serif') );
+				$site_font_loader_code = stripslashes (get_option('site_font_loader_code') );
+				$site_text_on_image_classes = stripslashes (get_option('site_text_on_image_classes') );
+				$site_display_font_size_modifier = get_option('site_display_font_size_modifier',1);
 				$site_display_font_line_height = get_option('site_display_font_line_height', 1);
-				
+
 			?>
-			<form method="POST" action="">  
+			<form method="POST" action="">
            		<input type="hidden" name="site_fonts_update" value="true" />
            		<h3>Loading Fonts</h3>
            		<label for="site_font_loader_code">Code for loading custom fonts:</label>
@@ -45,20 +45,20 @@ function site_fonts_page() {
 				</div>
 				<div>
 					<input type="text" name="site_fallback_font" id="site_fallback_font" value="<?php echo $site_fallback_font; ?>" />
-					<label for="site_fallback_font"><strong>Fallback Fonts</strong> — shows up if the other fonts fail to load ("Georgia,serif" or "Arial,sans-serif", typically)</label>
+					<label for="site_fallback_font"><strong>Fallback Fonts</strong> — Standard fonts that come pre-installed on people's computer.</label>
 				</div>
 				<hr>
 				<h3>Heading Text Options</h3>
-				<p>If you're loading custom fonts, they can sometimes vary in size. Use this setting to normalize the font size and line spacing. Defaults are set for Graph Condensed.</p> 
+				<p>If you're loading custom fonts, they can sometimes vary in size. Use this setting to normalize the font size and line spacing.</p>
 				<div>
 					<input type="number" min="0.7" max="1.7" step="0.05" name="site_display_font_size_modifier" id="site_display_font_size_modifier" value="<?php echo $site_display_font_size_modifier; ?>" />
-					<label for="site_display_font_size_modifier"><strong>Heading Text Size Multiplier</strong> — [original font size] * [multiplier] = [final font size]. Typical values will range between 0.8 and 1.5.</label><br>
+					<label for="site_display_font_size_modifier"><strong>Heading Text Size Multiplier</strong> — Make narrow fonts bigger or wide fonts smaller so it occupies approximately the same visual space.</label><br>
 					<input type="number" min="0.7" max="1.8" step="0.05" name="site_display_font_line_height" id="site_display_font_line_height" value="<?php echo $site_display_font_line_height; ?>" />
-					<label for="site_display_font_line_height"><strong>Heading Text Line Height</strong> —  </label>
+					<label for="site_display_font_line_height"><strong>Heading Text Line Height Modifier</strong> — Adjust the line height to compensate for different vertical metrics in the font.</label>
 				</div>
 				<hr>
 				<h3>Text on image (optional)</h3>
-				<p>Choose how to add contrast and legibility to text that appears on top of the background image. Use built-in CSS classes like "highlight bg-white" "outline" or "drop-shadow", or add your CSS classes in the <a href="options-general.php?page=custom-code.php">Custom CSS</a> section.</p> 
+				<p>Choose how to add contrast and legibility to text that appears on top of the background image. Use built-in CSS classes like "highlight bg-white" "outline" or "drop-shadow", or add your CSS classes in the <a href="options-general.php?page=custom-code.php">Custom CSS</a> section.</p>
 				<div>
 					<input type="text" name="site_text_on_image_classes" id="site_text_on_image_classes" value="<?php echo $site_text_on_image_classes; ?>" />
 					<label for="site_text_on_image_classes"><strong>Text on image CSS classes</strong></label>
@@ -70,20 +70,20 @@ function site_fonts_page() {
     <?php
 }
 
-function site_fonts_update(){  
-	// this is where validation would go   
-	update_option('site_display_font',  $_POST['site_display_font']);  
-	update_option('site_body_font',  $_POST['site_body_font']);  
-	update_option('site_secondary_font',  $_POST['site_secondary_font']); 
-	update_option('site_fallback_font',  $_POST['site_fallback_font']); 
-	update_option('site_font_loader_code',  $_POST['site_font_loader_code']); 
+function site_fonts_update(){
+	// this is where validation would go
+	update_option('site_display_font',  $_POST['site_display_font']);
+	update_option('site_body_font',  $_POST['site_body_font']);
+	update_option('site_secondary_font',  $_POST['site_secondary_font']);
+	update_option('site_fallback_font',  $_POST['site_fallback_font']);
+	update_option('site_font_loader_code',  $_POST['site_font_loader_code']);
 	update_option('site_text_on_image_classes',  $_POST['site_text_on_image_classes']);
-	update_option('site_display_font_size_modifier',  $_POST['site_display_font_size_modifier']); 
-	update_option('site_display_font_line_height',  $_POST['site_display_font_line_height']); 
-	
+	update_option('site_display_font_size_modifier',  $_POST['site_display_font_size_modifier']);
+	update_option('site_display_font_line_height',  $_POST['site_display_font_line_height']);
+
 }
 $site_fonts_update = isset( $_POST['site_fonts_update'] ) ? $_POST['site_fonts_update'] : '';
-if ( $site_fonts_update == 'true' ) { site_fonts_update(); } 
+if ( $site_fonts_update == 'true' ) { site_fonts_update(); }
 
 
 ?>
