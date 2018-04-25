@@ -1,0 +1,112 @@
+/*
+  Horizontally overflowing content area
+*/
+
+.horizontal-scroll{
+  background-attachment:local, local, scroll, scroll;
+  background-image:
+    linear-gradient(to right, rgba(240,248,253,0) 0%, rgba(240,248,253,1) 50%, #f0f8fd 100%),
+    linear-gradient(to left, rgba(240,248,253,0) 0%, rgba(240,248,253,1) 50%, #f0f8fd 100%),
+    radial-gradient(farthest-side at right, rgba(0,0,0,0.3) 0%, rgba(0,21,30,0) 100%),
+    radial-gradient(farthest-side at left, rgba(0,0,0,0.3) 0%, rgba(0,21,30,0) 100%);
+  background-position:
+    right center,
+    left center,
+    right center,
+    left center;
+  background-repeat:no-repeat;
+  background-size:
+    3vh 80%,
+    3vh 80%,
+    1.5vh 80%,
+    1.5vh 80%;
+  display:flex;
+  flex-wrap:wrap;
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  overflow-scrolling:touch;
+  position:relative;
+  touch-action:pan-x;
+}
+.horizontal-scroll-inner{
+  display:flex;
+  flex-wrap:nowrap;
+  padding:2rem;
+  padding:calc(1.5rem + 3vw);
+  z-index:1;}
+/* horizontal cards */
+.horizontal-scroll-inner > *{
+	flex:1 1 70vw;
+	margin-right:2vw;
+	min-width:17em;
+	max-width:30em;}
+
+.horizontal-scroll-nav-controls{
+  display:block;
+  height:100%;
+  left:0;
+  pointer-events:none;
+  position:sticky;
+  top:50%;
+  width:100%;
+  z-index:10;}
+.horizontal-scroll-nav-control{
+  background:#fff;
+  border:1px solid rgba(0,0,0,0.1);
+  box-shadow:0 0 0.6em rgba(0,0,0,0.2);
+  cursor:pointer;
+  color:rgba(21,36,43,0.4);
+  display:block;
+  height:4em;
+  margin-top:-2em;
+  pointer-events:all;
+  position:absolute;
+  text-indent:-9999px;
+  transition:all 0.3s;
+  width:3em;}
+.horizontal-scroll-nav-control::after{
+  border-bottom:10px solid transparent;
+  border-top:10px solid transparent;
+  border-left:10px solid;
+  content:'';
+  height:0;
+  left:50%;
+  margin:-10px 0 0 -7px;
+  position:absolute;
+  top:50%;
+  width:0;}
+.horizontal-scroll-nav-control:not(.inactive):hover,
+.horizontal-scroll-nav-control:not(.inactive):active{
+  border-color:rgba(0,0,0,0.3);
+  color:rgba(21,36,43,0.6);
+  transform:scale(1.1);}
+.horizontal-scroll-nav-control.inactive{
+  opacity:0;
+  cursor:default;}
+.horizontal-scroll-nav-control-back{
+  border-radius:0 3px 3px 0;
+  left:-1px;}
+.horizontal-scroll-nav-control-back::after{
+  transform:rotate(180deg);
+  transform-origin:5px 10px;}
+.horizontal-scroll-nav-control-forward{
+  border-radius:3px 0 0 3px;
+  right:-1px;}
+
+@media screen and (min-width:$tablet-desktop-breakpoint){
+
+/* horizontal cards */
+.horizontal-scroll-inner > *{
+	flex-basis:35vw;
+	min-width:17em;}
+
+.horizontal-scroll-nav-control-back{
+  border-radius:3px;
+  left:2vw;}
+.horizontal-scroll-nav-control-forward{
+  border-radius:3px;
+  right:2vw;}
+
+
+}
