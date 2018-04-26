@@ -1983,8 +1983,7 @@ h3.section-title + .post,
 .post-thumbnail img {
   position: absolute; }
 
-.post-title,
-.post .post-title {
+.post-title {
   font-size: 1.75rem; }
 
 .post-author {
@@ -2578,6 +2577,20 @@ input.search-form-submit {
     -webkit-columns: 4;
     columns: 4; } }
 
+/* Styles for for the 'single' view of individual, standard posts/pages */
+/* Shared between posts and pages */
+#page-header {
+  color: #ffffff; }
+
+.bg-off #page-header {
+  color: initial; }
+
+/* Single Blog Posts */
+.bg-on #post-subtitle {
+  color: initial;
+  text-shadow: 0 0 2em rgba(21, 36, 43, 0.9); }
+
+/* Pages */
 /*
   Horizontally overflowing content area
 */
