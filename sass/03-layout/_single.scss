@@ -2,15 +2,13 @@
 
 
 /* Shared between posts and pages */
-#page-header{
-	color:#ffffff;}
-.bg-off #page-header{
+
+.bg-off #page-header{ // When no bg image is set, use default color
 	color:initial;}
 
 
 /* Single Blog Posts */
 .bg-on #post-subtitle{
-  color:initial;
   text-shadow:0 0 2em rgba(21, 36, 43, 0.9);}
 
 

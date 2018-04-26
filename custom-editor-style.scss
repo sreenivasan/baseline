@@ -32,13 +32,15 @@
 @import 'sass/03-layout/_footer';
 @import 'sass/03-layout/_layout-general';
 @import 'sass/03-layout/_spacing';
+// @import 'sass/03-layout/_single';
+@import 'sass/03-layout/_horizontal-scroll';
+@import 'sass/03-layout/_sections';
 
-/*
 @import 'sass/04-js-helpers/_js-expando';
 @import 'sass/04-js-helpers/_js-general';
 @import 'sass/04-js-helpers/_js-lazyload';
 @import 'sass/04-js-helpers/_js-modal';
-*/
+@import 'sass/04-js-helpers/_js-headroom';
 
 @import 'sass/05-integrations/_action-network';
 @import 'sass/05-integrations/_actionkit';
@@ -49,10 +51,11 @@
 @import 'sass/05-integrations/_social';
 @import 'sass/05-integrations/_wordpress';
 
-/*
 @import 'sass/06-utilities/_utilities';
 
-@import 'sass/07-misc/_legacy-header';
+// @import 'sass/07-misc/_legacy-header';
 @import 'sass/07-misc/_legacy';
-@import 'sass/07-misc/_questionable';
-*/
+@import 'sass/07-misc/_legacy-columns';
+// @import 'sass/07-misc/_questionable';
+
+@import 'sass/08-language/_en';
