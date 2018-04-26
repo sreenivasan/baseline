@@ -13,8 +13,7 @@ h3.section-title + .post,
   position:relative;}
 .post-thumbnail img{
   position:absolute;}
-.post-title,
-.post .post-title{
+.post-title{
   font-size:1.75rem;}
 .post-author{
   margin-top:-6px;}
@@ -128,7 +127,7 @@ p.wp-caption-text{
 
 /* Desktop and larger */
 @media only screen and (min-width:$tablet-desktop-breakpoint){
-	  
+
 	/* Post layout: list (desktop) */
 	.posts-layout-list .post{
 	  margin:1.5em 0;}

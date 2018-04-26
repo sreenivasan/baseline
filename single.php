@@ -61,7 +61,7 @@
 </style>
 <?php endif; ?>
 <section id="content" class="section single">
-	<header id="page-header" class="page-header section padding-large title-section-60 width-normal text-center bg-transparent">
+	<header id="page-header" class="page-header section padding-large title-section-60 width-narrow text-center bg-transparent">
 		<div id="page-header-inner" class="single-inner section-inner">
 			<div class="margin-bottom-medium">
 <?php if ( $show_author_name ): ?>
@@ -76,9 +76,9 @@
 <?php endif; ?>
 				<span id="post-time" class="meta post-meta-item bg-dkgray-trans margin-none"><?php echo (get_the_date() ); ?></span>
 			</div>
-			<h2 class="<?php echo $title_size; ?>"><span class="<?php echo $text_on_image_classes; ?>"><?php the_title(); ?></span></h2>
+			<h2 id="post-title" class="<?php echo $title_size; ?>"><span class="<?php echo $text_on_image_classes; ?>"><?php the_title(); ?></span></h2>
 <?php if ( has_excerpt() ):?>
-			<p class="text-style-lead"><span class="text-shadow strong"><?php echo strip_tags( get_the_excerpt() ); ?></span></p>
+			<p id="post-subtitle" class="text-style-lead"><span class="text-strong"><?php echo strip_tags( get_the_excerpt() ); ?></span></p>
 <?php endif; ?>
 		</div>
 <?php if ( $bg_img_caption ): ?>
