@@ -162,7 +162,7 @@
   .site-header-layout-compact #site-nav.nav-desktop-dropdown,
   .site-header-layout-compact #site-nav.nav-desktop-dropdown .section-inner,
   .site-header-layout-compact #site-nav.nav-desktop-dropdown .menu,
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown li{
+  .site-header-layout-compact #site-nav.nav-desktop-dropdown .menu > li{
     background-color:inherit;} /* if dropdown is inside header bar, inherit the header bg + pass it down to children */
   .site-header-layout-compact #site-nav.nav-desktop-dropdown,
   .site-header-layout-compact #site-nav.nav-desktop-dropdown a{

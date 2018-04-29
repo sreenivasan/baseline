@@ -510,9 +510,9 @@ h5 {
   font-size: calc(0.15vw + 1.1rem); }
 
 /* Text Size
-      "@include default-letterspace-lineheight-calc" is repeated so
-      many times because calc functions aren't re-calculated when they're
-      inherited from a parent element.
+  "@include default-letterspace-lineheight-calc" is repeated so
+  many times because calc functions aren't re-calculated when they're
+  inherited from a parent element.
 */
 .text-size-h1 {
   font-size: calc(0.9vw + 1.5rem);
@@ -583,31 +583,37 @@ h5 {
   letter-spacing: calc(0.025rem - 0.025em); }
 
 /* Titles */
+.text-style-title0,
 .title0 {
   font-size: calc(2.8vw + 55px);
   letter-spacing: calc(0.025rem - 0.025em);
   line-height: calc(.8em + 0.85rem); }
 
+.text-style-title1,
 .title1 {
   font-size: calc(2.6vw + 44px);
   letter-spacing: calc(0.025rem - 0.025em);
   line-height: calc(.8em + 0.85rem); }
 
+.text-style-title2,
 .title2 {
   font-size: calc(2.4vw + 35px);
   letter-spacing: calc(0.025rem - 0.025em);
   line-height: calc(.8em + 0.85rem); }
 
+.text-style-title3,
 .title3 {
   font-size: calc(2.3vw + 28px);
   letter-spacing: calc(0.025rem - 0.025em);
   line-height: calc(.8em + 0.85rem); }
 
+.text-style-title4,
 .title4 {
   font-size: calc(2.25vw + 22px);
   letter-spacing: calc(0.025rem - 0.025em);
   line-height: calc(.8em + 0.85rem); }
 
+.text-style-title5,
 .title5 {
   font-size: calc(2.2vw + 18px);
   letter-spacing: calc(0.025rem - 0.025em);
@@ -1907,7 +1913,7 @@ label[for] {
   .site-header-layout-compact #site-nav.nav-desktop-dropdown,
   .site-header-layout-compact #site-nav.nav-desktop-dropdown .section-inner,
   .site-header-layout-compact #site-nav.nav-desktop-dropdown .menu,
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown li {
+  .site-header-layout-compact #site-nav.nav-desktop-dropdown .menu > li {
     background-color: inherit; }
   /* if dropdown is inside header bar, inherit the header bg + pass it down to children */
   .site-header-layout-compact #site-nav.nav-desktop-dropdown,
@@ -3870,7 +3876,7 @@ div.alignright {
   English-only style customizations
 */
 .en nav.nav-desktop-dropdown a {
-  font-size: 0.82em;
+  font-size: 0.75em;
   letter-spacing: calc(0.07rem - 0.01em);
   text-transform: uppercase; }
 
