@@ -31,9 +31,9 @@ h5{
 
 
 /* Text Size
-      "@include default-letterspace-lineheight-calc" is repeated so
-      many times because calc functions aren't re-calculated when they're
-      inherited from a parent element.
+  "@include default-letterspace-lineheight-calc" is repeated so
+  many times because calc functions aren't re-calculated when they're
+  inherited from a parent element.
 */
 .text-size-h1{
   font-size:calc(0.9vw + 1.5rem);
@@ -87,21 +87,27 @@ h5{
 
 
 /* Titles */
+.text-style-title0,
 .title0{
   font-size:calc(2.8vw + 55px);
   @include default-letterspace-lineheight-calc;}
+.text-style-title1,
 .title1{
   font-size:calc(2.6vw + 44px);
   @include default-letterspace-lineheight-calc;}
+.text-style-title2,
 .title2{
   font-size:calc(2.4vw + 35px);
   @include default-letterspace-lineheight-calc;}
+.text-style-title3,
 .title3{
   font-size:calc(2.3vw + 28px);
   @include default-letterspace-lineheight-calc;}
+.text-style-title4,
 .title4{
   font-size:calc(2.25vw + 22px);
   @include default-letterspace-lineheight-calc;}
+.text-style-title5,
 .title5{
   font-size:calc(2.2vw + 18px);
   @include default-letterspace-lineheight-calc;}
