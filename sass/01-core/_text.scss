@@ -241,13 +241,12 @@ hr.margin-large{
 .text-wrap-none{
   white-space:nowrap;}
 
-.nobullet{
-  padding-left:0.7em !important;
-  text-indent:-0.7em;}
+.nobullet{}
 .nobullet li{
   list-style-type:none;
-  margin-bottom:0.3em;
-  margin-left:0.2em;}
+  margin-bottom:0.7em;
+  text-align:inherit; // allow bullet-less ul lis to inherit text-alignment, overriding the default li behavior.
+}
 
 
 /* Link utlities */
