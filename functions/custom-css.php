@@ -113,7 +113,7 @@ function baseline_custom_css() {
 			color:'. $custom_link_color .';}
 
 		/* '. $site_color['name'] .' Link:hover Color */
-		.bg-'. $site_color['slug'] .' a:not(.button):hover,
+		.bg-'. $site_color['slug'] .' a:hover:not(.button),
 		.bg-'. $site_color['slug'] .'.text-color-override a:hover{
 			color:'. $custom_link_hover_color .';}
 

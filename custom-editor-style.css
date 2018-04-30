@@ -368,17 +368,24 @@ a.text-dark,
 .text-dark a {
   color: rgba(21, 36, 43, 0.9) !important; }
 
-.text-blue {
+.text-blue,
+.text-blue.text-color-override {
   color: #0f81e8; }
 
-.text-orange
-.text-red {
+.text-orange,
+.text-orange.text-color-override {
+  color: #ffab03; }
+
+.text-red,
+.text-red.text-color-override {
   color: #ff6753; }
 
-.text-teal {
+.text-teal,
+.text-teal.text-color-override {
   color: #35c9c5; }
 
-.text-ltgray {
+.text-ltgray,
+.text-ltgray.text-color-override {
   color: #e1eaf2; }
 
 .bg-blue.notch::after {
@@ -751,14 +758,10 @@ hr.margin-large {
 .text-wrap-none {
   white-space: nowrap; }
 
-.nobullet {
-  padding-left: 0.7em !important;
-  text-indent: -0.7em; }
-
 .nobullet li {
   list-style-type: none;
-  margin-bottom: 0.3em;
-  margin-left: 0.2em; }
+  margin-bottom: 0.7em;
+  text-align: inherit; }
 
 /* Link utlities */
 .area-link {
@@ -2075,13 +2078,25 @@ label[for] {
   overflow: hidden !important;
   padding: 0 !important; }
 
+.two-col,
+.three-col,
+.four-col {
+  -webkit-columns: 1;
+          columns: 1;
+  -webkit-column-gap: 0;
+          column-gap: 0;
+  -webkit-column-rule: 1px solid rgba(21, 36, 43, 0.2);
+          column-rule: 1px solid rgba(21, 36, 43, 0.2); }
+
 /* Tablet and up */
 @media only screen and (min-width: 680px) {
   .two-col,
   .three-col,
   .four-col {
     -webkit-columns: 2;
-            columns: 2; }
+            columns: 2;
+    -webkit-column-gap: 4em;
+            column-gap: 4em; }
   .right,
   .float-right {
     float: right; }
@@ -2092,13 +2107,19 @@ label[for] {
 @media only screen and (min-width: 950px) {
   .two-col {
     -webkit-columns: 2;
-    columns: 2; }
+            columns: 2;
+    -webkit-column-gap: 5em;
+            column-gap: 5em; }
   .three-col {
     -webkit-columns: 3;
-    columns: 3; }
+            columns: 3;
+    -webkit-column-gap: 4em;
+            column-gap: 4em; }
   .four-col {
     -webkit-columns: 4;
-    columns: 4; } }
+            columns: 4;
+    -webkit-column-gap: 3em;
+            column-gap: 3em; } }
 
 /* Spacing - padding, margin and other spacing styles */
 .margin-none,
