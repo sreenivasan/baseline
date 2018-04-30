@@ -57,14 +57,21 @@ a.text-light,
 a.text-dark,
 .text-dark a{
   color:rgba(21,36,43,0.9) !important;}
-.text-blue{
+
+.text-blue,
+.text-blue.text-color-override{
   color:#0f81e8;}
-.text-orange
-.text-red{
+.text-orange,
+.text-orange.text-color-override{
+  color:#ffab03;}
+.text-red,
+.text-red.text-color-override{
   color:#ff6753;}
-.text-teal{
+.text-teal,
+.text-teal.text-color-override{
   color:#35c9c5;}
-.text-ltgray{
+.text-ltgray,
+.text-ltgray.text-color-override{
   color:#e1eaf2;}
 
 
