@@ -22,6 +22,12 @@
   overflow:hidden !important;
   padding:0 !important;}
 
+  .two-col,
+  .three-col,
+  .four-col{
+    columns:1;
+    column-gap:0;
+    column-rule:1px solid rgba(21,36,43,.2);}
 
 /* Tablet and up */
 @media only screen and (min-width:$mobile-tablet-breakpoint){
@@ -29,7 +35,8 @@
   .two-col,
   .three-col,
   .four-col{
-    columns:2;}
+    columns:2;
+    column-gap:4em;}
 
   .right,
   .float-right{
@@ -44,16 +51,13 @@
 @media only screen and (min-width:$tablet-desktop-breakpoint){
 
   .two-col{
-    -webkit-columns:2;
-    -moz-columns:2;
-    columns:2;}
+    columns:2;
+    column-gap:5em;}
   .three-col{
-    -webkit-columns:3;
-    -moz-columns:3;
-    columns:3;}
+    columns:3;
+    column-gap:4em;}
   .four-col{
-    -webkit-columns:4;
-    -moz-columns:4;
-    columns:4;}
+    columns:4;
+    column-gap:3em;}
 
 }
