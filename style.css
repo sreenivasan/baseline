@@ -40,7 +40,7 @@ audio, canvas, video {
 html {
   background-color: #DAE6F2;
   color: #17292e;
-  font-family: -apple-system, BlinkMacSystemFont, arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, arial, sans-serif;
   font-size: 16px;
   line-height: 1.6; }
 
@@ -1156,7 +1156,7 @@ button.active {
 
 /* Forms + Inputs */
 button, input, select, textarea {
-  font-family: -apple-system, BlinkMacSystemFont, arial, sans-serif; }
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, arial, sans-serif; }
 
 input {
   line-height: normal; }

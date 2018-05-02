@@ -8,8 +8,8 @@ $mobile-tablet-breakpoint:680px;
 $tablet-desktop-breakpoint:950px;
 $desktop-bigscreen-breakpoint:1260px;
 
-$text-font-display:-apple-system,BlinkMacSystemFont,arial,sans-serif;
-$text-font-body:-apple-system,BlinkMacSystemFont,arial,sans-serif;
+$text-font-display:system-ui,-apple-system,BlinkMacSystemFont,arial,sans-serif;
+$text-font-body:system-ui,-apple-system,BlinkMacSystemFont,arial,sans-serif;
 $text-font-secondary: Menlo, Monaco, Consolas, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
 
 $ja-text-font-display:'Hiragino Kaku Gothic StdN','Hiragino Kaku Gothic Std',-apple-system,BlinkMacSystemFont,'HiraKakuPro-W3', 'Hiragino Kaku Gothic Pro W3', 'Hiragino Kaku Gothic Pro', YuGothic,sans-serif;
