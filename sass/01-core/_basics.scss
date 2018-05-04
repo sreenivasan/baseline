@@ -105,7 +105,7 @@ img, iframe, video{
 /* Lists */
 ul, ol{
   margin:0 0 1em;
-  margin:0 0 calc(0.1em + 0.8rem);
+  margin:0 0 calc(0.3em + 0.6rem);;
   padding-left:1em;}
 ol{
   counter-reset:li;
@@ -173,8 +173,7 @@ table{
   width:100%;}
 th{
   font-weight:bold;
-  /* some browsers center-align <th> by default *shrug* */
-  text-align:left;}
+  text-align:left; //some browsers center-align <th> by default *shrug*}
 tr{
   background:rgba(255,255,255,0.1);}
 tr:nth-child(2n){
