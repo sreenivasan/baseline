@@ -1118,8 +1118,7 @@ a.text-unstyled:hover{
 .form-style-labelabove .input-number input:focus
 .form-style-labelabove .input-textarea textarea:focus{
 	-webkit-appearance:none;
-	outline:none;
-	box-shadow:inset 0 0 0 1px #0f81e8;}
+	outline:none;}
 .form-style-labelabove .ak-input-type-user.input-text label,
 .form-style-labelabove .ak-input-type-user.input-select label,
 .form-style-labelabove .ak-input-type-user.input-textarea label{
