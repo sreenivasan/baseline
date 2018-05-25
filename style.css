@@ -3796,7 +3796,15 @@ img.b-loaded {
 /* new PHP CURL embedded AK form */
 .section.actionkit #action-lead {
   background-color: inherit;
+  border-color: inherit;
   color: inherit;
+  min-height: -webkit-max-content;
+  min-height: -moz-max-content;
+  min-height: max-content;
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content;
+  height: auto;
   padding: 0; }
 
 /* Addthis.com plugin styles */
