@@ -1995,6 +1995,11 @@ img.b-loaded {
   -moz-transition:1s all;
   -o-transition:1s all;
   transition:1s all;}
+#action-lead{
+  background-color: inherit;
+  border-color: inherit;
+  color: inherit;
+  padding: 0;}
 .ak-event-map{
   border:0 none;
   height:75vh;
