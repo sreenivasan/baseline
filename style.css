@@ -493,7 +493,7 @@ input[type="submit"]:active,
   border-color:rgba(21,36,43,0.2);
   color:#17292e;}
 .button.bg-white:hover{
-	color:#17292e !important;}  
+	color:#17292e !important;}
 .bg-white-trans,
 .button.bg-white-trans{
   background-color:rgba(255,255,255,0.85);
@@ -1995,11 +1995,15 @@ img.b-loaded {
   -moz-transition:1s all;
   -o-transition:1s all;
   transition:1s all;}
-#action-lead{
-  background-color: inherit;
-  border-color: inherit;
-  color: inherit;
-  padding: 0;}
+/* new PHP CURL embedded AK form */
+.section.actionkit #action-lead{
+  background-color:inherit;
+  border-color:inherit;
+  color:inherit;
+  min-height:max-content;
+  max-height:max-content;
+  height:auto;
+  padding:0;}
 .ak-event-map{
   border:0 none;
   height:75vh;
