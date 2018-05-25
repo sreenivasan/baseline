@@ -58,12 +58,12 @@ html {
     font-size: 19px; } }
 
 /* Set responsive rems */
-@supports (font-size: calc(1vmax + 1px)) {
+@supports (font-size: calc(1vh + 1vw)) {
   html {
-    font-size: calc(.25 * (1vw + 1vh - 1vmin) + 15.5px); }
+    font-size: calc(.12vw + .12vh + 16px); }
   @media only screen and (min-width: 1260px) {
     html {
-      font-size: calc(.4 * (1vw + 1vh - 1vmin) + 12px); } } }
+      font-size: calc(.25vw + .25vh + 13.7px); } } }
 
 body {
   margin: 0; }
@@ -130,7 +130,7 @@ img, iframe, video {
 /* Lists */
 ul, ol {
   margin: 0 0 1em;
-  margin: 0 0 calc(0.1em + 0.8rem);
+  margin: 0 0 calc(0.3em + 0.6rem);
   padding-left: 1em; }
 
 ol {
@@ -210,7 +210,6 @@ table {
 
 th {
   font-weight: bold;
-  /* some browsers center-align <th> by default *shrug* */
   text-align: left; }
 
 tr {
@@ -486,15 +485,16 @@ nav.bg-ltgray .sub-menu {
 */
 /*
   Multilingual – for mixing multiple langauges within a single site
-  (for single language i18n, see "languages" folder) Baseline is built for a
-  multisite, one-language-per-site approach, but sometimes you just need to pop a
-  little AR text into your EN site.
+  (for single language i18n, see "languages" folder)
+
+  NOTE: In general, Baseline is built for a multisite, one-language-per-site
+  approach, but sometimes you just need a little AR text in your EN site.
 */
 .lang-rtl {
   direction: rtl !important; }
 
 .lang-ltr {
-  direction: rtl !important; }
+  direction: ltr !important; }
 
 .lang-ar {
   direction: rtl !important;
@@ -757,6 +757,22 @@ hr.margin-large {
 /* Text utlities */
 .text-wrap-none {
   white-space: nowrap; }
+
+.text-columns {
+  -webkit-columns: 16em auto;
+          columns: 16em auto;
+  -webkit-column-gap: 4em;
+          column-gap: 4em;
+  -webkit-column-rule: 1px solid rgba(21, 36, 43, 0.2);
+          column-rule: 1px solid rgba(21, 36, 43, 0.2); }
+
+.text-columns-small {
+  -webkit-column-width: 12em;
+          column-width: 12em; }
+
+.text-columns-large {
+  -webkit-column-width: 20em;
+          column-width: 20em; }
 
 .nobullet li {
   list-style-type: none;
@@ -3776,6 +3792,12 @@ img.b-loaded {
   margin-left: auto;
   margin-right: auto;
   max-width: 700px; }
+
+/* new PHP CURL embedded AK form */
+.section.actionkit #action-lead {
+  background-color: inherit;
+  color: inherit;
+  padding: 0; }
 
 /* Addthis.com plugin styles */
 @media screen and (min-width: 979px) {

@@ -35,15 +35,15 @@ html{
     font-size:19px;}
 }
 /* Set responsive rems */
-@supports ( font-size:calc(1vmax + 1px) ){
+@supports ( font-size:calc(1vh + 1vw) ){
   html{
-    // font-size:calc(.25vmax + 14.2px); IE doesn't support vmax
-    font-size:calc(.25 * (1vw + 1vh - 1vmin) + 15.5px);}
+    font-size:calc(.12vw + .12vh + 16px);}
   @media only screen and (min-width:$desktop-bigscreen-breakpoint){
     html{
-      font-size:calc(.4 * (1vw + 1vh - 1vmin) + 12px);} // start scaling type up faster for big screens
+      font-size:calc(.25vw + .25vh + 13.7px);}
   }
 }
+
 
 body{
   margin:0;}
@@ -173,7 +173,7 @@ table{
   width:100%;}
 th{
   font-weight:bold;
-  text-align:left; //some browsers center-align <th> by default *shrug*}
+  text-align:left;} // some browsers center-align <th> by default *shrug*
 tr{
   background:rgba(255,255,255,0.1);}
 tr:nth-child(2n){
