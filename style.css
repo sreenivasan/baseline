@@ -63,7 +63,7 @@ html {
     font-size: calc(.12vw + .12vh + 16px); }
   @media only screen and (min-width: 1260px) {
     html {
-      font-size: calc(.25vw + .25vh + 13.7px); } } }
+      font-size: calc(.25vw + .25vh + 12.85px); } } }
 
 body {
   margin: 0; }
