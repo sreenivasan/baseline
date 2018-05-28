@@ -60,7 +60,7 @@ html {
 /* Set responsive rems */
 @supports (font-size: calc(1vh + 1vw)) {
   html {
-    font-size: calc(.12vw + .12vh + 16px); }
+    font-size: calc(.15vw + .15vh + 15.5px); }
   @media only screen and (min-width: 1260px) {
     html {
       font-size: calc(.25vw + .25vh + 12.85px); } } }
@@ -3576,7 +3576,6 @@ img.b-loaded {
   padding: 60px;
   margin-bottom: 40px; }
 
-#d_sharing,
 #can_embed_form h2,
 #action_info {
   display: none !important; }
@@ -3591,12 +3590,33 @@ img.b-loaded {
   list-style-type: none;
   margin-top: 0.3em; }
 
-#can_embed_form li.control-group label {
+#can_embed_form li.control-group label.radio {
   font-weight: bold; }
 
 #can_embed_form .international_link {
   font-size: 0.8rem;
   font-style: italic; }
+
+li#d_sharing {
+  margin: 1.5em 0; }
+
+li#d_sharing,
+#d_sharing li,
+#d_sharing ul {
+  list-style-type: none;
+  padding-left: 0; }
+
+#d_sharing .check_radio_field {
+  display: block;
+  margin: 0.5em 0; }
+
+#d_sharing .radio {
+  display: inline-block;
+  margin-right: 0.75em; }
+
+.affirmative_note {
+  line-height: 1.35;
+  margin: 1em 0; }
 
 #can_embed_form input[type="submit"] {
   margin-top: 0.5rem; }
