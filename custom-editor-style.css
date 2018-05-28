@@ -3091,6 +3091,9 @@ li#d_sharing,
   font-size: 0.9rem;
   margin: 0 !important; }
 
+.can_embed .floatlabel-label {
+  display: none; }
+
 .event_campaign #form_col1 h4 {
   font-size: 1.1em; }
 
