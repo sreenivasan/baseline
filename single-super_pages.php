@@ -178,77 +178,142 @@ if ( !post_password_required() ): ?>
 
 		<?php elseif(get_row_layout() == "sp-section-actionkit") : ?>
 
-			<?php $akpage = get_sub_field( 'sp-section-actionkit' ); ?>
-				<?php if ($akpage == '') { ?>
-				<div class="section bg-white padding-normal text-center">
-					<div class="section-inner">
-						<p><strong>Site Admin:</strong> Insert your ActionKit Page ID in the widget settings to activate this form.</p>
-					</div>
-				</div>
-				<?php }else{
-			$ak_title = get_sub_field( 'sp-actionkit-title' );
-			$ak_intro =  get_sub_field( 'sp-actionkit-intro' );
-			$ak_submit = get_sub_field( 'sp-actionkit-submit' );
-			$ak_name = get_sub_field( 'sp-actionkit-name' );
-			$ak_name_label = get_sub_field( 'sp-actionkit-name-label' );
-			$ak_email = get_sub_field( 'sp-actionkit-email' );
-			$ak_email_label = get_sub_field( 'sp-actionkit-email-label' );
-			$ak_city = get_sub_field( 'sp-actionkit-city' );
-			$ak_city_label = get_sub_field( 'sp-actionkit-city-label' );
-			$ak_phone = get_sub_field( 'sp-actionkit-phone' );
-			$ak_phone_label = get_sub_field( 'sp-actionkit-phone-label' );
-			$ak_zip = get_sub_field( 'sp-actionkit-zip' );
-			$ak_zip_label = get_sub_field( 'sp-actionkit-zip-label' );
-			$ak_postal = get_sub_field( 'sp-actionkit-postal' );
-			$ak_postal_label = get_sub_field( 'sp-actionkit-postal-label' );
-			$ak_country = get_sub_field( 'sp-actionkit-country' );
-			$ak_country_label = get_sub_field( 'sp-actionkit-country-label' );
-			$ak_confirm = get_sub_field( 'sp-actionkit-confirmation' );
-			$ak_custom = get_sub_field('sp-actionkit-custom');
-			$form_layout = get_sub_field('sp-actionkit-layout');
-			$ak_country_preselect = get_sub_field( 'sp-actionkit-country-preselect' );
-			$ak_postformtext = get_sub_field( 'sp-actionkit-postformtext' );
-			$lang = substr(get_locale(),0,2);
-			$form_classes = array();
-			if ( $form_layout == 'two-column' ){
-				$form_classes = array(
-					'section' => '',
-					'text' => 'c6 ct6',
-					'title' => 'title4',
-					'desc' => '',
-					'form' => 'c4 ct4',
-				);
-			} else if ( $form_layout == 'three-column' ){
-				$form_classes = array(
-					'section' => '',
-					'text' => 'c6 ct6',
-					'title' => 'c3 title4',
-					'desc' => 'c7',
-					'form' => 'c4 ct4',
-				);
-			} else if ( $form_layout == 'horizontal' ){
-				$form_classes = array(
-					'section' => '',
-					'text' => 'margin-bottom-none',
-					'title' => '',
-					'desc' => '',
-					'form' => '',
-				);
-			} else {
-				$form_classes = array(
-					'section' => '',
-					'text' => '',
-					'title' => '',
-					'desc' => '',
-					'form' => '',
-				);
-			}
-			// $input_text_class = ( get_sub_field('sp-actionkit-horizontal') ) ? "c2" : "input text";
-			// $input_select_class = ( get_sub_field('sp-actionkit-horizontal') ) ? "c2" : "input select";
-			// $input_submit_class = ( get_sub_field('sp-actionkit-horizontal') ) ? "c2" : " ";
+			<?php 
+				$akpage = get_sub_field( 'sp-section-actionkit' );
+				$ak_form_type = get_sub_field( 'sp-actionkit-form-builder-type' );
+
+				if ($akpage == '') {
+					echo '<div class="section bg-white padding-normal text-center">
+						<div class="section-inner">
+							<p><strong>Site Admin:</strong> Insert your ActionKit Page ID in the widget settings to activate this form.</p>
+						</div>
+					</div>';
+
+				}else{
+					$ak_title = get_sub_field( 'sp-actionkit-title' );
+					$ak_intro =  get_sub_field( 'sp-actionkit-intro' );
+					$ak_submit = get_sub_field( 'sp-actionkit-submit' );
+					$ak_name = get_sub_field( 'sp-actionkit-name' );
+					$ak_name_label = get_sub_field( 'sp-actionkit-name-label' );
+					$ak_email = get_sub_field( 'sp-actionkit-email' );
+					$ak_email_label = get_sub_field( 'sp-actionkit-email-label' );
+					$ak_city = get_sub_field( 'sp-actionkit-city' );
+					$ak_city_label = get_sub_field( 'sp-actionkit-city-label' );
+					$ak_phone = get_sub_field( 'sp-actionkit-phone' );
+					$ak_phone_label = get_sub_field( 'sp-actionkit-phone-label' );
+					$ak_zip = get_sub_field( 'sp-actionkit-zip' );
+					$ak_zip_label = get_sub_field( 'sp-actionkit-zip-label' );
+					$ak_postal = get_sub_field( 'sp-actionkit-postal' );
+					$ak_postal_label = get_sub_field( 'sp-actionkit-postal-label' );
+					$ak_country = get_sub_field( 'sp-actionkit-country' );
+					$ak_country_label = get_sub_field( 'sp-actionkit-country-label' );
+					$ak_confirm = get_sub_field( 'sp-actionkit-confirmation' );
+					$ak_custom = get_sub_field( 'sp-actionkit-custom' );
+					$form_layout = get_sub_field('sp-actionkit-layout');
+					$ak_country_preselect = get_sub_field( 'sp-actionkit-country-preselect' );
+					$ak_postformtext = get_sub_field( 'sp-actionkit-postformtext' );
+					$lang = substr(get_locale(),0,2);
+					$form_classes = array();
+					if ( $form_layout == 'two-column' ){
+						$form_classes = array(
+							'section' => '',
+							'text' => 'c6 ct6 c-wide',
+							'title' => 'title4 margin-bottom-medium',
+							'desc' => '',
+							'form' => 'c4 ct4 c-wide',
+						);
+					} else if ( $form_layout == 'three-column' ){
+						$form_classes = array(
+							'section' => '',
+							'text' => 'c6 ct6',
+							'title' => 'c3 title4',
+							'desc' => 'c7 c-wide',
+							'form' => 'c4 ct4',
+						);
+					} else if ( $form_layout == 'horizontal' ){
+						$form_classes = array(
+							'section' => '',
+							'text' => 'margin-bottom-none',
+							'title' => '',
+							'desc' => '',
+							'form' => '',
+						);
+					} else {
+						$form_classes = array(
+							'section' => '',
+							'text' => '',
+							'title' => '',
+							'desc' => '',
+							'form' => '',
+						);
+					}
+					// $input_text_class = ( get_sub_field('sp-actionkit-horizontal') ) ? "c2" : "input text";
+					// $input_select_class = ( get_sub_field('sp-actionkit-horizontal') ) ? "c2" : "input select";
+					// $input_submit_class = ( get_sub_field('sp-actionkit-horizontal') ) ? "c2" : " ";
+			
 			?>
 	<div <?php spBgImg($bg_attachment_id, $bg_img_attach); ?> class="section actionkit <?php echo $classes; ?> <?php echo $form_classes['section']; ?>" id="<?php echo $id; ?>" <?php echo $addl_attributes; ?> >
 		<div id="action-kit-inner" class="section-inner code-inner">
+			<?php if ($ak_form_type == 'auto'){ ?>
+
+			
+			<script type="text/javascript">
+			  actionkit.forms.initPage();
+			</script>
+			<style>
+				#known_user{display: none;}
+			</style>
+			<?php
+			//step1
+			$cSession = curl_init(); 
+			//step2
+			$ak_url = "https://act.350.org/act/" . $akpage . "?form_only=1&abs_urls=1";
+			curl_setopt($cSession,CURLOPT_URL,$ak_url);
+			curl_setopt($cSession,CURLOPT_RETURNTRANSFER,true);
+			curl_setopt($cSession,CURLOPT_HEADER, false); 
+			//step3
+			$result=curl_exec($cSession);
+			//step4
+			curl_close($cSession);
+			//step5
+			
+			echo $result;
+			/*
+			$patterns = array (
+				'/<h2 id="action-title" class="(.*)">(.*)<\/h2>/i'
+//				'/<div id="action-description" class="(.*)">(.*)<\/div>/i'
+			);
+			$replacements = array (
+				'<h2 id="action-title" class="\\1">hello'.$ak_title.'<\\/h2>'
+//				'<div id="action-description" class="\\1">'.$ak_intro.'<\\/div>'
+			);
+
+			
+			$patterns = '/<h2 id="action-title" class="title3">(.*)<\\/h2>/i';
+
+			$replacements = 'No.';
+			$new_result = preg_replace($patterns, $replacements, $result);
+			echo $new_result;
+			*/
+			
+			if ($ak_title){
+			 echo '<div id="ak-manual-title" style="display: none;">' . $ak_title . '</div>';}
+			if ($ak_intro){
+				echo '<div id="ak-manual-intro" style="display: none;">' . $ak_intro . '</div>';}
+			
+			?>
+			<script type="text/javascript">
+			  actionkit.forms.contextRoot = 'https://act.350.org/context/';
+			  actionkit.forms.initForm('act');
+			  
+			  var manual_title = jQuery('#ak-manual-title').html();
+			  jQuery('h2#action-title').html(manual_title);
+
+			  var manual_intro = jQuery('#ak-manual-intro').html();
+			  jQuery('#action-description').html(manual_intro);
+
+			</script>			
+			<?php } else { ?>
 			<div class="form-text <?php echo $form_classes['text']; ?>">
 				<?php if ( get_sub_field('sp-actionkit-title') ){ ?><h3 class="<?php echo $form_classes['title']; ?>"><?php echo get_sub_field('sp-actionkit-title'); ?></h3><?php } ?>
 				<?php if ($ak_intro){ ?>
@@ -326,6 +391,7 @@ if ( !post_password_required() ): ?>
 			<p><?php echo stripslashes($ak_confirm) ?></p>
 		</div>
 		<script src="https://act.350.org/samples/widget.js"></script>
+<?php } ?>
 		</div>
 		<?php spBgImgCredit($bg_img_credit, $bg_img_credit_url); ?>
 	</div>
