@@ -3423,8 +3423,7 @@ img.b-loaded {
   min-height: 0;
   opacity: 0;
   overflow-y: scroll;
-  -ms-scroll-chaining: none;
-      overscroll-behavior: contain;
+  overscroll-behavior: contain;
   padding: 0;
   position: fixed;
   top: 0;

@@ -7,7 +7,7 @@
 		"uuidString": "1B2CD570-BB21-4370-91C3-11B27997182B"
 		}
 	],
-"creatorBuild": "26680",
+"creatorBuild": "26330",
 "files": {
 	"\/.gitignore": {
 		"cB": 0,
@@ -65,10 +65,20 @@
 		"oAP": "\/country-select-translations.zip",
 		"oF": 0
 		},
+	"\/custom-editor-style.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/custom-editor-style-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"\/custom-editor-style.css.map": {
 		"cB": 0,
 		"ft": 8192,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "\/custom-editor-style.css.map",
 		"oF": 0
 		},
@@ -215,6 +225,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/fonts\/anslo\/anslo-text-regular-web.woff2",
+		"oF": 0
+		},
+	"\/fonts\/font-loader.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/fonts\/font-loader.php",
 		"oF": 0
 		},
 	"\/fonts\/fonts.css": {
@@ -942,6 +959,20 @@
 		"oAP": "\/footer.php",
 		"oF": 0
 		},
+	"\/functions.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/functions.php",
+		"oF": 0
+		},
+	"\/functions\/admin-options.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/functions\/admin-options.php",
+		"oF": 0
+		},
 	"\/functions\/colors.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -968,6 +999,20 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/functions\/custom-code.php",
+		"oF": 0
+		},
+	"\/functions\/custom-css.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/functions\/custom-css.php",
+		"oF": 0
+		},
+	"\/functions\/custom-fonts.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/functions\/custom-fonts.php",
 		"oF": 0
 		},
 	"\/functions\/custom-logo.php": {
@@ -1033,6 +1078,13 @@
 		"oAP": "\/functions\/plugin-loader.php",
 		"oF": 0
 		},
+	"\/functions\/posts.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/functions\/posts.php",
+		"oF": 0
+		},
 	"\/functions\/sidebars.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1061,6 +1113,13 @@
 		"oAP": "\/header-markup-additional.php",
 		"oF": 0
 		},
+	"\/header-markup.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/header-markup.php",
+		"oF": 0
+		},
 	"\/header-meta.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1080,6 +1139,13 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/homepage-default.php",
+		"oF": 0
+		},
+	"\/index.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/index.php",
 		"oF": 0
 		},
 	"\/js\/countdown-timer\/js-countdown-timer.css": {
@@ -1118,6 +1184,16 @@
 		"mi": 1,
 		"oA": 1,
 		"oAP": "\/js\/jquery.peity.min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"\/js\/scripts.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/scripts-min.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -2017,10 +2093,41 @@
 		"oAP": "\/single-page.php",
 		"oF": 0
 		},
-	"\/style.css.map": {
+	"\/single-press-release.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
+		"oAP": "\/single-press-release.php",
+		"oF": 0
+		},
+	"\/single-super_pages.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/single-super_pages.php",
+		"oF": 0
+		},
+	"\/single.php": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 0,
+		"oAP": "\/single.php",
+		"oF": 0
+		},
+	"\/style.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "\/style-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"\/style.css.map": {
+		"cB": 0,
+		"ft": 8192,
+		"oA": 1,
 		"oAP": "\/style.css.map",
 		"oF": 0
 		},
@@ -2047,7 +2154,6 @@
 	"displayValue": "baseline",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-ariel",
-	"iconImageWasSetByUser": 0,
 	"lastBuiltDate": 543376364
 	},
 "projectSettings": {
@@ -3851,7 +3957,6 @@
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
-		"outputFormat": 0,
 		"quality": 100
 		},
 	"languageDefaultsJS": {
