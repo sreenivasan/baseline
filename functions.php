@@ -135,6 +135,8 @@ function bones_scripts_and_styles() {
 	// wp_register_script( 'tfbase-js-internal', get_stylesheet_directory_uri() . '/js/scripts-internal.js', array( 'jquery' ), '', true );
 
     wp_enqueue_script( 'baseline-js' );
+    wp_enqueue_script( 'actionkit', 'https://act.350.org/resources/actionkit.js', array('jquery'));
+    
 	/* if (!is_home()){
 		 wp_enqueue_script( 'tfbase-js-internal' );
 	}*/
