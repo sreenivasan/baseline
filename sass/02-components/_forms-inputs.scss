@@ -96,7 +96,7 @@ label[for]{
 .input-checkbox{
   align-items:baseline;
   display:flex;
-  flex-wrap:wrap;}
+  flex-wrap:nowrap;}
 .input-radio input,
 .input-checkbox input{
   flex:0 0 auto;
