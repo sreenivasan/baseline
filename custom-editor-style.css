@@ -1242,8 +1242,8 @@ input[type="radio"]:focus {
           box-shadow: 0 0 0 0.12rem rgba(21, 36, 43, 0.4); }
 
 input[type="radio"]:checked {
-  -webkit-box-shadow: 0 0 0 calc(0.1em + 0.25rem) #fff inset;
-          box-shadow: 0 0 0 calc(0.1em + 0.25rem) #fff inset;
+  -webkit-box-shadow: 0 0 0 calc(0.1em + 0.15rem) #fff inset;
+          box-shadow: 0 0 0 calc(0.1em + 0.15rem) #fff inset;
   background-color: #0f81e8; }
 
 input[type="radio"]:checked:focus {
@@ -1296,9 +1296,6 @@ label[for] {
   cursor: pointer; }
 
 /* Input wrappers */
-.input-radio input {
-  margin-right: 0.3em; }
-
 .input-radio label {
   cursor: pointer; }
 
@@ -1309,20 +1306,29 @@ label[for] {
           align-items: baseline;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
 
 .input-radio input,
 .input-checkbox input {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
+  margin-top: 0.2em;
   margin-right: 0.3em;
   position: relative;
-  top: 0.15em; }
+  top: 0.2rem; }
+
+.input-radio-group,
+.input-checkbox-group {
+  margin: calc(0.7rem + 0.3em) 0; }
 
 /* Form styles */
 /* Change.org-style form */
-.form-style-labelabove input,
+.form-style-labelabove input[type="text"],
+.form-style-labelabove input[type="email"],
+.form-style-labelabove input[type="number"],
 .form-style-labelabove textarea,
 .form-style-labelabove select {
   border: 0 none;
@@ -1367,7 +1373,8 @@ label[for] {
   padding: 0.5em 0.6em 0;
   text-align: start; }
 
-.form-style-labelabove .input-checkbox label {
+.form-style-labelabove .input-checkbox label,
+.form-style-labelabove .input-radio label {
   color: inherit;
   display: inline-block;
   margin-left: 0.5em;
@@ -1399,6 +1406,10 @@ label[for] {
 .form-style-labelabove .input-checkbox,
 .form-style-labelabove .input-radio {
   margin: 0.9rem 0; }
+
+.form-style-labelabove .input-radio-group .input-radio,
+.form-style-labelabove .input-checkbox-group .input-checkbox {
+  margin: 0.3rem 0; }
 
 .form-style-labelabove .ak-input-type-user.input-select select {
   background-position: 97% 70%; }
