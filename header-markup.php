@@ -71,7 +71,8 @@
 				</nav>
 	<?php endif; ?>
 	<?php if ( has_nav_menu('lang-nav') ):?>
-				<a id="site-language-nav-toggle" class="language-nav-label language-label js-modal site-header-item" data-modal-source=".site-language-nav" data-modal-classes-outer="slide-out slide-out-right width-narrow bg-<?php echo $langnav_bgcolor; ?>" data-modal-classes-inner="text-large2"><span id="site-language-nav-toggle-text" class="language-nav-toggle-text nav-toggle-text"><?php _e('Language', 'baseline'); ?></span></a>
+				<a id="site-language-nav-toggle" class="language-nav-label language-label js-modal site-header-item" data-modal-source=".site-language-nav" data-modal-classes-outer="slide-out slide-out-right width-narrow bg-<?php echo $langnav_bgcolor; ?>" data-modal-classes-inner="text-large2"><span id="site-header-language-nav-toggle-icon" class="svg inline-svg">
+<svg version="1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><style>.st0{fill:currentColor}</style><path class="st0" d="M178 24H24c-7 0-12 6-12 13v103c0 7 5 12 12 12h34v24l37-24h83c7 0 12-5 12-12V37c0-7-5-13-12-13zM99 73H89c-1 8-6 16-12 24l16 12-6 9-18-13c-6 5-13 10-22 14l-5-9 19-13c-5-4-9-9-12-14l10-6c2 4 5 8 10 12 4-5 7-11 9-16H38V62h25V52h11v10h25v11zm53 45l-4-11h-23l-3 11h-14l22-61h13l22 61h-13z"/><path class="st0" d="M129 97h15l-7-23z"/></svg></span><span id="site-language-nav-toggle-text" class="language-nav-toggle-text nav-toggle-text"><?php _e('Language', 'baseline'); ?></span></a>
 	<?php endif; ?>
 	<?php if ( $header_buttons ): ?>
 				<div id="header-buttons-container" class="site-header-item">
