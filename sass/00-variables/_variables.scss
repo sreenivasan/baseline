@@ -31,3 +31,13 @@ $max-width-normal:42rem;
 $max-width-medium:48rem;
 $max-width-wide:56rem;
 $max-width-extrawide:68rem;
+
+@function wva-pair($multiplier) {
+  $ratio: 2.2;
+  $cross_axis_unit: 1 / ($ratio + 1); // solve for ratio(x) + x = 1
+  $main_axis_unit: 1 - $cross_axis_unit;
+  $wva-pair:
+    calc(#{$multiplier * $main_axis_unit}vh + #{$multiplier * $cross_axis_unit}vw)
+    calc(#{$multiplier * $cross_axis_unit}vh + #{$multiplier * $main_axis_unit}vw);
+  @return $wva-pair;
+}
