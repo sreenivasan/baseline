@@ -39,8 +39,11 @@
 .bg-position-left{
   background-position:left center;}
 
-.bg-attach-fixed{
-  background-attachment:fixed;}
+// only allow fixed BGs on large screens due to iOS being shitty about it
+@media screen and (min-width:$tablet-desktop-breakpoint){
+  .bg-attach-fixed{
+    background-attachment:fixed;}
+}
 
 .bg-repeat-none{
   background-repeat:no-repeat;}

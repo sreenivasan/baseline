@@ -4,7 +4,8 @@
 
 .en{
 
-  nav.nav-desktop-dropdown a{
+  nav.nav-desktop-dropdown a,
+  a.site-header-item{
     font-size:0.75em;
     letter-spacing:$default-caps-letterspace-calc;
     text-transform:uppercase;}
