@@ -29,7 +29,11 @@ h4{
   font-size:calc(0.25vw + 1.25rem);}
 h5{
   font-size:calc(0.15vw + 1.1rem);}
-
+// only add hyphens on mobile b/c they're added so aggressively
+@media screen and (max-width:$mobile-tablet-breakpoint){
+  h1,h2,h3,h4,h5{
+    hyphens:auto;}
+}
 
 /* Text Size
   "@include default-letterspace-lineheight-calc" is repeated so
