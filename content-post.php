@@ -30,7 +30,7 @@
 				<span class="post-time"><?php echo (get_the_date() ); ?></span>
 			</div>
 			<header class="post-header margin-bottom-normal">
-				<h3 class="post-title title5 area-link-hover"><?php the_title(); ?></h3>
+				<h3 class="post-title area-link-hover"><?php the_title(); ?></h3>
 			</header>
 			<div class="post-excerpt margin-bottom-normal area-link-hover">
 				<?php the_excerpt(); ?>
