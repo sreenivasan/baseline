@@ -207,7 +207,8 @@ function baseline_custom_css() {
 	.search-form-submit,
 	.pagination a.page-numbers,
 	.pagination .page-numbers.current{
-	  background-color:'. $link_color .';}
+	  background-color:'. $link_color .';
+		color:#fff;}
 
 	input.search-form-submit{
 		background-color:'. $button_color .';}
