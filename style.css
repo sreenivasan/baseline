@@ -2000,7 +2000,7 @@ nav.section .heading a:hover,
 .pagination .page-numbers.current {
   background-color: #0f81e8;
   border-radius: 2px;
-  color: #fff;
+  color: #fff !important;
   display: inline-block;
   font-weight: bold;
   margin: 0;
