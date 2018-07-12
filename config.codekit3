@@ -7,7 +7,7 @@
 		"uuidString": "1B2CD570-BB21-4370-91C3-11B27997182B"
 		}
 	],
-"creatorBuild": "26680",
+"creatorBuild": "26330",
 "files": {
 	"\/.gitignore": {
 		"cB": 0,
@@ -2044,19 +2044,6 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/08-language\/_multilingual.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 5,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/sass\/08-language\/_multilingual.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"\/search.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2127,16 +2114,6 @@
 		"oAP": "\/single.php",
 		"oF": 0
 		},
-	"\/style-min.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "\/style-min-min.css",
-		"oF": 0,
-		"oS": 3
-		},
 	"\/style.css": {
 		"aP": 1,
 		"bl": 0,
@@ -2177,7 +2154,6 @@
 	"displayValue": "baseline",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-ariel",
-	"iconImageWasSetByUser": 0,
 	"lastBuiltDate": 543376364
 	},
 "projectSettings": {
@@ -3981,7 +3957,6 @@
 		"autoOutputPathReplace1": "",
 		"autoOutputPathReplace2": "",
 		"autoOutputPathStyle": 0,
-		"outputFormat": 0,
 		"quality": 100
 		},
 	"languageDefaultsJS": {
