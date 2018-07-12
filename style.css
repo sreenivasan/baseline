@@ -3782,6 +3782,9 @@ li#d_sharing,
   display: block;
   width: 100%; }
 
+.section.actionkit #action-lead .buttons-share-side {
+  display: none; }
+
 /* Addthis.com plugin styles */
 @media screen and (min-width: 979px) {
   body #at4-share,
