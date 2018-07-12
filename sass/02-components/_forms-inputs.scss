@@ -96,7 +96,7 @@ label[for]{
 .input-checkbox{
   align-items:baseline;
   display:flex;
-  flex-wrap:nowrap;}
+  flex-wrap:wrap;}
 .input-radio input,
 .input-checkbox input{
   flex:0 0 auto;
@@ -193,8 +193,8 @@ label[for]{
   font-size:0.75em;
   letter-spacing:0.05em;
   text-transform:uppercase;}
-.form-style-labelabove .input-radio label:first-child,
-.form-style-labelabove .input-checkbox label:first-child{
+.form-style-labelabove .input-radio > label:first-child,
+.form-style-labelabove .input-checkbox > label:first-child{
   color:inherit;
   cursor:default;
   display:block;
@@ -202,14 +202,6 @@ label[for]{
   font-weight:bold;
   margin-bottom:0.5em;
   padding:0;}
-.form-style-labelabove .input-radio .ak-userfield-radio-choice,
-.form-style-labelabove .input-checkbox .ak-userfield-checkbox-choice{
-  color:inherit;
-  font-weight:normal;
-  padding:0;
-  margin-bottom:0.2em;
-  padding-left:20px;
-  text-indent:-19px;}
 .form-style-labelabove .ak-input-type-user.input-text label,
 .form-style-labelabove .ak-input-type-user.input-select label,
 .form-style-labelabove .ak-input-type-user.input-textarea label{
