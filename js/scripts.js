@@ -663,13 +663,13 @@ jQuery(document).ready(function($) {
 	    $(this).attr('src', src_new);
 	    console.log('iframe src: '+$(this).attr('src'));
 
-	    var data-src = $(this).attr('data-src');
-	    if ( ~data-src.indexOf("?") ){
-	      var data-src_new = data-src + '&source=' + url_source;
+	    var datasrc = $(this).attr('data-src');
+	    if ( ~datasrc.indexOf("?") ){
+	      var datasrc_new = datasrc + '&source=' + url_source;
 	    } else {
-	      var data-src_new = data-src + '?source=' + url_source;
+	      var datasrc_new = datasrc + '?source=' + url_source;
 	    }
-	    $(this).attr('data-src', data-src_new);
+	    $(this).attr('data-src', datasrc_new);
 	    console.log('iframe data-src: '+$(this).attr('data-src'));
 	  
 	  });
@@ -705,13 +705,13 @@ jQuery(document).ready(function($) {
       $(this).attr('src', src_new);
       console.log('iframe src: '+$(this).attr('src'));
 
-      var data-src = $(this).attr('data-src');
-      if ( ~data-src.indexOf("?") ){
-        var data-src_new = data-src + '&referrer=' + url_referrer;
+      var datasrc = $(this).attr('data-src');
+      if ( ~datasrc.indexOf("?") ){
+        var datasrc_new = datasrc + '&referrer=' + url_referrer;
       } else {
-        var data-src_new = data-src + '?referrer=' + url_referrer;
+        var datasrc_new = datasrc + '?referrer=' + url_referrer;
       }
-      $(this).attr('data-src', data-src_new);
+      $(this).attr('data-src', datasrc_new);
       console.log('iframe data-src: '+$(this).attr('data-src'));
     });
 
