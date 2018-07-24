@@ -654,25 +654,15 @@ jQuery(document).ready(function($) {
   
 	// Add URL param "source" to megamap
 	    $("iframe#map").each(function(){
-	    var src = $(this).attr('src');
-	    if ( ~src.indexOf("?") ){
-	      var src_new = src + '&source=' + url_source;
-	    } else {
-	      var src_new = src + '?source=' + url_source;
-	    }
-	    $(this).attr('src', src_new);
-	    console.log('iframe src: '+$(this).attr('src'));
-
-	    var datasrc = $(this).attr('data-src');
-	    if ( ~datasrc.indexOf("?") ){
-	      var datasrc_new = datasrc + '&source=' + url_source;
-	    } else {
-	      var datasrc_new = datasrc + '?source=' + url_source;
-	    }
-	    $(this).attr('data-src', datasrc_new);
-	    console.log('iframe data-src: '+$(this).attr('data-src'));
-	  
-	  });
+		    var datasrc = $(this).attr('data-src');
+		    if ( ~datasrc.indexOf("?") ){
+		      var datasrc_new = datasrc + '&source=' + url_source;
+		    } else {
+		      var datasrc_new = datasrc + '?source=' + url_source;
+		    }
+		    $(this).attr('data-src', datasrc_new);
+		    console.log('iframe data-src: '+$(this).attr('data-src'));	  
+			});
 
 
 	// Add URL param "source" to host buttons
@@ -696,15 +686,6 @@ jQuery(document).ready(function($) {
 
 	// Add URL param "referrer" to megamap
     $("iframe#map").each(function(){
-      var src = $(this).attr('src');
-      if ( ~src.indexOf("?") ){
-        var src_new = src + '&referrer=' + url_referrer;
-      } else {
-        var src_new = src + '?referrer=' + url_referrer;
-      }
-      $(this).attr('src', src_new);
-      console.log('iframe src: '+$(this).attr('src'));
-
       var datasrc = $(this).attr('data-src');
       if ( ~datasrc.indexOf("?") ){
         var datasrc_new = datasrc + '&referrer=' + url_referrer;
