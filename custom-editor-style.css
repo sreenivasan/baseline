@@ -725,7 +725,8 @@ h5 {
   letter-spacing: calc(0.03rem + 0.02em); }
 
 .meta {
-  font-size: 0.8em; }
+  font-size: 0.8em;
+  color: #000; }
 
 h1.meta,
 h2.meta,
@@ -3162,11 +3163,12 @@ li#d_sharing,
   height: auto;
   padding: 0; }
 
-.section.actionkit #action-lead .buttons-share-side {
-  display: none; }
 .ak-userfield-radio-set {
   display: block;
   width: 100%; }
+
+.section.actionkit #action-lead .buttons-share-side {
+  display: none; }
 
 /* Addthis.com plugin styles */
 @media screen and (min-width: 979px) {
