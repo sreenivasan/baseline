@@ -652,8 +652,8 @@ jQuery(document).ready(function($) {
       $(this).attr('href', share_url_new);
     });
   
-	// Add URL param "source" to iframes
-	    $("iframe").each(function(){
+	// Add URL param "source" to megamap
+	    $("iframe#map").each(function(){
 	    var src = $(this).attr('src');
 	    if ( ~src.indexOf("?") ){
 	      var src_new = src + '&source=' + url_source;
@@ -694,8 +694,8 @@ jQuery(document).ready(function($) {
   if ( url_referrer ){
 
 
-	// Add URL param "referrer" to iframes  
-    $("iframe").each(function(){
+	// Add URL param "referrer" to megamap
+    $("iframe#map").each(function(){
       var src = $(this).attr('src');
       if ( ~src.indexOf("?") ){
         var src_new = src + '&referrer=' + url_referrer;
