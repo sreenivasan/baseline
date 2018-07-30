@@ -802,9 +802,12 @@ jQuery(document).ready(function($) {
 	// Add URL param "source" as hidden input on any AK forms
 	var url_source = urlParam('source');
   if ( url_source ){
+
+	// Add URL param "source" as hidden input on any AK forms
   	$('.actionkit-widget').each(function(){
   		$(this).append('<input type="hidden" name="source" value="' +  url_source + '"> ');
   	});
+  	
 	// Add URL param "source" to AK map iframe src, then AK can append it to map links
   	$('.ak-event-map').each(function(){
   		var iframe_src = $(this).attr('src');
@@ -815,6 +818,7 @@ jQuery(document).ready(function($) {
       }
   		$(this).attr('src', iframe_src_new);
   	});
+  	
     // Pass URL param "source" to share buttons
     $('.button-share-facebook, .fb-share, .button-share-twitter, .tw-share').each(function(){
       var share_url = $(this).attr('href');
@@ -825,7 +829,65 @@ jQuery(document).ready(function($) {
       }
       $(this).attr('href', share_url_new);
     });
+  
+	// Add URL param "source" to megamap
+	    $("iframe#map").each(function(){
+		    var datasrc = $(this).attr('data-src');
+		    if ( ~datasrc.indexOf("?") ){
+		      var datasrc_new = datasrc + '&source=' + url_source;
+		    } else {
+		      var datasrc_new = datasrc + '?source=' + url_source;
+		    }
+		    $(this).attr('data-src', datasrc_new);
+		    console.log('iframe data-src: '+$(this).attr('data-src'));	  
+			});
+
+
+	// Add URL param "source" to host buttons
+	  $("a#host_button").each(function(){
+	    var url = $(this).attr('href');
+	    if ( ~url.indexOf("?") ){
+	      var url_new = url + '&source=' + url_source;
+	    } else {
+	      var url_new = url + '?source=' + url_source;
+	    }
+	    $(this).attr('href', url_new);
+	    console.log('host button link (source): '+$(this).attr('href'));
+	  });  
   }
+
+  var url_referrer = urlParam('referrer');
+	console.log('referrer: '+url_referrer);
+	
+  if ( url_referrer ){
+
+
+	// Add URL param "referrer" to megamap
+    $("iframe#map").each(function(){
+      var datasrc = $(this).attr('data-src');
+      if ( ~datasrc.indexOf("?") ){
+        var datasrc_new = datasrc + '&referrer=' + url_referrer;
+      } else {
+        var datasrc_new = datasrc + '?referrer=' + url_referrer;
+      }
+      $(this).attr('data-src', datasrc_new);
+      console.log('iframe data-src: '+$(this).attr('data-src'));
+    });
+
+	// Add URL param "referrer" to host buttons
+    $("a#host_button").each(function(){
+      var url = $(this).attr('href');
+      if ( ~url.indexOf("?") ){
+        var url_new = url + '&referrer=' + url_referrer;
+      } else {
+        var url_new = url + '?referrer=' + url_referrer;
+      }
+      $(this).attr('href', url_new);
+      console.log('host button link (referrer): '+$(this).attr('href'));
+    });
+
+  }    
+
 	// Truncate and add "Read More" link
 	$('[data-read-more-after], [data-readmore-after]').truncateAndReadMore();
 }); /* end of as page load scripts */
