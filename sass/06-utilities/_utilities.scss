@@ -49,3 +49,28 @@
   top:-1px; /* fixes weird little 1px gap */
   width:100%;
   z-index:100;}
+
+/* Mobile-only */
+@media only screen and (max-width:$mobile-tablet-breakpoint){
+  .mobile-sticky{
+    position:sticky;
+    top:-1px; /* fixes weird little 1px gap */
+    width:100%;
+    z-index:100;}
+}
+/* Tablet and larger */
+@media only screen and (min-width:$mobile-tablet-breakpoint) and (max-width:$tablet-desktop-breakpoint){
+  .tablet-sticky{
+    position:sticky;
+    top:-1px; /* fixes weird little 1px gap */
+    width:100%;
+    z-index:100;}
+}
+/* Desktop and larger */
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+  .desktop-sticky{
+    position:sticky;
+    top:-1px; /* fixes weird little 1px gap */
+    width:100%;
+    z-index:100;}
+}

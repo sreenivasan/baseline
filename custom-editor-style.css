@@ -2759,7 +2759,8 @@ img.b-loaded {
   min-height: 0;
   opacity: 0;
   overflow-y: scroll;
-  overscroll-behavior: contain;
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain;
   padding: 0;
   position: fixed;
   top: 0;
@@ -3162,11 +3163,12 @@ li#d_sharing,
   height: auto;
   padding: 0; }
 
-.section.actionkit #action-lead .buttons-share-side {
-  display: none; }
 .ak-userfield-radio-set {
   display: block;
   width: 100%; }
+
+.section.actionkit #action-lead .buttons-share-side {
+  display: none; }
 
 /* Addthis.com plugin styles */
 @media screen and (min-width: 979px) {
@@ -3451,6 +3453,36 @@ div.alignright {
   /* fixes weird little 1px gap */
   width: 100%;
   z-index: 100; }
+
+/* Mobile-only */
+@media only screen and (max-width: 680px) {
+  .mobile-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+    /* fixes weird little 1px gap */
+    width: 100%;
+    z-index: 100; } }
+
+/* Tablet and larger */
+@media only screen and (min-width: 680px) and (max-width: 950px) {
+  .tablet-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+    /* fixes weird little 1px gap */
+    width: 100%;
+    z-index: 100; } }
+
+/* Desktop and larger */
+@media only screen and (min-width: 950px) {
+  .desktop-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1px;
+    /* fixes weird little 1px gap */
+    width: 100%;
+    z-index: 100; } }
 
 .bigquote {
   background: #ebedef;
