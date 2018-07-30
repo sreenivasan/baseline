@@ -79,6 +79,6 @@
 					<?php echo stripslashes( $header_buttons ); ?>
 				</div>
 	<?php endif; ?>
-	<?php include(locate_template('header-markup-additional.php')); ?>
+	<?php include( locate_template('header-markup-additional.php') ); ?>
 				<div class="site-header-item site-header-divider"></div>
 		</header>
