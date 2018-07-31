@@ -242,18 +242,19 @@ function urlParam(name){
 		var readMoreTranslations = {
 			en: "Read&nbsp;More",
 			fr: "Lire&nbsp;la&nbsp;Suite",
-      ar: "اقرأ أكثر",
+      ar: "Ø§Ù‚Ø±Ø£ Ø£ÙƒØ«Ø±",
       pt: "Leia mais",
-      es: "Leer más",
-      de: "Weiterlesen"
+      es: "Leer mã¡s",
+      de: "Weiterlesen",
+      tr: "Daha&nbsp;fazla&nbsp;oku",
     };
-		var readMoreText = readMoreTranslations['en'];
+		var defaultReadMoreText = readMoreTranslations['en'];
 		// Detect language
 		var htmlLangAttr = $('html').attr('lang');
 		var htmlLangAttr = htmlLangAttr.substring(0,2);
 
 		if ( htmlLangAttr && readMoreTranslations[htmlLangAttr] ){
-			readMoreText = readMoreTranslations[htmlLangAttr];
+			defaultReadMoreText = readMoreTranslations[htmlLangAttr];
 		}
 		// For each element targeted...
 		return this.each(function(){
@@ -261,6 +262,8 @@ function urlParam(name){
       var visElems = $(this).attr('data-read-more-after');
       // check for alternate display options
       var display = $(this).attr('data-read-more-after-link-position');
+      var customReadMoreText = $(this).attr('data-read-more-after-link-text');
+      var readMoreText = customReadMoreText ? customReadMoreText : defaultReadMoreText;
       display = display ? display : '';
       // check for optional classes to add
       var readMoreLinkClasses = $(this).attr('data-read-more-after-link-classes');
@@ -629,7 +632,7 @@ jQuery(document).ready(function($) {
   	$('.actionkit-widget').each(function(){
   		$(this).append('<input type="hidden" name="source" value="' +  url_source + '"> ');
   	});
-  	
+
 	// Add URL param "source" to AK map iframe src, then AK can append it to map links
   	$('.ak-event-map').each(function(){
   		var iframe_src = $(this).attr('src');
@@ -640,7 +643,7 @@ jQuery(document).ready(function($) {
       }
   		$(this).attr('src', iframe_src_new);
   	});
-  	
+
     // Pass URL param "source" to share buttons
     $('.button-share-facebook, .fb-share, .button-share-twitter, .tw-share').each(function(){
       var share_url = $(this).attr('href');
@@ -651,7 +654,7 @@ jQuery(document).ready(function($) {
       }
       $(this).attr('href', share_url_new);
     });
-  
+
 	// Add URL param "source" to megamap
 	    $("iframe#map").each(function(){
 		    var datasrc = $(this).attr('data-src');
@@ -661,7 +664,7 @@ jQuery(document).ready(function($) {
 		      var datasrc_new = datasrc + '?source=' + url_source;
 		    }
 		    $(this).attr('data-src', datasrc_new);
-		    console.log('iframe data-src: '+$(this).attr('data-src'));	  
+		    console.log('iframe data-src: '+$(this).attr('data-src'));
 			});
 
 
@@ -675,12 +678,12 @@ jQuery(document).ready(function($) {
 	    }
 	    $(this).attr('href', url_new);
 	    console.log('host button link (source): '+$(this).attr('href'));
-	  });  
+	  });
   }
 
   var url_referrer = urlParam('referrer');
 	console.log('referrer: '+url_referrer);
-	
+
   if ( url_referrer ){
 
 
@@ -708,9 +711,9 @@ jQuery(document).ready(function($) {
       console.log('host button link (referrer): '+$(this).attr('href'));
     });
 
-  }    
-  
-  
+  }
+
+
 	// Truncate and add "Read More" link
 	$('[data-read-more-after], [data-readmore-after]').truncateAndReadMore();
 }); /* end of as page load scripts */
