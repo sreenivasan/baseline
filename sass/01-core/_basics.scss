@@ -19,7 +19,8 @@ html{
   color:#17292e;
   font-family:$text-font-body;
   font-size:16px;
-  line-height:1.6;}
+  line-height:1.6;
+  scroll-behavior:smooth;}
 /* Fallbacks for browsers that don't do calc() */
 @media only screen and (min-width:$mobile-tablet-breakpoint){
   html{

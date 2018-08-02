@@ -41,7 +41,8 @@ html {
   color: #17292e;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, arial, sans-serif;
   font-size: 16px;
-  line-height: 1.6; }
+  line-height: 1.6;
+  scroll-behavior: smooth; }
 
 /* Fallbacks for browsers that don't do calc() */
 @media only screen and (min-width: 680px) {

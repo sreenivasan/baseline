@@ -5,21 +5,6 @@
 */
   (function(k,f){"function"===typeof define&&define.amd?define(f):"object"===typeof exports?module.exports=f():k.Blazy=f()})(this,function(){function k(b){setTimeout(function(){var c=b._util;c.elements=w(b.options.selector);c.count=c.elements.length;c.destroyed&&(c.destroyed=!1,b.options.container&&h(b.options.container,function(a){l(a,"scroll",c.validateT)}),l(window,"resize",c.saveViewportOffsetT),l(window,"resize",c.validateT),l(window,"scroll",c.validateT));f(b)},1)}function f(b){for(var c=b._util,a=0;a<c.count;a++){var d=c.elements[a],g=d.getBoundingClientRect();if(g.right>=e.left&&g.bottom>=e.top&&g.left<=e.right&&g.top<=e.bottom||n(d,b.options.successClass))b.load(d),c.elements.splice(a,1),c.count--,a--}0===c.count&&b.destroy()}function q(b,c,a){if(!n(b,a.successClass)&&(c||a.loadInvisible||0<b.offsetWidth&&0<b.offsetHeight))if(c=b.getAttribute(p)||b.getAttribute(a.src)){c=c.split(a.separator);var d=c[r&&1<c.length?1:0],g="img"===b.nodeName.toLowerCase();g||void 0===b.src?(c=new Image,c.onerror=function(){a.error&&a.error(b,"invalid");b.className=b.className+" "+a.errorClass},c.onload=function(){g?b.src=d:b.style.backgroundImage='url("'+d+'")';t(b,a)},c.src=d):(b.src=d,t(b,a))}else a.error&&a.error(b,"missing"),n(b,a.errorClass)||(b.className=b.className+" "+a.errorClass)}function t(b,c){b.className=b.className+" "+c.successClass;c.success&&c.success(b);h(c.breakpoints,function(a){b.removeAttribute(a.src)});b.removeAttribute(c.src)}function n(b,c){return-1!==(" "+b.className+" ").indexOf(" "+c+" ")}function w(b){var c=[];b=document.querySelectorAll(b);for(var a=b.length;a--;c.unshift(b[a]));return c}function u(b){e.bottom=(window.innerHeight||document.documentElement.clientHeight)+b;e.right=(window.innerWidth||document.documentElement.clientWidth)+b}function l(b,c,a){b.attachEvent?b.attachEvent&&b.attachEvent("on"+c,a):b.addEventListener(c,a,!1)}function m(b,c,a){b.detachEvent?b.detachEvent&&b.detachEvent("on"+c,a):b.removeEventListener(c,a,!1)}function h(b,c){if(b&&c)for(var a=b.length,d=0;d<a&&!1!==c(b[d],d);d++);}function v(b,c,a){var d=0;return function(){var g=+new Date;g-d<c||(d=g,b.apply(a,arguments))}}var p,e,r;return function(b){if(!document.querySelectorAll){var c=document.createStyleSheet();document.querySelectorAll=function(a,b,d,e,f){f=document.all;b=[];a=a.replace(/\[for\b/gi,"[htmlFor").split(",");for(d=a.length;d--;){c.addRule(a[d],"k:v");for(e=f.length;e--;)f[e].currentStyle.k&&b.push(f[e]);c.removeRule(0)}return b}}var a=this,d=a._util={};d.elements=[];d.destroyed=!0;a.options=b||{};a.options.error=a.options.error||!1;a.options.offset=a.options.offset||100;a.options.success=a.options.success||!1;a.options.selector=a.options.selector||".b-lazy";a.options.separator=a.options.separator||"|";a.options.container=a.options.container?document.querySelectorAll(a.options.container):!1;a.options.errorClass=a.options.errorClass||"b-error";a.options.breakpoints=a.options.breakpoints||!1;a.options.loadInvisible=a.options.loadInvisible||!1;a.options.successClass=a.options.successClass||"b-loaded";a.options.validateDelay=a.options.validateDelay||25;a.options.saveViewportOffsetDelay=a.options.saveViewportOffsetDelay||50;a.options.src=p=a.options.src||"data-src";r=1<window.devicePixelRatio;e={};e.top=0-a.options.offset;e.left=0-a.options.offset;a.revalidate=function(){k(this)};a.load=function(a,b){var c=this.options;void 0===a.length?q(a,b,c):h(a,function(a){q(a,b,c)})};a.destroy=function(){var a=this._util;this.options.container&&h(this.options.container,function(b){m(b,"scroll",a.validateT)});m(window,"scroll",a.validateT);m(window,"resize",a.validateT);m(window,"resize",a.saveViewportOffsetT);a.count=0;a.elements.length=0;a.destroyed=!0};d.validateT=v(function(){f(a)},a.options.validateDelay,a);d.saveViewportOffsetT=v(function(){u(a.options.offset)},a.options.saveViewportOffsetDelay,a);u(a.options.offset);h(a.options.breakpoints,function(a){if(a.width>=window.screen.width)return p=a.src,!1});k(a)}});
 
-/**
- * Copyright (c) 2007-2015 Ariel Flesler - aflesler ○ gmail • com | http://flesler.blogspot.com
- * Licensed under MIT
- * @author Ariel Flesler
- * @version 2.1.3
- */
-;(function(f){"use strict";"function"===typeof define&&define.amd?define(["jquery"],f):"undefined"!==typeof module&&module.exports?module.exports=f(require("jquery")):f(jQuery)})(function($){"use strict";function n(a){return!a.nodeName||-1!==$.inArray(a.nodeName.toLowerCase(),["iframe","#document","html","body"])}function h(a){return $.isFunction(a)||$.isPlainObject(a)?a:{top:a,left:a}}var p=$.scrollTo=function(a,d,b){return $(window).scrollTo(a,d,b)};p.defaults={axis:"xy",duration:0,limit:!0};$.fn.scrollTo=function(a,d,b){"object"=== typeof d&&(b=d,d=0);"function"===typeof b&&(b={onAfter:b});"max"===a&&(a=9E9);b=$.extend({},p.defaults,b);d=d||b.duration;var u=b.queue&&1<b.axis.length;u&&(d/=2);b.offset=h(b.offset);b.over=h(b.over);return this.each(function(){function k(a){var k=$.extend({},b,{queue:!0,duration:d,complete:a&&function(){a.call(q,e,b)}});r.animate(f,k)}if(null!==a){var l=n(this),q=l?this.contentWindow||window:this,r=$(q),e=a,f={},t;switch(typeof e){case "number":case "string":if(/^([+-]=?)?\d+(\.\d+)?(px|%)?$/.test(e)){e= h(e);break}e=l?$(e):$(e,q);case "object":if(e.length===0)return;if(e.is||e.style)t=(e=$(e)).offset()}var v=$.isFunction(b.offset)&&b.offset(q,e)||b.offset;$.each(b.axis.split(""),function(a,c){var d="x"===c?"Left":"Top",m=d.toLowerCase(),g="scroll"+d,h=r[g](),n=p.max(q,c);t?(f[g]=t[m]+(l?0:h-r.offset()[m]),b.margin&&(f[g]-=parseInt(e.css("margin"+d),10)||0,f[g]-=parseInt(e.css("border"+d+"Width"),10)||0),f[g]+=v[m]||0,b.over[m]&&(f[g]+=e["x"===c?"width":"height"]()*b.over[m])):(d=e[m],f[g]=d.slice&& "%"===d.slice(-1)?parseFloat(d)/100*n:d);b.limit&&/^\d+$/.test(f[g])&&(f[g]=0>=f[g]?0:Math.min(f[g],n));!a&&1<b.axis.length&&(h===f[g]?f={}:u&&(k(b.onAfterFirst),f={}))});k(b.onAfter)}})};p.max=function(a,d){var b="x"===d?"Width":"Height",h="scroll"+b;if(!n(a))return a[h]-$(a)[b.toLowerCase()]();var b="client"+b,k=a.ownerDocument||a.document,l=k.documentElement,k=k.body;return Math.max(l[h],k[h])-Math.min(l[b],k[b])};$.Tween.propHooks.scrollLeft=$.Tween.propHooks.scrollTop={get:function(a){return $(a.elem)[a.prop]()}, set:function(a){var d=this.get(a);if(a.options.interrupt&&a._last&&a._last!==d)return $(a.elem).stop();var b=Math.round(a.now);d!==b&&($(a.elem)[a.prop](b),a._last=this.get(a))}};return p});
-/**
- * Copyright (c) 2007-2015 Ariel Flesler - aflesler<a>gmail<d>com | http://flesler.blogspot.com
- * Licensed under MIT
- * @author Ariel Flesler
- * @version 1.4.0
- */
-;(function(a){if(typeof define==='function'&&define.amd){define(['jquery'],a)}else{a(jQuery)}}(function($){var g=location.href.replace(/#.*/,'');var h=$.localScroll=function(a){$('body').localScroll(a)};h.defaults={duration:1000,axis:'y',event:'click',stop:true,target:window};$.fn.localScroll=function(a){a=$.extend({},h.defaults,a);if(a.hash&&location.hash){if(a.target)window.scrollTo(0,0);scroll(0,location,a)}return a.lazy?this.on(a.event,'a,area',function(e){if(filter.call(this)){scroll(e,this,a)}}):this.find('a,area').filter(filter).bind(a.event,function(e){scroll(e,this,a)}).end().end();function filter(){return!!this.href&&!!this.hash&&this.href.replace(this.hash,'')===g&&(!a.filter||$(this).is(a.filter))}};h.hash=function(){};function scroll(e,a,b){var c=a.hash.slice(1),elem=document.getElementById(c)||document.getElementsByName(c)[0];if(!elem)return;if(e)e.preventDefault();var d=$(b.target);if(b.lock&&d.is(':animated')||b.onBefore&&b.onBefore(e,elem,d)===false)return;if(b.stop){d.stop(true)}if(b.hash){var f=elem.id===c?'id':'name',$a=$('<a> </a>').attr(f,c).css({position:'absolute',top:$(window).scrollTop(),left:$(window).scrollLeft()});elem[f]='';$('body').prepend($a);location.hash=a.hash;$a.remove();elem[f]=c}d.scrollTo(elem,b).trigger('notify.serialScroll',[elem])}return h}));
-
 /*! no-blend uglified | https://gist.github.com/mhulse/6ec4db51a61eb958b82d */
 !function(e,n){e.getComputedStyle(n.head,null).mixBlendMode&&(n.documentElement.className=n.documentElement.className.replace(/\bno-blend\b/,"blend"))}(window,document);
 
@@ -690,7 +675,7 @@ jQuery(document).ready(function($) {
 	$('html').removeClass('no-js').addClass('js');
 
   var responsive_viewport = $(window).width();
-  var scrollHeight = document.body.scrollHeight;
+
 
 	$('.js-modal').modal();
 	$('.js-modal-onload').trigger('click');
@@ -726,42 +711,23 @@ jQuery(document).ready(function($) {
   $('.js-localize-date').localizeDate();
 	$('.ajax-link').ajaxLink();
 
-	$.localScroll.hash({
-		onBefore: function( e, anchor, $target ){
-			var ifExpando = $(anchor).is('.expando, .mobile-expando');
-			if( ifExpando ){
-				$(anchor).find('.expando-link').trigger('click');
-			}
-		},
-		offset: -70,
-    progress: function() {
-      // If the page scroll height changes, scroll afresh to the shifted target
-      if (scrollHeight !== document.body.scrollHeight) {
-        $window.stop(true).scrollTo($target);
-      }
-    },
-	});
-
-	$.localScroll({
-		filter: ':not(.js-modal)',
-		// if anchor linking to an expando section, expand it before scrolling to it
-		onBefore: function( e, anchor, $target ){
-			var ifExpando = $(anchor).is('.expando, .mobile-expando');
-			if( ifExpando ){
-				$(anchor).find('.expando-link').trigger('click');
-			}
-		},
-		hash: true,
-		offset: -70,
-  });
-
+  /*
+    Scripts that can potentially change the size of elements and
+    the height of the document
+  */
   // Expandooooo
   $(".expando, .js-expando").expando();
   $(".expando-mobile, .mobile-expando").expando('mobile');
   $(".tablet-expando").expando('tablet');
+  // Collapsed Menus
+  $(".nav-mobile-collapsed").collapseMenu('mobile');
+  $(".nav-tablet-collapsed").collapseMenu('tablet');
+  $(".nav-desktop-collapsed").collapseMenu('desktop');
+  // iframe resizer
+  $(".iframe-wrapper, .video-wrapper").fitVids();
 
-  $('.horizontal-scroll').horzScrollControls();
-
+  // recording the scroll height *after* expandos have been collapsed
+  var scrollHeight = document.body.scrollHeight;
 
   // Headroom - "shy" sticky
   // grab an element, construct an instance of Headroom and init
@@ -786,7 +752,8 @@ jQuery(document).ready(function($) {
     selector: 'nav a', // Default link selector (must use a valid CSS selector)
   });
 
-	$(".iframe-wrapper, .video-wrapper").fitVids();
+  $('.horizontal-scroll').horzScrollControls();
+
 	$(".ak-action-count").akGetActionCount();
 	$(".tw-share, .fb-share, .button-dot.facebook, .button-share-facebook, .button-share-twitter").newWindowPopup();
 	$(".section-img-credit").hover(
@@ -804,12 +771,10 @@ jQuery(document).ready(function($) {
     }
   );
 
-  $(".nav-mobile-collapsed").collapseMenu('mobile');
-  $(".nav-tablet-collapsed").collapseMenu('tablet');
-  $(".nav-desktop-collapsed").collapseMenu('desktop');
+
 
 	var initialWidth = $(window).width();
-  console.log('intialWidth = ' + initialWidth);
+  // console.log('intialWidth = ' + initialWidth);
 
 	// Add URL param "source" as hidden input on any AK forms
 	var url_source = urlParam('source');
@@ -843,7 +808,7 @@ jQuery(document).ready(function($) {
     });
 
 	// Add URL param "source" to megamap
-	    $("iframe#map").each(function(){
+	    $("iframe.megamap").each(function(){
 		    var datasrc = $(this).attr('data-src');
 		    if ( ~datasrc.indexOf("?") ){
 		      var datasrc_new = datasrc + '&source=' + url_source;
@@ -851,7 +816,7 @@ jQuery(document).ready(function($) {
 		      var datasrc_new = datasrc + '?source=' + url_source;
 		    }
 		    $(this).attr('data-src', datasrc_new);
-		    console.log('iframe data-src: '+$(this).attr('data-src'));
+		    // console.log('iframe data-src: '+$(this).attr('data-src'));
 			});
 
 
@@ -864,18 +829,18 @@ jQuery(document).ready(function($) {
 	      var url_new = url + '?source=' + url_source;
 	    }
 	    $(this).attr('href', url_new);
-	    console.log('host button link (source): '+$(this).attr('href'));
+	    // console.log('host button link (source): '+$(this).attr('href'));
 	  });
   }
 
   var url_referrer = urlParam('referrer');
-	console.log('referrer: '+url_referrer);
+	// console.log('referrer: '+url_referrer);
 
   if ( url_referrer ){
 
 
 	// Add URL param "referrer" to megamap
-    $("iframe#map").each(function(){
+    $("iframe.megamap").each(function(){
       var datasrc = $(this).attr('data-src');
       if ( ~datasrc.indexOf("?") ){
         var datasrc_new = datasrc + '&referrer=' + url_referrer;
@@ -883,7 +848,7 @@ jQuery(document).ready(function($) {
         var datasrc_new = datasrc + '?referrer=' + url_referrer;
       }
       $(this).attr('data-src', datasrc_new);
-      console.log('iframe data-src: '+$(this).attr('data-src'));
+      // console.log('iframe data-src: '+$(this).attr('data-src'));
     });
 
 	// Add URL param "referrer" to host buttons
