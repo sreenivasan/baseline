@@ -2940,7 +2940,7 @@ img.b-loaded {
 
 .can_embed .check_radio_field {
   display: block;
-  margin: 0.5rem 0 1.2rem; }
+  margin: 0.5rem 0 0.8rem; }
 
 li#d_sharing {
   margin: 1.5em 0; }
@@ -3154,6 +3154,9 @@ li#d_sharing,
   background: rgba(21, 36, 43, 0.08);
   padding: 1em;
   padding: calc(2vh + 1.2vw) calc(1.2vh + 2vw); }
+
+.can_embed.event .action_sidebar ul {
+  padding-left: 0; }
 
 /* AN individual event — media query */
 @media screen and (min-width: 950px) {
