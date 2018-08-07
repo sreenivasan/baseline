@@ -3549,6 +3549,14 @@ img.b-loaded {
   font-size: 0.8rem;
   font-style: italic; }
 
+.can_embed label.checkbox,
+.can_embed label.radio {
+  display: block; }
+
+.can_embed .check_radio_field {
+  display: block;
+  margin: 0.5rem 0 1.2rem; }
+
 li#d_sharing {
   margin: 1.5em 0; }
 
@@ -3604,6 +3612,7 @@ li#d_sharing,
 .baseline #can_embed_form .can_selectInner {
   display: none !important; }
 
+/* Event search*/
 .event_campaign #can_embed_form h2 {
   margin-bottom: 0.8em; }
 
@@ -3685,7 +3694,7 @@ li#d_sharing,
   font-size: 1.1em;
   margin: 0.5em 0; }
 
-/* AN media query */
+/* AN event campaign — media query */
 @media screen and (min-width: 950px) {
   .event_campaign #form_col1 h4 {
     float: left;
@@ -3713,6 +3722,70 @@ li#d_sharing,
     clear: left;
     float: left;
     width: 38%; } }
+
+/* Individual Event */
+.can_embed.event .first_line .graytext {
+  display: none; }
+
+.can_embed.event .first_line .bullet {
+  display: block;
+  font-size: 0;
+  line-height: 0; }
+
+.can_embed.event form li {
+  list-style-type: none; }
+
+.can_embed.event .core_field label,
+.can_embed.event .control-group:not(.js-affirmative_optin_control_group) label {
+  font-size: 0.75rem; }
+
+.en .can_embed.event .core_field label,
+.en .can_embed.event .control-group:not(.js-affirmative_optin_control_group) label {
+  letter-spacing: 0.05em;
+  text-transform: uppercase; }
+
+.can_embed.event .additional_text {
+  font-size: 0.8rem; }
+
+.can_embed.event .first_line {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0; }
+
+.can_embed.event .first_line + .first_line {
+  margin-bottom: 1em; }
+
+#can_embed_form .event_map_wrap,
+#can_embed_form .event_map_wrap #map_canvas,
+#can_embed_form #event_map_wrap,
+#can_embed_form #event_map_wrap #map_canvas {
+  height: 300px;
+  margin-bottom: 0.6rem; }
+
+.can_embed.event #can_main_col {
+  margin-bottom: 1.2rem; }
+
+.can_embed.event .action_sidebar {
+  background: rgba(21, 36, 43, 0.08);
+  padding: 1em;
+  padding: calc(2vh + 1.2vw) calc(1.2vh + 2vw); }
+
+/* AN individual event — media query */
+@media screen and (min-width: 950px) {
+  .can_embed.event #can_embed_form {
+    max-width: 100%; }
+  .can_embed.event .clearfix {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap; }
+  .can_embed.event #can_main_col {
+    margin: 0 2%;
+    max-width: 56%; }
+  .can_embed.event #can_sidebar {
+    margin: 0 2%;
+    max-width: 36%; } }
 
 #can_embed_form .ajax-loading {
   -webkit-animation: spin 1s infinite linear;

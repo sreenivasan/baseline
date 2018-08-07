@@ -36,6 +36,14 @@
   font-size:0.8rem;
   font-style:italic;}
 
+// Styling radio and checkbox lists
+.can_embed label.checkbox,
+.can_embed label.radio{
+  display:block;}
+.can_embed .check_radio_field{
+  display:block;
+  margin:0.5rem 0 1.2rem;}
+
 li#d_sharing{
   margin:1.5em 0;}
 li#d_sharing,
@@ -83,6 +91,8 @@ li#d_sharing,
     width:auto !important;}
 .baseline #can_embed_form .can_selectInner{
     display:none !important;}
+
+/* Event search*/
 
 .event_campaign #can_embed_form h2{
   margin-bottom:0.8em;}
@@ -138,38 +148,95 @@ li#d_sharing,
   display:inline-block;
   font-size:1.1em;
   margin:0.5em 0;}
-
-
-/* AN media query */
+/* AN event campaign — media query */
 @media screen and (min-width:$tablet-desktop-breakpoint){
+  .event_campaign #form_col1 h4{
+    float:left;
+    width:38%;}
+  .event_campaign #can_embed_form #can_zip_search{
+    background-color:rgba(21,36,43,.04);
+    clear:left;
+    float:left;
+    margin-bottom:0;
+    margin-right:2%;
+    padding:1.2em;
+    width:38%;}
 
-.event_campaign #form_col1 h4{
-  float:left;
-  width:38%;}
-.event_campaign #can_embed_form #can_zip_search{
-  background-color:rgba(21,36,43,.04);
-  clear:left;
-  float:left;
-  margin-bottom:0;
-  margin-right:2%;
-  padding:1.2em;
-  width:38%;}
+  .event_campaign #can_embed_form #event_map_wrap{
+    float:right;
+    position:relative;
+    margin-left:2%;
+    top:-1.5em;
+    width:58%;}
+  .event_campaign #can_embed_form #event_map_wrap,
+  .event_campaign #can_embed_form #map_canvas{
+    height:380px;}
+  .event_campaign .zip_search_results_col,
+  .event_campaign #form_col2,
+  .event_campaign #host_your_own{
+    clear:left;
+    float:left;
+    width:38%;}
+}
 
-.event_campaign #can_embed_form #event_map_wrap{
-  float:right;
-  position:relative;
-  margin-left:2%;
-  top:-1.5em;
-  width:58%;}
-.event_campaign #can_embed_form #event_map_wrap,
-.event_campaign #can_embed_form #map_canvas{
-  height:380px;}
-.event_campaign .zip_search_results_col,
-.event_campaign #form_col2,
-.event_campaign #host_your_own{
-  clear:left;
-  float:left;
-  width:38%;}
+/* Individual Event */
+
+// remove "Starts" label from date/location
+.can_embed.event .first_line .graytext{
+  display:none;}
+// replace bullet character with line breaks
+.can_embed.event .first_line .bullet{
+  display:block;
+  font-size:0;
+  line-height:0;}
+.can_embed.event form li{
+  list-style-type:none;}
+// Style form labels (but not the GDPR opt-in)
+.can_embed.event .core_field label,
+.can_embed.event .control-group:not(.js-affirmative_optin_control_group) label{
+  font-size:0.75rem;}
+.en .can_embed.event .core_field label,
+.en .can_embed.event .control-group:not(.js-affirmative_optin_control_group) label{
+  letter-spacing:0.05em;
+  text-transform:uppercase;}
+.can_embed.event .additional_text{
+  font-size:0.8rem;}
+
+// remove gap between date and location h4 tags
+.can_embed.event .first_line{
+  font-size:1.2rem;
+  font-weight:bold;
+  margin-bottom:0;}
+.can_embed.event .first_line + .first_line{
+  margin-bottom:1em;}
+
+#can_embed_form .event_map_wrap,
+#can_embed_form .event_map_wrap #map_canvas,
+#can_embed_form #event_map_wrap,
+#can_embed_form #event_map_wrap #map_canvas{
+  height:300px;
+  margin-bottom:0.6rem;}
+
+.can_embed.event #can_main_col{
+  margin-bottom:1.2rem;}
+.can_embed.event .action_sidebar{
+  background:rgba(21,36,43,0.08);
+  padding:1em;
+  padding:calc(2vh + 1.2vw) calc(1.2vh + 2vw);}
+
+/* AN individual event — media query */
+@media screen and (min-width:$tablet-desktop-breakpoint){
+  .can_embed.event #can_embed_form{
+    max-width:100%;}
+  .can_embed.event .clearfix{
+    display:flex;
+    flex-wrap:nowrap;}
+  .can_embed.event #can_main_col{
+    margin:0 2%;
+    max-width:56%;}
+  .can_embed.event #can_sidebar{
+    margin:0 2%;
+    max-width:36%;}
 
 }
 
