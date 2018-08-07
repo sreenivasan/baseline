@@ -673,16 +673,30 @@ function urlParam(name){
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 	$('html').removeClass('no-js').addClass('js');
-
-  var responsive_viewport = $(window).width();
-
-
+  /*
+    Scripts that can potentially change the size of elements and the document.
+    Run these first so following scripts don't have to recalculate position, in
+    descending order of how much they're likely to change the document size.
+  */
+	// Truncate and add "Read More" link
+	$('[data-read-more-after], [data-readmore-after]').truncateAndReadMore();
+  // Expandooooo
+  $(".expando, .js-expando").expando();
+  $(".expando-mobile, .mobile-expando").expando('mobile');
+  $(".tablet-expando").expando('tablet');
+  // Collapsed Menus
+  $(".nav-mobile-collapsed").collapseMenu('mobile');
+  $(".nav-tablet-collapsed").collapseMenu('tablet');
+  $(".nav-desktop-collapsed").collapseMenu('desktop');
+  // iframe resizer
+  $(".iframe-wrapper, .video-wrapper").fitVids();
+  // Modals
 	$('.js-modal').modal();
 	$('.js-modal-onload').trigger('click');
+
+  // Add spinner to lazy images
 	$('img.lazy').parent().spin('tiny');
-	// for AK-style form fields, wrap adjacent sibs in fieldset
-	$('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'fieldset class="input-group"');
-	$('[data-preselect]').preselect();
+
 	var bLazy = new Blazy({
     container: '.page-container',
 		breakpoints: [
@@ -707,27 +721,18 @@ jQuery(document).ready(function($) {
       offset: 300,
       selector: '.lazy',
   });
+  // for AK-style form fields, wrap adjacent sibs in fieldset
+  $('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'fieldset class="input-group"');
+  // Add a 'focus' class to the parent element when input gets focus
+  $("input, select, textarea").parentFocus();
+
+  /* --- end of scripts likely to change document size */
+
+  // Time
   $('.js-localize-time').localizeTime();
   $('.js-localize-date').localizeDate();
+  // Set up AJAX links
 	$('.ajax-link').ajaxLink();
-
-  /*
-    Scripts that can potentially change the size of elements and
-    the height of the document
-  */
-  // Expandooooo
-  $(".expando, .js-expando").expando();
-  $(".expando-mobile, .mobile-expando").expando('mobile');
-  $(".tablet-expando").expando('tablet');
-  // Collapsed Menus
-  $(".nav-mobile-collapsed").collapseMenu('mobile');
-  $(".nav-tablet-collapsed").collapseMenu('tablet');
-  $(".nav-desktop-collapsed").collapseMenu('desktop');
-  // iframe resizer
-  $(".iframe-wrapper, .video-wrapper").fitVids();
-
-  // recording the scroll height *after* expandos have been collapsed
-  var scrollHeight = document.body.scrollHeight;
 
   // Headroom - "shy" sticky
   // grab an element, construct an instance of Headroom and init
@@ -744,18 +749,24 @@ jQuery(document).ready(function($) {
     },
   }
   var shyStickyElem = document.querySelector(".site-header-layout-compact");
-  var shySticky  = new Headroom(shyStickyElem, shyStickyOptions);
-  shySticky.init();
+  if (shyStickyElem){
+    var shySticky  = new Headroom(shyStickyElem, shyStickyOptions);
+    shySticky.init();
+  }
 
   /* Update on-page nav items with .active if they're on screen */
   gumshoe.init({
     selector: 'nav a', // Default link selector (must use a valid CSS selector)
   });
-
+  // Set up controls for horizontal scroll areas
   $('.horizontal-scroll').horzScrollControls();
-
+  // Insert the number of actions taken for a given AK page
 	$(".ak-action-count").akGetActionCount();
+  // Preselect an item in a select tag
+  $('[data-preselect]').preselect();
+  // Pop up share dialogs in a mini new window
 	$(".tw-share, .fb-share, .button-dot.facebook, .button-share-facebook, .button-share-twitter").newWindowPopup();
+  // Reveal the bg image when hovering on the image credit
 	$(".section-img-credit").hover(
 		function(){
 			$(this).stop().prev('.section-inner').animate({opacity:0});
@@ -764,17 +775,11 @@ jQuery(document).ready(function($) {
 		}
 	);
 
-  $("input, select, textarea").parentFocus();
   /* for AJAX Action Network widgets, re-run this script when they finish loading */
   $(document).on('can_embed_loaded', function(){
       $("input, select, textarea").off().parentFocus();
     }
   );
-
-
-
-	var initialWidth = $(window).width();
-  // console.log('intialWidth = ' + initialWidth);
 
 	// Add URL param "source" as hidden input on any AK forms
 	var url_source = urlParam('source');
@@ -808,7 +813,7 @@ jQuery(document).ready(function($) {
     });
 
 	// Add URL param "source" to megamap
-	    $("iframe.megamap").each(function(){
+	    $("iframe.megamap, iframe[data-src='https://new-map.350.org/*']").each(function(){
 		    var datasrc = $(this).attr('data-src');
 		    if ( ~datasrc.indexOf("?") ){
 		      var datasrc_new = datasrc + '&source=' + url_source;
@@ -819,9 +824,8 @@ jQuery(document).ready(function($) {
 		    // console.log('iframe data-src: '+$(this).attr('data-src'));
 			});
 
-
 	// Add URL param "source" to host buttons
-	  $("a#host_button").each(function(){
+	  $("a.host_button").each(function(){
 	    var url = $(this).attr('href');
 	    if ( ~url.indexOf("?") ){
 	      var url_new = url + '&source=' + url_source;
@@ -837,8 +841,6 @@ jQuery(document).ready(function($) {
 	// console.log('referrer: '+url_referrer);
 
   if ( url_referrer ){
-
-
 	// Add URL param "referrer" to megamap
     $("iframe.megamap").each(function(){
       var datasrc = $(this).attr('data-src');
@@ -852,7 +854,7 @@ jQuery(document).ready(function($) {
     });
 
 	// Add URL param "referrer" to host buttons
-    $("a#host_button").each(function(){
+    $("a.host_button").each(function(){
       var url = $(this).attr('href');
       if ( ~url.indexOf("?") ){
         var url_new = url + '&referrer=' + url_referrer;
@@ -860,11 +862,7 @@ jQuery(document).ready(function($) {
         var url_new = url + '?referrer=' + url_referrer;
       }
       $(this).attr('href', url_new);
-      console.log('host button link (referrer): '+$(this).attr('href'));
+      // console.log('host button link (referrer): '+$(this).attr('href'));
     });
-
   }
-
-	// Truncate and add "Read More" link
-	$('[data-read-more-after], [data-readmore-after]').truncateAndReadMore();
 }); /* end of as page load scripts */
