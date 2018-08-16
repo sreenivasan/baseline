@@ -1,12 +1,9 @@
 /*!
-  hey, [be]Lazy.js - v1.5.4 - 2016.03.06
+  hey, [be]Lazy.js - v1.8.2 - 2016.10.25
   A fast, small and dependency free lazy load script (https://github.com/dinbror/blazy)
   (c) Bjoern Klinggaard - @bklinggaard - http://dinbror.dk/blazy
 */
-  (function(k,f){"function"===typeof define&&define.amd?define(f):"object"===typeof exports?module.exports=f():k.Blazy=f()})(this,function(){function k(b){setTimeout(function(){var c=b._util;c.elements=w(b.options.selector);c.count=c.elements.length;c.destroyed&&(c.destroyed=!1,b.options.container&&h(b.options.container,function(a){l(a,"scroll",c.validateT)}),l(window,"resize",c.saveViewportOffsetT),l(window,"resize",c.validateT),l(window,"scroll",c.validateT));f(b)},1)}function f(b){for(var c=b._util,a=0;a<c.count;a++){var d=c.elements[a],g=d.getBoundingClientRect();if(g.right>=e.left&&g.bottom>=e.top&&g.left<=e.right&&g.top<=e.bottom||n(d,b.options.successClass))b.load(d),c.elements.splice(a,1),c.count--,a--}0===c.count&&b.destroy()}function q(b,c,a){if(!n(b,a.successClass)&&(c||a.loadInvisible||0<b.offsetWidth&&0<b.offsetHeight))if(c=b.getAttribute(p)||b.getAttribute(a.src)){c=c.split(a.separator);var d=c[r&&1<c.length?1:0],g="img"===b.nodeName.toLowerCase();g||void 0===b.src?(c=new Image,c.onerror=function(){a.error&&a.error(b,"invalid");b.className=b.className+" "+a.errorClass},c.onload=function(){g?b.src=d:b.style.backgroundImage='url("'+d+'")';t(b,a)},c.src=d):(b.src=d,t(b,a))}else a.error&&a.error(b,"missing"),n(b,a.errorClass)||(b.className=b.className+" "+a.errorClass)}function t(b,c){b.className=b.className+" "+c.successClass;c.success&&c.success(b);h(c.breakpoints,function(a){b.removeAttribute(a.src)});b.removeAttribute(c.src)}function n(b,c){return-1!==(" "+b.className+" ").indexOf(" "+c+" ")}function w(b){var c=[];b=document.querySelectorAll(b);for(var a=b.length;a--;c.unshift(b[a]));return c}function u(b){e.bottom=(window.innerHeight||document.documentElement.clientHeight)+b;e.right=(window.innerWidth||document.documentElement.clientWidth)+b}function l(b,c,a){b.attachEvent?b.attachEvent&&b.attachEvent("on"+c,a):b.addEventListener(c,a,!1)}function m(b,c,a){b.detachEvent?b.detachEvent&&b.detachEvent("on"+c,a):b.removeEventListener(c,a,!1)}function h(b,c){if(b&&c)for(var a=b.length,d=0;d<a&&!1!==c(b[d],d);d++);}function v(b,c,a){var d=0;return function(){var g=+new Date;g-d<c||(d=g,b.apply(a,arguments))}}var p,e,r;return function(b){if(!document.querySelectorAll){var c=document.createStyleSheet();document.querySelectorAll=function(a,b,d,e,f){f=document.all;b=[];a=a.replace(/\[for\b/gi,"[htmlFor").split(",");for(d=a.length;d--;){c.addRule(a[d],"k:v");for(e=f.length;e--;)f[e].currentStyle.k&&b.push(f[e]);c.removeRule(0)}return b}}var a=this,d=a._util={};d.elements=[];d.destroyed=!0;a.options=b||{};a.options.error=a.options.error||!1;a.options.offset=a.options.offset||100;a.options.success=a.options.success||!1;a.options.selector=a.options.selector||".b-lazy";a.options.separator=a.options.separator||"|";a.options.container=a.options.container?document.querySelectorAll(a.options.container):!1;a.options.errorClass=a.options.errorClass||"b-error";a.options.breakpoints=a.options.breakpoints||!1;a.options.loadInvisible=a.options.loadInvisible||!1;a.options.successClass=a.options.successClass||"b-loaded";a.options.validateDelay=a.options.validateDelay||25;a.options.saveViewportOffsetDelay=a.options.saveViewportOffsetDelay||50;a.options.src=p=a.options.src||"data-src";r=1<window.devicePixelRatio;e={};e.top=0-a.options.offset;e.left=0-a.options.offset;a.revalidate=function(){k(this)};a.load=function(a,b){var c=this.options;void 0===a.length?q(a,b,c):h(a,function(a){q(a,b,c)})};a.destroy=function(){var a=this._util;this.options.container&&h(this.options.container,function(b){m(b,"scroll",a.validateT)});m(window,"scroll",a.validateT);m(window,"resize",a.validateT);m(window,"resize",a.saveViewportOffsetT);a.count=0;a.elements.length=0;a.destroyed=!0};d.validateT=v(function(){f(a)},a.options.validateDelay,a);d.saveViewportOffsetT=v(function(){u(a.options.offset)},a.options.saveViewportOffsetDelay,a);u(a.options.offset);h(a.options.breakpoints,function(a){if(a.width>=window.screen.width)return p=a.src,!1});k(a)}});
-
-/*! no-blend uglified | https://gist.github.com/mhulse/6ec4db51a61eb958b82d */
-!function(e,n){e.getComputedStyle(n.head,null).mixBlendMode&&(n.documentElement.className=n.documentElement.className.replace(/\bno-blend\b/,"blend"))}(window,document);
+(function(q,m){"function"===typeof define&&define.amd?define(m):"object"===typeof exports?module.exports=m():q.Blazy=m()})(this,function(){function q(b){var c=b._util;c.elements=E(b.options);c.count=c.elements.length;c.destroyed&&(c.destroyed=!1,b.options.container&&l(b.options.container,function(a){n(a,"scroll",c.validateT)}),n(window,"resize",c.saveViewportOffsetT),n(window,"resize",c.validateT),n(window,"scroll",c.validateT));m(b)}function m(b){for(var c=b._util,a=0;a<c.count;a++){var d=c.elements[a],e;a:{var g=d;e=b.options;var p=g.getBoundingClientRect();if(e.container&&y&&(g=g.closest(e.containerClass))){g=g.getBoundingClientRect();e=r(g,f)?r(p,{top:g.top-e.offset,right:g.right+e.offset,bottom:g.bottom+e.offset,left:g.left-e.offset}):!1;break a}e=r(p,f)}if(e||t(d,b.options.successClass))b.load(d),c.elements.splice(a,1),c.count--,a--}0===c.count&&b.destroy()}function r(b,c){return b.right>=c.left&&b.bottom>=c.top&&b.left<=c.right&&b.top<=c.bottom}function z(b,c,a){if(!t(b,a.successClass)&&(c||a.loadInvisible||0<b.offsetWidth&&0<b.offsetHeight))if(c=b.getAttribute(u)||b.getAttribute(a.src)){c=c.split(a.separator);var d=c[A&&1<c.length?1:0],e=b.getAttribute(a.srcset),g="img"===b.nodeName.toLowerCase(),p=(c=b.parentNode)&&"picture"===c.nodeName.toLowerCase();if(g||void 0===b.src){var h=new Image,w=function(){a.error&&a.error(b,"invalid");v(b,a.errorClass);k(h,"error",w);k(h,"load",f)},f=function(){g?p||B(b,d,e):b.style.backgroundImage='url("'+d+'")';x(b,a);k(h,"load",f);k(h,"error",w)};p&&(h=b,l(c.getElementsByTagName("source"),function(b){var c=a.srcset,e=b.getAttribute(c);e&&(b.setAttribute("srcset",e),b.removeAttribute(c))}));n(h,"error",w);n(h,"load",f);B(h,d,e)}else b.src=d,x(b,a)}else"video"===b.nodeName.toLowerCase()?(l(b.getElementsByTagName("source"),function(b){var c=a.src,e=b.getAttribute(c);e&&(b.setAttribute("src",e),b.removeAttribute(c))}),b.load(),x(b,a)):(a.error&&a.error(b,"missing"),v(b,a.errorClass))}function x(b,c){v(b,c.successClass);c.success&&c.success(b);b.removeAttribute(c.src);b.removeAttribute(c.srcset);l(c.breakpoints,function(a){b.removeAttribute(a.src)})}function B(b,c,a){a&&b.setAttribute("srcset",a);b.src=c}function t(b,c){return-1!==(" "+b.className+" ").indexOf(" "+c+" ")}function v(b,c){t(b,c)||(b.className+=" "+c)}function E(b){var c=[];b=b.root.querySelectorAll(b.selector);for(var a=b.length;a--;c.unshift(b[a]));return c}function C(b){f.bottom=(window.innerHeight||document.documentElement.clientHeight)+b;f.right=(window.innerWidth||document.documentElement.clientWidth)+b}function n(b,c,a){b.attachEvent?b.attachEvent&&b.attachEvent("on"+c,a):b.addEventListener(c,a,{capture:!1,passive:!0})}function k(b,c,a){b.detachEvent?b.detachEvent&&b.detachEvent("on"+c,a):b.removeEventListener(c,a,{capture:!1,passive:!0})}function l(b,c){if(b&&c)for(var a=b.length,d=0;d<a&&!1!==c(b[d],d);d++);}function D(b,c,a){var d=0;return function(){var e=+new Date;e-d<c||(d=e,b.apply(a,arguments))}}var u,f,A,y;return function(b){if(!document.querySelectorAll){var c=document.createStyleSheet();document.querySelectorAll=function(a,b,d,h,f){f=document.all;b=[];a=a.replace(/\[for\b/gi,"[htmlFor").split(",");for(d=a.length;d--;){c.addRule(a[d],"k:v");for(h=f.length;h--;)f[h].currentStyle.k&&b.push(f[h]);c.removeRule(0)}return b}}var a=this,d=a._util={};d.elements=[];d.destroyed=!0;a.options=b||{};a.options.error=a.options.error||!1;a.options.offset=a.options.offset||100;a.options.root=a.options.root||document;a.options.success=a.options.success||!1;a.options.selector=a.options.selector||".b-lazy";a.options.separator=a.options.separator||"|";a.options.containerClass=a.options.container;a.options.container=a.options.containerClass?document.querySelectorAll(a.options.containerClass):!1;a.options.errorClass=a.options.errorClass||"b-error";a.options.breakpoints=a.options.breakpoints||!1;a.options.loadInvisible=a.options.loadInvisible||!1;a.options.successClass=a.options.successClass||"b-loaded";a.options.validateDelay=a.options.validateDelay||25;a.options.saveViewportOffsetDelay=a.options.saveViewportOffsetDelay||50;a.options.srcset=a.options.srcset||"data-srcset";a.options.src=u=a.options.src||"data-src";y=Element.prototype.closest;A=1<window.devicePixelRatio;f={};f.top=0-a.options.offset;f.left=0-a.options.offset;a.revalidate=function(){q(a)};a.load=function(a,b){var c=this.options;void 0===a.length?z(a,b,c):l(a,function(a){z(a,b,c)})};a.destroy=function(){var a=this._util;this.options.container&&l(this.options.container,function(b){k(b,"scroll",a.validateT)});k(window,"scroll",a.validateT);k(window,"resize",a.validateT);k(window,"resize",a.saveViewportOffsetT);a.count=0;a.elements.length=0;a.destroyed=!0};d.validateT=D(function(){m(a)},a.options.validateDelay,a);d.saveViewportOffsetT=D(function(){C(a.options.offset)},a.options.saveViewportOffsetDelay,a);C(a.options.offset);l(a.options.breakpoints,function(a){if(a.width>=window.screen.width)return u=a.src,!1});setTimeout(function(){q(a)})}});
 
 /* spin.js - ajax loading animation */
 (function(t,e){if(typeof exports=="object")module.exports=e();else if(typeof define=="function"&&define.amd)define(e);else t.Spinner=e()})(this,function(){"use strict";var t=["webkit","Moz","ms","O"],e={},i;function o(t,e){var i=document.createElement(t||"div"),o;for(o in e)i[o]=e[o];return i}function n(t){for(var e=1,i=arguments.length;e<i;e++)t.appendChild(arguments[e]);return t}var r=function(){var t=o("style",{type:"text/css"});n(document.getElementsByTagName("head")[0],t);return t.sheet||t.styleSheet}();function s(t,o,n,s){var a=["opacity",o,~~(t*100),n,s].join("-"),f=.01+n/s*100,l=Math.max(1-(1-t)/o*(100-f),t),u=i.substring(0,i.indexOf("Animation")).toLowerCase(),d=u&&"-"+u+"-"||"";if(!e[a]){r.insertRule("@"+d+"keyframes "+a+"{"+"0%{opacity:"+l+"}"+f+"%{opacity:"+t+"}"+(f+.01)+"%{opacity:1}"+(f+o)%100+"%{opacity:"+t+"}"+"100%{opacity:"+l+"}"+"}",r.cssRules.length);e[a]=1}return a}function a(e,i){var o=e.style,n,r;i=i.charAt(0).toUpperCase()+i.slice(1);for(r=0;r<t.length;r++){n=t[r]+i;if(o[n]!==undefined)return n}if(o[i]!==undefined)return i}function f(t,e){for(var i in e)t.style[a(t,i)||i]=e[i];return t}function l(t){for(var e=1;e<arguments.length;e++){var i=arguments[e];for(var o in i)if(t[o]===undefined)t[o]=i[o]}return t}function u(t){var e={x:t.offsetLeft,y:t.offsetTop};while(t=t.offsetParent)e.x+=t.offsetLeft,e.y+=t.offsetTop;return e}function d(t,e){return typeof t=="string"?t:t[e%t.length]}var p={lines:12,length:7,width:5,radius:10,rotate:0,corners:1,color:"#000",direction:1,speed:1,trail:100,opacity:1/4,fps:20,zIndex:2e9,className:"spinner",top:"auto",left:"auto",position:"relative"};function c(t){if(typeof this=="undefined")return new c(t);this.opts=l(t||{},c.defaults,p)}c.defaults={};l(c.prototype,{spin:function(t){this.stop();var e=this,n=e.opts,r=e.el=f(o(0,{className:n.className}),{position:n.position,width:0,zIndex:n.zIndex}),s=n.radius+n.length+n.width,a,l;if(t){t.insertBefore(r,t.firstChild||null);l=u(t);a=u(r);f(r,{left:(n.left=="auto"?l.x-a.x+(t.offsetWidth>>1):parseInt(n.left,10)+s)+"px",top:(n.top=="auto"?l.y-a.y+(t.offsetHeight>>1):parseInt(n.top,10)+s)+"px"})}r.setAttribute("role","progressbar");e.lines(r,e.opts);if(!i){var d=0,p=(n.lines-1)*(1-n.direction)/2,c,h=n.fps,m=h/n.speed,y=(1-n.opacity)/(m*n.trail/100),g=m/n.lines;(function v(){d++;for(var t=0;t<n.lines;t++){c=Math.max(1-(d+(n.lines-t)*g)%m*y,n.opacity);e.opacity(r,t*n.direction+p,c,n)}e.timeout=e.el&&setTimeout(v,~~(1e3/h))})()}return e},stop:function(){var t=this.el;if(t){clearTimeout(this.timeout);if(t.parentNode)t.parentNode.removeChild(t);this.el=undefined}return this},lines:function(t,e){var r=0,a=(e.lines-1)*(1-e.direction)/2,l;function u(t,i){return f(o(),{position:"absolute",width:e.length+e.width+"px",height:e.width+"px",background:t,boxShadow:i,transformOrigin:"left",transform:"rotate("+~~(360/e.lines*r+e.rotate)+"deg) translate("+e.radius+"px"+",0)",borderRadius:(e.corners*e.width>>1)+"px"})}for(;r<e.lines;r++){l=f(o(),{position:"absolute",top:1+~(e.width/2)+"px",transform:e.hwaccel?"translate3d(0,0,0)":"",opacity:e.opacity,animation:i&&s(e.opacity,e.trail,a+r*e.direction,e.lines)+" "+1/e.speed+"s linear infinite"});if(e.shadow)n(l,f(u("#000","0 0 4px "+"#000"),{top:2+"px"}));n(t,n(l,u(d(e.color,r),"0 0 1px rgba(0,0,0,.1)")))}return t},opacity:function(t,e,i){if(e<t.childNodes.length)t.childNodes[e].style.opacity=i}});function h(){function t(t,e){return o("<"+t+' xmlns="urn:schemas-microsoft.com:vml" class="spin-vml">',e)}r.addRule(".spin-vml","behavior:url(#default#VML)");c.prototype.lines=function(e,i){var o=i.length+i.width,r=2*o;function s(){return f(t("group",{coordsize:r+" "+r,coordorigin:-o+" "+-o}),{width:r,height:r})}var a=-(i.width+i.length)*2+"px",l=f(s(),{position:"absolute",top:a,left:a}),u;function p(e,r,a){n(l,n(f(s(),{rotation:360/i.lines*e+"deg",left:~~r}),n(f(t("roundrect",{arcsize:i.corners}),{width:o,height:i.width,left:i.radius,top:-i.width>>1,filter:a}),t("fill",{color:d(i.color,e),opacity:i.opacity}),t("stroke",{opacity:0}))))}if(i.shadow)for(u=1;u<=i.lines;u++)p(u,-2,"progid:DXImageTransform.Microsoft.Blur(pixelradius=2,makeshadow=1,shadowopacity=.3)");for(u=1;u<=i.lines;u++)p(u);return n(e,l)};c.prototype.opacity=function(t,e,i,o){var n=t.firstChild;o=o.shadow&&o.lines||0;if(n&&e+o<n.childNodes.length){n=n.childNodes[e+o];n=n&&n.firstChild;n=n&&n.firstChild;if(n)n.opacity=i}}}var m=f(o("group"),{behavior:"url(#default#VML)"});if(!a(m,"transform")&&m.adj)h();else i=a(m,"animation");return c});
@@ -108,9 +105,8 @@
 // Works with either jQuery or Zepto
 })( window.jQuery );
 
-
+/* add spinner? */
 (function(factory) {
-
   if (typeof exports == 'object') {
     // CommonJS
     factory(require('jquery'), require('spin'));
@@ -124,11 +120,8 @@
     if (!window.Spinner) throw new Error('Spin.js not present');
     factory(window.jQuery, window.Spinner);
   }
-
 }(function($, Spinner) {
-
   $.fn.spin = function(opts, color) {
-
     return this.each(function() {
       var $this = $(this),
         data = $this.data();
@@ -156,12 +149,80 @@
 }));
 
 // Functions
+
+/* Check current page URL for a specific query parameter and get the value */
 function urlParam(name){
 	var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
 	if (!results) { return 0; }
 	return results[1] || 0;
 }
 
+/* Take an existing URL within the page and add query parameters to it */
+/* options:
+    attrName: 'src',
+    paramName: 'foo',
+    paramValue: 'bar' — defaults to the current window href
+    urlEncode: false
+*/
+(function($){
+  $.fn.updateAttrFromParam = function(opts){
+    return this.each(function(){
+      var paramValue = urlParam(opts['param']);
+      // check if necessary options are present
+      if ( opts['attr'] && paramValue ){
+        // get the current value of the chosen attribute
+        var attrValue = $(this).attr(opts['attr']);
+        // check if there's a '?' already in the url
+        var preexistingParams = ~attrValue.indexOf("?");
+        // set the initial separator character to either & or ?, depending
+        // on preexisting params
+        var initialSeparator = preexistingParams ? "&" : "?";
+        var keyValueSeparator = "=";
+        // if url encoding option is true, switch to that
+        if ( opts['urlEncode'] ){
+          initialSeparator = preexistingParams ? "%3F" : "%26";
+          keyValueSeparator = "%3D";
+        }
+        // Regex to detect the presence of the param name preceded by a ? or &
+        var paramNameRegex = new RegExp('([\\?&])' + opts['param']);
+        // Only proceed if the param is NOT already present in attrValue...
+        if ( !paramNameRegex.test(attrValue) ){
+          // assemble the new url
+          var attrValueNew = attrValue + initialSeparator + opts['param'] + keyValueSeparator + paramValue;
+          // replace the existing attribute with the new one
+          $(this).attr(opts['attr'], attrValueNew);
+        }
+      }
+    });
+  };
+}(jQuery));
+
+/*
+  Append a hidden input with a given name and value. Used primarily
+  to include source and referral tracking in forms.
+*/
+(function($){
+  $.fn.appendHiddenInputFromParam = function(inputName){
+  	return this.each(function(){
+      var paramValue = urlParam(inputName);
+      // check that a url parameter exists with this name
+      if ( paramValue ){
+        var hiddenSource = $(this).find('input[type="hidden"][name="' + inputName + '"]');
+        // check for pre-existing hidden input
+        if ( hiddenSource.length ){
+          hiddenSource.val( paramValue );
+        } else {
+          $(this).append('<input type="hidden" name="' + inputName + '" value="' +  paramValue + '">');
+        }
+      }
+  	});
+  };
+}(jQuery));
+
+/*
+  Set a link to use AJAX to fetch the content from an element
+  on another page.
+*/
 (function($){
 	$.fn.ajaxLink = function(isSingle, uniqueID){
 		jQuery(this).each(function(){
@@ -191,43 +252,7 @@ function urlParam(name){
 		return this;
 	}
 }(jQuery));
-// Localize the time with browser settings
-(function($){
-	$.fn.localizeTime = function(options){
-		return this.each(function(){
-			var timeFormat = $.extend({
-				hour:"2-digit",
-				minute:"2-digit",
-				timeZoneName:"short",
-			}, options );
-			var actionTime = new Date( jQuery(this).attr('data-time') );
-			if ( typeof actionTime.toLocaleTimeString === "function" ){
-				var actionTimeLocal = actionTime.toLocaleTimeString( [], { timeFormat } );
-				if ( actionTimeLocal ){
-					jQuery(this).html( actionTimeLocal );
-				}
-			}
-		});
-	};
-}(jQuery));
-// Localize the date with browser settings
-(function($){
-	$.fn.localizeDate = function(dateOptions){
-		return this.each(function(){
-			var dateFormat = $.extend({
-				month:"short",
-				day:"2-digit",
-			}, dateOptions );
-			var actionDate = new Date( jQuery(this).attr('data-time') );
-			if ( typeof actionDate.toLocaleDateString === "function" ){
-				var actionDateLocal = actionDate.toLocaleDateString( [], { dateFormat } );
-				if ( actionDateLocal ){
-					jQuery(this).html( actionDateLocal );
-				}
-			}
-		});
-	};
-}(jQuery));
+
 /* add .focus class to parent when direct child input has focus */
 (function($){
 	$.fn.parentFocus = function(){
@@ -656,13 +681,6 @@ function urlParam(name){
 				scrollIncrement = calculateScrollIncrement('backward');
 				$(horzScrollFrame).animate( { scrollLeft: (scrollIncrement) }, scrollDuration);
 			});
-
-			/* debug */
-			console.log(this);
-			console.log(horzScrollContent);
-			console.log('horzFrameSize: ' + horzFrameSize);
-			console.log('horzContentSize: ' + horzContentSize);
-			console.log('horzHiddenSize: ' + horzHiddenSize);
 		});
 	}
 }(jQuery));
@@ -675,7 +693,7 @@ jQuery(document).ready(function($) {
 	$('html').removeClass('no-js').addClass('js');
   /*
     Scripts that can potentially change the size of elements and the document.
-    Run these first so following scripts don't have to recalculate position, in
+    Run these first so following scripts don't have to recalculate size/position, in
     descending order of how much they're likely to change the document size.
   */
 	// Truncate and add "Read More" link
@@ -723,14 +741,11 @@ jQuery(document).ready(function($) {
   });
   // for AK-style form fields, wrap adjacent sibs in fieldset
   $('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'fieldset class="input-group"');
-  // Add a 'focus' class to the parent element when input gets focus
-  $("input, select, textarea").parentFocus();
 
   /* --- end of scripts likely to change document size */
 
-  // Time
-  $('.js-localize-time').localizeTime();
-  $('.js-localize-date').localizeDate();
+  // Add a 'focus' class to the parent element when input gets focus
+  $("input, select, textarea").parentFocus();
   // Set up AJAX links
 	$('.ajax-link').ajaxLink();
 
@@ -775,94 +790,37 @@ jQuery(document).ready(function($) {
 		}
 	);
 
-  /* for AJAX Action Network widgets, re-run this script when they finish loading */
-  $(document).on('can_embed_loaded', function(){
-      $("input, select, textarea").off().parentFocus();
-    }
-  );
-
-	// Add URL param "source" as hidden input on any AK forms
-	var url_source = urlParam('source');
-  if ( url_source ){
-
-	// Add URL param "source" as hidden input on any AK forms
-  	$('.actionkit-widget').each(function(){
-  		$(this).append('<input type="hidden" name="source" value="' +  url_source + '"> ');
-  	});
+  /* FLAGGED: split Actionkit-specific scripts into separate module */
+	// When AK forms have finished loading...
+  $(document).on('actionkit.ready',function(){
+    // Add URL param "referrer" as hidden input on any AK forms
+    $('.actionkit-widget, form[action="https://act.350.org/act/"]')
+      .appendHiddenInputFromParam('source') // redundant b/c AK also detects source param
+      .appendHiddenInputFromParam('referrer');
+  });
 
 	// Add URL param "source" to AK map iframe src, then AK can append it to map links
-  	$('.ak-event-map').each(function(){
-  		var iframe_src = $(this).attr('src');
-  		if ( ~iframe_src.indexOf("?") ){
-  			var iframe_src_new = iframe_src + '&source=' + url_source;
-      } else {
-        var iframe_src_new = iframe_src + '?source=' + url_source;
-      }
-  		$(this).attr('src', iframe_src_new);
-  	});
+	$('.ak-event-map, iframe[src^="https://act.350.org/"]').updateAttrFromParam({attr: 'src', param:'source'});
 
-    // Pass URL param "source" to share buttons
-    $('.button-share-facebook, .fb-share, .button-share-twitter, .tw-share').each(function(){
-      var share_url = $(this).attr('href');
-      if ( ~share_url.indexOf("?") ){
-        var share_url_new = share_url + '%3Fsource%3D' + url_source;
-      } else {
-        var share_url_new = share_url + '%26source%3D' + url_source;
-      }
-      $(this).attr('href', share_url_new);
-    });
+  /* FLAGGED: split 350-specific scripts into separate module */
+  // Add URL param "source" to megamap (data-src presumes lazyloading)
+  $("iframe[data-src^='https://new-map.350.org/']")
+    .updateAttrFromParam({attr: 'data-src', param: 'source'})
+    .updateAttrFromParam({attr: 'data-src', param: 'referrer'});
 
-	// Add URL param "source" to megamap
-	    $("iframe.megamap, iframe[data-src='https://new-map.350.org/*']").each(function(){
-		    var datasrc = $(this).attr('data-src');
-		    if ( ~datasrc.indexOf("?") ){
-		      var datasrc_new = datasrc + '&source=' + url_source;
-		    } else {
-		      var datasrc_new = datasrc + '?source=' + url_source;
-		    }
-		    $(this).attr('data-src', datasrc_new);
-		    // console.log('iframe data-src: '+$(this).attr('data-src'));
-			});
+  /* FLAGGED: split AN scripts off into separate module */
+  /* Action Network scripts to run once their widgets load */
+  $(document).on('can_embed_loaded',function(){
+    // strip all inputs of events, and then re-run parentFocus script
+    $("input, select, textarea").off().parentFocus();
+    // Add source/referrer to any outgoing AN links
+    $('a[href^="https://actionnetwork.org/"]')
+      .updateAttrFromParam({attr: 'href', param: 'source'})
+      .updateAttrFromParam({attr: 'href', param: 'referrer'});
+  	// Add URL param "source" as hidden input on AN forms
+    $('.can_embed form, form[action^="https://actionnetwork.org/"]')
+      .appendHiddenInputFromParam('source')
+      .appendHiddenInputFromParam('referrer');
+  });
 
-	// Add URL param "source" to host buttons
-	  $("a.host_button").each(function(){
-	    var url = $(this).attr('href');
-	    if ( ~url.indexOf("?") ){
-	      var url_new = url + '&source=' + url_source;
-	    } else {
-	      var url_new = url + '?source=' + url_source;
-	    }
-	    $(this).attr('href', url_new);
-	    // console.log('host button link (source): '+$(this).attr('href'));
-	  });
-  }
-
-  var url_referrer = urlParam('referrer');
-	// console.log('referrer: '+url_referrer);
-
-  if ( url_referrer ){
-	// Add URL param "referrer" to megamap
-    $("iframe.megamap").each(function(){
-      var datasrc = $(this).attr('data-src');
-      if ( ~datasrc.indexOf("?") ){
-        var datasrc_new = datasrc + '&referrer=' + url_referrer;
-      } else {
-        var datasrc_new = datasrc + '?referrer=' + url_referrer;
-      }
-      $(this).attr('data-src', datasrc_new);
-      // console.log('iframe data-src: '+$(this).attr('data-src'));
-    });
-
-	// Add URL param "referrer" to host buttons
-    $("a.host_button").each(function(){
-      var url = $(this).attr('href');
-      if ( ~url.indexOf("?") ){
-        var url_new = url + '&referrer=' + url_referrer;
-      } else {
-        var url_new = url + '?referrer=' + url_referrer;
-      }
-      $(this).attr('href', url_new);
-      // console.log('host button link (referrer): '+$(this).attr('href'));
-    });
-  }
 }); /* end of as page load scripts */
