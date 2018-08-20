@@ -1165,8 +1165,8 @@
 		"oA": 1,
 		"oAP": "\/js\/countdown-timer\/js-countdown-timer-min.js",
 		"oF": 0,
-		"sC": 3,
-		"tS": 0
+		"sC": 0,
+		"tS": 1
 		},
 	"\/js\/image-upload.js": {
 		"ft": 64,
@@ -1175,8 +1175,8 @@
 		"oA": 1,
 		"oAP": "\/js\/image-upload-min.js",
 		"oF": 0,
-		"sC": 3,
-		"tS": 0
+		"sC": 0,
+		"tS": 1
 		},
 	"\/js\/jquery.peity.min.js": {
 		"ft": 64,
@@ -1185,8 +1185,28 @@
 		"oA": 1,
 		"oAP": "\/js\/jquery.peity.min-min.js",
 		"oF": 0,
-		"sC": 3,
-		"tS": 0
+		"sC": 0,
+		"tS": 1
+		},
+	"\/js\/localize-time-date.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/localize-time-date-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 1
+		},
+	"\/js\/scripts-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "\/js\/scripts-min-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 1
 		},
 	"\/js\/scripts.js": {
 		"ft": 64,
@@ -1195,8 +1215,8 @@
 		"oA": 0,
 		"oAP": "\/js\/scripts-min.js",
 		"oF": 0,
-		"sC": 3,
-		"tS": 0
+		"sC": 0,
+		"tS": 1
 		},
 	"\/js\/webfont.js": {
 		"ft": 64,
@@ -1205,8 +1225,8 @@
 		"oA": 1,
 		"oAP": "\/js\/webfont-min.js",
 		"oF": 0,
-		"sC": 3,
-		"tS": 0
+		"sC": 0,
+		"tS": 1
 		},
 	"\/languages\/baseline.pot": {
 		"cB": 0,
@@ -3651,7 +3671,7 @@
 			"flagValue": -1
 			},
 		"forin": {
-			"active": 0,
+			"active": 1,
 			"flagValue": -1
 			},
 		"freeze": {
@@ -3993,8 +4013,8 @@
 		"autoOutputPathStyle": 0,
 		"createSourceMap": 0,
 		"minifyOutput": 1,
-		"syntaxCheckerStyle": 3,
-		"transpilerStyle": 0
+		"syntaxCheckerStyle": 0,
+		"transpilerStyle": 1
 		},
 	"languageDefaultsJSON": {
 		"autoOutputAction": 1,

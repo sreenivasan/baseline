@@ -246,7 +246,7 @@ hr.margin-large{
 .text-wrap-none{
   white-space:nowrap;}
 
-.text-columns{ // FLAG: add to documentation (2018-05-04)
+.text-columns{ // FLAGGED: add to documentation (2018-05-04)
   columns:16em auto;
   column-gap:4em;
   column-rule:1px solid rgba(21,36,43,0.2);}

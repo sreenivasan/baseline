@@ -160,8 +160,7 @@ function urlParam(name){
 /* Take an existing URL within the page and add query parameters to it */
 /* options:
     attrName: 'src',
-    paramName: 'foo',
-    paramValue: 'bar' — defaults to the current window href
+    param: 'source' or 'foo',
     urlEncode: false
 */
 (function($){
@@ -794,13 +793,14 @@ jQuery(document).ready(function($) {
 	// When AK forms have finished loading...
   $(document).on('actionkit.ready',function(){
     // Add URL param "referrer" as hidden input on any AK forms
-    $('.actionkit-widget, form[action="https://act.350.org/act/"]')
+    $('.actionkit-widget, form[action="https://act.350.org/act/"],  form[action="http://act.350.org/act/"]')
       .appendHiddenInputFromParam('source') // redundant b/c AK also detects source param
       .appendHiddenInputFromParam('referrer');
   });
 
 	// Add URL param "source" to AK map iframe src, then AK can append it to map links
-	$('.ak-event-map, iframe[src^="https://act.350.org/"]').updateAttrFromParam({attr: 'src', param:'source'});
+	$('.ak-event-map, iframe[src^="https://act.350.org/"]')
+    .updateAttrFromParam({attr: 'src', param:'source'});
 
   /* FLAGGED: split 350-specific scripts into separate module */
   // Add URL param "source" to megamap (data-src presumes lazyloading)
@@ -814,7 +814,7 @@ jQuery(document).ready(function($) {
     // strip all inputs of events, and then re-run parentFocus script
     $("input, select, textarea").off().parentFocus();
     // Add source/referrer to any outgoing AN links
-    $('a[href^="https://actionnetwork.org/"]')
+    $('a[href^="https://actionnetwork.org/"], a[href^="http://actionnetwork.org/"]')
       .updateAttrFromParam({attr: 'href', param: 'source'})
       .updateAttrFromParam({attr: 'href', param: 'referrer'});
   	// Add URL param "source" as hidden input on AN forms
