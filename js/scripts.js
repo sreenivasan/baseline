@@ -279,10 +279,11 @@ function urlParam(name){
 		var readMoreTranslations = {
 			en: "Read&nbsp;More",
 			fr: "Lire&nbsp;la&nbsp;Suite",
-      ar: "اقرأ أكثر",
+      ar: "Ø§Ù‚Ø±Ø£ Ø£ÙƒØ«Ø±",
       pt: "Leia mais",
-      es: "Leer más",
-      de: "Weiterlesen"
+      es: "Leer mã¡s",
+      de: "Weiterlesen",
+      tr: "Daha&nbsp;fazla&nbsp;oku",
     };
 		var defaultReadMoreText = readMoreTranslations['en'];
 		// Detect language
@@ -797,7 +798,7 @@ jQuery(document).ready(function($) {
       .appendHiddenInputFromParam('source') // redundant b/c AK also detects source param
       .appendHiddenInputFromParam('referrer');
   });
-
+  
 	// Add URL param "source" to AK map iframe src, then AK can append it to map links
 	$('.ak-event-map, iframe[src^="https://act.350.org/"]')
     .updateAttrFromParam({attr: 'src', param:'source'});
@@ -822,5 +823,4 @@ jQuery(document).ready(function($) {
       .appendHiddenInputFromParam('source')
       .appendHiddenInputFromParam('referrer');
   });
-
 }); /* end of as page load scripts */

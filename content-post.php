@@ -13,11 +13,11 @@
 	$author_avatar = get_avatar( get_the_author_meta( 'ID' ), 24, 'mm', get_the_author_meta('display_name') );
 ?>
 <article id="post-<?php echo $post_count; ?>" class="post post-type-post mobile-margin-bottom-huge <?php if ( !$post_thumb_src ){ echo 'post-no-thumb'; } ?>">
-	<a class="post-link area-link clearfix" href="<?php the_permalink(); ?>">
 		<div class="post-thumbnail">
 			<div class="lazy-image-wrapper" <?php if ( $post_thumb_aspect ) { ?>style="padding-bottom:<?php echo $post_thumb_aspect; ?>%"<?php } ?>>
 				<?php if ( $post_thumb_src ) { ?>
-				<img data-src="<?php echo $post_thumb_src[0]; ?>" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" height="<?php echo $post_thumb_height; ?>" width="<?php echo $post_thumb_width; ?>"/>
+					<a class="" href="<?php the_permalink(); ?>">	
+				<img data-src="<?php echo $post_thumb_src[0]; ?>" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" height="<?php echo $post_thumb_height; ?>" width="<?php echo $post_thumb_width; ?>"/></a>
 				<noscript>
 					<?php the_post_thumbnail(); ?>
 				</noscript>
@@ -61,6 +61,5 @@
 			</footer>
 		</div>
 	</a>
-
 	<div class="clear"></div>
 </article>

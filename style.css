@@ -153,6 +153,7 @@ ol li:before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: inherit;
+
   content: counter(li, decimal);
   counter-increment: li;
   font-size: 0.6em;
@@ -889,6 +890,7 @@ a.text-unstyled:hover {
 
 .bg-position-left {
   background-position: left center; }
+
 
 @media screen and (min-width: 950px) {
   .bg-attach-fixed {
@@ -4662,6 +4664,7 @@ div.alignright {
 @media screen and (min-width: 680px) {
   #site-language-nav-toggle-text {
     display: initial; } }
+
 
 /* Arabic */
 nav.nav-desktop-dropdown.meta .menu .lang-ar a {

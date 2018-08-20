@@ -1141,6 +1141,38 @@
 		"oAP": "\/homepage-default.php",
 		"oF": 0
 		},
+	"\/images\/nav-icon-dark.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 0,
+		"oAP": "\/images\/nav-icon-dark.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"\/images\/sprite.png": {
+		"ft": 32768,
+		"iS": 26872,
+		"oA": 0,
+		"oAP": "\/images\/sprite.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"\/images\/sprite@2x.png": {
+		"ft": 32768,
+		"iS": 61999,
+		"oA": 0,
+		"oAP": "\/images\/sprite@2x.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"\/index.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -4014,7 +4046,7 @@
 		"createSourceMap": 0,
 		"minifyOutput": 1,
 		"syntaxCheckerStyle": 0,
-		"transpilerStyle": 1
+		"transpilerStyle": 1,
 		},
 	"languageDefaultsJSON": {
 		"autoOutputAction": 1,

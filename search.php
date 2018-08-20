@@ -46,12 +46,12 @@ foreach($query_args as $key => $string) {
 </div>
 <div id="search-results" class="page-content section bg-white width-wide padding-normal">
 	<div class="section-inner" id="search-results-inner">
+
 		<?php
 			while ( have_posts()) : the_post();
 				$post_type = get_post_type();
 
 				if ($post_type != 'team-member'){
-
 					switch ($post_type) {
 					    case "post":
 					        $pretty_post_type = "Post";
@@ -68,7 +68,7 @@ foreach($query_args as $key => $string) {
 			        default:
 					        $pretty_post_type = $post_type;
 					}
-
+          
 					echo	'<article id="post-' . $post_count. '" class="post post-type-post mobile-margin-bottom-huge post-no-thumb">
 							<a class="area-link" href="' . get_the_permalink() . '">
 								<div class="c10 ct10 cm10">
@@ -88,16 +88,8 @@ foreach($query_args as $key => $string) {
 							</a>
 						</article>';
 				}
-/*
-				if ( $post_type ){
-					get_template_part('content', $post_type );
-				} else {
-					get_template_part('content','post');
-					//include(locate_template('content-post.php'));
-				}
-*/
-			endwhile;
 
+			endwhile;
 			if ( $total_pages > 1 ):
 
 				echo '<div class="pagination">';
