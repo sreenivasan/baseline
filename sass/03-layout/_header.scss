@@ -7,7 +7,7 @@
   - Header layouts (compact and left-aligned is default)
 */
 
-
+$site-header-item-height: calc(2rem + 1vh + .55vw);
 /* ----- Site header container + general----- */
 #site-header{
   order:0;
@@ -25,9 +25,10 @@
   align-items:center;
   display:flex;
   flex:0 1 auto;
+  font-size:0.85em;
   height:auto;
   min-height:2.5rem;
-  min-height:calc(2.2rem + 1.3vh + .7vw);
+  min-height:$site-header-item-height;
   margin:0 0.5rem;
   order:10;}
 .site-header-divider{
@@ -72,21 +73,18 @@
   margin-bottom:0;
   margin-top:0;
   order:5;
-  padding:0 0 0 1.3rem;
   position:relative;
   min-width:1.3em;
   text-decoration:none;
   width:auto;
   z-index:1000;}
-
+#site-nav-toggle-icon{
+  height:1em;
+  width:1em;}
 #site-nav-toggle-text{
   display:none;
-  font-size:0.85rem;
-  letter-spacing:1px;
-  line-height:2.3;
-  margin-left:0.5em;
-  text-transform:uppercase;
-  transform:translateZ(1px);}
+  font-size:0.85em;
+  line-height:2.3;}
 
 /* Tablet and up */
 @media only screen and (min-width:$mobile-tablet-breakpoint){
@@ -176,7 +174,7 @@
 .site-header-layout-compact.text-center #site-title-link{
   align-items:center;
   display:flex;
-  min-height:2.7rem;
+  min-height:$site-header-item-height; // height has to be re-declared b/c parent is abs. pos.
   margin:0 auto;
   max-width:calc(100vw - 30vw);} // leave space on the left and right for header buttons, etc.}
 .site-header-layout-compact.text-center #site-nav{

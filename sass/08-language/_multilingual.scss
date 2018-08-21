@@ -2,7 +2,9 @@
 /* ----- Language nav ----- */
 
 .site-language-nav{}
-
+#site-language-nav-toggle-icon{
+  position:relative;
+  top:0.02em;}
 // hide the language label text on mobile for space
 #site-language-nav-toggle-text{
   display:none;}

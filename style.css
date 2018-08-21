@@ -1607,9 +1607,9 @@ label[for] {
 
 .inline-svg {
   display: inline-block;
-  height: 1.8em;
+  height: 1.5em;
   margin: 0 0.4em;
-  width: 1.8em; }
+  width: 1.5em; }
 
 /* Images + Media */
 /* removes awkward gap beneath an image due to line height */
@@ -1890,7 +1890,7 @@ nav.section .heading a:hover,
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    font-size: 1em;
+    font-size: 0.9em;
     min-height: 2.8rem;
     height: 100%;
     line-height: 1.2;
@@ -2270,9 +2270,10 @@ input.search-form-submit {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
+  font-size: 0.85em;
   height: auto;
   min-height: 2.5rem;
-  min-height: calc(2.2rem + 1.3vh + .7vw);
+  min-height: calc(2rem + 1vh + .55vw);
   margin: 0 0.5rem;
   -webkit-box-ordinal-group: 11;
       -ms-flex-order: 10;
@@ -2329,22 +2330,20 @@ input.search-form-submit {
   -webkit-box-ordinal-group: 6;
       -ms-flex-order: 5;
           order: 5;
-  padding: 0 0 0 1.3rem;
   position: relative;
   min-width: 1.3em;
   text-decoration: none;
   width: auto;
   z-index: 1000; }
 
+#site-nav-toggle-icon {
+  height: 1em;
+  width: 1em; }
+
 #site-nav-toggle-text {
   display: none;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
-  line-height: 2.3;
-  margin-left: 0.5em;
-  text-transform: uppercase;
-  -webkit-transform: translateZ(1px);
-          transform: translateZ(1px); }
+  font-size: 0.85em;
+  line-height: 2.3; }
 
 /* Tablet and up */
 @media only screen and (min-width: 680px) {
@@ -2453,7 +2452,7 @@ input.search-form-submit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 2.7rem;
+  min-height: calc(2rem + 1vh + .55vw);
   margin: 0 auto;
   max-width: calc(100vw - 30vw); }
 
@@ -4625,6 +4624,12 @@ div.alignright {
   letter-spacing: 0;
   text-transform: none; }
 
+.en #site-nav-toggle-text {
+  letter-spacing: calc(0.07rem - 0.01em);
+  text-transform: uppercase;
+  -webkit-transform: translateZ(1px);
+          transform: translateZ(1px); }
+
 .en .form-layout-horizontal .input-text label,
 .en .form-layout-horizontal .input-select label {
   letter-spacing: calc(0.07rem - 0.01em);
@@ -4638,6 +4643,10 @@ div.alignright {
   text-transform: uppercase; }
 
 /* ----- Language nav ----- */
+#site-language-nav-toggle-icon {
+  position: relative;
+  top: 0.02em; }
+
 #site-language-nav-toggle-text {
   display: none; }
 

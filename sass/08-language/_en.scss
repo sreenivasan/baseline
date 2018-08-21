@@ -14,11 +14,15 @@
     letter-spacing:0;
     text-transform:none;}
 
+  #site-nav-toggle-text{
+    letter-spacing:$default-caps-letterspace-calc;
+    text-transform:uppercase;
+    transform:translateZ(1px);}
 
-.form-layout-horizontal .input-text label,
-.form-layout-horizontal .input-select label{
-  letter-spacing:$default-caps-letterspace-calc;
-  text-transform:uppercase;}
+  .form-layout-horizontal .input-text label,
+  .form-layout-horizontal .input-select label{
+    letter-spacing:$default-caps-letterspace-calc;
+    text-transform:uppercase;}
 
   input.submit,
   input[type="submit"],
