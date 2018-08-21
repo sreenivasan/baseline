@@ -153,7 +153,6 @@ ol li:before {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: inherit;
-
   content: counter(li, decimal);
   counter-increment: li;
   font-size: 0.6em;
@@ -891,7 +890,6 @@ a.text-unstyled:hover {
 .bg-position-left {
   background-position: left center; }
 
-
 @media screen and (min-width: 950px) {
   .bg-attach-fixed {
     background-attachment: fixed; } }
@@ -1098,9 +1096,14 @@ button.active {
   -webkit-transform: scale(0.97);
           transform: scale(0.97); }
 
+/* FLAGGED: inconsistent names :( */
 /* Button modifiers */
 .button-small {
   font-size: 0.85em; }
+
+.button-small2 {
+  font-size: 0.8em;
+  padding: 0.6em 1.2em; }
 
 .button-large,
 .button-big {
@@ -1604,9 +1607,9 @@ label[for] {
 
 .inline-svg {
   display: inline-block;
-  height: 2em;
-  margin: 0 0.3em;
-  width: 2em; }
+  height: 1.8em;
+  margin: 0 0.4em;
+  width: 1.8em; }
 
 /* Images + Media */
 /* removes awkward gap beneath an image due to line height */
@@ -2268,7 +2271,8 @@ input.search-form-submit {
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
   height: auto;
-  min-height: 2.7rem;
+  min-height: 2.5rem;
+  min-height: calc(2.2rem + 1.3vh + .7vw);
   margin: 0 0.5rem;
   -webkit-box-ordinal-group: 11;
       -ms-flex-order: 10;
@@ -2293,7 +2297,6 @@ input.search-form-submit {
   -webkit-box-ordinal-group: 2;
       -ms-flex-order: 1;
           order: 1;
-  padding: 0.55rem 0;
   margin-bottom: 0; }
 
 #site-title-link.logo-image {
@@ -2333,27 +2336,6 @@ input.search-form-submit {
   width: auto;
   z-index: 1000; }
 
-#site-nav-toggle::before {
-  border-top: 0.15em solid;
-  content: ' ';
-  position: absolute;
-  margin-top: -0.075rem;
-  top: 50%;
-  left: 0;
-  width: 1.4rem; }
-
-#site-nav-toggle::after {
-  border-color: inherit;
-  border-width: 0.15rem 0;
-  border-style: solid;
-  content: ' ';
-  height: 0.9rem;
-  left: 0;
-  position: absolute;
-  -webkit-transform: translateZ(1px);
-          transform: translateZ(1px);
-  width: 1.4rem; }
-
 #site-nav-toggle-text {
   display: none;
   font-size: 0.9rem;
@@ -2376,12 +2358,7 @@ input.search-form-submit {
 
 @media only screen and (pointer: fine) {
   #site-nav-toggle {
-    font-size: 1rem; }
-  #site-nav-toggle::before {
-    width: 1.25rem; }
-  #site-nav-toggle::after {
-    height: 0.6rem;
-    width: 1.25rem; } }
+    font-size: 1rem; } }
 
 /*
   Hide site nav on mobile, to be revealed by 'burger menu
@@ -2405,6 +2382,7 @@ input.search-form-submit {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
+  padding: 0.5em;
   -webkit-box-ordinal-group: 10;
       -ms-flex-order: 9;
           order: 9; }
@@ -2438,7 +2416,13 @@ input.search-form-submit {
   .site-header-layout-compact #site-nav.nav-desktop-dropdown,
   .site-header-layout-compact #site-nav.nav-desktop-dropdown a {
     color: currentColor; }
-  /* if dropdown is inside header bar, inherit the header text color + pass it down to children */ }
+  /* if dropdown is inside header bar, inherit the header text color + pass it down to children */
+  /* transparent bg exception */
+  .bg-transparent.site-header-layout-compact #site-header-inner {
+    background-color: transparent; }
+  /* break the chain of background color inheritance */
+  .bg-transparent.site-header-layout-compact #site-nav.nav-desktop-dropdown .menu > li:hover {
+    background-color: rgba(21, 36, 43, 0.75); } }
 
 /* Compact + Center-aligned */
 .site-header-layout-compact.text-center #site-title {
@@ -3482,10 +3466,8 @@ img.b-loaded {
 .headroom {
   border-bottom: 0 none;
   top: 0;
-  -webkit-transition: background-color 700ms, -webkit-transform 100ms ease-in-out;
-  transition: background-color 700ms, -webkit-transform 100ms ease-in-out;
-  transition: transform 100ms ease-in-out, background-color 700ms;
-  transition: transform 100ms ease-in-out, background-color 700ms, -webkit-transform 100ms ease-in-out; }
+  -webkit-transition: all 400ms;
+  transition: all 400ms; }
 
 .headroom--pinned {
   position: -webkit-sticky;
@@ -3493,16 +3475,14 @@ img.b-loaded {
 
 .headroom--pinned.headroom--not-top {
   border-bottom: 1px solid rgba(21, 36, 43, 0.2);
-  -webkit-transform: translateY(0%);
-          transform: translateY(0%); }
+  opacity: 1; }
 
 .headroom--pinned.headroom--not-top.bg-transparent {
-  background-color: rgba(21, 36, 43, 0.4);
+  background-color: rgba(21, 36, 43, 0.5);
   border-bottom: 0 none; }
 
 .headroom--unpinned {
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%); }
+  opacity: 0; }
 
 /* Action Network - CSS for signup forms, events */
 #can_embed_form {
@@ -4664,7 +4644,6 @@ div.alignright {
 @media screen and (min-width: 680px) {
   #site-language-nav-toggle-text {
     display: initial; } }
-
 
 /* Arabic */
 nav.nav-desktop-dropdown.meta .menu .lang-ar a {

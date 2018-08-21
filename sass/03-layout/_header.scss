@@ -26,7 +26,8 @@
   display:flex;
   flex:0 1 auto;
   height:auto;
-  min-height:2.7rem;
+  min-height:2.5rem;
+  min-height:calc(2.2rem + 1.3vh + .7vw);
   margin:0 0.5rem;
   order:10;}
 .site-header-divider{
@@ -43,7 +44,6 @@
   flex:1 1 auto;
   font-size:1.1rem;
   order:1;
-  padding:0.55rem 0;
   margin-bottom:0;}
 #site-title-link.logo-image{
   color:inherit;
@@ -62,7 +62,6 @@
   max-width:10rem;}
 
 
-
 /* ----- Site Nav Controls ----- */
 
 /* CSS-only hamburger menu w/ borders */
@@ -79,24 +78,7 @@
   text-decoration:none;
   width:auto;
   z-index:1000;}
-#site-nav-toggle::before{
-  border-top:0.15em solid;
-  content:' ';
-  position:absolute;
-  margin-top:-0.075rem;
-  top:50%;
-  left:0;
-  width:1.4rem;}
-#site-nav-toggle::after{
-  border-color:inherit;
-  border-width:0.15rem 0;
-  border-style: solid;
-  content:' ';
-  height:0.9rem;;
-  left:0;
-  position:absolute;
-  transform:translateZ(1px);
-  width:1.4rem;}
+
 #site-nav-toggle-text{
   display:none;
   font-size:0.9rem;
@@ -105,6 +87,7 @@
   margin-left:0.3rem;
   text-transform:uppercase;
   transform:translateZ(1px);}
+
 /* Tablet and up */
 @media only screen and (min-width:$mobile-tablet-breakpoint){
   #site-nav-toggle-text{
@@ -118,11 +101,6 @@
 @media only screen and (pointer:fine){
   #site-nav-toggle{
     font-size:1rem;}
-  #site-nav-toggle::before {
-    width:1.25rem;}
-  #site-nav-toggle::after{
-    height:0.6rem;
-    width:1.25rem;}
 }
 
 /*
@@ -142,6 +120,7 @@
 #header-buttons-container{
   display:none;
   flex:0 0 auto;
+  padding:0.5em;
   order:9;}
 @media only screen and (min-width:$mobile-tablet-breakpoint){
   #header-buttons-container{
@@ -169,6 +148,12 @@
   .site-header-layout-compact #site-nav.nav-desktop-dropdown,
   .site-header-layout-compact #site-nav.nav-desktop-dropdown a{
     color:currentColor;} /* if dropdown is inside header bar, inherit the header text color + pass it down to children */
+
+  /* transparent bg exception */
+  .bg-transparent.site-header-layout-compact #site-header-inner{
+    background-color:transparent;} /* break the chain of background color inheritance */
+  .bg-transparent.site-header-layout-compact #site-nav.nav-desktop-dropdown .menu > li:hover{
+    background-color:transparentize($color-dark, 0.25);}
 
 }
 

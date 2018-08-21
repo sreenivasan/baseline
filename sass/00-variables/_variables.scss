@@ -32,6 +32,8 @@ $max-width-medium:48rem;
 $max-width-wide:56rem;
 $max-width-extrawide:68rem;
 
+$color-dark:rgb(21,36,43);
+
 @function wva-pair($multiplier) {
   $ratio: 2.2;
   $cross_axis_unit: 1 / ($ratio + 1); // solve for ratio(x) + x = 1

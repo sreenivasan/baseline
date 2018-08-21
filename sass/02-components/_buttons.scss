@@ -52,9 +52,13 @@ button:active,
 button.active{
   transform:scale(0.97);}
 
+/* FLAGGED: inconsistent names :( */
 /* Button modifiers */
 .button-small{
   font-size:0.85em;}
+.button-small2{
+  font-size:0.8em;
+  padding:0.6em 1.2em;}
 .button-large,
 .button-big{
   font-size:1.2em;}

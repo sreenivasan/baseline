@@ -6,15 +6,16 @@
   border-bottom:0 none;
   top:0;
   transition:
-    transform 100ms ease-in-out,
-    background-color 700ms;}
+    all 400ms;}
 .headroom--pinned{
   position:sticky;}
 .headroom--pinned.headroom--not-top{
   border-bottom:1px solid rgba(21,36,43,0.2);
-  transform:translateY(0%);}
+  opacity:1;}
+  // transform:translateY(0%);} Y translate doesn't work well when there's content above the header
 .headroom--pinned.headroom--not-top.bg-transparent{
-  background-color:rgba(21,36,43,0.4);
+  background-color:transparentize($color-dark, 0.5);
   border-bottom:0 none;}
 .headroom--unpinned{
-  transform:translateY(-100%);}
+  opacity:0;}
+  // transform:translateY(-100%);}
