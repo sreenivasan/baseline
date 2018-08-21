@@ -42,7 +42,7 @@ function tf_header_options_page(){
 				<input value="" type="radio" name="site_hide_header" id="site_hide_header_false" <?php if ( !(get_option('site_hide_header')) ){ echo 'checked'; } ?> /> <label for="site_hide_header_false"><strong>Show Header</strong> (default)</label>
 			</p>
 			<p>
-				<input value="true" type="radio" name="site_hide_header" id="site_hide_header_true" <?php if ( (get_option('site_hide_header')) ){ echo 'checked'; } ?> /> <label for="site_hide_header_true"><strong>Hide Header</strong> — Hides header bar, site title, and header buttons. Nav remains visible.</label>
+				<input value="true" type="radio" name="site_hide_header" id="site_hide_header_true" <?php if ( (get_option('site_hide_header')) ){ echo 'checked'; } ?> /> <label for="site_hide_header_true"><strong>Hide Header</strong> — Hides entire header bar, including site title and navigation.</label>
 			</p>
 			<hr>
 			<h3>Header Layout</h3>
