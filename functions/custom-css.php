@@ -194,7 +194,7 @@ function baseline_custom_css() {
 	input.submit,
 	input[type="submit"],
 	button,
-	a.button{
+	.button{
 		background-color:'. $button_color .';}
 	.button-primary,
 	.button-big{
