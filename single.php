@@ -106,7 +106,7 @@
 		</div>
 	</div>
 <?php endif; ?>
-	<article id="page-content" class="content section bg-white width-normal padding-medium">
+	<article id="page-content" class="content section bg-white width-narrow padding-medium">
 		<div id="page-content-inner" class="section-inner">
 			<?php the_content(); ?>
 		</div>
