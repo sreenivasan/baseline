@@ -31,5 +31,6 @@ addthis_share = {
 <!--[if lt IE 8]>
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); echo '/ie/ie7.css'; ?>" type="text/css">
 <![endif]-->
+helloooo
 </body>
 </html>
