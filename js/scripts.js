@@ -749,13 +749,17 @@ jQuery(document).ready(function($) {
   // Set up AJAX links
 	$('.ajax-link').ajaxLink();
 
+
+  var headerSticky = document.querySelector(".site-header-layout-compact");
+  var headerYPosition = (shyStickyElem.offsetTop) ? shyStickyElem.offsetTop : 0;
   // Headroom - "shy" sticky
   // grab an element, construct an instance of Headroom and init
-  var shyStickyOptions = {
+  var headerStickyOptions = {
     tolerance: {
       up: 5,
       down: 5
     },
+    offset: headerYPosition,
     onPin: function(){
       $('body').addClass('has-shySticky-active');
     },
@@ -763,9 +767,8 @@ jQuery(document).ready(function($) {
       $('body').removeClass('has-shySticky-active');
     },
   }
-  var shyStickyElem = document.querySelector(".site-header-layout-compact");
-  if (shyStickyElem){
-    var shySticky  = new Headroom(shyStickyElem, shyStickyOptions);
+  if (headerSticky){
+    var shySticky  = new Headroom(headerSticky, headerStickyOptions);
     shySticky.init();
   }
 
@@ -798,7 +801,7 @@ jQuery(document).ready(function($) {
       .appendHiddenInputFromParam('source') // redundant b/c AK also detects source param
       .appendHiddenInputFromParam('referrer');
   });
-  
+
 	// Add URL param "source" to AK map iframe src, then AK can append it to map links
 	$('.ak-event-map, iframe[src^="https://act.350.org/"]')
     .updateAttrFromParam({attr: 'src', param:'source'});
