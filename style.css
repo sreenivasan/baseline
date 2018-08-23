@@ -300,6 +300,12 @@ dd {
 .bg-transparent {
   color: #fff; }
 
+.bg-transparent a {
+  color: rgba(255, 255, 255, 0.8); }
+
+.bg-transparent a:hover {
+  color: white; }
+
 .bg-blue,
 .button.bg-blue {
   background-color: #0f81e8;
@@ -1861,6 +1867,13 @@ nav.section .heading a:hover,
     font-size: 0;
     /* removes whitespace between menu items */
     padding: 0; }
+  /* Dropdown Navs */
+  /* To avoid a collision between the inherited bg color, the sub-menu bg color
+     tinting, and the link hover styles, divide the CSS functions like this:
+     - all bg color inheritance is done through <li> tags
+     - all non-hover bg color tinting is done on ul.sub-menu ::before pseudo-elements
+     - all cosmetic hover styling is done on the <a> tags
+  */
   nav.nav-desktop-dropdown.bg-transparent {
     border: 0 none; }
   nav.nav-desktop-dropdown.text-center .section-inner {
@@ -1873,15 +1886,18 @@ nav.section .heading a:hover,
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    background-color: inherit;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     height: 100%; }
   nav.nav-desktop-dropdown li {
+    background-color: inherit;
     font-size: 1rem;
     height: 100%;
     margin-bottom: 0;
-    position: relative; }
+    position: relative;
+    z-index: 2; }
   nav.nav-desktop-dropdown a {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -1897,13 +1913,16 @@ nav.section .heading a:hover,
     padding: 0.5rem 1rem; }
   nav.nav-desktop-dropdown a:hover,
   nav.nav-desktop-dropdown .menu-item-has-children:hover > a {
-    background-color: rgba(21, 36, 43, 0.25); }
+    background-color: rgba(21, 36, 43, 0.2); }
+  /* Reverse hover colors for dkgray backgrounds */
   nav.nav-desktop-dropdown.bg-dkgray a:hover,
   nav.nav-desktop-dropdown.bg-dkgray .menu-item-has-children:hover > a,
   .bg-dkgray nav.nav-desktop-dropdown a:hover,
   .bg-dkgray nav.nav-desktop-dropdown .menu-item-has-children:hover > a {
-    background-color: rgba(255, 255, 255, 0.15); }
-  /* Parent styles */
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff; }
+  /* Nav items w/ children styles */
+  /* add down arrow indicating this menu item has children */
   nav.nav-desktop-dropdown .menu-item-has-children > a::after {
     border-top: 0.4em solid;
     border-left: 0.28em solid transparent;
@@ -1924,29 +1943,47 @@ nav.section .heading a:hover,
     top: 100%;
     min-width: 330px;
     z-index: 9999; }
+  /* pseudo element used to tint the submenu lighter or darker than the inherited bg color */
+  nav.nav-desktop-dropdown .sub-menu::after {
+    background-color: rgba(21, 36, 43, 0.2);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1; }
+  /* stop bg-color chain of inheritance after the first submenu */
+  nav.nav-desktop-dropdown .sub-menu li {
+    background-color: transparent; }
+  /* Reverse color tinting for black/dkgray bgs */
+  nav.nav-desktop-dropdown.bg-dkgray .sub-menu::after,
+  .bg-dkgray nav.nav-desktop-dropdown .sub-menu::after {
+    background-color: rgba(255, 255, 255, 0.15); }
+  /* show sub-menu on hover */
   nav.nav-desktop-dropdown .menu-item-has-children:hover .sub-menu {
     display: block; }
-  nav.nav-desktop-dropdown .sub-menu li {
-    background-color: rgba(21, 36, 43, 0.25);
-    z-index: 3; }
   nav.nav-desktop-dropdown .sub-menu a {
     font-size: 1rem;
     padding-top: 0.75em;
     padding-bottom: 0.75em; }
+  nav.nav-desktop-dropdown .sub-menu a:hover {
+    background-color: rgba(21, 36, 43, 0.2); }
   nav.nav-desktop-dropdown .sub-menu a::before {
     content: '';
     margin: 0; }
-  /* undo the hover styles that keep the parent item 'active' while the submenu is open */
+  /* Don't keep the parent highlighted when hovering within a submenu */
   nav.nav-desktop-dropdown .sub-menu .menu-item-has-children:hover > a {
     background-color: transparent; }
-  /* reactivate the hover styles for the */
   nav.nav-desktop-dropdown .sub-menu .menu-item-has-children:hover > a:hover {
-    background-color: inherit; }
+    background-color: rgba(21, 36, 43, 0.2); }
+  /* reverse colors for contrast on dkgray-trans */
   nav.nav-desktop-dropdown.bg-dkgray .sub-menu a:hover,
-  nav.nav-desktop-dropdown.bg-dkgray .sub-menu li:hover a,
+  nav.nav-desktop-dropdown.bg-dkgray .sub-menu .menu-item-has-children:hover > a:hover,
   .bg-dkgray nav.nav-desktop-dropdown .sub-menu a:hover,
-  .bg-dkgray nav.nav-desktop-dropdown .sub-menu li:hover a {
-    background: rgba(255, 255, 255, 0.3); }
+  .bg-dkgray nav.nav-desktop-dropdown .sub-menu .menu-item-has-children:hover > a:hover {
+    background: rgba(255, 255, 255, 0.2); }
+  /* Remove the 'down' arrow on parent items within submenus */
   nav.nav-desktop-dropdown .sub-menu .menu-item-has-children a::after {
     display: none; }
   /* if a top-level dropdown menu item with a submenu is last or second-to-last,
@@ -1960,19 +1997,29 @@ nav.section .heading a:hover,
     border: 0 none;
     background: transparent;
     display: block;
-    padding-bottom: 1rem;
+    padding-bottom: 1em;
     padding-left: 0;
     position: static; }
+  nav.nav-desktop-dropdown .sub-menu .sub-menu::after {
+    display: none; }
   nav.nav-desktop-dropdown .sub-menu .sub-menu li {
     background-color: transparent; }
   nav.nav-desktop-dropdown .sub-menu .sub-menu a {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.9rem;
+    font-size: 0.85em;
+    min-height: 2em;
     padding: 0.3em 0.5em 0.3em 2em; }
+  nav.nav-desktop-dropdown .sub-menu .sub-menu a:hover {
+    background-color: rgba(21, 36, 43, 0.2); }
   nav.nav-desktop-dropdown .sub-menu .sub-menu a::before {
     content: '– ';
     position: absolute;
     left: 1em; }
+  /* reverse colors for contrast on dkgray-trans */
+  nav.nav-desktop-dropdown.bg-dkgray .sub-menu .sub-menu a:hover,
+  nav.nav-desktop-dropdown.bg-dkgray .sub-menu .sub-menu li:hover > a,
+  .bg-dkgray nav.nav-desktop-dropdown .sub-menu .sub-menu a:hover,
+  .bg-dkgray nav.nav-desktop-dropdown .sub-menu .sub-menu li:hover > a {
+    background: rgba(255, 255, 255, 0.2); }
   /* .meta dropdown */
   nav.nav-desktop-dropdown.meta .menu a {
     font-size: 0.65rem;
@@ -2316,8 +2363,8 @@ input.search-form-submit {
 
 #site-title-link.logo-image img {
   display: block;
-  max-height: 5rem;
-  max-width: 10rem; }
+  max-height: 6rem;
+  max-width: 15rem; }
 
 /* ----- Site Nav Controls ----- */
 /* CSS-only hamburger menu w/ borders */
@@ -2393,38 +2440,48 @@ input.search-form-submit {
     display: flex; } }
 
 /* ----- Site header layouts ----- */
-/* Compact + Left-aligned */
-.site-header-layout-compact #site-header-inner {
+/* Headless: no logo, just hamburger nav */
+.site-header-layout-headless #site-title {
+  display: none; }
+
+.site-header-layout-headless #site-nav-toggle {
+  margin-left: auto; }
+
+.site-header-layout-headless .site-header-divider {
+  margin: 0; }
+
+/* Logo left and dropdown nav right */
+.site-header-layout-logo_left-compact #site-header-inner {
   padding: 0 0.5vw; }
 
-.site-header-layout-compact.text-left .site-header-divider {
+.site-header-layout-logo_left-compact .site-header-divider {
   display: block;
   -webkit-box-ordinal-group: 5;
       -ms-flex-order: 4;
           order: 4; }
 
 @media only screen and (min-width: 950px) {
-  .site-header-layout-compact.text-left #site-title {
+  .site-header-layout-logo_left-compact #site-title {
     white-space: nowrap; }
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown,
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown .section-inner,
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown .menu,
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown .menu > li {
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown,
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown .section-inner,
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown .menu,
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown .menu > li {
     background-color: inherit; }
   /* if dropdown is inside header bar, inherit the header bg + pass it down to children */
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown,
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown a {
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown,
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown a {
     color: currentColor; }
   /* if dropdown is inside header bar, inherit the header text color + pass it down to children */
   /* transparent bg exception */
-  .bg-transparent.site-header-layout-compact #site-header-inner {
+  .bg-transparent.site-header-layout-logo_left-compact #site-header-inner {
     background-color: transparent; }
   /* break the chain of background color inheritance */
-  .bg-transparent.site-header-layout-compact #site-nav.nav-desktop-dropdown .menu > li:hover {
+  .bg-transparent.site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown .menu > li:hover {
     background-color: rgba(21, 36, 43, 0.75); } }
 
-/* Compact + Center-aligned */
-.site-header-layout-compact.text-center #site-title {
+/* Logo center + nav icon left (single row)*/
+.site-header-layout-logo_center-compact #site-title {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -2445,7 +2502,7 @@ input.search-form-submit {
   top: 0;
   width: 100%; }
 
-.site-header-layout-compact.text-center #site-title-link {
+.site-header-layout-logo_center-compact #site-title-link {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2456,43 +2513,26 @@ input.search-form-submit {
   margin: 0 auto;
   max-width: calc(100vw - 30vw); }
 
-.site-header-layout-compact.text-center #site-nav {
+.site-header-layout-logo_center-compact #site-nav {
   display: none; }
 
-.site-header-layout-compact.text-center #site-nav-toggle {
+.site-header-layout-logo_center-compact #site-nav-toggle {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2; }
 
-.site-header-layout-compact.text-center .site-header-divider {
+.site-header-layout-logo_center-compact .site-header-divider {
   -webkit-box-ordinal-group: 6;
       -ms-flex-order: 5;
           order: 5; }
 
-.site-header-layout-compact.text-center #header-buttons-container {
+.site-header-layout-logo_center-compact #header-buttons-container {
   -webkit-box-ordinal-group: 9;
       -ms-flex-order: 8;
           order: 8; }
 
-/* Stacked, both Center + Left-aligned */
-.site-header-layout-stacked #site-nav {
-  margin: 0;
-  padding-left: 1.4vw;
-  -webkit-box-ordinal-group: 16;
-      -ms-flex-order: 15;
-          order: 15;
-  width: 100%; }
-
-@media only screen and (min-width: 950px) {
-  .site-header-layout-stacked #site-header-inner {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap; } }
-
-/* Stacked, Left-aligned
-.site-header-layout-stacked.text-left #site-title{
-  margin-left:2.5vw;}*/
-/* Stacked + Center-aligned */
-.site-header-layout-stacked.text-center #site-title {
+/* Logo center, stacked dropdown nav (two rows)*/
+.site-header-layout-logo_center-stacked #site-title {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2506,20 +2546,39 @@ input.search-form-submit {
   margin: 0;
   width: 100%; }
 
-.site-header-layout-stacked.text-center .site-header-divider {
+.site-header-layout-logo_center-stacked #site-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding-left: 1.4vw;
+  -webkit-box-ordinal-group: 16;
+      -ms-flex-order: 15;
+          order: 15;
+  width: 100%; }
+
+.site-header-layout-logo_center-stacked #site-nav-toggle {
+  display: none; }
+
+.site-header-layout-logo_center-stacked .site-header-divider {
   display: block;
   -webkit-box-ordinal-group: 8;
       -ms-flex-order: 7;
           order: 7; }
 
 @media only screen and (min-width: 680px) {
-  .site-header-layout-stacked.text-center #header-buttons-container {
+  .site-header-layout-logo_center-stacked #header-buttons-container {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; } }
+    display: flex;
+    position: absolute;
+    right: 0; } }
 
 @media only screen and (min-width: 950px) {
-  .site-header-layout-stacked.text-center #site-nav.nav-desktop-dropdown {
+  .site-header-layout-logo_center-stacked #site-header-inner {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+  .site-header-layout-logo_center-stacked #site-nav.nav-desktop-dropdown {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center; } }
@@ -3474,14 +3533,18 @@ img.b-loaded {
 
 .headroom--pinned.headroom--not-top {
   border-bottom: 1px solid rgba(21, 36, 43, 0.2);
-  opacity: 1; }
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0); }
 
 .headroom--pinned.headroom--not-top.bg-transparent {
   background-color: rgba(21, 36, 43, 0.5);
   border-bottom: 0 none; }
 
 .headroom--unpinned {
-  opacity: 0; }
+  opacity: 0;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%); }
 
 /* Action Network - CSS for signup forms, events */
 #can_embed_form {
@@ -4623,6 +4686,9 @@ div.alignright {
   font-size: 1rem;
   letter-spacing: 0;
   text-transform: none; }
+
+.en nav.nav-desktop-dropdown .sub-menu .sub-menu a {
+  font-size: 0.85em; }
 
 .en #site-nav-toggle-text {
   letter-spacing: calc(0.07rem - 0.01em);
