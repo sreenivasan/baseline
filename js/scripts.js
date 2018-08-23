@@ -751,7 +751,7 @@ jQuery(document).ready(function($) {
 
 
   var headerSticky = document.querySelector(".site-header-layout-compact");
-  var headerYPosition = (shyStickyElem.offsetTop) ? shyStickyElem.offsetTop : 0;
+  var headerYPosition = 0;
   // Headroom - "shy" sticky
   // grab an element, construct an instance of Headroom and init
   var headerStickyOptions = {
@@ -768,6 +768,7 @@ jQuery(document).ready(function($) {
     },
   }
   if (headerSticky){
+    headerYPosition = (headerSticky.offsetTop) ? headerSticky.offsetTop : 0;
     var shySticky  = new Headroom(headerSticky, headerStickyOptions);
     shySticky.init();
   }
