@@ -25,8 +25,10 @@
   visibility:hidden;}
 
 /* Specialized section classes */
+// Re-arrange the flex order to move a section above the header
 .section-order-beforeheader{
   order:-5;}
+// Make it so the nearest relatively-positioned parent is the outer section <div>, not the inner
 .section.section-position-outer .section-inner{
   position:static;}
 
