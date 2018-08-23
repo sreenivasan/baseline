@@ -3,6 +3,12 @@
 /* FLAGGED: Move these colors to a 350-specific module */
 .bg-transparent{
   color:#fff;}
+.bg-transparent a{
+  color:rgba(255,255,255,0.8);}
+.bg-transparent a:hover{
+  color:rgba(255,255,255,1);}
+
+
 .bg-blue,
 .button.bg-blue{
   background-color:#0f81e8;
