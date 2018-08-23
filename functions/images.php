@@ -3,7 +3,7 @@
 function tfbase_images() {
 	add_theme_support('post-thumbnails');
 	set_post_thumbnail_size( 430, 400 ); // default Post Thumbnail dimensions
-	add_image_size('dataURI-preview', 20, 15); 
+	add_image_size('dataURI-preview', 20, 15);
 	add_image_size('small', 430, 400);
 	add_image_size('page-background', 1280, 800);
 	add_image_size('page-background-medium', 768, 1024);
@@ -30,7 +30,10 @@ function bones_filter_ptags_on_images($content){
 add_filter('the_content', 'bones_filter_ptags_on_images');
 
 // Increase default JPEG compression quality
-add_filter( 'jpeg_quality', create_function( '', 'return 70;' ) );
+function increase_image_compression_quality(){
+	return 70;
+}
+add_filter( 'jpeg_quality', 'increase_image_compression_quality');
 
 // Switch image uploads to https://
 function have_https_for_media( $url ) {
@@ -82,7 +85,7 @@ function sizes_column( $cols ) {
 // Fill the Sizes column
 function sizes_value( $column_name, $id ) {
     if ( $column_name == "sizes" ) {
-        // Including the direcory makes the list much longer 
+        // Including the direcory makes the list much longer
         // but required if you use /year/month for uploads
         $up_load_dir =  wp_upload_dir();
         $dir = $up_load_dir['url'];
