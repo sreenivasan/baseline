@@ -1,6 +1,6 @@
 <?php
 	$lang = substr(get_locale(),0,2);
-	$hide_header = get_option('site_hide_header');
+
 // check for ACF support for custom share info
 	$acf_on = function_exists('get_field');
 // Header Bar Background color
@@ -12,16 +12,79 @@
 // Language Nav Bar Background color
 	$langnav_bgcolor_option = get_option('site_langnav_bgcolor','dkgray-trans');
 	$langnav_bgcolor = !empty( $langnav_bgcolor_option ) ? $langnav_bgcolor_option : 'white';
-// Header alignment options
+
+
 	$site_header_layout_option = get_option('site_header_layout');
+// Header alignment options
+	// If site header layout option is present, and not equal to a legacy value...
+
+$site_header_layout_leftcompact = [
+	"name" => "logo_left-compact",
+	"nav-type" => "nav-desktop-dropdown",
+	"text-align" => "left"
+];
+$site_header_layout_centercompact = [
+	"name" => "logo_center-compact",
+	"nav-type" => "nav-desktop-modal",
+	"text-align" => "center"
+];
+$site_header_layout_centerstacked = [
+	"name" => "logo_center-stacked",
+	"nav-type" => "nav-desktop-dropdown",
+	"text-align" => "center"
+];
+$site_header_layout_headless = [
+	"name" => "headless",
+	"nav-type" => "nav-desktop-modal",
+	"text-align" => "left"
+];
+
+$site_header_layout = $site_header_layout_leftcompact;
+
+if ( $site_header_layout_option && $site_header_layout_option !== "site-header-layout-compact" ) {
+	if ( $site_header_layout_option === "logo_center-compact" ){
+		$site_header_layout = $site_header_layout_centercompact;
+	} else if ( $site_header_layout_option === "logo_center-stacked" ){
+		$site_header_layout = $site_header_layout_centerstacked;
+	} else if ( $site_header_layout_option === "headless" ){
+		$site_header_layout = $site_header_layout_headless;
+	} else {
+		$site_header_layout = $site_header_layout_leftcompact;
+	}
+} else {
+	// if no header layout option present, look at legacy header options and pick the closest match
+	$hide_header = get_option('site_hide_header');
 	$header_alignment_option = get_option('site_header_alignment','text-center');
 	$header_alignment = !empty( $header_alignment_option ) ? $header_alignment_option : 'text-center';
+	$nav_desktop_display = get_option('site_nav_display_desktop','desktop-modal');
+
+	if ( $hide_header){
+		$site_header_layout = $site_header_layout_headless;
+	}
+	else if ( $site_header_layout_option === "site-header-layout-compact" ){
+		if ( $header_alignment === "text-center"){
+			$site_header_layout = $site_header_layout_centercompact;
+		} else {
+			$site_header_layout = $site_header_layout_leftcompact;
+		}
+	}
+	else if ( $header_alignment === "text-center"){
+		$site_header_layout = $site_header_layout_centerstacked;
+	}
+	else {
+		$site_header_layout = $site_header_layout_leftcompact;
+	}
+
+}
+
+
+
 
 	$header_fb_url = get_option('header_fb_pageurl');
 	$header_buttons = get_option('header_buttons');
 	$site_nav_button_label = get_option('site_nav_button_label');
 
-	$nav_desktop_display = get_option('site_nav_display_desktop','desktop-modal');
+
 	$site_logo = get_option('site_logo_url');
 // Background image options
 	$body_bg_color_class = '';

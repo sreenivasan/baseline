@@ -59,8 +59,8 @@ $site-header-item-height: calc(2rem + 1vh + .55vw);
   color:inherit;}
 #site-title-link.logo-image img{
   display:block;
-  max-height:5rem;
-  max-width:10rem;}
+  max-height:6rem;
+  max-width:15rem;}
 
 
 /* ----- Site Nav Controls ----- */
@@ -128,36 +128,46 @@ $site-header-item-height: calc(2rem + 1vh + .55vw);
 
 /* ----- Site header layouts ----- */
 
-/* Compact + Left-aligned */
-.site-header-layout-compact #site-header-inner{
+/* Headless: no logo, just hamburger nav */
+.site-header-layout-headless #site-title{
+  display:none;}
+.site-header-layout-headless #site-nav-toggle{
+  margin-left:auto;}
+.site-header-layout-headless .site-header-divider{
+  margin:0;}
+
+
+
+/* Logo left and dropdown nav right */
+.site-header-layout-logo_left-compact #site-header-inner{
   padding:0 0.5vw;;}
-.site-header-layout-compact.text-left .site-header-divider{
+.site-header-layout-logo_left-compact .site-header-divider{
   display:block;
   order:4;}
 @media only screen and (min-width:$tablet-desktop-breakpoint){
-  .site-header-layout-compact.text-left #site-title{
+  .site-header-layout-logo_left-compact #site-title{
     white-space:nowrap;} //make sure other header junk doesn't force the site title to wrap
 
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown,
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown .section-inner,
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown .menu,
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown .menu > li{
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown,
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown .section-inner,
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown .menu,
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown .menu > li{
     background-color:inherit;} /* if dropdown is inside header bar, inherit the header bg + pass it down to children */
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown,
-  .site-header-layout-compact #site-nav.nav-desktop-dropdown a{
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown,
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown a{
     color:currentColor;} /* if dropdown is inside header bar, inherit the header text color + pass it down to children */
 
   /* transparent bg exception */
-  .bg-transparent.site-header-layout-compact #site-header-inner{
+  .bg-transparent.site-header-layout-logo_left-compact #site-header-inner{
     background-color:transparent;} /* break the chain of background color inheritance */
-  .bg-transparent.site-header-layout-compact #site-nav.nav-desktop-dropdown .menu > li:hover{
+  .bg-transparent.site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown .menu > li:hover{
     background-color:transparentize($color-dark, 0.25);}
 
 }
 
 
-/* Compact + Center-aligned */
-.site-header-layout-compact.text-center #site-title{
+/* Logo center + nav icon (single row)*/
+.site-header-layout-logo_center-compact #site-title{
   align-items:flex-start;
   flex:0 0 100%;
   min-height:0;
@@ -171,60 +181,51 @@ $site-header-item-height: calc(2rem + 1vh + .55vw);
   text-align:center;
   top:0;
   width:100%;}
-.site-header-layout-compact.text-center #site-title-link{
+.site-header-layout-logo_center-compact #site-title-link{
   align-items:center;
   display:flex;
   min-height:$site-header-item-height; // height has to be re-declared b/c parent is abs. pos.
   margin:0 auto;
   max-width:calc(100vw - 30vw);} // leave space on the left and right for header buttons, etc.}
-.site-header-layout-compact.text-center #site-nav{
+.site-header-layout-logo_center-compact #site-nav{
   display:none;}
-.site-header-layout-compact.text-center #site-nav-toggle{
+.site-header-layout-logo_center-compact #site-nav-toggle{
   order:2;}
-.site-header-layout-compact.text-center .site-header-divider{
+.site-header-layout-logo_center-compact .site-header-divider{
   order:5;}
-.site-header-layout-compact.text-center #header-buttons-container{
+.site-header-layout-logo_center-compact #header-buttons-container{
   order:8;}
 
 
-
-
-
-/* Stacked, both Center + Left-aligned */
-.site-header-layout-stacked #site-nav{
-  margin:0;
-  padding-left:1.4vw;
-  order:15;
-  width:100%;}
-@media only screen and (min-width:$tablet-desktop-breakpoint){
-  .site-header-layout-stacked #site-header-inner{
-    flex-wrap:wrap;}
-
-}
-
-/* Stacked, Left-aligned
-.site-header-layout-stacked.text-left #site-title{
-  margin-left:2.5vw;}*/
-
-
-
-/* Stacked + Center-aligned */
-.site-header-layout-stacked.text-center #site-title{
+/* Logo center, stacked dropdown nav (two rows)*/
+.site-header-layout-logo_center-stacked #site-title{
   align-items:center;
   display:flex;
   height:auto;
   justify-content:center;
   margin:0;
-  width:100%;
-}
-.site-header-layout-stacked.text-center .site-header-divider{
+  width:100%;}
+.site-header-layout-logo_center-stacked #site-nav{
+  display:flex;
+  margin:0;
+  padding-left:1.4vw;
+  order:15;
+  width:100%;}
+.site-header-layout-logo_center-stacked #site-nav-toggle{
+  display:none;}
+.site-header-layout-logo_center-stacked .site-header-divider{
   display:block;
   order:7;}
+
 @media only screen and (min-width:$mobile-tablet-breakpoint){
-  .site-header-layout-stacked.text-center #header-buttons-container{
-    display:flex;}
+  .site-header-layout-logo_center-stacked #header-buttons-container{
+    display:flex;
+    position:absolute;
+    right:0;}
 }
 @media only screen and (min-width:$tablet-desktop-breakpoint){
-  .site-header-layout-stacked.text-center #site-nav.nav-desktop-dropdown{
+  .site-header-layout-logo_center-stacked #site-header-inner{
+    flex-wrap:wrap;}
+  .site-header-layout-logo_center-stacked #site-nav.nav-desktop-dropdown{
     justify-content:center;}
 }
