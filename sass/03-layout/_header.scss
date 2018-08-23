@@ -166,7 +166,7 @@ $site-header-item-height: calc(2rem + 1vh + .55vw);
 }
 
 
-/* Logo center + nav icon (single row)*/
+/* Logo center + nav icon left (single row)*/
 .site-header-layout-logo_center-compact #site-title{
   align-items:flex-start;
   flex:0 0 100%;
@@ -216,7 +216,6 @@ $site-header-item-height: calc(2rem + 1vh + .55vw);
 .site-header-layout-logo_center-stacked .site-header-divider{
   display:block;
   order:7;}
-
 @media only screen and (min-width:$mobile-tablet-breakpoint){
   .site-header-layout-logo_center-stacked #header-buttons-container{
     display:flex;

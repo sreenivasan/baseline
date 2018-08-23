@@ -242,6 +242,14 @@ nav.section .heading a:hover,
   nav.section{
     font-size:0; /* removes whitespace between menu items */
     padding:0;}
+
+  /* Dropdown Navs */
+  /* To avoid a collision between the inherited bg color, the sub-menu bg color
+     tinting, and the link hover styles, divide the CSS functions like this:
+     - all bg color inheritance is done through <li> tags
+     - all non-hover bg color tinting is done on ul.sub-menu ::before pseudo-elements
+     - all cosmetic hover styling is done on the <a> tags
+  */
   nav.nav-desktop-dropdown.bg-transparent{
     border:0 none;}
   nav.nav-desktop-dropdown.text-center .section-inner{
@@ -250,13 +258,16 @@ nav.section .heading a:hover,
     display:none;}
   nav.nav-desktop-dropdown .menu{
     align-items:center;
+    background-color:inherit;
     display:flex;
     height:100%;}
   nav.nav-desktop-dropdown li{
+    background-color:inherit;
     font-size:1rem;
     height:100%;
     margin-bottom:0;
-    position:relative;}
+    position:relative;
+    z-index:2;} // position lis over any darkening/lightening pseudo-elements
   nav.nav-desktop-dropdown a{
     align-items:center;
     border-bottom:0 none;
@@ -268,15 +279,17 @@ nav.section .heading a:hover,
     padding:0.5rem 1rem;}
   nav.nav-desktop-dropdown a:hover,
   nav.nav-desktop-dropdown .menu-item-has-children:hover > a{
-    background-color:rgba(21,36,43,0.25);}
+    background-color:rgba(21,36,43,0.2);} // should match with the .sub-menu bg color
+  /* Reverse hover colors for dkgray backgrounds */
   nav.nav-desktop-dropdown.bg-dkgray a:hover,
   nav.nav-desktop-dropdown.bg-dkgray .menu-item-has-children:hover > a,
   .bg-dkgray nav.nav-desktop-dropdown a:hover,
   .bg-dkgray nav.nav-desktop-dropdown .menu-item-has-children:hover > a{
-    background-color:rgba(255,255,255,0.15);}
+    background-color:rgba(255,255,255,0.15); // should match with the first level dark bg sub-menu styles
+    color:#fff;}
 
-
-/* Parent styles */
+/* Nav items w/ children styles */
+  /* add down arrow indicating this menu item has children */
   nav.nav-desktop-dropdown .menu-item-has-children > a::after{
     border-top:0.4em solid;
     border-left:0.28em solid transparent;
@@ -299,29 +312,52 @@ nav.section .heading a:hover,
     top:100%;
     min-width:330px;
     z-index:9999;}
+  /* pseudo element used to tint the submenu lighter or darker than the inherited bg color */
+  nav.nav-desktop-dropdown .sub-menu::after{
+    background-color:rgba(21,36,43,0.2); // should match with the first level link hover styles
+    content:'';
+    height:100%;
+    left:0;
+    position:absolute;
+    top:0;
+    width:100%;
+    z-index:1;}
+  /* stop bg-color chain of inheritance after the first submenu */
+  nav.nav-desktop-dropdown .sub-menu li{
+    background-color:transparent;}
+
+  /* Reverse color tinting for black/dkgray bgs */
+  nav.nav-desktop-dropdown.bg-dkgray .sub-menu::after,
+  .bg-dkgray nav.nav-desktop-dropdown .sub-menu::after{
+    background-color:rgba(255,255,255,0.15);} // should match with the first level dark bg link hover styles
+
+  /* show sub-menu on hover */
   nav.nav-desktop-dropdown .menu-item-has-children:hover .sub-menu{
     display:block;}
-  nav.nav-desktop-dropdown .sub-menu li{
-    background-color:rgba(21,36,43,0.25);
-    z-index:3;} //scoot above submenu ::after darkening element
+
   nav.nav-desktop-dropdown .sub-menu a{
     font-size:1rem;
     padding-top:0.75em;
     padding-bottom:0.75em;}
+  nav.nav-desktop-dropdown .sub-menu a:hover{
+    background-color:rgba(21,36,43,0.2);}
   nav.nav-desktop-dropdown .sub-menu a::before{
     content:''; // remove bullet point from submenu item
     margin:0;}
-  /* undo the hover styles that keep the parent item 'active' while the submenu is open */
+
+  /* Don't keep the parent highlighted when hovering within a submenu */
   nav.nav-desktop-dropdown .sub-menu .menu-item-has-children:hover > a{
     background-color:transparent;}
-  /* reactivate the hover styles for the */
   nav.nav-desktop-dropdown .sub-menu .menu-item-has-children:hover > a:hover{
-    background-color:inherit;}
+    background-color:rgba(21,36,43,0.2);}
+
+  /* reverse colors for contrast on dkgray-trans */
   nav.nav-desktop-dropdown.bg-dkgray .sub-menu a:hover,
-  nav.nav-desktop-dropdown.bg-dkgray .sub-menu li:hover a,
+  nav.nav-desktop-dropdown.bg-dkgray .sub-menu .menu-item-has-children:hover > a:hover,
   .bg-dkgray nav.nav-desktop-dropdown .sub-menu a:hover,
-  .bg-dkgray nav.nav-desktop-dropdown .sub-menu li:hover a{
-      background:rgba(255,255,255,0.3);}
+  .bg-dkgray nav.nav-desktop-dropdown .sub-menu .menu-item-has-children:hover > a:hover{
+      background:rgba(255,255,255,0.2);}
+  /* Remove the 'down' arrow on parent items within submenus */
   nav.nav-desktop-dropdown .sub-menu .menu-item-has-children a::after{
     display:none;}
   /* if a top-level dropdown menu item with a submenu is last or second-to-last,
@@ -337,19 +373,30 @@ nav.section .heading a:hover,
     border:0 none;
     background:transparent;
     display:block;
-    padding-bottom:1rem;
+    padding-bottom:1em;
     padding-left:0;
     position:static;}
+  nav.nav-desktop-dropdown .sub-menu .sub-menu::after{
+    display:none;}
   nav.nav-desktop-dropdown .sub-menu .sub-menu li{
     background-color:transparent;}
   nav.nav-desktop-dropdown .sub-menu .sub-menu a{
-    color:rgba(255,255,255,0.7);
-    font-size:0.9rem;
+    font-size:0.85em;
+    min-height:2em;
     padding:0.3em 0.5em 0.3em 2em;}
+  nav.nav-desktop-dropdown .sub-menu .sub-menu a:hover{
+    background-color:rgba(21,36,43,0.2);}
   nav.nav-desktop-dropdown .sub-menu .sub-menu a::before{
     content:'– ';
     position:absolute;
     left:1em;}
+
+  /* reverse colors for contrast on dkgray-trans */
+  nav.nav-desktop-dropdown.bg-dkgray .sub-menu .sub-menu a:hover,
+  nav.nav-desktop-dropdown.bg-dkgray .sub-menu .sub-menu li:hover > a,
+  .bg-dkgray nav.nav-desktop-dropdown .sub-menu .sub-menu a:hover,
+  .bg-dkgray nav.nav-desktop-dropdown .sub-menu .sub-menu li:hover > a{
+      background:rgba(255,255,255,0.2);}
 
   /* .meta dropdown */
   nav.nav-desktop-dropdown.meta .menu a{
