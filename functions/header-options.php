@@ -1,5 +1,5 @@
 <?php
-
+/* FLAGGED: Move to 350-specific module */
 /* Wrap '350' in site title with <span class="tf-logo"> so CSS can style it */
 function tf_site_title(){
 	$title = get_bloginfo('title');
@@ -105,21 +105,21 @@ function tf_header_options_page(){
 			<label for="site_header_bgcolor">Header Background Color</label>
 			<select id="site_header_bgcolor" name="site_header_bgcolor">
 				<?php foreach ( $site_colors as $color ){ ?>
-				<option <?php if ( get_option('site_header_bgcolor') == $color['slug'] ){ echo 'selected'; } ?> value="<?php echo $color['slug']; ?>"><?php echo $color['name']; ?></option>
+				<option <?php if ( get_option('site_header_bgcolor','white') == $color['slug'] ){ echo 'selected'; } ?> value="<?php echo $color['slug']; ?>"><?php echo $color['name']; ?></option>
 				<?php } ?>
 			</select>
 			<br>
 			<label for="site_mainnav_bgcolor">Main Nav Background Color</label>
 			<select id="site_mainnav_bgcolor" name="site_mainnav_bgcolor">
 				<?php foreach ( $site_colors as $color ){ ?>
-				<option <?php if ( get_option('site_mainnav_bgcolor','dkgray-trans') == $color['slug'] ){ echo 'selected'; } ?> value="<?php echo $color['slug']; ?>"><?php echo $color['name']; ?></option>
+				<option <?php if ( get_option('site_mainnav_bgcolor','white') == $color['slug'] ){ echo 'selected'; } ?> value="<?php echo $color['slug']; ?>"><?php echo $color['name']; ?></option>
 				<?php } ?>
 			</select>
 			<br>
 			<label for="site_langnav_bgcolor">Language Nav Background Color</label>
 			<select id="site_langnav_bgcolor" name="site_langnav_bgcolor">
 				<?php foreach ( $site_colors as $color ){ ?>
-				<option <?php if ( get_option('site_langnav_bgcolor') == $color['slug'] ){ echo 'selected'; } ?> value="<?php echo $color['slug']; ?>"><?php echo $color['name']; ?></option>
+				<option <?php if ( get_option('site_langnav_bgcolor','lt-gray') == $color['slug'] ){ echo 'selected'; } ?> value="<?php echo $color['slug']; ?>"><?php echo $color['name']; ?></option>
 				<?php } ?>
 			</select>
 			<p><input type="submit" value="Save Changes" name="search"  class="button button-primary" /></p>
