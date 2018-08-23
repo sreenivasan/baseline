@@ -45,14 +45,13 @@ function tf_header_options_page(){
 					display:flex;
 					flex:0 0 auto;}
 				.input-radio-tile input{
-					visibility:hidden;
-					height:0;
-					position:absolute;
-					width:0;
-					appearance:none;}
+					top:1.1em;
+					left:0.8em;
+					position:absolute;}
 				.input-radio-tile{
 					display:flex;
 					margin:1em;
+					position:relative;
 					width:200px;}
 				.input-radio-tile label{
 					border:2px solid rgba(0,0,0,0.07);
@@ -65,7 +64,7 @@ function tf_header_options_page(){
 					opacity:1;}
 				.input-radio-tile input:checked + label{
 					border:2px solid rgba(0,133,186,1);
-					box-shadow:0 3px 0 rgba(0,133,186,1);
+					box-shadow:0 0 0 1px rgba(0,133,186,1);
 					font-weight:bold;
 					opacity:1;}
 				.input-radio-tile img{
