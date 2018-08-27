@@ -1990,7 +1990,7 @@ nav.section .heading a:hover,
   /* Remove the 'down' arrow on parent items within submenus */
   nav.nav-desktop-dropdown .sub-menu .menu-item-has-children a::after {
     display: none; }
-  /* if a top-level dropdown menu item with a submenu is last or second-to-last,
+  /* if a top-level dropdown menu item with a submenu is last or second-to-last
   re-align the dropdown so it doesn't go offscreen */
   nav.nav-desktop-dropdown .menu-item-has-children:nth-last-child(2) .sub-menu,
   nav.nav-desktop-dropdown .menu-item-has-children:last-child .sub-menu {
@@ -2513,7 +2513,7 @@ input.search-form-submit {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: calc(2rem + 1vh + .55vw);
+  max-height: calc(2rem + 1vh + .55vw);
   margin: 0 auto;
   max-width: calc(100vw - 30vw); }
 
