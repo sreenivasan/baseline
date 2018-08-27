@@ -750,7 +750,7 @@ jQuery(document).ready(function($) {
 	$('.ajax-link').ajaxLink();
 
 
-  var headerSticky = document.querySelector(".site-header-layout-compact");
+  var headerSticky = document.querySelector("#site-header");
   var headerYPosition = 0;
   // Headroom - "shy" sticky
   // grab an element, construct an instance of Headroom and init
