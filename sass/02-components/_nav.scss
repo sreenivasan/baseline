@@ -364,13 +364,12 @@ nav.section .heading a:hover,
   /* Remove the 'down' arrow on parent items within submenus */
   nav.nav-desktop-dropdown .sub-menu .menu-item-has-children a::after{
     display:none;}
-  /* if a top-level dropdown menu item with a submenu is last or second-to-last,
+  /* if a top-level dropdown menu item with a submenu is last or second-to-last
   re-align the dropdown so it doesn't go offscreen */
   nav.nav-desktop-dropdown .menu-item-has-children:nth-last-child(2) .sub-menu,
   nav.nav-desktop-dropdown .menu-item-has-children:last-child .sub-menu{
     left:auto;
     right:0;}
-
 
   /* Submenu level 2 */
   nav.nav-desktop-dropdown .sub-menu .sub-menu{
