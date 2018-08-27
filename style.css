@@ -1069,7 +1069,7 @@ button,
   display: -ms-inline-flexbox;
   display: inline-flex;
   font-weight: bold;
-  font-size: 1.1em;
+  font-size: 0.9em;
   height: auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1874,8 +1874,12 @@ nav.section .heading a:hover,
      - all non-hover bg color tinting is done on ul.sub-menu ::before pseudo-elements
      - all cosmetic hover styling is done on the <a> tags
   */
+  /* borders look awkward when there's no background color filling 'em in */
   nav.nav-desktop-dropdown.bg-transparent {
     border: 0 none; }
+  /* semi-transparent bg colors don't play nice with our dropdown set up */
+  nav.nav-desktop-dropdown.bg-dkgray-trans {
+    background-color: #17292e; }
   nav.nav-desktop-dropdown.text-center .section-inner {
     display: -webkit-box;
     display: -ms-flexbox;
