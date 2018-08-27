@@ -1,0 +1,45 @@
+/*
+  Variables
+  SASS variables shared across multiple files.
+*/
+
+
+$mobile-tablet-breakpoint:680px;
+$tablet-desktop-breakpoint:950px;
+$desktop-bigscreen-breakpoint:1260px;
+
+$text-font-display:system-ui,-apple-system,BlinkMacSystemFont,arial,sans-serif;
+$text-font-body:system-ui,-apple-system,BlinkMacSystemFont,arial,sans-serif;
+$text-font-secondary: Menlo, Monaco, Consolas, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif;
+
+$ja-text-font-display:'Hiragino Kaku Gothic StdN','Hiragino Kaku Gothic Std',-apple-system,BlinkMacSystemFont,'HiraKakuPro-W3', 'Hiragino Kaku Gothic Pro W3', 'Hiragino Kaku Gothic Pro', YuGothic,sans-serif;
+$ja-text-font-body:-apple-system,BlinkMacSystemFont,HiraKakuPro-W3, 'Hiragino Kaku Gothic Pro W3', 'Hiragino Kaku Gothic Pro', YuGothic,sans-serif;
+
+
+$default-lineheight-calc:calc(.8em + 0.85rem);
+$default-letterspace-calc:calc(0.025rem - 0.025em);
+$default-caps-letterspace-calc:calc(0.07rem - 0.01em);
+
+@mixin default-letterspace-lineheight-calc{
+letter-spacing:$default-letterspace-calc;
+line-height:$default-lineheight-calc;
+}
+
+$max-width-skinny:35rem;
+$max-width-narrow:38rem;
+$max-width-normal:42rem;
+$max-width-medium:48rem;
+$max-width-wide:56rem;
+$max-width-extrawide:68rem;
+
+$color-dark:rgb(21,36,43);
+
+@function wva-pair($multiplier) {
+  $ratio: 2.2;
+  $cross_axis_unit: 1 / ($ratio + 1); // solve for ratio(x) + x = 1
+  $main_axis_unit: 1 - $cross_axis_unit;
+  $wva-pair:
+    calc(#{$multiplier * $main_axis_unit}vh + #{$multiplier * $cross_axis_unit}vw)
+    calc(#{$multiplier * $cross_axis_unit}vh + #{$multiplier * $main_axis_unit}vw);
+  @return $wva-pair;
+}

@@ -1,0 +1,18 @@
+
+/* ----- Language nav ----- */
+
+.site-language-nav{}
+#site-language-nav-toggle-icon{
+  position:relative;
+  top:0.02em;}
+// hide the language label text on mobile for space
+#site-language-nav-toggle-text{
+  display:none;}
+@media screen and (min-width:$mobile-tablet-breakpoint){
+  #site-language-nav-toggle-text{
+    display:initial;}
+}
+/* Arabic */
+nav.nav-desktop-dropdown.meta .menu .lang-ar a{
+  direction:rtl;
+  letter-spacing:0;}

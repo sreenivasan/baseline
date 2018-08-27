@@ -1,0 +1,140 @@
+
+/* Mobile Only */
+@media only screen and (max-width:$mobile-tablet-breakpoint){
+
+  .mobile-column-2_5,
+  .mobile-column-3_3,
+  .mobile-column-5,
+  .mobile-column-6_6,
+  .mobile-column-7_5{
+    position:relative;}
+
+  .mobile-column-2_5{
+    width:25%;}
+  .mobile-column-3_3{
+    width:33.333%;}
+  .mobile-column-5{
+    width:50%;}
+  .mobile-column-6_6{
+    width:66.666%;}
+  .mobile-column-7_5{
+    width:75%;}
+
+}
+
+/* Tablet Only */
+@media only screen and (min-width:$mobile-tablet-breakpoint) and (max-width:$tablet-desktop-breakpoint){
+  .tablet-column-2_5,
+  .tablet-column-3,
+  .tablet-column-3_3,
+  .tablet-column-4,
+  .tablet-column-5,
+  .tablet-column-6,
+  .tablet-column-6_6,
+  .tablet-column-7,
+  .tablet-column-7_5{
+    position:relative;}
+
+  .tablet-column-2_5{
+    width:25%;}
+  .tablet-column-3_3{
+    width:33.333%;}
+  .tablet-column-4{
+    width:40%;}
+  .tablet-column-5{
+    width:50%;}
+  .tablet-column-6{
+    width:60%;}
+  .tablet-column-6_6{
+    width:66.666%;}
+  .tablet-column-7_5{
+    width:75%;}
+
+}
+
+/* Desktop and larger */
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+
+/* Utility classes - desktop*/
+.desktop-column-1,
+.desktop-column-2,
+.desktop-column-2_5,
+.desktop-column-3,
+.desktop-column-3_3,
+.desktop-column-4,
+.desktop-column-5,
+.desktop-column-6,
+.desktop-column-6_6,
+.desktop-column-7,
+.desktop-column-7_5,
+.desktop-column-8,
+.desktop-column-9{
+  position:relative;}
+
+.desktop-column-1{
+  width:10%;}
+.desktop-column-2{
+  width:20%;}
+.desktop-column-2_5{
+  width:25%;}
+.desktop-column-3{
+  width:30%;}
+.desktop-column-3_3{
+  width:33.333%;}
+.desktop-column-4{
+  width:40%;}
+.desktop-column-5{
+  width:50%;}
+.desktop-column-6{
+  width:60%;}
+.desktop-column-6_6{
+  width:66.666%;}
+.desktop-column-7{
+  width:70%;}
+.desktop-column-7_5{
+  width:75%;}
+.desktop-column-8{
+  width:80%;}
+.desktop-column-9{
+  width:90%;}
+
+
+.left1{
+  margin-left:10%;}
+.left2{
+  margin-left:20%;}
+.left3{
+  margin-left:30%;}
+.left4{
+  margin-left:40%;}
+.left5{
+  margin-left:50%;}
+
+.left-1{
+  margin-left:-10%;}
+.left-2{
+  margin-left:-20%;}
+.left-3{
+  margin-left:-30%;}
+.left-4{
+  margin-left:-40%;}
+.left-5{
+  margin-left:-50%;}
+
+.right-1{
+  right:-10%;
+  position:absolute;}
+.right-2{
+  right:-20%;
+  position:absolute;}
+.right-3{
+  right:-30%;
+  position:absolute;}
+.right-4{
+  right:-40%;
+  position:absolute;}
+.right-5{
+  right:-50%;
+  position:absolute;}
+
+}

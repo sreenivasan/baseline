@@ -9,7 +9,7 @@
     	</div>
     </section>
 
-<?php 
+<?php
 		if ( (is_active_sidebar('featboxes')) ):
 			get_sidebar('featboxes');
 		endif;
@@ -32,22 +32,24 @@ if ( have_posts() ) :
 	<div id="content" class="section bg-white width-wide padding-medium notch posts-layout-list">
 		<section id="blog" class="section-inner">
 			<?php if( is_paged() ): ?>
-				
+
 			<?php endif; ?>
-			<?php while ( have_posts() ) : the_post(); ?>
-				<?php get_template_part('content', 'post'); ?>						
-			<?php endwhile; ?>
+			<?php
+				while ( have_posts() ) : the_post();
+					get_template_part('content', 'post');
+				endwhile;
+			?>
 			<div class="pagination">
-			<?php 
+			<?php
 			$pagination_args = array(
 				'prev_text'          => __('← Newer Posts','baseline'),
 				'next_text'          => __('Older Posts →','baseline')
-			); 
-			echo paginate_links($pagination_args); 
+			);
+			echo paginate_links($pagination_args);
 			?>
 			</div>
 			<br class="clear"/>
-		</section> 
+		</section>
 	</div>
 	<div class="section padding-normal width-wide bg-white pagination">
     	<div class="section-inner">

@@ -1,27 +1,30 @@
-<?php if (is_active_sidebar('bottom-bar')) { ?> 
-	<?php get_sidebar( 'bottom-bar' ); ?>		
+<?php if (is_active_sidebar('bottom-bar')) { ?>
+	<?php get_sidebar( 'bottom-bar' ); ?>
 <?php } ?>
-<?php if (is_active_sidebar('footer-widgets')) { ?> 
-	<?php get_sidebar( 'footer' ); ?>		
+<?php if (is_active_sidebar('footer-widgets')) { ?>
+	<?php get_sidebar( 'footer' ); ?>
 <?php } ?>
 </div>
 <div id="body-mobile-background"></div>
 <?php
-	// Set tweet text for AddThis buttons 
-	if ( get_field('post_tw_text') ): 
+	// Set tweet text for AddThis buttons
+	if ( function_exists('get_field') ):
+		if ( get_field('post_tw_text') ):
 ?>
 <script type="text/javascript">
 var addthis_share = addthis_share || {}
 addthis_share = {
 	passthrough : {
 		twitter: {
-			text: "<?php urlencode( the_field('post_tw_text') ); ?>"
+			text: "<?php urlencode( get_field('post_tw_text') ); ?>"
 		}
 	}
 }
 </script>
-<!-- TEST -->
-<?php endif; ?>
+<?php
+		endif;
+	endif;
+?>
 <?php wp_footer(); ?>
 <!--[if lt IE 9]>
 	<script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>

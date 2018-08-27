@@ -1,0 +1,263 @@
+/* Action Network - CSS for signup forms, events */
+
+#can_embed_form{
+  max-width:33em;}
+#can_embed_form h2,
+#donate_auto_modal h2{
+  font-weight:bold !important;}
+#can_embed_form #can_thank_you #action_info{
+  border-top:1px dotted !important;}
+#can_embed_form #can_thank_you h1{
+  font-size:25px !important;
+  text-shadow:none !important;}
+#can_embed_form #can_thank_you h4,
+#can_embed_form #can_thank_you p{
+  text-shadow:none !important;}
+.gen_wrapper #can_embed_form #can_thank_you{
+  background:rgba(255,255,255,0.2);
+  border:0 none;
+  box-shadow:0 0 0 rgba(0,0,0,0);
+  padding:60px;
+  margin-bottom:40px;}
+#can_embed_form h2,
+#action_info{
+  display:none !important;}
+#can_embed_form #action_welcome_message #action_welcome_message_inner{
+  border:0 none !important;
+  background:rgba(21,36,43,0.1) !important;
+  font-size:1.2em;
+  padding:1em;}
+#can_embed_form li.control-group{
+  list-style-type:none;
+  margin-top:0.3em;}
+#can_embed_form li.control-group label.radio{
+  font-weight:bold;}
+#can_embed_form .international_link{
+  font-size:0.8rem;
+  font-style:italic;}
+
+// Styling radio and checkbox lists
+.can_embed label.checkbox,
+.can_embed label.radio{
+  display:block;}
+.can_embed .check_radio_field{
+  display:block;
+  margin:0.5rem 0 0.8rem;}
+
+li#d_sharing{
+  margin:1.5em 0;}
+li#d_sharing,
+#d_sharing li,
+#d_sharing ul{
+  list-style-type:none;
+  padding-left:0;}
+#d_sharing .check_radio_field{
+  display:block;
+  margin:0.5em 0;}
+#d_sharing .radio{
+  display:inline-block;
+  margin-right:0.75em;}
+.affirmative_note{
+  line-height:1.35;
+  margin:1em 0;}
+
+#can_embed_form input[type="submit"]{
+  margin-top:0.5rem;}
+
+#can_embed_form #logo_wrap{
+  display:none;}
+#can_embed_form .ajax-loading {
+  display:none;
+  position:relative !important;
+  top:4px !important;
+  float:right !important;
+  margin-top:-44px !important;
+  margin-right:10px !important;
+  height:16px !important;
+  width:22px !important;}
+
+/* Help AN's goofy code show/hide country select */
+.baseline #can_embed_form .country_drop_wrap select{
+    -webkit-appearance:none !important;
+    -moz-appearance:none !important;
+    appearance:none !important;
+    position:static !important;
+    opacity:1 !important;
+    height: auto !important;
+    width: 100%!important;}
+.baseline #can_embed_form .country_drop_wrap.clear{
+    display:none;
+    height:auto;
+    width:auto !important;}
+.baseline #can_embed_form .can_selectInner{
+    display:none !important;}
+
+/* Event search*/
+
+.event_campaign #can_embed_form h2{
+  margin-bottom:0.8em;}
+.event_campaign #can_embed_form{
+  max-width:100%;}
+.event_campaign #can_embed_form #event_map_wrap,
+.event_campaign #can_embed_form #map_canvas{
+  height:300px;}
+
+
+.event_campaign #form_co1{
+  display:flex;
+  flex-wrap:wrap;}
+.event_campaign #form_co1 > *{
+  width:100%;}
+.event_campaign #form_co1{
+  order:5;}
+
+.event_campaign #can_zip_search{
+  background-color:rgba(21,36,43,.04);
+  padding:1.2em;}
+.event_campaign #can_zip_search div.clearfix{
+  display:flex;
+  flex-wrap:wrap;}
+.event_campaign #can_zip_search .floatlabel-wrapper{
+  display:flex;
+  flex:1 1 60%;
+  margin-right:0.5em;}
+.event_campaign #can_zip_search label{
+  display:none;}
+.event_campaign #form-zip_code{
+  margin:0;}
+.event_campaign #form-zip_code-submit{
+  flex:1;
+  font-size:0.9rem;
+  margin:0 !important;}
+
+.event_campaign #form_col1 h4{
+  font-size:1.1em;}
+.event_campaign .zip_search_results_col{
+  background-color:rgba(21,36,43,0.1);
+  padding:1.2em;}
+.event_campaign #host_your_own,
+.event_campaign .host_custom_html{
+  background-color:rgba(21,36,43,0.2);
+  padding:1.1em;}
+.event_campaign #host_your_own .button{
+  font-size:1.1em;}
+
+.event_campaign #search_location_list span{
+  display:block;}
+.event_campaign .choose_location_button{
+  display:inline-block;
+  font-size:1.1em;
+  margin:0.5em 0;}
+/* AN event campaign — media query */
+@media screen and (min-width:$tablet-desktop-breakpoint){
+  .event_campaign #form_col1 h4{
+    float:left;
+    width:38%;}
+  .event_campaign #can_embed_form #can_zip_search{
+    background-color:rgba(21,36,43,.04);
+    clear:left;
+    float:left;
+    margin-bottom:0;
+    margin-right:2%;
+    padding:1.2em;
+    width:38%;}
+
+  .event_campaign #can_embed_form #event_map_wrap{
+    float:right;
+    position:relative;
+    margin-left:2%;
+    top:-1.5em;
+    width:58%;}
+  .event_campaign #can_embed_form #event_map_wrap,
+  .event_campaign #can_embed_form #map_canvas{
+    height:380px;}
+  .event_campaign .zip_search_results_col,
+  .event_campaign #form_col2,
+  .event_campaign #host_your_own{
+    clear:left;
+    float:left;
+    width:38%;}
+}
+
+/* Individual Event */
+
+// remove "Starts" label from date/location
+.can_embed.event .first_line .graytext{
+  display:none;}
+// replace bullet character with line breaks
+.can_embed.event .first_line .bullet{
+  display:block;
+  font-size:0;
+  line-height:0;}
+.can_embed.event form li{
+  list-style-type:none;}
+// Style form labels (but not the GDPR opt-in)
+.can_embed.event .core_field label,
+.can_embed.event .control-group:not(.js-affirmative_optin_control_group) label{
+  font-size:0.75rem;}
+.en .can_embed.event .core_field label,
+.en .can_embed.event .control-group:not(.js-affirmative_optin_control_group) label{
+  letter-spacing:0.05em;
+  text-transform:uppercase;}
+.can_embed.event .additional_text{
+  font-size:0.8rem;}
+
+// remove gap between date and location h4 tags
+.can_embed.event .first_line{
+  font-size:1.2rem;
+  font-weight:bold;
+  margin-bottom:0;}
+.can_embed.event .first_line + .first_line{
+  margin-bottom:1em;}
+
+#can_embed_form .event_map_wrap,
+#can_embed_form .event_map_wrap #map_canvas,
+#can_embed_form #event_map_wrap,
+#can_embed_form #event_map_wrap #map_canvas{
+  height:300px;
+  margin-bottom:0.6rem;}
+
+.can_embed.event #can_main_col{
+  margin-bottom:1.2rem;}
+.can_embed.event .action_sidebar{
+  background:rgba(21,36,43,0.08);
+  padding:1em;
+  padding:calc(2vh + 1.2vw) calc(1.2vh + 2vw);}
+.can_embed.event .action_sidebar ul{
+  padding-left:0;}
+
+/* AN individual event — media query */
+@media screen and (min-width:$tablet-desktop-breakpoint){
+  .can_embed.event #can_embed_form{
+    max-width:100%;}
+  .can_embed.event .clearfix{
+    display:flex;
+    flex-wrap:nowrap;}
+  .can_embed.event #can_main_col{
+    margin:0 2%;
+    max-width:56%;}
+  .can_embed.event #can_sidebar{
+    margin:0 2%;
+    max-width:36%;}
+
+}
+
+#can_embed_form .ajax-loading {
+  -webkit-animation: spin 1s infinite linear;
+  -moz-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+
+/* Action Network option classes */
+.an-header-hide #can_embed_form h2{
+  display:none;}
+.an-subhead-hide #can_embed_form h4{
+  display:none;}

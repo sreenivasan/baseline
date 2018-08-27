@@ -1,0 +1,12 @@
+/* Lazy loading styles */
+
+img.lazy{
+  -webkit-transition: opacity 300ms ease-in-out;
+  -moz-transition: opacity 300ms ease-in-out;
+  -o-transition: opacity 300ms ease-in-out;
+  transition: opacity 300ms ease-in-out;
+  opacity:0;}
+img.b-loaded {
+  opacity:1;}
+.lazy-image-wrapper{
+  background:rgba(0,0,0,0.1);}

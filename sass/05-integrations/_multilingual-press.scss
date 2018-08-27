@@ -1,0 +1,33 @@
+
+/* Multilingual Press */
+.mlp_quicklinks{
+  background:rgba(21,36,43,0.1);
+  float:none !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+  margin-bottom:2rem;
+  padding:0.8rem;
+  max-width:100% !important;}
+.mlp_inner label {
+  display:flex;
+  font-weight:bold;
+  justify-content:center;
+  line-height:2.5rem;
+  width:100%;}
+.mlp_inner label select,
+.mlp_inner label input{
+  display:inline-block;
+  flex:1 1 auto;
+  font-size:0.9rem;
+  justify-content:space-between;
+  margin:0 5px;}
+#mlp_quicklink_select_id{
+  max-width:50%;}
+.mlp_inner input[type="submit"] {
+  padding-top:0.3rem;
+  padding-bottom:0.3rem;
+  font-size:1.5rem;
+  max-width:20%;}
+.widget .mlp_language_box ul li{
+  display:list-item;
+  margin:0;}

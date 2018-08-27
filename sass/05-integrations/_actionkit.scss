@@ -1,0 +1,40 @@
+/* Actionkit embedded form styles */
+
+/* AK AJAX styles */
+.actionkit{
+  -webkit-transition:1s all;
+  -moz-transition:1s all;
+  -o-transition:1s all;
+  transition:1s all;}
+.ak-event-map{
+  border:0 none;
+  height:75vh;
+  width:100%;}
+
+.form-intro{
+  margin-bottom:0.8rem;}
+.custom_html{
+  font-size:0.85em;
+  padding:0.4rem 0 0.7rem;}
+
+/* #signup-replacement appears after a successful AJAX aubmission */
+#signup-replacement{
+  margin-left:auto;
+  margin-right:auto;
+  max-width:700px;}
+
+/* new PHP CURL embedded AK form */
+.section.actionkit #action-lead{
+  background-color:inherit;
+  border-color:inherit;
+  color:inherit;
+  min-height:max-content;
+  max-height:max-content;
+  height:auto;
+  padding:0;}
+
+.ak-userfield-radio-set{
+  display:block;
+  width:100%;}
+.section.actionkit #action-lead .buttons-share-side{
+	display: none;}

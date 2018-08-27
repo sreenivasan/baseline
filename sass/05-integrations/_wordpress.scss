@@ -1,0 +1,48 @@
+/* Styles for Wordpress' built-in/unchangeable classes */
+
+.sidebar ul, .sidebar ol, .commentlist{
+  list-style:none}
+
+.aligncenter{
+  text-align:center;}
+.alignright{
+  text-align:right;}
+img.alignleft,
+div.alignleft{
+  float:left;
+  margin:0 1rem 1rem 0;}
+img.aligncenter,
+div.aligncenter{
+  display:block;
+  margin:0 auto;}
+img.alignright,
+div.alignright{
+  float:right;
+  margin:0 0 1rem 1rem;}
+.wp-caption img,
+.wp-caption{
+    width:auto !important;
+    max-width:100% !important;
+    height:auto !important;}
+
+.widget{
+  border-radius:2px;
+  overflow:hidden;}
+.widget ul{
+  padding:0;}
+.widget ul li{
+  list-style-type:none;
+  margin:0;}
+.tfsf{
+  max-width: 432px;}
+
+/* Mobile Only */
+@media only screen and (max-width:$mobile-tablet-breakpoint){
+
+/* default WP widgets */
+  .widget_nav_menu{
+    clear:both;
+    margin:0 1%;
+    padding:1rem;}
+
+}

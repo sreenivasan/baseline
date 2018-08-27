@@ -1,0 +1,63 @@
+/* Layout utlities */
+
+
+/* Sections */
+#container{
+  /* flex allows for:
+  - columned sections to be equal height, regardless of content
+  - re-ordering of sections with 'order' property */
+  display:flex;
+  flex-wrap:wrap;
+  margin:0 auto;
+  position:relative;
+  min-width:15rem;
+  max-width:85rem;
+  z-index:5;}
+
+
+/* Site Optons */
+.header-hide{
+  height:0 !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+  padding:0 !important;}
+
+  .two-col,
+  .three-col,
+  .four-col{
+    columns:1;
+    column-gap:0;
+    column-rule:1px solid rgba(21,36,43,.2);}
+
+/* Tablet and up */
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+
+  .two-col,
+  .three-col,
+  .four-col{
+    columns:2;
+    column-gap:4em;}
+
+  .right,
+  .float-right{
+    float:right;}
+  .float-left{
+    float:left;}
+
+}
+
+
+/* Desktop and larger */
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+
+  .two-col{
+    columns:2;
+    column-gap:5em;}
+  .three-col{
+    columns:3;
+    column-gap:4em;}
+  .four-col{
+    columns:4;
+    column-gap:3em;}
+
+}
