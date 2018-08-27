@@ -250,8 +250,12 @@ nav.section .heading a:hover,
      - all non-hover bg color tinting is done on ul.sub-menu ::before pseudo-elements
      - all cosmetic hover styling is done on the <a> tags
   */
+  /* borders look awkward when there's no background color filling 'em in */
   nav.nav-desktop-dropdown.bg-transparent{
     border:0 none;}
+  /* semi-transparent bg colors don't play nice with our dropdown set up */
+  nav.nav-desktop-dropdown.bg-dkgray-trans{
+    background-color:#17292e;}
   nav.nav-desktop-dropdown.text-center .section-inner{
     display:flex;}
   nav.nav-desktop-dropdown .menu-label{
