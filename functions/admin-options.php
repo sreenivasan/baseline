@@ -112,6 +112,13 @@ function bl_my_sites($admin_bar) {
 	));
 
 	$admin_bar->add_menu( array(
+		'id'    => 'bl-network-themes',
+		'parent' => 'bl-my-sites',
+		'title' => __('Themes'),
+		'href'  => network_admin_url('themes.php'),
+	));
+
+	$admin_bar->add_menu( array(
 		'id'    => 'bl-network-plugins',
 		'parent' => 'bl-my-sites',
 		'title' => __('Plugins'),
