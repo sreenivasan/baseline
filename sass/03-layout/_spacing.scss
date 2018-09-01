@@ -46,25 +46,25 @@
   padding:0;}
 .padding-tiny{
   padding:17px;
-  padding:wva-pair(2);}
+  padding:wva-pair(2, 2px);}
 .padding-small{
   padding:20px;
-  padding:wva-pair(4);}
+  padding:wva-pair(4, 3px);}
 .padding-normal{
   padding:47px 27px;
-  padding:wva-pair(6);}
+  padding:wva-pair(5.5, 5px);}
 .padding-medium{
   padding:60px 30px;
-  padding:wva-pair(8.5);}
+  padding:wva-pair(7.5, 0px);}
 .padding-large{
   padding:80px 40px;
-  padding:wva-pair(12);}
+  padding:wva-pair(13, -20px);}
 .padding-huge{
   padding:108px 40px;
-  padding:wva-pair(16);}
+  padding:wva-pair(16, -30px);}
 .padding-gigantic{
   padding:150px 48px;
-  padding:wva-pair(22);}
+  padding:wva-pair(22, -38px);}
 
 .width-full .section-inner{
   max-width:100%;}

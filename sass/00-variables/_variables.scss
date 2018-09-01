@@ -34,12 +34,12 @@ $max-width-extrawide:68rem;
 
 $color-dark:rgb(21,36,43);
 
-@function wva-pair($multiplier) {
+@function wva-pair($multiplier:"1", $yintercept:"0px") {
   $ratio: 2.2;
   $cross_axis_unit: 1 / ($ratio + 1); // solve for ratio(x) + x = 1
   $main_axis_unit: 1 - $cross_axis_unit;
   $wva-pair:
-    calc(#{$multiplier * $main_axis_unit}vh + #{$multiplier * $cross_axis_unit}vw)
-    calc(#{$multiplier * $cross_axis_unit}vh + #{$multiplier * $main_axis_unit}vw);
+    calc(#{$multiplier * $main_axis_unit}vh + #{$multiplier * $cross_axis_unit}vw + #{$yintercept})
+    calc(#{$multiplier * $cross_axis_unit}vh + #{$multiplier * $main_axis_unit}vw + #{$yintercept});
   @return $wva-pair;
 }
