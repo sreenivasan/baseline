@@ -34,6 +34,10 @@ h5{
   h1,h2,h3,h4,h5{
     hyphens:auto;}
 }
+.text-hyphens-none{
+  hyphens:none !important;}
+.text-hyphens{
+  hyphens:auto;}
 
 /* Text Size
   "@include default-letterspace-lineheight-calc" is repeated so
