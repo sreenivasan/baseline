@@ -37,7 +37,7 @@ html{
 /* Set responsive rems */
 @supports ( font-size:calc(1vh + 1vw) ){
   html{
-    font-size:calc(.15vw + .15vh + 15.5px);}
+    font-size:calc(.15vw + .15vh + 15px);}
   @media only screen and (min-width:$desktop-bigscreen-breakpoint){
     html{
       font-size:calc(.25vw + .25vh + 12.85px);}
