@@ -184,7 +184,7 @@ $site-header-item-height: calc(2rem + 1vh + .55vw);
 .site-header-layout-logo_center-compact #site-title-link{
   align-items:center;
   display:flex;
-  max-height:$site-header-item-height; // height has to be re-declared b/c parent is abs. pos.
+  height:$site-header-item-height; // height has to be re-declared b/c parent is abs. pos.
   margin:0 auto;
   max-width:calc(100vw - 30vw);} // leave space on the left and right for header buttons, etc.}
 .site-header-layout-logo_center-compact #site-nav{
