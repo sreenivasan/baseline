@@ -16,7 +16,7 @@
 		<div class="post-thumbnail">
 			<div class="lazy-image-wrapper" <?php if ( $post_thumb_aspect ) { ?>style="padding-bottom:<?php echo $post_thumb_aspect; ?>%"<?php } ?>>
 				<?php if ( $post_thumb_src ) { ?>
-					<a class="" href="<?php the_permalink(); ?>">	
+					<a class="" href="<?php the_permalink(); ?>">
 				<img data-src="<?php echo $post_thumb_src[0]; ?>" class="lazy" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" height="<?php echo $post_thumb_height; ?>" width="<?php echo $post_thumb_width; ?>"/></a>
 				<noscript>
 					<?php the_post_thumbnail(); ?>
@@ -30,9 +30,9 @@
 				<span class="post-time"><?php echo (get_the_date() ); ?></span>
 			</div>
 			<header class="post-header margin-bottom-normal">
-				<h3 class="post-title area-link-hover"><?php the_title(); ?></h3>
+				<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 			</header>
-			<div class="post-excerpt margin-bottom-normal area-link-hover">
+			<div class="post-excerpt margin-bottom-normal">
 				<?php the_excerpt(); ?>
 			</div>
 			<footer class="post-footer">
