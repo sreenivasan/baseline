@@ -1,0 +1,22 @@
+/*
+  CSS to support the "shy" sticky behavior via headroom.js
+*/
+
+.headroom{
+  border-bottom:0 none;
+  top:0;
+  transition:
+    all 400ms;}
+.headroom--pinned{
+  position:sticky;}
+.headroom--pinned.headroom--not-top{
+  border-bottom:1px solid rgba(21,36,43,0.2);
+  opacity:1;
+  transform:translateY(0);}
+  // transform:translateY(0%);} Y translate doesn't work well when there's content above the header
+.headroom--pinned.headroom--not-top.bg-transparent{
+  background-color:transparentize($color-dark, 0.5);
+  border-bottom:0 none;}
+.headroom--unpinned{
+  opacity:0;
+  transform:translateY(-100%);}

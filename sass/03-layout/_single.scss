@@ -1,0 +1,15 @@
+/* Styles for for the 'single' view of individual, standard posts/pages */
+
+
+/* Shared between posts and pages */
+
+.bg-off #page-header{ // When no bg image is set, use default color
+	color:initial;}
+
+
+/* Single Blog Posts */
+.bg-on #post-subtitle{
+  text-shadow:0 0 2em rgba(21, 36, 43, 0.9);}
+
+
+/* Pages */

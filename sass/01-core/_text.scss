@@ -1,0 +1,324 @@
+/*
+  Text styles.
+*/
+
+/*
+  Multilingual – for mixing multiple langauges within a single site
+  (for single language i18n, see "languages" folder)
+
+  NOTE: In general, Baseline is built for a multisite, one-language-per-site
+  approach, but sometimes you just need a little AR text in your EN site.
+*/
+.lang-rtl{
+  direction:rtl !important;}
+.lang-ltr{
+  direction:ltr !important;}
+.lang-ar{
+  direction:rtl !important;
+  letter-spacing:0 !important;}
+
+
+/* Headings */
+h1{
+  font-size:calc(0.8vw + 1.5rem);}
+h2{
+  font-size:calc(0.68vw + 1.4rem);}
+h3{
+  font-size:calc(0.35vw + 1.3rem);}
+h4{
+  font-size:calc(0.25vw + 1.25rem);}
+h5{
+  font-size:calc(0.15vw + 1.1rem);}
+// only add hyphens on mobile b/c they're added so aggressively
+@media screen and (max-width:$mobile-tablet-breakpoint){
+  h1,h2,h3,h4,h5{
+    hyphens:auto;}
+}
+.text-hyphens-none{
+  hyphens:none !important;}
+.text-hyphens{
+  hyphens:auto;}
+
+/* Text Size
+  "@include default-letterspace-lineheight-calc" is repeated so
+  many times because calc functions aren't re-calculated when they're
+  inherited from a parent element.
+*/
+.text-size-h1{
+  font-size:calc(0.9vw + 1.5rem);
+  @include default-letterspace-lineheight-calc;}
+.text-size-h2{
+  font-size:calc(0.77vw + 1.4rem);
+  @include default-letterspace-lineheight-calc;}
+.text-size-h3{
+  font-size:calc(0.62vw + 1.3rem);
+  @include default-letterspace-lineheight-calc;}
+.text-size-h4{
+  font-size:calc(0.5vw + 1.25rem);
+  @include default-letterspace-lineheight-calc;}
+.text-size-h5{
+  font-size:calc(0.44vw + 1rem);
+  @include default-letterspace-lineheight-calc;}
+
+.text-size-normal,
+.text-size-default{
+  font-size:1rem;
+  @include default-letterspace-lineheight-calc;}
+
+.text-large,
+.text-large1,
+.text-style-lead,
+.text-size-large{
+  font-size:1.25rem;
+  @include default-letterspace-lineheight-calc;}
+.text-large2,
+.text-style-lead2,
+.text-size-large2{
+  font-size:calc(0.1vw + 1.3rem);
+  @include default-letterspace-lineheight-calc;}
+.text-large3,
+.text-style-lead3,
+.text-size-large3{
+  font-size:calc(0.15vw + 1.4rem);
+  @include default-letterspace-lineheight-calc;}
+.text-large4,
+.text-style-lead4,
+.text-size-large4{
+  font-size:calc(0.2vw + 1.5rem);
+  @include default-letterspace-lineheight-calc;}
+
+.text-small{
+  font-size:0.85em;
+  letter-spacing:$default-letterspace-calc;}
+.text-small2{
+  font-size:0.75em;
+  letter-spacing:$default-letterspace-calc;}
+
+
+/* Titles */
+.text-style-title0,
+.title0{
+  font-size:calc(2.8vw + 55px);
+  @include default-letterspace-lineheight-calc;}
+.text-style-title1,
+.title1{
+  font-size:calc(2.6vw + 44px);
+  @include default-letterspace-lineheight-calc;}
+.text-style-title2,
+.title2{
+  font-size:calc(2.4vw + 35px);
+  @include default-letterspace-lineheight-calc;}
+.text-style-title3,
+.title3{
+  font-size:calc(2.3vw + 28px);
+  @include default-letterspace-lineheight-calc;}
+.text-style-title4,
+.title4{
+  font-size:calc(2.25vw + 22px);
+  @include default-letterspace-lineheight-calc;}
+.text-style-title5,
+.title5{
+  font-size:calc(2.2vw + 18px);
+  @include default-letterspace-lineheight-calc;}
+
+
+/* Text Alignment */
+.text-left{
+  text-align:left;
+  justify-content:flex-start;}
+.text-center{
+  text-align:center;
+  justify-content:center;}
+.text-right{
+  text-align:right;
+  justify-content:flex-end;}
+  /* Mobile Only */
+  @media only screen and (max-width:$mobile-tablet-breakpoint){
+    .mobile-text-left{
+      text-align:left;}
+    .mobile-text-center{
+      text-align:center;}
+    .mobile-text-right{
+      text-align:right;}
+  }
+  /* Tablet Only */
+  @media only screen and (min-width:$mobile-tablet-breakpoint) and (max-width:$tablet-desktop-breakpoint){
+    .tablet-text-left{
+      text-align:left;}
+    .tablet-text-center{
+      text-align:center;}
+    .tablet-text-right{
+      text-align:right;}
+  }
+  /* Desktop and larger */
+  @media only screen and (min-width:$tablet-desktop-breakpoint){
+    .desktop-text-left{
+      text-align:left;}
+    .desktop-text-center{
+      text-align:center;}
+    .desktop-text-right{
+      text-align:right;}
+  }
+
+
+/* Text Styles */
+.text-bold,
+.text-strong,
+.strong{
+  font-weight:bold;}
+
+.text-highlight,
+.highlight{
+  display:inline;
+  /* set min. optical size in px, then add relative size in em */
+  padding:0.1em 0.08em;
+  padding:calc(2px + 0.02em) calc(3px + 0.04em)}
+
+.text-small-caps{
+  font-variant:small-caps;
+  letter-spacing:0.07em;
+  letter-spacing:$default-caps-letterspace-calc;
+  text-transform:lowercase;}
+.text-caps,
+.text-uppercase{
+  letter-spacing:0.1em;
+  letter-spacing:$default-caps-letterspace-calc;
+  text-transform:uppercase;}
+
+.text-shadow,
+.text-shadow-blur{
+  text-shadow:0 0 2em rgba(21,36,43,0.9);}
+.text-shadow.text-dark{
+  text-shadow:0 0 2em rgba(255, 255, 255, 0.8);}
+.text-shadow-drop{
+  color:#fff;
+  text-shadow:
+    1px 1px 0 rgba(20, 30, 40, 0.3),
+    2px 2px 0 rgba(20, 30, 40, 0.3),
+    3px 3px 0 rgba(20, 30, 40, 0.3),
+    4px 4px 0 rgba(20, 30, 40, 0.3),
+    6px 6px 0 rgba(20, 30, 40, 0.3);}
+.text-shadow-drop.text-dark{
+  color:inherit;
+  text-shadow:
+    1px 1px 0 rgba(255,255,255, 0.3),
+    2px 2px 0 rgba(255,255,255, 0.3),
+    3px 3px 0 rgba(255,255,255, 0.3),
+    4px 4px 0 rgba(255,255,255, 0.3),
+    6px 6px 0 rgba(255,255,255, 0.3);}
+
+
+/* Meta / Secondary */
+.text-font-secondary,
+.meta{
+  font-family: $text-font-secondary;
+  letter-spacing:0.05em;
+  letter-spacing:calc(0.03rem + 0.02em);}
+.meta{
+  font-size:0.8em;}
+
+h1.meta,
+h2.meta,
+h3.meta,
+h4.meta,
+h5.meta{
+  font-size:1.25rem;
+  letter-spacing:0.3em;
+  text-transform:uppercase;}
+h3.meta{
+  font-size:1rem;}
+h4.meta,
+h5.meta{
+  font-size:0.85rem;
+  letter-spacing:0.15em;}
+
+
+/* Horizontal Rules */
+hr{
+  border-style:dashed;
+  border-width:1px 0 0 0;
+  border-color:#cccdcf;
+  border-color:rgba(130,160,180,0.8);
+  clear:both;
+  margin-bottom:1em;}
+hr.margin-medium{
+  margin:1.3rem 0;}
+hr.margin-large{
+  margin:2.5rem 0;}
+
+/* Text utlities */
+.text-wrap-none{
+  white-space:nowrap;}
+
+.text-columns{ // FLAGGED: add to documentation (2018-05-04)
+  columns:16em auto;
+  column-gap:4em;
+  column-rule:1px solid rgba(21,36,43,0.2);}
+.text-columns-small{
+  column-width:12em;}
+.text-columns-large{
+  column-width:20em;}
+
+
+.nobullet{}
+.nobullet li{
+  list-style-type:none;
+  margin-bottom:0.7em;
+  text-align:inherit; // allow bullet-less ul lis to inherit text-alignment, overriding the default li behavior.
+}
+
+
+/* Link utlities */
+.area-link{
+  color:inherit !important;
+  cursor:pointer;
+  display:block;
+  font-weight:inherit;
+  text-decoration:none;
+  transition:0.1s all;}
+a.area-link:hover .area-link-hover{
+  color:#0f81e8;}
+.no-underline,
+.no-underline a,
+.text-underline-none,
+.text-underline-none a{
+  text-decoration:none;}
+
+.text-color-default,
+a.text-color-default{
+  color:inherit !important;}
+
+.text-unstyled,
+a.text-unstyled{
+  color:inherit !important;
+  font-weight:400;
+  text-decoration:none;}
+a.text-unstyled:hover{
+  text-decoration:underline;}
+
+
+/* Inline shapes */
+.inline-dot{
+  background-position:center;
+  background-size:55%;
+  border-radius:1em;
+  display:inline-block;
+  font-size:0.8em;
+  height:1.5em;
+  line-height:1.5;
+  position:relative;
+  text-align:center;
+  vertical-align:middle;
+  width:1.5em;}
+.inline-square{
+  background-position:center;
+  background-size:1em;
+  display:inline-block;
+  font-size:0.8em;
+  height:1.5em;
+  line-height:1.5;
+  position:relative;
+  text-align:center;
+  top:-0.15em;
+  vertical-align:middle;
+  width:1.5em;}

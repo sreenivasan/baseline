@@ -1,0 +1,12 @@
+/* Addthis.com plugin styles */
+
+@media screen and ( min-width:979px ){
+
+  body #at4-share,
+  body #at4-soc,
+  body .atss{
+    margin-top:-75px !important;
+    top:50% !important;
+    z-index:9000 !important;}
+
+}

@@ -1,0 +1,234 @@
+/*
+  Site Header
+  - Site header container
+  - Logo/site title
+  - Site Nav controls
+  - Custom header buttons (from site option)
+  - Header layouts (compact and left-aligned is default)
+*/
+
+$site-header-item-height: calc(2rem + 1vh + .55vw);
+/* ----- Site header container + general----- */
+#site-header{
+  order:0;
+  overflow:visible; // fixes invisible #nav-toggle
+  z-index:1000;}
+.bg-on #site-header.bg-transparent{
+  background-image:linear-gradient(to bottom,rgba(23,41,46,0.7) 0,rgba(23,41,46,0) 100%);}
+#site-header-inner{
+  align-items:stretch;
+  background-color:inherit; // pass bg color down to children
+  display:flex;
+  flex-wrap:nowrap;
+  padding:0;}
+.site-header-item{
+  align-items:center;
+  display:flex;
+  flex:0 1 auto;
+  font-size:0.85em;
+  height:auto;
+  min-height:2.5rem;
+  min-height:$site-header-item-height;
+  margin:0 0.5rem;
+  order:10;}
+.site-header-divider{
+  font-size:0;
+  min-height:0;
+  height:0;
+  margin-left:auto;
+  order:20;
+  width:0;}
+
+
+/* ----- Logo/site title ----- */
+#site-title{
+  flex:1 1 auto;
+  font-size:1.1rem;
+  order:1;
+  margin-bottom:0;}
+#site-title-link.logo-image{
+  color:inherit;
+  display:inline-block;
+  line-height:1;
+  margin:0;
+  padding:0;}
+#site-title-link.logo-image img{
+  margin:0.3rem;}
+.bg-white #site-title-link.logo,
+.bg-white #site-title-link.logo:hover{
+  color:inherit;}
+#site-title-link.logo-image img{
+  display:block;
+  max-height:6rem;
+  max-width:15rem;}
+
+
+/* ----- Site Nav Controls ----- */
+
+/* CSS-only hamburger menu w/ borders */
+#site-nav-toggle{
+  cursor:pointer;
+  font-size:1.3em;
+  line-height:1.6;
+  margin-bottom:0;
+  margin-top:0;
+  order:5;
+  position:relative;
+  min-width:1.3em;
+  text-decoration:none;
+  width:auto;
+  z-index:1000;}
+#site-nav-toggle-icon{
+  height:1em;
+  width:1em;}
+#site-nav-toggle-text{
+  display:none;
+  font-size:0.85em;
+  line-height:2.3;}
+
+/* Tablet and up */
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+  #site-nav-toggle-text{
+    display:inline-block;}
+}
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+  #site-nav-toggle.nav-desktop-dropdown,
+  #site-nav-toggle.nav-desktop-list{
+    display:none;}
+}
+@media only screen and (pointer:fine){
+  #site-nav-toggle{
+    font-size:1rem;}
+}
+
+/*
+  Hide site nav on mobile, to be revealed by 'burger menu
+  Show when menu is set to 'dropdown' on a larger screen
+*/
+#site-nav{
+  display:none;
+  order:5;}
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+  #site-nav.nav-desktop-dropdown{
+    display:flex;}
+}
+
+
+/* ----- Custom header buttons ----- */
+#header-buttons-container{
+  display:none;
+  flex:0 0 auto;
+  padding:0.5em;
+  order:9;}
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+  #header-buttons-container{
+    display:flex;}
+}
+
+
+/* ----- Site header layouts ----- */
+
+/* Headless: no logo, just hamburger nav */
+.site-header-layout-headless #site-title{
+  display:none;}
+.site-header-layout-headless #site-nav-toggle{
+  margin-left:auto;}
+.site-header-layout-headless .site-header-divider{
+  margin:0;}
+
+
+
+/* Logo left and dropdown nav right */
+.site-header-layout-logo_left-compact #site-header-inner{
+  padding:0 0.5vw;;}
+.site-header-layout-logo_left-compact .site-header-divider{
+  display:block;
+  order:4;}
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+  .site-header-layout-logo_left-compact #site-title{
+    white-space:nowrap;} //make sure other header junk doesn't force the site title to wrap
+
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown,
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown .section-inner,
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown .menu,
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown .menu > li{
+    background-color:inherit;} /* if dropdown is inside header bar, inherit the header bg + pass it down to children */
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown,
+  .site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown a{
+    color:currentColor;} /* if dropdown is inside header bar, inherit the header text color + pass it down to children */
+
+  /* transparent bg exception */
+  .bg-transparent.site-header-layout-logo_left-compact #site-header-inner{
+    background-color:transparent;} /* break the chain of background color inheritance */
+  .bg-transparent.site-header-layout-logo_left-compact #site-nav.nav-desktop-dropdown .menu > li:hover{
+    background-color:transparentize($color-dark, 0.25);}
+
+}
+
+
+/* Logo center + nav icon left (single row)*/
+.site-header-layout-logo_center-compact #site-title{
+  align-items:flex-start;
+  flex:0 0 100%;
+  min-height:0;
+  height:0; // zero the height so it doesn't cover up other header elements, let the title/link logo overflow out
+  left:0;
+  margin:0;
+  padding:0;
+  order:1;
+  overflow:visible;
+  position:absolute; // abs. pos. the title so it stays centered no matter what else is in the header
+  text-align:center;
+  top:0;
+  width:100%;}
+.site-header-layout-logo_center-compact #site-title-link{
+  align-items:center;
+  display:flex;
+  height:$site-header-item-height; // height has to be re-declared b/c parent is abs. pos.
+  margin:0 auto;
+  max-width:calc(100vw - 30vw);} // leave space on the left and right for header buttons, etc.}
+.site-header-layout-logo_center-compact #site-nav{
+  display:none;}
+.site-header-layout-logo_center-compact #site-nav-toggle{
+  order:2;}
+.site-header-layout-logo_center-compact .site-header-divider{
+  order:5;}
+.site-header-layout-logo_center-compact #header-buttons-container{
+  order:8;}
+
+
+/* Logo center, stacked dropdown nav (two rows)*/
+.site-header-layout-logo_center-stacked #site-title{
+  align-items:center;
+  display:flex;
+  height:auto;
+  justify-content:center;
+  margin:0;
+  width:100%;}
+.site-header-layout-logo_center-stacked #site-nav{
+  display:none;
+  margin:0;
+  padding-left:1.4vw;
+  order:15;
+  width:100%;}
+.site-header-layout-logo_center-stacked #site-nav-toggle{
+  order:0;}
+.site-header-layout-logo_center-stacked .site-header-divider{
+  display:block;
+  order:7;}
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+  .site-header-layout-logo_center-stacked #header-buttons-container{
+    display:flex;
+    position:absolute;
+    right:0;}
+}
+@media only screen and (min-width:$tablet-desktop-breakpoint){
+  .site-header-layout-logo_center-stacked #site-header-inner{
+    flex-wrap:wrap;}
+  .site-header-layout-logo_center-stacked #site-nav-toggle{
+    display:none;}
+  .site-header-layout-logo_center-stacked #site-nav{
+    display:flex;}
+  .site-header-layout-logo_center-stacked #site-nav.nav-desktop-dropdown{
+    justify-content:center;}
+}

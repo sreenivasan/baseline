@@ -68,6 +68,66 @@ function edit_menu_options(){
 }
 add_action( 'admin_menu', 'edit_menu_options', 999 );
 
+/*
+* Disable My Sites menu in toolbar for Super Admins & replace with custom menu
+* Docs: http://codex.wordpress.org/Class_Reference/WP_Admin_Bar
+*/
+function bl_remove_my_sites( $wp_admin_bar ) {
+
+	if (current_user_can('manage_network'))
+
+    $wp_admin_bar->remove_node('my-sites');
+}
+add_action( 'admin_bar_menu', 'bl_remove_my_sites', 999 );
+function bl_my_sites($admin_bar) {
+	if (current_user_can('manage_network'))
+	$admin_bar->add_menu( array(
+		'id'    => 'bl-my-sites',
+		'title' => __('Network Menu'),
+		'href'  => admin_url('my-sites.php'),
+		'meta'  => array(
+			'title' => __('Network Menu'),
+		),
+	));
+
+	$admin_bar->add_menu( array(
+		'id'    => 'bl-network-admin',
+		'parent' => 'bl-my-sites',
+		'title' => __('Network Dashboard','baseline'),
+		'href'  => network_admin_url(),
+	));
+
+	$admin_bar->add_menu( array(
+		'id'    => 'bl-network-sites',
+		'parent' => 'bl-my-sites',
+		'title' => __('All Sites','baseline'),
+		'href'  => network_admin_url('sites.php'),
+	));
+
+	$admin_bar->add_menu( array(
+		'id'    => 'bl-network-users',
+		'parent' => 'bl-my-sites',
+		'title' => __('All Users','baseline'),
+		'href'  => network_admin_url('users.php'),
+	));
+
+	$admin_bar->add_menu( array(
+		'id'    => 'bl-network-themes',
+		'parent' => 'bl-my-sites',
+		'title' => __('Themes'),
+		'href'  => network_admin_url('themes.php'),
+	));
+
+	$admin_bar->add_menu( array(
+		'id'    => 'bl-network-plugins',
+		'parent' => 'bl-my-sites',
+		'title' => __('Plugins'),
+		'href'  => network_admin_url('plugins.php'),
+	));
+
+}
+add_action('admin_bar_menu', 'bl_my_sites', 20);
+
 
 // Move excerpt metabox above editor
 function my_add_excerpt_meta_box( $post_type ) {

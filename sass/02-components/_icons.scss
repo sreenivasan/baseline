@@ -1,0 +1,41 @@
+/* Icon styles */
+.icon-before[data-icon]::before {
+  font-family: tf-icons; /* BYO icon font, mapped smartly */
+  content: attr(data-icon);
+  opacity:0;
+  margin-right:0.3em;
+  margin-right:calc(0.06em + 7px);
+  speak:none;}
+.icon-after[data-icon]::after {
+  font-family: tf-icons;
+  content: attr(data-icon);
+  opacity:0;
+  margin-left:0.3em;
+  margin-left:calc(0.06em + 5px);
+  speak:none;}
+.icon[data-icon]::after {
+  font-family: tf-icons;
+  content: attr(data-icon);
+  opacity:0;
+  speak:none;}
+.wf-tficons-n7-active .icon-before::before,
+.wf-tficons-n7-active .icon-after::after,
+.wf-tficons-n7-active .icon::after{
+  opacity:1;
+  -webkit-transition:0.2s opacity;
+  -moz-transition:0.2s opacity;
+  transition:0.2s opacity;}
+.wf-tficons-n7-inactive .icon-before::before,
+.wf-tficons-n7-inactive .icon-after::after,
+.wf-tficons-n7-inactive .icon::after{
+  display:none;}
+.wf-tficons-n7-active .icon-faded.icon-before::before,
+.wf-tficons-n7-active .icon-faded.icon-after::after,
+.wf-tficons-n7-active .icon-faded.icon::after{
+  opacity:0.5;}
+
+.inline-svg{
+  display:inline-block;
+  height:1.5em;
+  margin:0 0.4em;
+  width:1.5em;}

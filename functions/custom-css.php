@@ -78,61 +78,77 @@ function baseline_custom_css() {
 			$text_color = '#17292e';
 			$border_color = "rgba(21,36,43,0.25)";
 		}
-		$color_css_array[] = '.bg-'. $site_color['slug'] .',
+		$color_css_array[] = '/* --- '. $site_color['name'] .' custom color CSS --- */
+
+		/* '. $site_color['name'] .' General BG classes */
+		.bg-'. $site_color['slug'] .',
 		.button.bg-'. $site_color['slug'] .'{
 			background-color:'. $site_color['code'] .';
 			border-color:'. $border_color .';
 			color:'. $text_color .';}
 		.body-bg-'. $site_color['slug'] .'{
 			background-color:'. $site_color['code'] .';}
-		/* Nav Color */
+
+		/* '. $site_color['name'] .' Nav Color */
 		nav.bg-'. $site_color['slug'] .' li,
 		nav.bg-'. $site_color['slug'] .' .sub-menu{
 			border-color:'. $border_color .';}
-		/* Notch Color */
+
+		/* '. $site_color['name'] .' Notch Color */
 		.bg-'. $site_color['slug'] .'.notch::after{
 			border-bottom-color:'. $site_color['code'] .';}
 		.bg-'. $site_color['slug'] .'.notch-semicircle::after,
 		.bg-'. $site_color['slug'] .'.notch-tab::after{
 			background-color:'. $site_color['code'] .';}
-		/* Text Color */
+
+		/* '. $site_color['name'] .' Text Color */
 		.text-'. $site_color['slug'] .',
 		a.text-'. $site_color['slug'] .',
-		.text-color-override.text-'. $site_color['slug'] .',{
+		.text-color-override.text-'. $site_color['slug'] .'{
 			color:'. $site_color['code'] .';}
-		/* Link Color */
-		.bg-'. $site_color['slug'] .' a,
-		.bg-'. $site_color['slug'] .'.text-color-override. a{
+
+		/* '. $site_color['name'] .' Link Color */
+		.bg-'. $site_color['slug'] .' a:not(.button),
+		.bg-'. $site_color['slug'] .'.text-color-override a:not(.button){
 			color:'. $custom_link_color .';}
-		/* Link:hover Color */
-		.bg-'. $site_color['slug'] .' a:hover,
+
+		/* '. $site_color['name'] .' Link:hover Color */
+		.bg-'. $site_color['slug'] .' a:hover:not(.button),
 		.bg-'. $site_color['slug'] .'.text-color-override a:hover{
 			color:'. $custom_link_hover_color .';}
-		/* Area link:hover Color */
+
+		/* '. $site_color['name'] .' Area link:hover Color */
 		.bg-'. $site_color['slug'] .' .area-link:hover .area-link-hover,
 		.bg-'. $site_color['slug'] .'.text-color-override .area-link:hover .area-link-hover{
 			color:'. $custom_link_hover_color .';}
-		/* Button Text Color */
-		a.bg-'. $site_color['slug'] .'{
+
+
+		/* '. $site_color['name'] .' Button Text Color */
+		a.bg-'. $site_color['slug'] .',
+		a.bg-'. $site_color['slug'] .'.text-color-override{
 			color:'. $text_color .';}
-		/* Button:hover Text Color */
+
+		/* '. $site_color['name'] .' Button:hover Text Color */
 		a.bg-'. $site_color['slug'] .':hover{
 			color:'. $custom_link_color .';}
-		/* Thick Underline */
+
+		/* '. $site_color['name'] .' Thick Underline */
 		.text-underline-thick-'. $site_color['slug'] .'{
 			box-shadow:0 -0.35em 0 '. $site_color['code'] .' inset;}
-		';
-		}
+		'
+		;
+	}
 
 	$color_css_string = implode( ' ', $color_css_array );
 
 	$custom_css ='
 	body,
-	button, input, select, textarea,
+	button,
+	input,
+	select,
+	textarea,
 	.text-font-body{
 		font-family:'. $body_font .','. $fallback_font .';}
-	body{
-	 	font-family:'. $body_font .','. $fallback_font .';}
 	#body-mobile-background{
 		background-image:url(' . $theme_bg_small[0] . ');}
 	h1,
@@ -146,7 +162,8 @@ function baseline_custom_css() {
 	.text-display,
 	.text-font-display{
 		font-family:'. $display_font .','. $body_font .','. $fallback_font .';
-		line-height:'. $display_font_lineheight .';' .
+		line-height:'. $display_font_lineheight .';' . '
+		line-height:calc(('. $display_font_lineheight .' * 0.85em) + 0.8rem)' .
 		$turkish_text_transform . '}
 	.text-display,
 	.text-font-display{
@@ -155,32 +172,43 @@ function baseline_custom_css() {
 	.meta,
 	.expando-meta .expando-link{
 		font-family:'. $secondary_font .','. $fallback_font .';}
+
 	h1{
-		font-size:'. fontSize(2.2) .'em;}
+		font-size:calc(0.8vw + '. fontSize(1.5) .'rem);}
 	h2{
-		font-size:'. fontSize(1.9) .'em;}
+		font-size:calc(0.68vw + '. fontSize(1.4) .'rem);}
 	h3{
-		font-size:'. fontSize(1.4) .'em;}
+		font-size:calc(0.5vw + '. fontSize(1.3) .'rem);}
+
+	/* Links */
 	a,
 	a.area-link:hover .area-link-hover{
 		color:'. $link_color .';}
+
+	/* Form Labels */
+	.form-style-labelabove label{
+		color:'. $link_color .';}
+
 	#site-title{
-	  font-size:'. fontSize(1.5) .'rem;}
+		font-size:'. fontSize(1.1) .'rem;}
 	input.submit,
 	input[type="submit"],
+	button,
 	.button{
 		background-color:'. $button_color .';}
-	.button-primary{
+	.button-primary,
+	.button-big{
 		background-color:'. $button_color .';
 		font-family:'. $display_font .','. $body_font .','. $fallback_font .';
-		font-size:'. fontSize(1.6) .'rem;}
+		font-size:'. fontSize(1.15) .'em;}
 	.button-secondary{
 		background-color:'. $link_color .';}
 
 	.search-form-submit,
 	.pagination a.page-numbers,
 	.pagination .page-numbers.current{
-	  background-color:'. $link_color .';}
+	  background-color:'. $link_color .';
+		color:#fff;}
 
 	input.search-form-submit{
 		background-color:'. $button_color .';}
@@ -193,7 +221,7 @@ function baseline_custom_css() {
 		font-family:'. $display_font .','. $body_font .','. $fallback_font .';
 		font-size:'. fontSize(1.5) .'rem;
 		text-shadow:none;
-	  	border-width:0 0 3px;
+	  border-width:0 0 3px;
 		border-bottom:3px solid rgba(21,35,43,0.15);}
 	.form #can_embed_form input[type="submit"]:hover,
 	.form #can_embed_form .button:hover,
@@ -203,17 +231,19 @@ function baseline_custom_css() {
 
 
 	.title0{
-  	font-size:'. fontSize(55) .'px;}
+		font-size:calc(2.8vw + '. fontSize(55) .'px);}
 	.title1{
-	  font-size:'. fontSize(46) .'px;}
+	  font-size:calc(2.6vw + '. fontSize(44) .'px);}
 	.title2{
-	  font-size:'. fontSize(38) .'px;}
+	  font-size:calc(2.4vw + '. fontSize(35) .'px);}
 	.title3{
-	  font-size:'. fontSize(34) .'px;}
+	  font-size:calc(2.3vw + '. fontSize(28) .'px);}
 	.title4{
-	  font-size:'. fontSize(30) .'px;}
+	  font-size:calc(2.25vw + '. fontSize(22) .'px);}
+	.title5{
+	  font-size:calc(2.2vw + '. fontSize(18) .'px);}
 
-	@media only screen and (max-width:650px){
+	@media only screen and (max-width:720px){
 		.mobile-expando-meta > .mobile-expando-link,
 		.section.mobile-expando-meta > .mobile-expando-link{
 			font-family:'. $secondary_font .','. $fallback_font .';
@@ -223,65 +253,22 @@ function baseline_custom_css() {
 			text-transform:uppercase;}
 	}
 
-	@media only screen and (min-width:650px){
+	@media only screen and (min-width:720px){
 		#body-mobile-background{
 			background-image:url(' . $theme_bg_medium[0] .');}
-		h1{
-			font-size:'. fontSize(2.4) .'em;}
-		h2{
-			font-size:'. fontSize(2.1) .'em;}
-		h3{
-			font-size:'. fontSize(1.8) .'em;}
-		.title0{
-			font-size:'. fontSize(80) .'px;}
-		.title1{
-			font-size:'. fontSize(72) .'px;}
-		.title2{
-			font-size:'. fontSize(55) .'px;}
-		.title3{
-			font-size:'. fontSize(45) .'px;}
-		.title4{
-			font-size:'. fontSize(36) .'px;}
-		#site-title{
-			font-size:'. fontSize(1.8) .'rem;}
 
 		.tablet-expando-meta > .tablet-expando-link,
 		.section.tablet-expando-meta > .tablet-expando-link{
-			font-family:'. $secondary_font .','. $fallback_font .';
-			font-size:0.9em;
-			font-weight:500;
-			letter-spacing:0.2em;
-			text-transform:uppercase;}
+			font-family:'. $secondary_font .','. $fallback_font .';}
 	}
 
-	@media only screen and (min-width:900px){
+	@media only screen and (min-width:950px){
 		#body-mobile-background{
 			background-image:url(' . $theme_bg_large[0] . ');}
-	  h1{
-	    font-size:'. fontSize(2.5) .'em;}
-	  h2{
-	    font-size:'. fontSize(2.2) .'em;}
-	  h3{
-	    font-size:'. fontSize(1.8) .'em;}
-	  .title0{
-  	  	font-size:'. fontSize(85) .'px;
-  	  	line-height:' . $display_font_lineheight * 0.9 .';}
-	  .title1{
-	    font-size:'. fontSize(80) .'px;}
-	  .title2{
-	    font-size:'. fontSize(60) .'px;}
-	  .title3{
-	    font-size:'. fontSize(53) .'px;}
-	  .title4{
-	    font-size:'. fontSize(45) .'px;}
 
 	  .desktop-expando-meta > .desktop-expando-link,
 	  .section.desktop-expando-meta > .desktop-expando-link{
-			font-family:'. $secondary_font .','. $fallback_font .';
-			font-size:0.9em;
-			font-weight:500;
-			letter-spacing:0.2em;
-			text-transform:uppercase;}
+			font-family:'. $secondary_font .','. $fallback_font .';}
 	}
 	';
 	$custom_css_combined = $custom_css . $color_css_string . $addl_custom_css;
@@ -289,4 +276,14 @@ function baseline_custom_css() {
 }
 add_action( 'wp_enqueue_scripts', 'baseline_custom_css' );
 
+/* Add custom generated styles to WYSIWYG preview CSS */
+function theme_editor_dynamic_styles( $mceInit ) {
+    if ( isset( $mceInit['content_style'] ) ) {
+        $mceInit['content_style'] .= ' ' . $custom_css_combined . ' ';
+    } else {
+        $mceInit['content_style'] = $custom_css_combined . ' ';
+    }
+    return $mceInit;
+}
+add_filter('tiny_mce_before_init','theme_editor_dynamic_styles');
 ?>

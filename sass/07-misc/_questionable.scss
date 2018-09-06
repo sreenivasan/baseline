@@ -1,0 +1,109 @@
+/* CSS that's old, busted, or unclear if it's even still in use */
+
+
+
+
+.nav-grid{}
+.nav-grid-item{
+  font-size:1.2rem;
+  font-weight:bold;
+  padding:1rem;
+  white-space:nowrap;}
+
+.bg-image-fill{
+  background-position:center center;
+  background-size:cover;}
+
+.tooltip{
+  position:relative;}
+
+/*
+  The transitions are a little crazy so that the tooltip finishes fading in/out _before_ being being moved off-screen
+  The transforms are used b/c apparently it's cheaper to animate transforms instead of abs. positioning
+ */
+.tooltip::before{
+  background-color:rgba(247, 249, 250, 0.9);
+  border-radius:2px;
+  color:rgb(0, 0, 0) !important;
+  content:attr(title);
+  display:block;
+  font-size:0.9rem;
+  font-weight:normal;
+  line-height:1.5;
+  opacity:0;
+  overflow:hidden;
+  padding:7px 10px;
+  position:absolute;
+  right:110%;
+  right:calc(100% + 20px);
+  text-align:left;
+  text-indent:0;
+  top:0;
+  transform:translateX(250px);
+  transition:
+    0.5s opacity,
+    0.5s transform 0.5s;
+  max-width:220px;
+  min-width:150px;}
+.tooltip::after{
+  border-left:8px solid rgba(247, 249, 250, 0.9);
+  border-top:8px solid transparent;
+  border-bottom:8px solid transparent;
+  content:'';
+  height:0;
+  width:0;
+  opacity:0;
+  position:absolute;
+  right:107%;
+  right:calc(100% + 12px);
+  top:45%;
+  top:calc(50% - 8px);
+  transform:translateX(258px);
+  transition:
+    0.5s opacity,
+    0.5s transform 0.5s;}
+.tooltip:hover::before{
+  opacity:1;
+  transform:translateX(0px);
+  transition:
+    0.5s opacity,
+    0s transform;}
+.tooltip:hover::after{
+  opacity:1;
+  transform:translateX(0px);
+  transition:
+    0.5s opacity,
+    0s transform;}
+
+.expando-mobile > .expando-link{
+  display:none;}
+
+.read-more-inline::before{
+  content:'…';
+  margin-right:0.5em;
+  color:inherit;
+  font-weight:400;}
+
+.image-data-preview{
+  width:100%;}
+
+/* Tablet and up */
+@media only screen and (min-width:$mobile-tablet-breakpoint){
+
+  .columns-bleed{
+    display:table;
+    height:100%;
+    table-layout:fixed;
+    width:100%;}
+  .columns-bleed .section-inner{
+    display:table-row;
+    height:100%;}
+  .column-bleed{
+    display:table-cell !important;
+    height:100%;}
+  .column-bleed-link{
+    display:block;
+    height:100%;
+    width:100%;}
+
+}

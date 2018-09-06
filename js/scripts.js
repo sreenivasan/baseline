@@ -1,30 +1,25 @@
 /*!
-  hey, [be]Lazy.js - v1.5.4 - 2016.03.06
+  hey, [be]Lazy.js - v1.8.2 - 2016.10.25
   A fast, small and dependency free lazy load script (https://github.com/dinbror/blazy)
   (c) Bjoern Klinggaard - @bklinggaard - http://dinbror.dk/blazy
 */
-  (function(k,f){"function"===typeof define&&define.amd?define(f):"object"===typeof exports?module.exports=f():k.Blazy=f()})(this,function(){function k(b){setTimeout(function(){var c=b._util;c.elements=w(b.options.selector);c.count=c.elements.length;c.destroyed&&(c.destroyed=!1,b.options.container&&h(b.options.container,function(a){l(a,"scroll",c.validateT)}),l(window,"resize",c.saveViewportOffsetT),l(window,"resize",c.validateT),l(window,"scroll",c.validateT));f(b)},1)}function f(b){for(var c=b._util,a=0;a<c.count;a++){var d=c.elements[a],g=d.getBoundingClientRect();if(g.right>=e.left&&g.bottom>=e.top&&g.left<=e.right&&g.top<=e.bottom||n(d,b.options.successClass))b.load(d),c.elements.splice(a,1),c.count--,a--}0===c.count&&b.destroy()}function q(b,c,a){if(!n(b,a.successClass)&&(c||a.loadInvisible||0<b.offsetWidth&&0<b.offsetHeight))if(c=b.getAttribute(p)||b.getAttribute(a.src)){c=c.split(a.separator);var d=c[r&&1<c.length?1:0],g="img"===b.nodeName.toLowerCase();g||void 0===b.src?(c=new Image,c.onerror=function(){a.error&&a.error(b,"invalid");b.className=b.className+" "+a.errorClass},c.onload=function(){g?b.src=d:b.style.backgroundImage='url("'+d+'")';t(b,a)},c.src=d):(b.src=d,t(b,a))}else a.error&&a.error(b,"missing"),n(b,a.errorClass)||(b.className=b.className+" "+a.errorClass)}function t(b,c){b.className=b.className+" "+c.successClass;c.success&&c.success(b);h(c.breakpoints,function(a){b.removeAttribute(a.src)});b.removeAttribute(c.src)}function n(b,c){return-1!==(" "+b.className+" ").indexOf(" "+c+" ")}function w(b){var c=[];b=document.querySelectorAll(b);for(var a=b.length;a--;c.unshift(b[a]));return c}function u(b){e.bottom=(window.innerHeight||document.documentElement.clientHeight)+b;e.right=(window.innerWidth||document.documentElement.clientWidth)+b}function l(b,c,a){b.attachEvent?b.attachEvent&&b.attachEvent("on"+c,a):b.addEventListener(c,a,!1)}function m(b,c,a){b.detachEvent?b.detachEvent&&b.detachEvent("on"+c,a):b.removeEventListener(c,a,!1)}function h(b,c){if(b&&c)for(var a=b.length,d=0;d<a&&!1!==c(b[d],d);d++);}function v(b,c,a){var d=0;return function(){var g=+new Date;g-d<c||(d=g,b.apply(a,arguments))}}var p,e,r;return function(b){if(!document.querySelectorAll){var c=document.createStyleSheet();document.querySelectorAll=function(a,b,d,e,f){f=document.all;b=[];a=a.replace(/\[for\b/gi,"[htmlFor").split(",");for(d=a.length;d--;){c.addRule(a[d],"k:v");for(e=f.length;e--;)f[e].currentStyle.k&&b.push(f[e]);c.removeRule(0)}return b}}var a=this,d=a._util={};d.elements=[];d.destroyed=!0;a.options=b||{};a.options.error=a.options.error||!1;a.options.offset=a.options.offset||100;a.options.success=a.options.success||!1;a.options.selector=a.options.selector||".b-lazy";a.options.separator=a.options.separator||"|";a.options.container=a.options.container?document.querySelectorAll(a.options.container):!1;a.options.errorClass=a.options.errorClass||"b-error";a.options.breakpoints=a.options.breakpoints||!1;a.options.loadInvisible=a.options.loadInvisible||!1;a.options.successClass=a.options.successClass||"b-loaded";a.options.validateDelay=a.options.validateDelay||25;a.options.saveViewportOffsetDelay=a.options.saveViewportOffsetDelay||50;a.options.src=p=a.options.src||"data-src";r=1<window.devicePixelRatio;e={};e.top=0-a.options.offset;e.left=0-a.options.offset;a.revalidate=function(){k(this)};a.load=function(a,b){var c=this.options;void 0===a.length?q(a,b,c):h(a,function(a){q(a,b,c)})};a.destroy=function(){var a=this._util;this.options.container&&h(this.options.container,function(b){m(b,"scroll",a.validateT)});m(window,"scroll",a.validateT);m(window,"resize",a.validateT);m(window,"resize",a.saveViewportOffsetT);a.count=0;a.elements.length=0;a.destroyed=!0};d.validateT=v(function(){f(a)},a.options.validateDelay,a);d.saveViewportOffsetT=v(function(){u(a.options.offset)},a.options.saveViewportOffsetDelay,a);u(a.options.offset);h(a.options.breakpoints,function(a){if(a.width>=window.screen.width)return p=a.src,!1});k(a)}});
-
-/**
- * Copyright (c) 2007-2015 Ariel Flesler - aflesler ○ gmail • com | http://flesler.blogspot.com
- * Licensed under MIT
- * @author Ariel Flesler
- * @version 2.1.3
- */
-;(function(f){"use strict";"function"===typeof define&&define.amd?define(["jquery"],f):"undefined"!==typeof module&&module.exports?module.exports=f(require("jquery")):f(jQuery)})(function($){"use strict";function n(a){return!a.nodeName||-1!==$.inArray(a.nodeName.toLowerCase(),["iframe","#document","html","body"])}function h(a){return $.isFunction(a)||$.isPlainObject(a)?a:{top:a,left:a}}var p=$.scrollTo=function(a,d,b){return $(window).scrollTo(a,d,b)};p.defaults={axis:"xy",duration:0,limit:!0};$.fn.scrollTo=function(a,d,b){"object"=== typeof d&&(b=d,d=0);"function"===typeof b&&(b={onAfter:b});"max"===a&&(a=9E9);b=$.extend({},p.defaults,b);d=d||b.duration;var u=b.queue&&1<b.axis.length;u&&(d/=2);b.offset=h(b.offset);b.over=h(b.over);return this.each(function(){function k(a){var k=$.extend({},b,{queue:!0,duration:d,complete:a&&function(){a.call(q,e,b)}});r.animate(f,k)}if(null!==a){var l=n(this),q=l?this.contentWindow||window:this,r=$(q),e=a,f={},t;switch(typeof e){case "number":case "string":if(/^([+-]=?)?\d+(\.\d+)?(px|%)?$/.test(e)){e= h(e);break}e=l?$(e):$(e,q);case "object":if(e.length===0)return;if(e.is||e.style)t=(e=$(e)).offset()}var v=$.isFunction(b.offset)&&b.offset(q,e)||b.offset;$.each(b.axis.split(""),function(a,c){var d="x"===c?"Left":"Top",m=d.toLowerCase(),g="scroll"+d,h=r[g](),n=p.max(q,c);t?(f[g]=t[m]+(l?0:h-r.offset()[m]),b.margin&&(f[g]-=parseInt(e.css("margin"+d),10)||0,f[g]-=parseInt(e.css("border"+d+"Width"),10)||0),f[g]+=v[m]||0,b.over[m]&&(f[g]+=e["x"===c?"width":"height"]()*b.over[m])):(d=e[m],f[g]=d.slice&& "%"===d.slice(-1)?parseFloat(d)/100*n:d);b.limit&&/^\d+$/.test(f[g])&&(f[g]=0>=f[g]?0:Math.min(f[g],n));!a&&1<b.axis.length&&(h===f[g]?f={}:u&&(k(b.onAfterFirst),f={}))});k(b.onAfter)}})};p.max=function(a,d){var b="x"===d?"Width":"Height",h="scroll"+b;if(!n(a))return a[h]-$(a)[b.toLowerCase()]();var b="client"+b,k=a.ownerDocument||a.document,l=k.documentElement,k=k.body;return Math.max(l[h],k[h])-Math.min(l[b],k[b])};$.Tween.propHooks.scrollLeft=$.Tween.propHooks.scrollTop={get:function(a){return $(a.elem)[a.prop]()}, set:function(a){var d=this.get(a);if(a.options.interrupt&&a._last&&a._last!==d)return $(a.elem).stop();var b=Math.round(a.now);d!==b&&($(a.elem)[a.prop](b),a._last=this.get(a))}};return p});
-/**
- * Copyright (c) 2007-2015 Ariel Flesler - aflesler<a>gmail<d>com | http://flesler.blogspot.com
- * Licensed under MIT
- * @author Ariel Flesler
- * @version 1.4.0
- */
-;(function(a){if(typeof define==='function'&&define.amd){define(['jquery'],a)}else{a(jQuery)}}(function($){var g=location.href.replace(/#.*/,'');var h=$.localScroll=function(a){$('body').localScroll(a)};h.defaults={duration:1000,axis:'y',event:'click',stop:true,target:window};$.fn.localScroll=function(a){a=$.extend({},h.defaults,a);if(a.hash&&location.hash){if(a.target)window.scrollTo(0,0);scroll(0,location,a)}return a.lazy?this.on(a.event,'a,area',function(e){if(filter.call(this)){scroll(e,this,a)}}):this.find('a,area').filter(filter).bind(a.event,function(e){scroll(e,this,a)}).end().end();function filter(){return!!this.href&&!!this.hash&&this.href.replace(this.hash,'')===g&&(!a.filter||$(this).is(a.filter))}};h.hash=function(){};function scroll(e,a,b){var c=a.hash.slice(1),elem=document.getElementById(c)||document.getElementsByName(c)[0];if(!elem)return;if(e)e.preventDefault();var d=$(b.target);if(b.lock&&d.is(':animated')||b.onBefore&&b.onBefore(e,elem,d)===false)return;if(b.stop){d.stop(true)}if(b.hash){var f=elem.id===c?'id':'name',$a=$('<a> </a>').attr(f,c).css({position:'absolute',top:$(window).scrollTop(),left:$(window).scrollLeft()});elem[f]='';$('body').prepend($a);location.hash=a.hash;$a.remove();elem[f]=c}d.scrollTo(elem,b).trigger('notify.serialScroll',[elem])}return h}));
-
-/*! no-blend uglified | https://gist.github.com/mhulse/6ec4db51a61eb958b82d */
-!function(e,n){e.getComputedStyle(n.head,null).mixBlendMode&&(n.documentElement.className=n.documentElement.className.replace(/\bno-blend\b/,"blend"))}(window,document);
+(function(q,m){"function"===typeof define&&define.amd?define(m):"object"===typeof exports?module.exports=m():q.Blazy=m()})(this,function(){function q(b){var c=b._util;c.elements=E(b.options);c.count=c.elements.length;c.destroyed&&(c.destroyed=!1,b.options.container&&l(b.options.container,function(a){n(a,"scroll",c.validateT)}),n(window,"resize",c.saveViewportOffsetT),n(window,"resize",c.validateT),n(window,"scroll",c.validateT));m(b)}function m(b){for(var c=b._util,a=0;a<c.count;a++){var d=c.elements[a],e;a:{var g=d;e=b.options;var p=g.getBoundingClientRect();if(e.container&&y&&(g=g.closest(e.containerClass))){g=g.getBoundingClientRect();e=r(g,f)?r(p,{top:g.top-e.offset,right:g.right+e.offset,bottom:g.bottom+e.offset,left:g.left-e.offset}):!1;break a}e=r(p,f)}if(e||t(d,b.options.successClass))b.load(d),c.elements.splice(a,1),c.count--,a--}0===c.count&&b.destroy()}function r(b,c){return b.right>=c.left&&b.bottom>=c.top&&b.left<=c.right&&b.top<=c.bottom}function z(b,c,a){if(!t(b,a.successClass)&&(c||a.loadInvisible||0<b.offsetWidth&&0<b.offsetHeight))if(c=b.getAttribute(u)||b.getAttribute(a.src)){c=c.split(a.separator);var d=c[A&&1<c.length?1:0],e=b.getAttribute(a.srcset),g="img"===b.nodeName.toLowerCase(),p=(c=b.parentNode)&&"picture"===c.nodeName.toLowerCase();if(g||void 0===b.src){var h=new Image,w=function(){a.error&&a.error(b,"invalid");v(b,a.errorClass);k(h,"error",w);k(h,"load",f)},f=function(){g?p||B(b,d,e):b.style.backgroundImage='url("'+d+'")';x(b,a);k(h,"load",f);k(h,"error",w)};p&&(h=b,l(c.getElementsByTagName("source"),function(b){var c=a.srcset,e=b.getAttribute(c);e&&(b.setAttribute("srcset",e),b.removeAttribute(c))}));n(h,"error",w);n(h,"load",f);B(h,d,e)}else b.src=d,x(b,a)}else"video"===b.nodeName.toLowerCase()?(l(b.getElementsByTagName("source"),function(b){var c=a.src,e=b.getAttribute(c);e&&(b.setAttribute("src",e),b.removeAttribute(c))}),b.load(),x(b,a)):(a.error&&a.error(b,"missing"),v(b,a.errorClass))}function x(b,c){v(b,c.successClass);c.success&&c.success(b);b.removeAttribute(c.src);b.removeAttribute(c.srcset);l(c.breakpoints,function(a){b.removeAttribute(a.src)})}function B(b,c,a){a&&b.setAttribute("srcset",a);b.src=c}function t(b,c){return-1!==(" "+b.className+" ").indexOf(" "+c+" ")}function v(b,c){t(b,c)||(b.className+=" "+c)}function E(b){var c=[];b=b.root.querySelectorAll(b.selector);for(var a=b.length;a--;c.unshift(b[a]));return c}function C(b){f.bottom=(window.innerHeight||document.documentElement.clientHeight)+b;f.right=(window.innerWidth||document.documentElement.clientWidth)+b}function n(b,c,a){b.attachEvent?b.attachEvent&&b.attachEvent("on"+c,a):b.addEventListener(c,a,{capture:!1,passive:!0})}function k(b,c,a){b.detachEvent?b.detachEvent&&b.detachEvent("on"+c,a):b.removeEventListener(c,a,{capture:!1,passive:!0})}function l(b,c){if(b&&c)for(var a=b.length,d=0;d<a&&!1!==c(b[d],d);d++);}function D(b,c,a){var d=0;return function(){var e=+new Date;e-d<c||(d=e,b.apply(a,arguments))}}var u,f,A,y;return function(b){if(!document.querySelectorAll){var c=document.createStyleSheet();document.querySelectorAll=function(a,b,d,h,f){f=document.all;b=[];a=a.replace(/\[for\b/gi,"[htmlFor").split(",");for(d=a.length;d--;){c.addRule(a[d],"k:v");for(h=f.length;h--;)f[h].currentStyle.k&&b.push(f[h]);c.removeRule(0)}return b}}var a=this,d=a._util={};d.elements=[];d.destroyed=!0;a.options=b||{};a.options.error=a.options.error||!1;a.options.offset=a.options.offset||100;a.options.root=a.options.root||document;a.options.success=a.options.success||!1;a.options.selector=a.options.selector||".b-lazy";a.options.separator=a.options.separator||"|";a.options.containerClass=a.options.container;a.options.container=a.options.containerClass?document.querySelectorAll(a.options.containerClass):!1;a.options.errorClass=a.options.errorClass||"b-error";a.options.breakpoints=a.options.breakpoints||!1;a.options.loadInvisible=a.options.loadInvisible||!1;a.options.successClass=a.options.successClass||"b-loaded";a.options.validateDelay=a.options.validateDelay||25;a.options.saveViewportOffsetDelay=a.options.saveViewportOffsetDelay||50;a.options.srcset=a.options.srcset||"data-srcset";a.options.src=u=a.options.src||"data-src";y=Element.prototype.closest;A=1<window.devicePixelRatio;f={};f.top=0-a.options.offset;f.left=0-a.options.offset;a.revalidate=function(){q(a)};a.load=function(a,b){var c=this.options;void 0===a.length?z(a,b,c):l(a,function(a){z(a,b,c)})};a.destroy=function(){var a=this._util;this.options.container&&l(this.options.container,function(b){k(b,"scroll",a.validateT)});k(window,"scroll",a.validateT);k(window,"resize",a.validateT);k(window,"resize",a.saveViewportOffsetT);a.count=0;a.elements.length=0;a.destroyed=!0};d.validateT=D(function(){m(a)},a.options.validateDelay,a);d.saveViewportOffsetT=D(function(){C(a.options.offset)},a.options.saveViewportOffsetDelay,a);C(a.options.offset);l(a.options.breakpoints,function(a){if(a.width>=window.screen.width)return u=a.src,!1});setTimeout(function(){q(a)})}});
 
 /* spin.js - ajax loading animation */
 (function(t,e){if(typeof exports=="object")module.exports=e();else if(typeof define=="function"&&define.amd)define(e);else t.Spinner=e()})(this,function(){"use strict";var t=["webkit","Moz","ms","O"],e={},i;function o(t,e){var i=document.createElement(t||"div"),o;for(o in e)i[o]=e[o];return i}function n(t){for(var e=1,i=arguments.length;e<i;e++)t.appendChild(arguments[e]);return t}var r=function(){var t=o("style",{type:"text/css"});n(document.getElementsByTagName("head")[0],t);return t.sheet||t.styleSheet}();function s(t,o,n,s){var a=["opacity",o,~~(t*100),n,s].join("-"),f=.01+n/s*100,l=Math.max(1-(1-t)/o*(100-f),t),u=i.substring(0,i.indexOf("Animation")).toLowerCase(),d=u&&"-"+u+"-"||"";if(!e[a]){r.insertRule("@"+d+"keyframes "+a+"{"+"0%{opacity:"+l+"}"+f+"%{opacity:"+t+"}"+(f+.01)+"%{opacity:1}"+(f+o)%100+"%{opacity:"+t+"}"+"100%{opacity:"+l+"}"+"}",r.cssRules.length);e[a]=1}return a}function a(e,i){var o=e.style,n,r;i=i.charAt(0).toUpperCase()+i.slice(1);for(r=0;r<t.length;r++){n=t[r]+i;if(o[n]!==undefined)return n}if(o[i]!==undefined)return i}function f(t,e){for(var i in e)t.style[a(t,i)||i]=e[i];return t}function l(t){for(var e=1;e<arguments.length;e++){var i=arguments[e];for(var o in i)if(t[o]===undefined)t[o]=i[o]}return t}function u(t){var e={x:t.offsetLeft,y:t.offsetTop};while(t=t.offsetParent)e.x+=t.offsetLeft,e.y+=t.offsetTop;return e}function d(t,e){return typeof t=="string"?t:t[e%t.length]}var p={lines:12,length:7,width:5,radius:10,rotate:0,corners:1,color:"#000",direction:1,speed:1,trail:100,opacity:1/4,fps:20,zIndex:2e9,className:"spinner",top:"auto",left:"auto",position:"relative"};function c(t){if(typeof this=="undefined")return new c(t);this.opts=l(t||{},c.defaults,p)}c.defaults={};l(c.prototype,{spin:function(t){this.stop();var e=this,n=e.opts,r=e.el=f(o(0,{className:n.className}),{position:n.position,width:0,zIndex:n.zIndex}),s=n.radius+n.length+n.width,a,l;if(t){t.insertBefore(r,t.firstChild||null);l=u(t);a=u(r);f(r,{left:(n.left=="auto"?l.x-a.x+(t.offsetWidth>>1):parseInt(n.left,10)+s)+"px",top:(n.top=="auto"?l.y-a.y+(t.offsetHeight>>1):parseInt(n.top,10)+s)+"px"})}r.setAttribute("role","progressbar");e.lines(r,e.opts);if(!i){var d=0,p=(n.lines-1)*(1-n.direction)/2,c,h=n.fps,m=h/n.speed,y=(1-n.opacity)/(m*n.trail/100),g=m/n.lines;(function v(){d++;for(var t=0;t<n.lines;t++){c=Math.max(1-(d+(n.lines-t)*g)%m*y,n.opacity);e.opacity(r,t*n.direction+p,c,n)}e.timeout=e.el&&setTimeout(v,~~(1e3/h))})()}return e},stop:function(){var t=this.el;if(t){clearTimeout(this.timeout);if(t.parentNode)t.parentNode.removeChild(t);this.el=undefined}return this},lines:function(t,e){var r=0,a=(e.lines-1)*(1-e.direction)/2,l;function u(t,i){return f(o(),{position:"absolute",width:e.length+e.width+"px",height:e.width+"px",background:t,boxShadow:i,transformOrigin:"left",transform:"rotate("+~~(360/e.lines*r+e.rotate)+"deg) translate("+e.radius+"px"+",0)",borderRadius:(e.corners*e.width>>1)+"px"})}for(;r<e.lines;r++){l=f(o(),{position:"absolute",top:1+~(e.width/2)+"px",transform:e.hwaccel?"translate3d(0,0,0)":"",opacity:e.opacity,animation:i&&s(e.opacity,e.trail,a+r*e.direction,e.lines)+" "+1/e.speed+"s linear infinite"});if(e.shadow)n(l,f(u("#000","0 0 4px "+"#000"),{top:2+"px"}));n(t,n(l,u(d(e.color,r),"0 0 1px rgba(0,0,0,.1)")))}return t},opacity:function(t,e,i){if(e<t.childNodes.length)t.childNodes[e].style.opacity=i}});function h(){function t(t,e){return o("<"+t+' xmlns="urn:schemas-microsoft.com:vml" class="spin-vml">',e)}r.addRule(".spin-vml","behavior:url(#default#VML)");c.prototype.lines=function(e,i){var o=i.length+i.width,r=2*o;function s(){return f(t("group",{coordsize:r+" "+r,coordorigin:-o+" "+-o}),{width:r,height:r})}var a=-(i.width+i.length)*2+"px",l=f(s(),{position:"absolute",top:a,left:a}),u;function p(e,r,a){n(l,n(f(s(),{rotation:360/i.lines*e+"deg",left:~~r}),n(f(t("roundrect",{arcsize:i.corners}),{width:o,height:i.width,left:i.radius,top:-i.width>>1,filter:a}),t("fill",{color:d(i.color,e),opacity:i.opacity}),t("stroke",{opacity:0}))))}if(i.shadow)for(u=1;u<=i.lines;u++)p(u,-2,"progid:DXImageTransform.Microsoft.Blur(pixelradius=2,makeshadow=1,shadowopacity=.3)");for(u=1;u<=i.lines;u++)p(u);return n(e,l)};c.prototype.opacity=function(t,e,i,o){var n=t.firstChild;o=o.shadow&&o.lines||0;if(n&&e+o<n.childNodes.length){n=n.childNodes[e+o];n=n&&n.firstChild;n=n&&n.firstChild;if(n)n.opacity=i}}}var m=f(o("group"),{behavior:"url(#default#VML)"});if(!a(m,"transform")&&m.adj)h();else i=a(m,"animation");return c});
+
+/*! gumshoe v3.5.0 | (c) 2017 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/gumshoe */
+!(function(e,t){"function"==typeof define&&define.amd?define([],t(e)):"object"==typeof exports?module.exports=t(e):e.gumshoe=t(e)})("undefined"!=typeof global?global:this.window||this.global,(function(e){"use strict";var t,n,o,r,a,c,i,l={},s="querySelector"in document&&"addEventListener"in e&&"classList"in document.createElement("_"),u=[],f={selector:"[data-gumshoe] a",selectorHeader:"[data-gumshoe-header]",container:e,offset:0,activeClass:"active",scrollDelay:!1,callback:function(){}},d=function(e,t,n){if("[object Object]"===Object.prototype.toString.call(e))for(var o in e)Object.prototype.hasOwnProperty.call(e,o)&&t.call(n,e[o],o,e);else for(var r=0,a=e.length;r<a;r++)t.call(n,e[r],r,e)},v=function(){var e={},t=!1,n=0,o=arguments.length;"[object Boolean]"===Object.prototype.toString.call(arguments[0])&&(t=arguments[0],n++);for(var r=function(n){for(var o in n)Object.prototype.hasOwnProperty.call(n,o)&&(t&&"[object Object]"===Object.prototype.toString.call(n[o])?e[o]=v(!0,e[o],n[o]):e[o]=n[o])};n<o;n++){var a=arguments[n];r(a)}return e},m=function(e){return Math.max(e.scrollHeight,e.offsetHeight,e.clientHeight)},g=function(){return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight,document.body.offsetHeight,document.documentElement.offsetHeight,document.body.clientHeight,document.documentElement.clientHeight)},h=function(e){var n=0;if(e.offsetParent){do n+=e.offsetTop,e=e.offsetParent;while(e)}else n=e.offsetTop;return n=n-a-t.offset,n>=0?n:0},p=function(t){var n=t.getBoundingClientRect();return n.top>=0&&n.left>=0&&n.bottom<=(e.innerHeight||document.documentElement.clientHeight)&&n.right<=(e.innerWidth||document.documentElement.clientWidth)},y=function(){u.sort((function(e,t){return e.distance>t.distance?-1:e.distance<t.distance?1:0}))};l.setDistances=function(){o=g(),a=r?m(r)+h(r):0,d(u,(function(e){e.distance=h(e.target)})),y()};var b=function(){var e=document.querySelectorAll(t.selector);d(e,(function(e){if(e.hash){var t=document.querySelector(e.hash);t&&u.push({nav:e,target:t,parent:"li"===e.parentNode.tagName.toLowerCase()?e.parentNode:null,distance:0})}}))},H=function(){c&&(c.nav.classList.remove(t.activeClass),c.parent&&c.parent.classList.remove(t.activeClass))},C=function(e){H(),e.nav.classList.add(t.activeClass),e.parent&&e.parent.classList.add(t.activeClass),t.callback(e),c={nav:e.nav,parent:e.parent}};l.getCurrentNav=function(){var n=e.pageYOffset;if(e.innerHeight+n>=o&&p(u[0].target))return C(u[0]),u[0];for(var r=0,a=u.length;r<a;r++){var c=u[r];if(c.distance<=n)return C(c),c}H(),t.callback()};var L=function(){d(u,(function(e){e.nav.classList.contains(t.activeClass)&&(c={nav:e.nav,parent:e.parent})}))};l.destroy=function(){t&&(t.container.removeEventListener("resize",j,!1),t.container.removeEventListener("scroll",j,!1),u=[],t=null,n=null,o=null,r=null,a=null,c=null,i=null)};var E=function(e){window.clearTimeout(n),n=setTimeout((function(){l.setDistances(),l.getCurrentNav()}),66)},j=function(e){n||(n=setTimeout((function(){n=null,"scroll"===e.type&&l.getCurrentNav(),"resize"===e.type&&(l.setDistances(),l.getCurrentNav())}),66))};return l.init=function(e){s&&(l.destroy(),t=v(f,e||{}),r=document.querySelector(t.selectorHeader),b(),0!==u.length&&(L(),l.setDistances(),l.getCurrentNav(),t.container.addEventListener("resize",j,!1),t.scrollDelay?t.container.addEventListener("scroll",E,!1):t.container.addEventListener("scroll",j,!1)))},l}));
+
+/*!
+ * headroom.js v0.9.4 - Give your page some headroom. Hide your header until you need it
+ * Copyright (c) 2017 Nick Williams - http://wicky.nillia.ms/headroom.js
+ * License: MIT
+ */
+
+!function(a,b){"use strict";"function"==typeof define&&define.amd?define([],b):"object"==typeof exports?module.exports=b():a.Headroom=b()}(this,function(){"use strict";function a(a){this.callback=a,this.ticking=!1}function b(a){return a&&"undefined"!=typeof window&&(a===window||a.nodeType)}function c(a){if(arguments.length<=0)throw new Error("Missing arguments in extend function");var d,e,f=a||{};for(e=1;e<arguments.length;e++){var g=arguments[e]||{};for(d in g)"object"!=typeof f[d]||b(f[d])?f[d]=f[d]||g[d]:f[d]=c(f[d],g[d])}return f}function d(a){return a===Object(a)?a:{down:a,up:a}}function e(a,b){b=c(b,e.options),this.lastKnownScrollY=0,this.elem=a,this.tolerance=d(b.tolerance),this.classes=b.classes,this.offset=b.offset,this.scroller=b.scroller,this.initialised=!1,this.onPin=b.onPin,this.onUnpin=b.onUnpin,this.onTop=b.onTop,this.onNotTop=b.onNotTop,this.onBottom=b.onBottom,this.onNotBottom=b.onNotBottom}var f={bind:!!function(){}.bind,classList:"classList"in document.documentElement,rAF:!!(window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame)};return window.requestAnimationFrame=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame,a.prototype={constructor:a,update:function(){this.callback&&this.callback(),this.ticking=!1},requestTick:function(){this.ticking||(requestAnimationFrame(this.rafCallback||(this.rafCallback=this.update.bind(this))),this.ticking=!0)},handleEvent:function(){this.requestTick()}},e.prototype={constructor:e,init:function(){if(e.cutsTheMustard)return this.debouncer=new a(this.update.bind(this)),this.elem.classList.add(this.classes.initial),setTimeout(this.attachEvent.bind(this),100),this},destroy:function(){var a=this.classes;this.initialised=!1;for(var b in a)a.hasOwnProperty(b)&&this.elem.classList.remove(a[b]);this.scroller.removeEventListener("scroll",this.debouncer,!1)},attachEvent:function(){this.initialised||(this.lastKnownScrollY=this.getScrollY(),this.initialised=!0,this.scroller.addEventListener("scroll",this.debouncer,!1),this.debouncer.handleEvent())},unpin:function(){var a=this.elem.classList,b=this.classes;!a.contains(b.pinned)&&a.contains(b.unpinned)||(a.add(b.unpinned),a.remove(b.pinned),this.onUnpin&&this.onUnpin.call(this))},pin:function(){var a=this.elem.classList,b=this.classes;a.contains(b.unpinned)&&(a.remove(b.unpinned),a.add(b.pinned),this.onPin&&this.onPin.call(this))},top:function(){var a=this.elem.classList,b=this.classes;a.contains(b.top)||(a.add(b.top),a.remove(b.notTop),this.onTop&&this.onTop.call(this))},notTop:function(){var a=this.elem.classList,b=this.classes;a.contains(b.notTop)||(a.add(b.notTop),a.remove(b.top),this.onNotTop&&this.onNotTop.call(this))},bottom:function(){var a=this.elem.classList,b=this.classes;a.contains(b.bottom)||(a.add(b.bottom),a.remove(b.notBottom),this.onBottom&&this.onBottom.call(this))},notBottom:function(){var a=this.elem.classList,b=this.classes;a.contains(b.notBottom)||(a.add(b.notBottom),a.remove(b.bottom),this.onNotBottom&&this.onNotBottom.call(this))},getScrollY:function(){return void 0!==this.scroller.pageYOffset?this.scroller.pageYOffset:void 0!==this.scroller.scrollTop?this.scroller.scrollTop:(document.documentElement||document.body.parentNode||document.body).scrollTop},getViewportHeight:function(){return window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight},getElementPhysicalHeight:function(a){return Math.max(a.offsetHeight,a.clientHeight)},getScrollerPhysicalHeight:function(){return this.scroller===window||this.scroller===document.body?this.getViewportHeight():this.getElementPhysicalHeight(this.scroller)},getDocumentHeight:function(){var a=document.body,b=document.documentElement;return Math.max(a.scrollHeight,b.scrollHeight,a.offsetHeight,b.offsetHeight,a.clientHeight,b.clientHeight)},getElementHeight:function(a){return Math.max(a.scrollHeight,a.offsetHeight,a.clientHeight)},getScrollerHeight:function(){return this.scroller===window||this.scroller===document.body?this.getDocumentHeight():this.getElementHeight(this.scroller)},isOutOfBounds:function(a){var b=a<0,c=a+this.getScrollerPhysicalHeight()>this.getScrollerHeight();return b||c},toleranceExceeded:function(a,b){return Math.abs(a-this.lastKnownScrollY)>=this.tolerance[b]},shouldUnpin:function(a,b){var c=a>this.lastKnownScrollY,d=a>=this.offset;return c&&d&&b},shouldPin:function(a,b){var c=a<this.lastKnownScrollY,d=a<=this.offset;return c&&b||d},update:function(){var a=this.getScrollY(),b=a>this.lastKnownScrollY?"down":"up",c=this.toleranceExceeded(a,b);this.isOutOfBounds(a)||(a<=this.offset?this.top():this.notTop(),a+this.getViewportHeight()>=this.getScrollerHeight()?this.bottom():this.notBottom(),this.shouldUnpin(a,c)?this.unpin():this.shouldPin(a,c)&&this.pin(),this.lastKnownScrollY=a)}},e.options={tolerance:{up:0,down:0},offset:0,scroller:window,classes:{pinned:"headroom--pinned",unpinned:"headroom--unpinned",top:"headroom--top",notTop:"headroom--not-top",bottom:"headroom--bottom",notBottom:"headroom--not-bottom",initial:"headroom"}},e.cutsTheMustard="undefined"!=typeof f&&f.rAF&&f.bind&&f.classList,e});
+
+
 
 /*global jQuery */
 /*jshint browser:true */
@@ -110,9 +105,8 @@
 // Works with either jQuery or Zepto
 })( window.jQuery );
 
-
+/* add spinner? */
 (function(factory) {
-
   if (typeof exports == 'object') {
     // CommonJS
     factory(require('jquery'), require('spin'));
@@ -126,11 +120,8 @@
     if (!window.Spinner) throw new Error('Spin.js not present');
     factory(window.jQuery, window.Spinner);
   }
-
 }(function($, Spinner) {
-
   $.fn.spin = function(opts, color) {
-
     return this.each(function() {
       var $this = $(this),
         data = $this.data();
@@ -158,12 +149,79 @@
 }));
 
 // Functions
+
+/* Check current page URL for a specific query parameter and get the value */
 function urlParam(name){
 	var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(window.location.href);
 	if (!results) { return 0; }
 	return results[1] || 0;
 }
 
+/* Take an existing URL within the page and add query parameters to it */
+/* options:
+    attrName: 'src',
+    param: 'source' or 'foo',
+    urlEncode: false
+*/
+(function($){
+  $.fn.updateAttrFromParam = function(opts){
+    return this.each(function(){
+      var paramValue = urlParam(opts['param']);
+      // check if necessary options are present
+      if ( opts['attr'] && paramValue ){
+        // get the current value of the chosen attribute
+        var attrValue = $(this).attr(opts['attr']);
+        // check if there's a '?' already in the url
+        var preexistingParams = ~attrValue.indexOf("?");
+        // set the initial separator character to either & or ?, depending
+        // on preexisting params
+        var initialSeparator = preexistingParams ? "&" : "?";
+        var keyValueSeparator = "=";
+        // if url encoding option is true, switch to that
+        if ( opts['urlEncode'] ){
+          initialSeparator = preexistingParams ? "%3F" : "%26";
+          keyValueSeparator = "%3D";
+        }
+        // Regex to detect the presence of the param name preceded by a ? or &
+        var paramNameRegex = new RegExp('([\\?&])' + opts['param']);
+        // Only proceed if the param is NOT already present in attrValue...
+        if ( !paramNameRegex.test(attrValue) ){
+          // assemble the new url
+          var attrValueNew = attrValue + initialSeparator + opts['param'] + keyValueSeparator + paramValue;
+          // replace the existing attribute with the new one
+          $(this).attr(opts['attr'], attrValueNew);
+        }
+      }
+    });
+  };
+}(jQuery));
+
+/*
+  Append a hidden input with a given name and value. Used primarily
+  to include source and referral tracking in forms.
+*/
+(function($){
+  $.fn.appendHiddenInputFromParam = function(inputName){
+  	return this.each(function(){
+      var paramValue = urlParam(inputName);
+      // check that a url parameter exists with this name
+      if ( paramValue ){
+        var hiddenSource = $(this).find('input[type="hidden"][name="' + inputName + '"]');
+        // check for pre-existing hidden input
+        if ( hiddenSource.length ){
+          hiddenSource.val( paramValue );
+        } else {
+          $(this).append('<input type="hidden" name="' + inputName + '" value="' +  paramValue + '">');
+        }
+      }
+  	});
+  };
+}(jQuery));
+
+/*
+  Set a link to use AJAX to fetch the content from an element
+  on another page.
+*/
 (function($){
 	$.fn.ajaxLink = function(isSingle, uniqueID){
 		jQuery(this).each(function(){
@@ -193,40 +251,19 @@ function urlParam(name){
 		return this;
 	}
 }(jQuery));
-// Localize the time with browser settings
+
+/* add .focus class to parent when direct child input has focus */
 (function($){
-	$.fn.localizeTime = function(options){
+	$.fn.parentFocus = function(){
 		return this.each(function(){
-			var timeFormat = $.extend({
-				hour:"2-digit",
-				minute:"2-digit",
-				timeZoneName:"short",
-			}, options );
-			var actionTime = new Date( jQuery(this).attr('data-time') );
-			if ( typeof actionTime.toLocaleTimeString === "function" ){
-				var actionTimeLocal = actionTime.toLocaleTimeString( [], { timeFormat } );
-				if ( actionTimeLocal ){
-					jQuery(this).html( actionTimeLocal );
-				}
-			}
-		});
-	};
-}(jQuery));
-// Localize the date with browser settings
-(function($){
-	$.fn.localizeDate = function(dateOptions){
-		return this.each(function(){
-			var dateFormat = $.extend({
-				month:"short",
-				day:"2-digit",
-			}, dateOptions );
-			var actionDate = new Date( jQuery(this).attr('data-time') );
-			if ( typeof actionDate.toLocaleDateString === "function" ){
-				var actionDateLocal = actionDate.toLocaleDateString( [], { dateFormat } );
-				if ( actionDateLocal ){
-					jQuery(this).html( actionDateLocal );
-				}
-			}
+      $(this).on({
+        focus: function(){
+          $(this).parent().addClass('focus');
+        },
+        blur: function(){
+          $(this).parent().removeClass('focus');
+        }
+      });
 		});
 	};
 }(jQuery));
@@ -352,20 +389,27 @@ function urlParam(name){
 			// set up the click event
 			$(this).on('click', function(e){
 				e.preventDefault();
+        var modalWrapper = $('#' + modalWrapperId)
+        var modalContent = modalWrapper.find('.modal-content');
         // unhide the source element before appending it to the modal window
-        modalSourceElem.show();
-        $('#' + modalWrapperId).addClass('open').find('.modal-content').append(modalSourceElem);
+        modalSourceElem
+          .clone()
+          .removeClass('nav-desktop-dropdown')
+          .show()
+          .appendTo(modalContent);
+        // Open the modal
         // check for any lazy loading inside the modal and swap data-src into src and kill any spinners
-        $('#' + modalWrapperId).find('[data-src]').each(function(){
+        modalWrapper
+          .addClass('open')
+          .find('[data-src]')
+          .each(function(){
             var modalDataSrc = $(this).attr('data-src');
             $(this).attr('src',modalDataSrc).removeClass('lazy').parent().spin(false);;
         });
 				// set up the "close modal" function
 				function modalClose(){
-					$('#' + modalWrapperId)
-            .removeClass('open')
-            .children('.modal-content')
-            .empty();
+					modalWrapper.removeClass('open')
+          modalContent.empty();
 					$(document).unbind("keyup", modalClose );
 				}
 				// call modalClose() when the "close" button is clicked
@@ -374,11 +418,11 @@ function urlParam(name){
 					event.stopPropagation();
 				});
 				// call modalClose() when the modal background is clicked
-				$('#' + modalWrapperId).on('click', function(){
+				modalWrapper.on('click', function(){
 					modalClose();
 				});
 				// stop clicks in the modal content from propagating up and triggering a "close" event
-				$('.modal-content').on('click',function(event){
+				modalContent.on('click',function(event){
 					event.stopPropagation();
 				});
 				// call modalClose() when the Esc key is pressed
@@ -533,18 +577,144 @@ function urlParam(name){
     });
   }
 }(jQuery));
+/* Horizontally overflowing sidescrolling section */
+(function($){
+	jQuery.fn.horzScrollControls = function(){
+		return this.each(function(index){
+			// check for data- attribute options, or else use this element and it's first child as the target
+			var horzScrollFrame = this;
+			$(this).wrapInner('<div class="horizontal-scroll-inner"></div>');
+			var horzScrollContent = $(this).children('.horizontal-scroll-inner')[0];
+
+			// duration of scroll animation
+			var scrollDuration = 1000;
+			// Set up controls wrapper
+			var controlsWrapper = $('<div class="horizontal-scroll-nav-controls"></div>').prependTo(this);
+			// Control Labels
+			var controlLabelForward = $(this).attr('data-horizontal-scroll-forward-label') ? $(this).attr('data-horizontal-scroll-forward-label') : 'Forward';
+			var controlLabelBackward = $(this).attr('data-horizontal-scroll-back-label') ? $(this).attr('data-horizontal-scroll-back-label') : 'Back';
+			// Set up control elements, hiding the back control initial
+			var controlForward = $('<div class="horizontal-scroll-nav-control horizontal-scroll-nav-control-forward">' + controlLabelForward + '</div>').prependTo(controlsWrapper);
+			var controlBackward = $('<div class="horizontal-scroll-nav-control horizontal-scroll-nav-control-back">' + controlLabelBackward + '</div>').prependTo(controlsWrapper);
+
+			// get outer container width
+			var getHorzFrameSize = function() {
+				return $(horzScrollFrame).outerWidth();
+			}
+			var horzFrameSize = getHorzFrameSize();
+			// get inner container width
+			var getHorzContentSize = function() {
+				return $(horzScrollContent).outerWidth();
+			}
+			var horzContentSize = getHorzContentSize();
+
+			// re-measure widths when window is resized
+			$(window).on('resize', function() {
+				horzFrameSize = getHorzFrameSize();
+				horzContentSize = getHorzContentSize();
+			});
+
+			// get how much of horz is invisible
+			var horzHiddenSize = Math.abs(horzContentSize - horzFrameSize);
+
+			// get how much have we scrolled to the left
+			var getHorzPosition = function() {
+				return $(horzScrollFrame).scrollLeft();
+			};
+
+			// determine whether scroll controls are active or inactive
+			var setControlState = function(){
+				horzPosition = getHorzPosition();
+				if (horzPosition <= 30) {
+					$(controlBackward).addClass('inactive');
+					$(controlForward).removeClass('inactive');
+				} else if (horzPosition < horzHiddenSize) {
+					// show both controls
+					$(controlBackward).removeClass('inactive');
+					$(controlForward).removeClass('inactive');
+				} else if (horzPosition >= horzHiddenSize) {
+					$(controlBackward).removeClass('inactive');
+					$(controlForward).addClass('inactive');
+				}
+			}
+			setControlState();
+
+			// update variables when scrolled
+			$(horzScrollFrame).on('scroll', function() {
+				horzHiddenSize =  Math.abs(horzContentSize - horzFrameSize);
+				setControlState();
+			});
+
+			// determine whether to scroll one screen width or all the way to the end
+			var calculateScrollIncrement = function(direction){
+				// current window width
+				var horzFrameSizeOffset = 0.8 * horzFrameSize;
+				// current scroll horzPosition
+				var horzPosition = getHorzPosition();
+				// debug console.log('horzHiddenSize: ' + horzHiddenSize + ', horzFrameSize: ' + horzFrameSize + ', currentPosition: ' + currentPosition);
+				if ( direction == 'forward'){
+					if ( horzHiddenSize > horzFrameSizeOffset + horzPosition){
+						// if there's more hidden content than the screen width,
+						// only scroll one screen width over
+						return horzFrameSizeOffset + horzPosition;
+					} else {
+						return horzHiddenSize;
+					}
+				} else {
+					if ( horzHiddenSize < horzFrameSizeOffset + horzPosition){
+						return horzPosition - horzFrameSizeOffset;
+					} else {
+						return 0;
+					}
+				}
+
+			}
+
+			// scroll forward click event
+			$(controlForward).on('click', function() {
+				scrollIncrement = calculateScrollIncrement('forward');
+				$(horzScrollFrame).animate( { scrollLeft: scrollIncrement}, scrollDuration);
+			});
+
+			// scroll backward click event
+			$(controlBackward).on('click', function() {
+				scrollIncrement = calculateScrollIncrement('backward');
+				$(horzScrollFrame).animate( { scrollLeft: (scrollIncrement) }, scrollDuration);
+			});
+		});
+	}
+}(jQuery));
+
+
 
 
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 	$('html').removeClass('no-js').addClass('js');
-	var responsive_viewport = $(window).width();
+  /*
+    Scripts that can potentially change the size of elements and the document.
+    Run these first so following scripts don't have to recalculate size/position, in
+    descending order of how much they're likely to change the document size.
+  */
+	// Truncate and add "Read More" link
+	$('[data-read-more-after], [data-readmore-after]').truncateAndReadMore();
+  // Expandooooo
+  $(".expando, .js-expando").expando();
+  $(".expando-mobile, .mobile-expando").expando('mobile');
+  $(".tablet-expando").expando('tablet');
+  // Collapsed Menus
+  $(".nav-mobile-collapsed").collapseMenu('mobile');
+  $(".nav-tablet-collapsed").collapseMenu('tablet');
+  $(".nav-desktop-collapsed").collapseMenu('desktop');
+  // iframe resizer
+  $(".iframe-wrapper, .video-wrapper").fitVids();
+  // Modals
 	$('.js-modal').modal();
 	$('.js-modal-onload').trigger('click');
+
+  // Add spinner to lazy images
 	$('img.lazy').parent().spin('tiny');
-	// for AK-style form fields, wrap adjacent sibs in fieldset
-	$('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'fieldset class="input-group"');
-	$('[data-preselect]').preselect();
+
 	var bLazy = new Blazy({
     container: '.page-container',
 		breakpoints: [
@@ -556,52 +726,66 @@ jQuery(document).ready(function($) {
 				width: 1024,
 				src: 'data-src-medium',
 			}
-    	],
-    	success: function(ele){
-    		var parent = ele.parentNode;
-            $(ele).parent().spin(false);
-            $(".video-wrapper, .iframe-wrapper").fitVids();
-        },
-        error: function(ele){
-        	var parent = ele.parentNode;
-            $(ele).parent().spin(false);
-        },
-        offset: 300,
-        selector: '.lazy',
-    });
-    $('.js-localize-time').localizeTime();
-    $('.js-localize-date').localizeDate();
+  	],
+  	success: function(ele){
+  		var parent = ele.parentNode;
+          $(ele).parent().spin(false);
+          $(".video-wrapper, .iframe-wrapper").fitVids();
+      },
+      error: function(ele){
+      	var parent = ele.parentNode;
+          $(ele).parent().spin(false);
+      },
+      offset: 300,
+      selector: '.lazy',
+  });
+  // for AK-style form fields, wrap adjacent sibs in fieldset
+  $('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'fieldset class="input-group"');
+
+  /* --- end of scripts likely to change document size */
+
+  // Add a 'focus' class to the parent element when input gets focus
+  $("input, select, textarea").parentFocus();
+  // Set up AJAX links
 	$('.ajax-link').ajaxLink();
-	$.localScroll.hash({
-		onBefore: function( e, anchor, $target ){
-			var ifExpando = $(anchor).is('.expando, .mobile-expando');
-			if( ifExpando ){
-				$(anchor).find('.expando-link').trigger('click');
-			}
-		},
-		offset: -70,
-	});
 
-    // Expandooooo
-    $(".expando, .js-expando").expando();
-    $(".expando-mobile, .mobile-expando").expando('mobile');
-    $(".tablet-expando").expando('tablet');
 
-	$.localScroll({
-		filter: ':not(.js-modal)',
-		// if anchor linking to an expando section, expand it before scrolling to it
-		onBefore: function( e, anchor, $target ){
-			var ifExpando = $(anchor).is('.expando, .mobile-expando');
-			if( ifExpando ){
-				$(anchor).find('.expando-link').trigger('click');
-			}
-		},
-		hash: true,
-		offset: -70,
-    });
-	$(".iframe-wrapper, .video-wrapper").fitVids();
+  var headerSticky = document.querySelector("#site-header");
+  var headerYPosition = 0;
+  // Headroom - "shy" sticky
+  // grab an element, construct an instance of Headroom and init
+  var headerStickyOptions = {
+    tolerance: {
+      up: 5,
+      down: 5
+    },
+    offset: headerYPosition,
+    onPin: function(){
+      $('body').addClass('has-shySticky-active');
+    },
+    onUnpin: function(){
+      $('body').removeClass('has-shySticky-active');
+    },
+  }
+  if (headerSticky){
+    headerYPosition = (headerSticky.offsetTop) ? headerSticky.offsetTop : 0;
+    var shySticky  = new Headroom(headerSticky, headerStickyOptions);
+    shySticky.init();
+  }
+
+  /* Update on-page nav items with .active if they're on screen */
+  gumshoe.init({
+    selector: 'nav a', // Default link selector (must use a valid CSS selector)
+  });
+  // Set up controls for horizontal scroll areas
+  $('.horizontal-scroll').horzScrollControls();
+  // Insert the number of actions taken for a given AK page
 	$(".ak-action-count").akGetActionCount();
+  // Preselect an item in a select tag
+  $('[data-preselect]').preselect();
+  // Pop up share dialogs in a mini new window
 	$(".tw-share, .fb-share, .button-dot.facebook, .button-share-facebook, .button-share-twitter").newWindowPopup();
+  // Reveal the bg image when hovering on the image credit
 	$(".section-img-credit").hover(
 		function(){
 			$(this).stop().prev('.section-inner').animate({opacity:0});
@@ -610,110 +794,37 @@ jQuery(document).ready(function($) {
 		}
 	);
 
-
-  $(".nav-mobile-collapsed").collapseMenu('mobile');
-  $(".nav-tablet-collapsed").collapseMenu('tablet');
-  $(".nav-desktop-collapsed").collapseMenu('desktop');
-
-	var initialWidth = $(window).width();
-  console.log('intialWidth = ' + initialWidth);
-
-	if ("ontouchstart" in document.documentElement){
-		// block first click on .parent nav elements
-		$('.desktop-dropdown .menu > .parent > a').on('touchstart',function(e){
-			e.preventDefault();
-		});
-	}
-
-	var url_source = urlParam('source');
-  if ( url_source ){
-
-	// Add URL param "source" as hidden input on any AK forms
-  	$('.actionkit-widget').each(function(){
-  		$(this).append('<input type="hidden" name="source" value="' +  url_source + '"> ');
-  	});
+  /* FLAGGED: split Actionkit-specific scripts into separate module */
+	// When AK forms have finished loading...
+  $(document).on('actionkit.ready',function(){
+    // Add URL param "referrer" as hidden input on any AK forms
+    $('.actionkit-widget, form[action="https://act.350.org/act/"],  form[action="http://act.350.org/act/"]')
+      .appendHiddenInputFromParam('source') // redundant b/c AK also detects source param
+      .appendHiddenInputFromParam('referrer');
+  });
 
 	// Add URL param "source" to AK map iframe src, then AK can append it to map links
-  	$('.ak-event-map').each(function(){
-  		var iframe_src = $(this).attr('src');
-  		if ( ~iframe_src.indexOf("?") ){
-  			var iframe_src_new = iframe_src + '&source=' + url_source;
-      } else {
-        var iframe_src_new = iframe_src + '?source=' + url_source;
-      }
-  		$(this).attr('src', iframe_src_new);
-  	});
+	$('.ak-event-map, iframe[src^="https://act.350.org/"]')
+    .updateAttrFromParam({attr: 'src', param:'source'});
 
-    // Pass URL param "source" to share buttons
-    $('.button-share-facebook, .fb-share, .button-share-twitter, .tw-share').each(function(){
-      var share_url = $(this).attr('href');
-      if ( ~share_url.indexOf("?") ){
-        var share_url_new = share_url + '%3Fsource%3D' + url_source;
-      } else {
-        var share_url_new = share_url + '%26source%3D' + url_source;
-      }
-      $(this).attr('href', share_url_new);
-    });
+  /* FLAGGED: split 350-specific scripts into separate module */
+  // Add URL param "source" to megamap (data-src presumes lazyloading)
+  $("iframe[data-src^='https://new-map.350.org/']")
+    .updateAttrFromParam({attr: 'data-src', param: 'source'})
+    .updateAttrFromParam({attr: 'data-src', param: 'referrer'});
 
-	// Add URL param "source" to megamap
-	    $("iframe#map").each(function(){
-		    var datasrc = $(this).attr('data-src');
-		    if ( ~datasrc.indexOf("?") ){
-		      var datasrc_new = datasrc + '&source=' + url_source;
-		    } else {
-		      var datasrc_new = datasrc + '?source=' + url_source;
-		    }
-		    $(this).attr('data-src', datasrc_new);
-		    console.log('iframe data-src: '+$(this).attr('data-src'));
-			});
-
-
-	// Add URL param "source" to host buttons
-	  $("a#host_button").each(function(){
-	    var url = $(this).attr('href');
-	    if ( ~url.indexOf("?") ){
-	      var url_new = url + '&source=' + url_source;
-	    } else {
-	      var url_new = url + '?source=' + url_source;
-	    }
-	    $(this).attr('href', url_new);
-	    console.log('host button link (source): '+$(this).attr('href'));
-	  });
-  }
-
-  var url_referrer = urlParam('referrer');
-	console.log('referrer: '+url_referrer);
-
-  if ( url_referrer ){
-
-
-	// Add URL param "referrer" to megamap
-    $("iframe#map").each(function(){
-      var datasrc = $(this).attr('data-src');
-      if ( ~datasrc.indexOf("?") ){
-        var datasrc_new = datasrc + '&referrer=' + url_referrer;
-      } else {
-        var datasrc_new = datasrc + '?referrer=' + url_referrer;
-      }
-      $(this).attr('data-src', datasrc_new);
-      console.log('iframe data-src: '+$(this).attr('data-src'));
-    });
-
-	// Add URL param "referrer" to host buttons
-    $("a#host_button").each(function(){
-      var url = $(this).attr('href');
-      if ( ~url.indexOf("?") ){
-        var url_new = url + '&referrer=' + url_referrer;
-      } else {
-        var url_new = url + '?referrer=' + url_referrer;
-      }
-      $(this).attr('href', url_new);
-      console.log('host button link (referrer): '+$(this).attr('href'));
-    });
-
-  }
-
-
-	// Truncate and add "Read More" link
-	$('[data-read-more-after], [data-readmore-after]').truncateAndReadMore();
+  /* FLAGGED: split AN scripts off into separate module */
+  /* Action Network scripts to run once their widgets load */
+  $(document).on('can_embed_loaded',function(){
+    // strip all inputs of events, and then re-run parentFocus script
+    $("input, select, textarea").off().parentFocus();
+    // Add source/referrer to any outgoing AN links
+    $('a[href^="https://actionnetwork.org/"], a[href^="http://actionnetwork.org/"]')
+      .updateAttrFromParam({attr: 'href', param: 'source'})
+      .updateAttrFromParam({attr: 'href', param: 'referrer'});
+  	// Add URL param "source" as hidden input on AN forms
+    $('.can_embed form, form[action^="https://actionnetwork.org/"]')
+      .appendHiddenInputFromParam('source')
+      .appendHiddenInputFromParam('referrer');
+  });
 }); /* end of as page load scripts */
