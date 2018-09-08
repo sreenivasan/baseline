@@ -813,6 +813,11 @@ jQuery(document).ready(function($) {
     .updateAttrFromParam({attr: 'data-src', param: 'source'})
     .updateAttrFromParam({attr: 'data-src', param: 'referrer'});
 
+  $("iframe[data-src-desktop^='https://new-map.350.org/']")
+    .updateAttrFromParam({attr: 'data-src-desktop', param: 'source'})
+    .updateAttrFromParam({attr: 'data-src-desktop', param: 'referrer'});
+
+
   /* FLAGGED: split AN scripts off into separate module */
   /* Action Network scripts to run once their widgets load */
   $(document).on('can_embed_loaded',function(){
