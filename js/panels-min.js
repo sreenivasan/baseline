@@ -1,0 +1,1 @@
+"use strict";jQuery(document).ready(function($){$(".panel").hide().eq(0).show(),$(".panel-nav a[href^=#]").on("click",function(e){var a=$(this).attr("href"),n=$(a);n&&(e.preventDefault(),$(".panel-nav a[href^=#]").removeClass("active"),$(this).addClass("active"),$(".panel").hide(),$(n).show())})});

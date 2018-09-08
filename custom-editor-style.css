@@ -60,7 +60,7 @@ html {
 /* Set responsive rems */
 @supports (font-size: calc(1vh + 1vw)) {
   html {
-    font-size: calc(.15vw + .15vh + 15.5px); }
+    font-size: calc(.15vw + .15vh + 15px); }
   @media only screen and (min-width: 1260px) {
     html {
       font-size: calc(.25vw + .25vh + 12.85px); } } }
@@ -528,6 +528,16 @@ h5 {
     -webkit-hyphens: auto;
         -ms-hyphens: auto;
             hyphens: auto; } }
+
+.text-hyphens-none {
+  -webkit-hyphens: none !important;
+      -ms-hyphens: none !important;
+          hyphens: none !important; }
+
+.text-hyphens {
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto; }
 
 /* Text Size
   "@include default-letterspace-lineheight-calc" is repeated so
@@ -1105,7 +1115,8 @@ button.active {
 /* FLAGGED: inconsistent names :( */
 /* Button modifiers */
 .button-small {
-  font-size: 0.85em; }
+  font-size: 0.85em;
+  padding: 0.62em 1.2em; }
 
 .button-small2 {
   font-size: 0.8em;
@@ -1552,7 +1563,8 @@ label[for] {
   .form-layout-horizontal .input-submit button,
   .form-layout-horizontal button[type="submit"],
   .form-layout-horizontal button.submit {
-    border-radius: 0 4px 4px 0; }
+    border-radius: 0 4px 4px 0;
+    height: 100%; }
   .form-layout-horizontal .input-radio,
   .form-layout-horizontal .input-checkbox,
   .form-layout-horizontal .input-textarea {
@@ -1988,7 +2000,7 @@ label[for] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-height: calc(2rem + 1vh + .55vw);
+  height: calc(2rem + 1vh + .55vw);
   margin: 0 auto;
   max-width: calc(100vw - 30vw); }
 
@@ -2204,31 +2216,31 @@ label[for] {
 
 .padding-tiny {
   padding: 17px;
-  padding: calc(1.375vh + 0.625vw) calc(0.625vh + 1.375vw); }
+  padding: calc(1.375vh + 0.625vw + 2px) calc(0.625vh + 1.375vw + 2px); }
 
 .padding-small {
   padding: 20px;
-  padding: calc(2.75vh + 1.25vw) calc(1.25vh + 2.75vw); }
+  padding: calc(2.75vh + 1.25vw + 3px) calc(1.25vh + 2.75vw + 3px); }
 
 .padding-normal {
   padding: 47px 27px;
-  padding: calc(4.125vh + 1.875vw) calc(1.875vh + 4.125vw); }
+  padding: calc(3.78125vh + 1.71875vw + 5px) calc(1.71875vh + 3.78125vw + 5px); }
 
 .padding-medium {
   padding: 60px 30px;
-  padding: calc(5.84375vh + 2.65625vw) calc(2.65625vh + 5.84375vw); }
+  padding: calc(5.15625vh + 2.34375vw + 0px) calc(2.34375vh + 5.15625vw + 0px); }
 
 .padding-large {
   padding: 80px 40px;
-  padding: calc(8.25vh + 3.75vw) calc(3.75vh + 8.25vw); }
+  padding: calc(8.9375vh + 4.0625vw + -20px) calc(4.0625vh + 8.9375vw + -20px); }
 
 .padding-huge {
   padding: 108px 40px;
-  padding: calc(11vh + 5vw) calc(5vh + 11vw); }
+  padding: calc(11vh + 5vw + -30px) calc(5vh + 11vw + -30px); }
 
 .padding-gigantic {
   padding: 150px 48px;
-  padding: calc(15.125vh + 6.875vw) calc(6.875vh + 15.125vw); }
+  padding: calc(15.125vh + 6.875vw + -38px) calc(6.875vh + 15.125vw + -38px); }
 
 .width-full .section-inner {
   max-width: 100%; }
