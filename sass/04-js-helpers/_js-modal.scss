@@ -77,9 +77,10 @@
 .modal-wrapper nav{
   cursor:default;
   height:100vh;
-  overflow:auto;
+  overflow:unset;
   margin:0;
   padding:2.5rem;
+  padding-top: 0;
   text-align:left;}
 
 .modal-wrapper .site-language-nav{
