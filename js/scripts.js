@@ -381,7 +381,7 @@ function urlParam(name){
 
       // set up modal wrappers
       // assemble the outer and inner modal wrappers around the content
-      var modal = '<div id="' + modalWrapperId + '" class="modal-wrapper section ' + modalOuterClasses + '"><div class="modal-inner section-inner ' + modalInnerClasses + '"><a class="modal-close">X</a><div class="modal-content"></div></div></div>';
+      var modal = '<div id="' + modalWrapperId + '" class="modal-wrapper section ' + modalOuterClasses + '"><div class="modal-inner section-inner ' + modalInnerClasses + '"><a class="modal-close modal-close-x">X</a><div class="modal-content"></div></div></div>';
       // append the modal before the closing </body> tag and add the class "open" (which hooks into CSS3 animations)
       // NOTE: animate() is used just to provide a slight delay before adding the 'open' class, which is necessary to trigger CSS3 animation (for some reason)
       $(modal).appendTo('body');
