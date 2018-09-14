@@ -4569,7 +4569,8 @@ div.alignright {
     display: inline;
     float: left;
     position: relative;
-    margin: 0 1%; }
+    margin-left: 1%;
+    margin-right: 1%; }
   .c1 {
     width: 7.9%; }
   .c2 {

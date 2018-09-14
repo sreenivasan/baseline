@@ -279,9 +279,9 @@ function urlParam(name){
 		var readMoreTranslations = {
 			en: "Read&nbsp;More",
 			fr: "Lire&nbsp;la&nbsp;Suite",
-      ar: "Ø§Ù‚Ø±Ø£ Ø£ÙƒØ«Ø±",
-      pt: "Leia mais",
-      es: "Leer más",
+      ar: "Ø§Ù‚Ø±Ø£&nbsp;Ø£ÙƒØ«Ø±",
+      pt: "Leia&nbsp;mais",
+      es: "Leer&nbsp;más",
       de: "Weiterlesen",
       tr: "Daha&nbsp;fazla&nbsp;oku",
     };
@@ -324,7 +324,7 @@ function urlParam(name){
           var readMoreInlineLink = '';
         } else {
           var readMoreBlockLink = '';
-          var readMoreInlineLink = '<a class="read-more read-more-inline arrow-down ' + readMoreLinkClasses +'">' + readMoreText +'</a>';
+          var readMoreInlineLink = '&nbsp;<a class="read-more read-more-inline arrow-down ' + readMoreLinkClasses +'">' + readMoreText +'</a>';
         }
         $(this).append( readMoreBlockLink );
         // Hide extra para's, add "read more", trigger click handler setup event
