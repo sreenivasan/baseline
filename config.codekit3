@@ -1570,19 +1570,6 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"\/sass\/02-components\/_background.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 5,
-		"dS": 0,
-		"ft": 4,
-		"ma": 1,
-		"oA": 1,
-		"oAP": "\/sass\/02-components\/_background.css",
-		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
 	"\/sass\/02-components\/_borders-notches.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -1696,6 +1683,19 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "\/sass\/02-components\/_search.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"\/sass\/03-layout\/_background.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 5,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "\/sass\/03-layout\/_background.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
