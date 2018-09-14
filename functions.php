@@ -82,10 +82,6 @@ function bones_head_cleanup() {
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 	// WP version
 	remove_action( 'wp_head', 'wp_generator' );
-  // remove WP version from css
-  add_filter( 'style_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
-  // remove Wp version from scripts
-  add_filter( 'script_loader_src', 'bones_remove_wp_ver_css_js', 9999 );
 
 } /* end bones head cleanup */
 
@@ -127,25 +123,12 @@ SCRIPTS & ENQUEUEING
 // loading modernizr and jquery, and reply script
 function bones_scripts_and_styles() {
   if (!is_admin()) {
+    wp_enqueue_script( 'baseline-js', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), filemtime( get_template_directory().'/js/scripts.js' ), true );
+    wp_enqueue_script( 'actionkit', 'https://act.350.org/resources/actionkit.js', array('jquery') );
 
-
-//adding scripts file in the footer
-    wp_register_script( 'baseline-js', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '', true );
-	// Optional Internal page-only scripts
-	// wp_register_script( 'tfbase-js-internal', get_stylesheet_directory_uri() . '/js/scripts-internal.js', array( 'jquery' ), '', true );
-
-    wp_enqueue_script( 'baseline-js' );
-    wp_enqueue_script( 'actionkit', 'https://act.350.org/resources/actionkit.js', array('jquery'));
-    
-	/* if (!is_home()){
-		 wp_enqueue_script( 'tfbase-js-internal' );
-	}*/
+    wp_dequeue_style( 'baseline-style' );
+    wp_enqueue_style( 'baseline', get_template_directory_uri() . '/style.css', false, filemtime( get_template_directory().'/style.css' ), 'all' );
   }
-  // dequeue regular style.css so we can replace it style.php
-  wp_dequeue_style( 'baseline-style' );
-  wp_register_style( 'baseline', get_template_directory_uri() . '/style.css', array(), '1.1.1', 'all' );
-  wp_enqueue_style( 'baseline' );
-//  wp_enqueue_style( 'actionkit-350', 'https://dbqvwi2zcv14h.cloudfront.net/ak/ak-v3.css');  
 }
 
 /*********************

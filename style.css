@@ -5,7 +5,7 @@
  Description:  350 Baseline parent theme
  Author:       Matthew Hinders-Anderson + suzi grishpul
  Author URI:   https://350.org
- Version:      1.6.4
+ Version:      1.6.42
  Text Domain:  baseline
  GitHub Theme URI: https://github.com/350org/baseline
 */
@@ -1233,8 +1233,8 @@ label[for] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; }
 
 .input-radio input,
 .input-checkbox input {
@@ -1279,6 +1279,12 @@ label[for] {
   background-color: transparent;
   padding-top: 2em; }
 
+.form-style-labelabove label {
+  color: #0f81e8;
+  /* FLAGGED: remove hardcoded 350 color */
+  font-size: 0.85em;
+  font-weight: bold; }
+
 .form-style-labelabove .input-text,
 .form-style-labelabove .input-textarea,
 .form-style-labelabove .input-number,
@@ -1291,18 +1297,20 @@ label[for] {
   margin-bottom: 0.8em;
   position: relative; }
 
-.form-style-labelabove label {
-  color: #0f81e8;
+.form-style-labelabove .input-text label,
+.form-style-labelabove .input-textarea label,
+.form-style-labelabove .input-number label,
+.form-style-labelabove .input-multiple label,
+.form-style-labelabove .input-select label,
+.form-style-labelabove .input-group label {
   display: block;
-  font-size: 0.85em;
-  font-weight: bold;
   padding: 0.5em 0.6em 0;
   text-align: start; }
 
+/* Reset labels alignment, regardless of inherited alignment*/
 .form-style-labelabove .input-checkbox label,
 .form-style-labelabove .input-radio label {
   color: inherit;
-  display: inline-block;
   margin-left: 0.5em;
   padding: 0; }
 
@@ -1552,7 +1560,8 @@ nav ul {
 nav li,
 nav li li {
   list-style-type: none;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  text-align: unset; }
 
 nav a,
 .nav a {
@@ -3929,6 +3938,12 @@ li#d_sharing,
 
 .section.actionkit #action-lead .buttons-share-side {
   display: none; }
+
+.actionkit #really-opt-out {
+  margin-bottom: 1.5em; }
+
+.actionkit.bg-dkgray #really-opt-out {
+  background-color: rgba(255, 255, 255, 0.2); }
 
 /* Addthis.com plugin styles */
 @media screen and (min-width: 979px) {

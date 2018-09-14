@@ -12,14 +12,13 @@ nav ul{
 nav li,
 nav li li{
   list-style-type:none;
-  margin-bottom:0;}
+  margin-bottom:0;
+  text-align:unset;} // undo text-align:start on normal bulleted lists
 nav a,
 .nav a{
   border-bottom:0;
   text-decoration:none;
   transition:0.1s all;}
-
-
 
 /* ----- Nav Sections ----- */
 nav.section{
