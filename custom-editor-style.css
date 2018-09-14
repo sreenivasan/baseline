@@ -60,7 +60,7 @@ html {
 /* Set responsive rems */
 @supports (font-size: calc(1vh + 1vw)) {
   html {
-    font-size: calc(.15vw + .15vh + 15.5px); }
+    font-size: calc(.15vw + .15vh + 15px); }
   @media only screen and (min-width: 1260px) {
     html {
       font-size: calc(.25vw + .25vh + 12.85px); } } }
@@ -529,6 +529,16 @@ h5 {
         -ms-hyphens: auto;
             hyphens: auto; } }
 
+.text-hyphens-none {
+  -webkit-hyphens: none !important;
+      -ms-hyphens: none !important;
+          hyphens: none !important; }
+
+.text-hyphens {
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto; }
+
 /* Text Size
   "@include default-letterspace-lineheight-calc" is repeated so
   many times because calc functions aren't re-calculated when they're
@@ -851,110 +861,6 @@ a.text-unstyled:hover {
   vertical-align: middle;
   width: 1.5em; }
 
-/* Site background */
-/* .bg-on is a WP variable that's active when a fullscreen background image is present.
-   Combines a dark bg color with a semi-transparent image to darken the image,
-   increasing text contrast. */
-.bg-on {
-  background-color: #17292e; }
-
-#body-mobile-background {
-  background: center/cover no-repeat scroll transparent;
-  display: block;
-  height: 100vh;
-  left: 0;
-  opacity: 0.6;
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  -webkit-transition: height 2.2s ease-out;
-  transition: height 2.2s ease-out;
-  width: 100vw;
-  z-index: 1; }
-
-.bg-position-bottom {
-  background-position: center bottom; }
-
-.bg-position-bottomright {
-  background-position: right bottom; }
-
-.bg-position-bottomleft {
-  background-position: left bottom; }
-
-.bg-position-top {
-  background-position: center top; }
-
-.bg-position-topright {
-  background-position: right top; }
-
-.bg-position-topleft {
-  background-position: left top; }
-
-.bg-position-right {
-  background-position: right center; }
-
-.bg-position-left {
-  background-position: left center; }
-
-@media screen and (min-width: 950px) {
-  .bg-attach-fixed {
-    background-attachment: fixed; } }
-
-.bg-repeat-none {
-  background-repeat: no-repeat; }
-
-.bg-repeat-x {
-  background-repeat: repeat-x; }
-
-.bg-repeat-y {
-  background-repeat: repeat-y; }
-
-.bg-repeat-both {
-  background-repeat: repeat; }
-
-.bg-size-cover {
-  background-size: cover; }
-
-.bg-size-full-width {
-  background-size: 100% auto; }
-
-.bg-size-normal {
-  background-size: auto; }
-
-.section-img-credit {
-  display: none; }
-
-/* Desktop and larger */
-@media only screen and (min-width: 950px) {
-  .section-img-credit {
-    border-radius: 2px;
-    bottom: 10px;
-    color: #fff !important;
-    text-align: right !important;
-    text-shadow: 2px 1px 1px #000;
-    display: block;
-    font-size: 0.75rem;
-    opacity: 0.6;
-    position: absolute;
-    right: 10px;
-    max-width: 70vw; }
-  .page-bg-img-credit {
-    border-radius: 2px;
-    display: inline-block;
-    padding: 2px 5px;
-    position: relative; }
-  .section-img-credit:hover,
-  .page-bg-img-credit:hover {
-    background: #17292e;
-    background: rgba(30, 40, 50, 0.8);
-    opacity: 1; }
-  .section-img-credit a,
-  .page-bg-img-credit a,
-  a.page-bg-img-credit {
-    color: #fff !important;
-    font-weight: normal;
-    text-decoration: none; } }
-
 /* Borders + Notches */
 /* Borders */
 .border {
@@ -1105,7 +1011,8 @@ button.active {
 /* FLAGGED: inconsistent names :( */
 /* Button modifiers */
 .button-small {
-  font-size: 0.85em; }
+  font-size: 0.85em;
+  padding: 0.62em 1.2em; }
 
 .button-small2 {
   font-size: 0.8em;
@@ -1326,8 +1233,8 @@ label[for] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; }
 
 .input-radio input,
 .input-checkbox input {
@@ -1372,6 +1279,10 @@ label[for] {
   background-color: transparent;
   padding-top: 2em; }
 
+.form-style-labelabove label {
+  font-size: 0.85em;
+  font-weight: bold; }
+
 .form-style-labelabove .input-text,
 .form-style-labelabove .input-textarea,
 .form-style-labelabove .input-number,
@@ -1384,18 +1295,22 @@ label[for] {
   margin-bottom: 0.8em;
   position: relative; }
 
-.form-style-labelabove label {
+.form-style-labelabove .input-text label,
+.form-style-labelabove .input-textarea label,
+.form-style-labelabove .input-number label,
+.form-style-labelabove .input-multiple label,
+.form-style-labelabove .input-select label,
+.form-style-labelabove .input-group label {
   color: #0f81e8;
+  /* FLAGGED: remove hardcoded 350 color */
   display: block;
-  font-size: 0.85em;
-  font-weight: bold;
   padding: 0.5em 0.6em 0;
   text-align: start; }
 
+/* Reset labels alignment, regardless of inherited alignment*/
 .form-style-labelabove .input-checkbox label,
 .form-style-labelabove .input-radio label {
   color: inherit;
-  display: inline-block;
   margin-left: 0.5em;
   padding: 0; }
 
@@ -1552,7 +1467,8 @@ label[for] {
   .form-layout-horizontal .input-submit button,
   .form-layout-horizontal button[type="submit"],
   .form-layout-horizontal button.submit {
-    border-radius: 0 4px 4px 0; }
+    border-radius: 0 4px 4px 0;
+    height: 100%; }
   .form-layout-horizontal .input-radio,
   .form-layout-horizontal .input-checkbox,
   .form-layout-horizontal .input-textarea {
@@ -1628,6 +1544,110 @@ label[for] {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%; }
+
+/* Site background */
+/* .bg-on is a WP variable that's active when a fullscreen background image is present.
+   Combines a dark bg color with a semi-transparent image to darken the image,
+   increasing text contrast. */
+.bg-on {
+  background-color: #17292e; }
+
+#body-mobile-background {
+  background: center/cover no-repeat scroll transparent;
+  display: block;
+  height: 100vh;
+  left: 0;
+  opacity: 0.6;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  -webkit-transition: height 2.2s ease-out;
+  transition: height 2.2s ease-out;
+  width: 100vw;
+  z-index: 1; }
+
+.bg-position-bottom {
+  background-position: center bottom; }
+
+.bg-position-bottomright {
+  background-position: right bottom; }
+
+.bg-position-bottomleft {
+  background-position: left bottom; }
+
+.bg-position-top {
+  background-position: center top; }
+
+.bg-position-topright {
+  background-position: right top; }
+
+.bg-position-topleft {
+  background-position: left top; }
+
+.bg-position-right {
+  background-position: right center; }
+
+.bg-position-left {
+  background-position: left center; }
+
+@media screen and (min-width: 950px) {
+  .bg-attach-fixed {
+    background-attachment: fixed; } }
+
+.bg-repeat-none {
+  background-repeat: no-repeat; }
+
+.bg-repeat-x {
+  background-repeat: repeat-x; }
+
+.bg-repeat-y {
+  background-repeat: repeat-y; }
+
+.bg-repeat-both {
+  background-repeat: repeat; }
+
+.bg-size-cover {
+  background-size: cover; }
+
+.bg-size-full-width {
+  background-size: 100% auto; }
+
+.bg-size-normal {
+  background-size: auto; }
+
+.section-img-credit {
+  display: none; }
+
+/* Desktop and larger */
+@media only screen and (min-width: 950px) {
+  .section-img-credit {
+    border-radius: 2px;
+    bottom: 10px;
+    color: #fff !important;
+    text-align: right !important;
+    text-shadow: 2px 1px 1px #000;
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.6;
+    position: absolute;
+    right: 10px;
+    max-width: 70vw; }
+  .page-bg-img-credit {
+    border-radius: 2px;
+    display: inline-block;
+    padding: 2px 5px;
+    position: relative; }
+  .section-img-credit:hover,
+  .page-bg-img-credit:hover {
+    background: #17292e;
+    background: rgba(30, 40, 50, 0.8);
+    opacity: 1; }
+  .section-img-credit a,
+  .page-bg-img-credit a,
+  a.page-bg-img-credit {
+    color: #fff !important;
+    font-weight: normal;
+    text-decoration: none; } }
 
 /* Mobile Only */
 @media only screen and (max-width: 680px) {
@@ -1988,7 +2008,7 @@ label[for] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-height: calc(2rem + 1vh + .55vw);
+  height: calc(2rem + 1vh + .55vw);
   margin: 0 auto;
   max-width: calc(100vw - 30vw); }
 
@@ -2026,9 +2046,7 @@ label[for] {
   width: 100%; }
 
 .site-header-layout-logo_center-stacked #site-nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   margin: 0;
   padding-left: 1.4vw;
   -webkit-box-ordinal-group: 16;
@@ -2037,7 +2055,9 @@ label[for] {
   width: 100%; }
 
 .site-header-layout-logo_center-stacked #site-nav-toggle {
-  display: none; }
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0; }
 
 .site-header-layout-logo_center-stacked .site-header-divider {
   display: block;
@@ -2057,6 +2077,12 @@ label[for] {
   .site-header-layout-logo_center-stacked #site-header-inner {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
+  .site-header-layout-logo_center-stacked #site-nav-toggle {
+    display: none; }
+  .site-header-layout-logo_center-stacked #site-nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
   .site-header-layout-logo_center-stacked #site-nav.nav-desktop-dropdown {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -2204,31 +2230,31 @@ label[for] {
 
 .padding-tiny {
   padding: 17px;
-  padding: calc(1.375vh + 0.625vw) calc(0.625vh + 1.375vw); }
+  padding: calc(1.375vh + 0.625vw + 2px) calc(0.625vh + 1.375vw + 2px); }
 
 .padding-small {
   padding: 20px;
-  padding: calc(2.75vh + 1.25vw) calc(1.25vh + 2.75vw); }
+  padding: calc(2.75vh + 1.25vw + 3px) calc(1.25vh + 2.75vw + 3px); }
 
 .padding-normal {
   padding: 47px 27px;
-  padding: calc(4.125vh + 1.875vw) calc(1.875vh + 4.125vw); }
+  padding: calc(3.78125vh + 1.71875vw + 5px) calc(1.71875vh + 3.78125vw + 5px); }
 
 .padding-medium {
   padding: 60px 30px;
-  padding: calc(5.84375vh + 2.65625vw) calc(2.65625vh + 5.84375vw); }
+  padding: calc(5.15625vh + 2.34375vw + 0px) calc(2.34375vh + 5.15625vw + 0px); }
 
 .padding-large {
   padding: 80px 40px;
-  padding: calc(8.25vh + 3.75vw) calc(3.75vh + 8.25vw); }
+  padding: calc(8.9375vh + 4.0625vw + -20px) calc(4.0625vh + 8.9375vw + -20px); }
 
 .padding-huge {
   padding: 108px 40px;
-  padding: calc(11vh + 5vw) calc(5vh + 11vw); }
+  padding: calc(11vh + 5vw + -30px) calc(5vh + 11vw + -30px); }
 
 .padding-gigantic {
   padding: 150px 48px;
-  padding: calc(15.125vh + 6.875vw) calc(6.875vh + 15.125vw); }
+  padding: calc(15.125vh + 6.875vw + -38px) calc(6.875vh + 15.125vw + -38px); }
 
 .width-full .section-inner {
   max-width: 100%; }
@@ -2823,7 +2849,7 @@ img.b-loaded {
   margin-bottom: 2rem;
   padding-right: 2.5rem; }
 
-.modal-close {
+.modal-close-x {
   background-color: rgba(21, 36, 43, 0.25);
   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4yIiBiYXNlUHJvZmlsZT0idGlueSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiDQoJIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cG9seWdvbiBmaWxsPSIjRkZGRkZGIiBwb2ludHM9Ijk3LjksMTIgODgsMi4xIDQ5LjksNDAuMiAxMS44LDIuMSAxLjksMTIgNDAsNTAuMSAxLjksODguMiAxMS44LDk4LjEgNDkuOSw2MCA4OCw5OC4xIDk3LjksODguMiANCgk1OS44LDUwLjEgIi8+DQo8L3N2Zz4NCg==);
   background-repeat: no-repeat;
@@ -2839,7 +2865,7 @@ img.b-loaded {
   width: 2rem;
   z-index: 9999; }
 
-.modal-close:hover {
+.modal-close-x:hover {
   background-color: rgba(21, 36, 43, 0.75); }
 
 .modal-wrapper nav {
@@ -2856,7 +2882,7 @@ img.b-loaded {
 
 /* Tablet and up */
 @media only screen and (min-width: 680px) {
-  .modal-close {
+  .modal-close-x {
     height: 2.5rem;
     right: 1rem;
     top: 1rem;

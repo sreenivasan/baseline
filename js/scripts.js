@@ -281,7 +281,7 @@ function urlParam(name){
 			fr: "Lire&nbsp;la&nbsp;Suite",
       ar: "Ø§Ù‚Ø±Ø£ Ø£ÙƒØ«Ø±",
       pt: "Leia mais",
-      es: "Leer mã¡s",
+      es: "Leer más",
       de: "Weiterlesen",
       tr: "Daha&nbsp;fazla&nbsp;oku",
     };
