@@ -1280,6 +1280,8 @@ label[for] {
   padding-top: 2em; }
 
 .form-style-labelabove label {
+  color: #0f81e8;
+  /* FLAGGED: remove hardcoded 350 color */
   font-size: 0.85em;
   font-weight: bold; }
 
@@ -1301,8 +1303,6 @@ label[for] {
 .form-style-labelabove .input-multiple label,
 .form-style-labelabove .input-select label,
 .form-style-labelabove .input-group label {
-  color: #0f81e8;
-  /* FLAGGED: remove hardcoded 350 color */
   display: block;
   padding: 0.5em 0.6em 0;
   text-align: start; }
@@ -3279,6 +3279,9 @@ li#d_sharing,
 
 .actionkit #really-opt-out {
   margin-bottom: 1.5em; }
+
+.actionkit.bg-dkgray #really-opt-out {
+  background-color: rgba(255, 255, 255, 0.2); }
 
 /* Addthis.com plugin styles */
 @media screen and (min-width: 979px) {
