@@ -49,7 +49,7 @@
 				</h1>
 <?php // Site Nav ?>
 <?php if ( has_nav_menu('main-nav') ): ?>
-				<a id="site-nav-toggle" class="site-header-item js-modal <?php echo $site_header_layout["nav-type"]; ?>" data-modal-source=".site-nav" data-modal-show-source="true" data-modal-classes-outer="slide-out" data-modal-classes-inner="-"><svg id="site-nav-toggle-icon" class="inline-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><style>.st0{fill:currentColor}</style><path class="st0" d="M2 4h76v10H2zM2 35h76v10H2zM2 66h76v10H2z"/></svg>
+				<a id="site-nav-toggle" class="site-header-item js-modal <?php echo $site_header_layout["nav-type"]; ?>" data-modal-source=".site-nav" data-modal-show-source="true" data-modal-classes-outer="slide-out" data-modal-classes-inner="- bg-<?php echo $nav_desktop_bgcolor; ?>"><svg id="site-nav-toggle-icon" class="inline-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80"><style>.st0{fill:currentColor}</style><path class="st0" d="M2 4h76v10H2zM2 35h76v10H2zM2 66h76v10H2z"/></svg>
 					<?php if ( $site_nav_button_label ): ?>
 						<span id="site-nav-toggle-text"><?php echo $site_nav_button_label; ?></span>
 					<?php endif; ?>
