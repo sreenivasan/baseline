@@ -96,7 +96,7 @@ label[for]{
 .input-checkbox{
   align-items:baseline;
   display:flex;
-  flex-wrap:wrap;}
+  flex-wrap:nowrap;}
 .input-radio input,
 .input-checkbox input{
   flex:0 0 auto;
@@ -133,6 +133,9 @@ label[for]{
 .form-style-labelabove select{
   background-color:transparent;
   padding-top:2em;}
+.form-style-labelabove label{
+  font-size:0.85em;
+  font-weight:bold;}
 .form-style-labelabove .input-text,
 .form-style-labelabove .input-textarea,
 .form-style-labelabove .input-number,
@@ -144,17 +147,19 @@ label[for]{
   background:#fff;
   margin-bottom:0.8em;
   position:relative;}
-.form-style-labelabove label{
-  color:#0f81e8;
+.form-style-labelabove .input-text label,
+.form-style-labelabove .input-textarea label,
+.form-style-labelabove .input-number label,
+.form-style-labelabove .input-multiple label,
+.form-style-labelabove .input-select label,
+.form-style-labelabove .input-group label{
+  color:#0f81e8; /* FLAGGED: remove hardcoded 350 color */
   display:block;
-  font-size:0.85em;
-  font-weight:bold;
   padding:0.5em 0.6em 0;
-  text-align:start;}
+  text-align:start;} /* Reset labels alignment, regardless of inherited alignment*/
 .form-style-labelabove .input-checkbox label,
 .form-style-labelabove .input-radio label{
   color:inherit;
-  display:inline-block;
   margin-left:0.5em;
   padding:0;}
 
