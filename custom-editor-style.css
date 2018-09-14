@@ -3277,6 +3277,9 @@ li#d_sharing,
 .section.actionkit #action-lead .buttons-share-side {
   display: none; }
 
+.actionkit #really-opt-out {
+  margin-bottom: 1.5em; }
+
 /* Addthis.com plugin styles */
 @media screen and (min-width: 979px) {
   body #at4-share,
