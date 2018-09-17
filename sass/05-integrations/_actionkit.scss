@@ -43,3 +43,54 @@
   margin-bottom:1.5em;}
 .actionkit.bg-dkgray #really-opt-out{
   background-color:rgba(255,255,255,0.2);}
+
+/* error messages */
+.form-style-labelabove .ak-err,
+.form-style-expanded .ak-err{
+	background-color:#fff0d4;
+	color:initial;
+	margin:-1px 0 0;
+	padding:0.4rem 0.6rem;
+	position:relative;}
+.form-style-labelabove .input-radio .ak-err,
+.form-style-labelabove .input-checkbox .ak-err,
+.form-style-expanded .input-radio .ak-err,
+.form-style-expanded .input-checkbox .ak-err{
+  border-radius:2px;
+  margin:0.8em 0;}
+.form-style-labelabove .ak-err li,
+.form-style-expanded .ak-err li{
+	font-size:0.85rem;
+	line-height:1.4;
+	list-style-type:none;}
+.form-style-labelabove .ak-err li::before,
+.form-style-expanded .ak-err li::before{
+	background:#ffa902;
+	border-radius:1em;
+	content:'';
+	display:inline-block;
+	height:0.7em;
+	margin-right:0.4rem;
+	width:0.7em;}
+
+.ak-err-below label.ak-error::after,
+.ak-err-above label.ak-error::after{
+  background-color:#ffa902;
+  border-radius:1em;
+  content:'';
+  display:inline-block;
+  height:0.5em;
+  margin:0 0.2em;
+  vertical-align:text-top;
+  width:0.5em;}
+.ak-err-below > label.ak-error::after{
+  display:none;}
+.ak-err-below input.ak-error,
+.ak-err-above input.ak-error,
+.ak-err-below select.ak-error,
+.ak-err-above select.ak-error{
+  background-color:#fff0d4;}
+
+.form-style-expanded input.ak-error,
+.form-style-expanded textarea.ak-error{
+  background:#fff;}
