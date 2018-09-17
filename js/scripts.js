@@ -506,14 +506,22 @@ function urlParam(name){
   }
 }(jQuery));
 
-// find adjacent identical siblings and wrap them with a tag
+// find adjacent matching siblings and wrap them with a tag
 (function($){
-	$.fn.findAdjacentSibsAndWrap = function( sibFilter, wrapperTag ){
-		$(this)
-			.first()
-			.nextAll( sibFilter + " + " + sibFilter)
-			.addBack()
-			.wrapAll('<' + wrapperTag + '/>');
+	$.fn.findAdjacentSibsAndWrap = function( sibFilter, wrapperTag, wrapperClass ){
+    $(this).each(function(){
+      if ( $(this).prev( sibFilter ).length ){ /* if element is preceded by matching sib, create wrapper */
+        $(this)
+          .prev() /* take the previous sibling, which we've already established passes the filter */
+          .addBack() /* add the current element into the set */
+          .wrapAll('<' + wrapperTag + ' class="' + wrapperClass + '"/>'); /* take the results and wrap a tag around them */
+      }
+      if ( $(this).prev('.' + wrapperClass ).length ){
+        $(this)
+          .prev() /* take the prev. sib which we've established is a group wrapper */
+          .append( this ); /* append the current element into the group wrapper */
+      }
+    });
 	}
 }(jQuery));
 
@@ -740,7 +748,7 @@ jQuery(document).ready(function($) {
       selector: '.lazy',
   });
   // for AK-style form fields, wrap adjacent sibs in fieldset
-  $('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'fieldset class="input-group"');
+  $('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'fieldset', 'input-group');
 
   /* --- end of scripts likely to change document size */
 
@@ -749,11 +757,10 @@ jQuery(document).ready(function($) {
   // Set up AJAX links
 	$('.ajax-link').ajaxLink();
 
-
-  var headerSticky = document.querySelector("#site-header");
-  var headerYPosition = 0;
   // Headroom - "shy" sticky
   // grab an element, construct an instance of Headroom and init
+  var headerSticky = document.querySelector("#site-header");
+  var headerYPosition = 0;
   var headerStickyOptions = {
     tolerance: {
       up: 5,
