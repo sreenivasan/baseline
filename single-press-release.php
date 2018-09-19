@@ -12,7 +12,7 @@ get_header(); ?>
 <?php
 
 ?>
-<div id="press-release-header" class="section width-normal padding-medium bg-transparent">
+<div id="press-release-header" class="section width-narrow padding-medium bg-transparent">
 	<div class="section-inner">
 		<p><span id="post-time" class="meta"><?php echo (get_the_date() ); ?></span></p>
 		<h2 class="margin-bottom-large"><span class="<?php echo $text_on_image_classes; ?>"><?php the_title(); ?></span></h2>
