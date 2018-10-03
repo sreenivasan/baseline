@@ -672,29 +672,56 @@ h5 {
 /* Mobile Only */
 @media only screen and (max-width: 680px) {
   .mobile-text-left {
-    text-align: left; }
+    text-align: left;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+            justify-content: flex-start; }
   .mobile-text-center {
-    text-align: center; }
+    text-align: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center; }
   .mobile-text-right {
-    text-align: right; } }
+    text-align: right;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+            justify-content: flex-end; } }
 
 /* Tablet Only */
 @media only screen and (min-width: 680px) and (max-width: 950px) {
   .tablet-text-left {
-    text-align: left; }
+    text-align: left;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+            justify-content: flex-start; }
   .tablet-text-center {
-    text-align: center; }
+    text-align: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center; }
   .tablet-text-right {
-    text-align: right; } }
+    text-align: right;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+            justify-content: flex-end; } }
 
 /* Desktop and larger */
 @media only screen and (min-width: 950px) {
   .desktop-text-left {
-    text-align: left; }
+    text-align: left;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+            justify-content: flex-start; }
   .desktop-text-center {
-    text-align: center; }
+    text-align: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+            justify-content: center; }
   .desktop-text-right {
-    text-align: right; } }
+    text-align: right;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+            justify-content: flex-end; } }
 
 /* Text Styles */
 .text-bold,
