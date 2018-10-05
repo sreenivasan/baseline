@@ -2178,7 +2178,10 @@ p.wp-caption-text {
   .posts-layout-cards #post-1 .post-title {
     font-size: 2.5rem; }
   .posts-layout-cards #post-1 .post-excerpt {
-    font-size: 1.1em; } }
+    font-size: 1.1em; }
+  /* Content after posts */
+  .posts-layout-cards .content-more {
+    clear: both; } }
 
 /* Wordpress' built-in search */
 .search-form {
