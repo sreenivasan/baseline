@@ -1,23 +1,4 @@
 <?php
-/*
-This file handles the admin area and functions.
-You can use this file to make changes to the
-dashboard. Updates to this page are coming soon.
-It's turned off by default, but you can call it
-via the functions file.
-
-Developed by: Eddie Machado
-URL: http://themble.com/bones/
-
-Special Thanks for code & inspiration to:
-@jackmcconnell - http://www.voltronik.co.uk/
-Digging into WP - http://digwp.com/2010/10/customize-wordpress-dashboard/
-
-*/
-
-/************* DASHBOARD WIDGETS *****************/
-
-/**/
 
 // disable default dashboard widgets
 function disable_default_dashboard_widgets() {
@@ -33,27 +14,8 @@ function disable_default_dashboard_widgets() {
 
 }
 
-
-
 // removing the dashboard widgets
 add_action('admin_menu', 'disable_default_dashboard_widgets');
-
-
-
-/************* CUSTOM LOGIN PAGE *****************
-
-
-// changing the logo link from wordpress.org to your site
-function bones_login_url() {  return home_url(); }
-
-// changing the alt text on the logo to show your site name
-function bones_login_title() { return get_option('blogname'); }
-
-// calling it only on the login page
-add_action('login_head', 'bones_login_css');
-add_filter('login_headerurl', 'bones_login_url');
-add_filter('login_headertitle', 'bones_login_title');
-
 
 /************* CUSTOMIZE ADMIN *******************/
 
@@ -73,12 +35,12 @@ add_action( 'admin_menu', 'edit_menu_options', 999 );
 * Docs: http://codex.wordpress.org/Class_Reference/WP_Admin_Bar
 */
 function bl_remove_my_sites( $wp_admin_bar ) {
-
-	if (current_user_can('manage_network'))
-
+	if (current_user_can('manage_network')){
     $wp_admin_bar->remove_node('my-sites');
+	}
 }
 add_action( 'admin_bar_menu', 'bl_remove_my_sites', 999 );
+
 function bl_my_sites($admin_bar) {
 	if (current_user_can('manage_network'))
 	$admin_bar->add_menu( array(
@@ -131,12 +93,12 @@ add_action('admin_bar_menu', 'bl_my_sites', 20);
 
 // Move excerpt metabox above editor
 function my_add_excerpt_meta_box( $post_type ) {
-    if ( in_array( $post_type, array( 'post' ) ) ) {
-         add_meta_box(
-            'contact_details_meta',  /* translators: admin settings */ __( 'Summary (1-2 sentences)' ), 'post_excerpt_meta_box', $post_type, 'test', // change to something other then normal, advanced or side
-            'high'
-        );
-    }
+  if ( in_array( $post_type, array( 'post' ) ) ) {
+    add_meta_box(
+			'contact_details_meta',  /* translators: admin settings */ __( 'Summary (1-2 sentences)' ), 'post_excerpt_meta_box', $post_type, 'test', // change to something other then normal, advanced or side
+			'high'
+    );
+  }
 }
 add_action( 'add_meta_boxes', 'my_add_excerpt_meta_box' );
 
@@ -221,47 +183,7 @@ add_filter( 'nav_menu_link_attributes', 'add_menu_item_language__atts', 10, 3 );
 
 function threefifty_admin_features(){
 	remove_action( 'welcome_panel', 'wp_welcome_panel' );
-
-	//Add instructions to post editing page
-	$pstInstrTypes = array( 'post','page' );
-	foreach ( $pstInstrTypes as $pstInstrType ) {
-		add_meta_box("instructions", "Tips", 'instructionsFunction', $pstInstrType, 'normal',
-			 'high', '' );
-	}
-	function instructionsFunction(){
-			echo '
-			<style type="text/css">
-			.writing-tips ul li{
-				list-style-position:outside;
-				list-style-type:disc;}
-			.writing-tips ul{
-				padding-left:1.5em;}
-			.style-tip{
-				background:#ebedef;
-				display:inline-block;
-				font-size:1.2em;
-				text-decoration:none;
-				padding:1em;}
-			</style>
-			<div class="writing-tips">
-			<h3>General Tips:</h3>
-				<ul>
-					<li>People will see your content on a variety of devices. The way things look on a laptop screen will be different from how they look on a mobile phone, so when in doubt, keep it simple.</li>
-					<li>If you are using any advanced code, avoid switching back and forth between the "Visual" and "Text" tabs. Switching can accidentally break your code.</li>
-				</ul>
-			<h3>Special Tools</h3>
-			<p><a class="style-tip" target="_blank" href="http://350.org/_/buttons/">
-			<strong>Adding Buttons</strong>
-			</a>
-			<a class="style-tip" target="_blank" href="http://350.org/_/expandos/">
-			<strong>Adding Expandos</strong>
-			</a></p>
-
-			</div>
-				';
-		};
 }
-add_action( 'admin_menu', 'threefifty_admin_features');
 
 // TinyMCE: First line toolbar customizations
 if( !function_exists('base_extended_editor_mce_buttons') ){
@@ -299,7 +221,7 @@ add_filter('tiny_mce_before_init', 'make_mce_awesome');
 
 // Add WYSIWYG styles so people can see what custom class they're adding
 function my_theme_add_editor_styles() {
-    add_editor_style( 'custom-editor-style.css' );
+	add_editor_style( 'custom-editor-style.css' );
 	add_editor_style( '../fonts/fonts.css' );
 }
 add_action( 'init', 'my_theme_add_editor_styles' );
@@ -326,16 +248,16 @@ add_action( 'admin_enqueue_scripts', 'image_upload_js' );
 
 // Add capabilities to roles
 function add_contr_caps() {
-    $role = get_role( 'contributor' );
-	$role->add_cap( 'read_private_pages' );
-	$role->add_cap( 'read_private_posts' );
+  $role = get_role( 'contributor' );
+		$role->add_cap( 'read_private_pages' );
+		$role->add_cap( 'read_private_posts' );
 }
 add_action( 'admin_init', 'add_contr_caps');
 function add_auth_caps() {
-    $role = get_role( 'author' );
+  $role = get_role( 'author' );
     $role->add_cap( 'unfiltered_html' );
-	$role->add_cap( 'read_private_pages' );
-	$role->add_cap( 'read_private_posts' );
+		$role->add_cap( 'read_private_pages' );
+		$role->add_cap( 'read_private_posts' );
 }
 add_action( 'admin_init', 'add_auth_caps');
 
