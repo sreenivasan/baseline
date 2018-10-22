@@ -297,9 +297,9 @@ if ( !post_password_required() ): ?>
 			*/
 			
 			if ($ak_title){
-			 echo '<div class="ak-manual-title" style="">' . $ak_title . '</div>';}
+			 echo '<div class="ak-manual-title" style="display:none;">' . $ak_title . '</div>';}
 			if ($ak_intro){
-				echo '<div class="ak-manual-intro" style="">' . $ak_intro . '</div>';}
+				echo '<div class="ak-manual-intro" style="display:none;">' . $ak_intro . '</div>';}
 			
 			?>
 			<script type="text/javascript">
