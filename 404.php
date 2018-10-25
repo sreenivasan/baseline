@@ -1,4 +1,4 @@
-<!-- hello? is it me you're looking for?! -->
+<!-- hello? is it me you're looking for? -->
 <?php 
 	get_header(); 
 	$admin_email = get_option('admin_email');
