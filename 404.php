@@ -1,4 +1,4 @@
-<!-- hooked on a feeling -->
+<!-- 12345 -->
 <?php 
 	get_header(); 
 	$admin_email = get_option('admin_email');
