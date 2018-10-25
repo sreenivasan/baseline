@@ -297,22 +297,38 @@ if ( !post_password_required() ): ?>
 			*/
 			
 			if ($ak_title){
-			 echo '<div id="ak-manual-title" style="display: none;">' . $ak_title . '</div>';}
+			 echo '<div class="ak-manual-title" style="display:none;">' . $ak_title . '</div>';}
 			if ($ak_intro){
-				echo '<div id="ak-manual-intro" style="display: none;">' . $ak_intro . '</div>';}
+				echo '<div class="ak-manual-intro" style="display:none;">' . $ak_intro . '</div>';}
 			
 			?>
 			<script type="text/javascript">
 			  actionkit.forms.contextRoot = 'https://act.350.org/context/';
 			  actionkit.forms.initForm('act');
 			  
-			  var manual_title = jQuery('#ak-manual-title').html();
-			  jQuery('h2#action-title').html(manual_title);
-
-			  var manual_intro = jQuery('#ak-manual-intro').html();
-			  jQuery('#action-description').html(manual_intro);
-
-			</script>			
+				jQuery('.ak-manual-title').each(function () {
+					// Grab the ID of the current section
+				  var parent_id = jQuery(this).closest('.section')[0].id;
+			
+					// Grab the replacement title
+				  var manual_title_html = jQuery(this).html();
+			
+					// Replace the title
+					jQuery('#' + parent_id + ' h2#action-title').html(manual_title_html);
+				});
+			  			  
+				jQuery('.ak-manual-intro').each(function () {
+					// Grab the ID of the current section
+				  var parent_id = jQuery(this).closest('.section')[0].id;
+			
+					// Grab the replacement title
+				  var manual_intro_html = jQuery(this).html();
+			
+					// Replace the title
+					jQuery('#' + parent_id + ' #action-description').html(manual_intro_html);
+				});			  
+						  
+			</script>					
 			<?php } else { ?>
 			<div class="form-text <?php echo $form_classes['text']; ?>">
 				<?php if ( get_sub_field('sp-actionkit-title') ){ ?><h3 class="<?php echo $form_classes['title']; ?>"><?php echo get_sub_field('sp-actionkit-title'); ?></h3><?php } ?>
