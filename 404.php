@@ -1,4 +1,3 @@
-<!-- gonna take a nap -->
 <?php 
 	get_header(); 
 	$admin_email = get_option('admin_email');
