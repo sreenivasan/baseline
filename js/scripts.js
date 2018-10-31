@@ -386,13 +386,13 @@ function urlParam(name){
       // NOTE: animate() is used just to provide a slight delay before adding the 'open' class, which is necessary to trigger CSS3 animation (for some reason)
       $(modal).appendTo('body');
 
-			// set up the click event
-			$(this).on('click', function(e){
-				e.preventDefault();
-        var modalWrapper = $('#' + modalWrapperId)
-        var modalContent = modalWrapper.find('.modal-content');
-        // unhide the source element before appending it to the modal window
-        modalSourceElem
+      // set up the click event
+      $(this).on('click', function(e){
+        e.preventDefault();
+          var modalWrapper = $('#' + modalWrapperId)
+          var modalContent = modalWrapper.find('.modal-content');
+          // unhide the source element before appending it to the modal window
+          modalSourceElem
           .clone()
           .removeClass('nav-desktop-dropdown')
           .show()
