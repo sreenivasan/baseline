@@ -2911,7 +2911,7 @@ img.b-loaded {
 
 .modal-wrapper nav {
   cursor: default;
-  height: 100vh;
+  min-height: 100vh;
   overflow: unset;
   margin: 0;
   padding: 2.5rem;
