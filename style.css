@@ -1829,7 +1829,8 @@ nav.section .heading a:hover,
   /* semi-transparent bg colors don't play nice with our dropdown set up */
   nav.nav-desktop-dropdown.bg-dkgray-trans {
     background-color: #17292e; }
-  nav.nav-desktop-dropdown.text-center .section-inner {
+  nav.nav-desktop-dropdown.text-center .section-inner,
+  nav.nav-desktop-dropdown.desktop-text-center .section-inner {
     display: -webkit-box;
     display: -webkit-flex;
     display: flex; }
@@ -3575,7 +3576,7 @@ img.b-loaded {
 
 .modal-wrapper nav {
   cursor: default;
-  height: 100vh;
+  min-height: 100vh;
   overflow: unset;
   margin: 0;
   padding: 2.5rem;

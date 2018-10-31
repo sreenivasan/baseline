@@ -255,7 +255,8 @@ nav.section .heading a:hover,
   /* semi-transparent bg colors don't play nice with our dropdown set up */
   nav.nav-desktop-dropdown.bg-dkgray-trans{
     background-color:#17292e;}
-  nav.nav-desktop-dropdown.text-center .section-inner{
+  nav.nav-desktop-dropdown.text-center .section-inner,
+  nav.nav-desktop-dropdown.desktop-text-center .section-inner{
     display:flex;}
   nav.nav-desktop-dropdown .menu-label{
     display:none;}
