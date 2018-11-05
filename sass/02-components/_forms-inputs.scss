@@ -61,7 +61,7 @@ input[type="checkbox"]:checked{
   background-size:80% auto;}
 
 select{
-  appearance:none;
+  appearance:none; // clear away browser defaults so we have a blank canvas to work with
   background-image:url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCA3MCI+PHBhdGggZD0iTTE1IDBMMCAyNmgzMHpNMTUgNzFsMTUtMjZIMHoiLz48L3N2Zz4K');
   background-repeat:no-repeat;
 	background-position:right 0.6em center 0;
