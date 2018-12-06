@@ -4800,6 +4800,8 @@ div.alignright {
     margin-left: -39%; }
   .left-5 {
     margin-left: -49%; }
+  .right {
+    float: right; }
   .right-1 {
     right: -9%;
     position: absolute; }
