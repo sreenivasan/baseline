@@ -279,11 +279,12 @@ function urlParam(name){
 		var readMoreTranslations = {
 			en: "Read&nbsp;More",
 			fr: "Lire&nbsp;la&nbsp;Suite",
-      ar: "Ø§Ù‚Ø±Ø£&nbsp;Ø£ÙƒØ«Ø±",
-      pt: "Leia&nbsp;mais",
-      es: "Leer&nbsp;más",
-      de: "Weiterlesen",
-      tr: "Daha&nbsp;fazla&nbsp;oku",
+			ar: "Ø§Ù‚Ø±Ø£&nbsp;Ø£ÙƒØ«Ø±",
+			pt: "Leia&nbsp;mais",
+			es: "Leer&nbsp;más",
+			de: "Weiterlesen",
+			tr: "Daha&nbsp;fazla&nbsp;oku",
+			pl: "Czytaj dalej"
     };
 		var defaultReadMoreText = readMoreTranslations['en'];
 		// Detect language
