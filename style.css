@@ -5,7 +5,7 @@
  Description:  350 Baseline parent theme
  Author:       Matthew Hinders-Anderson + suzi grishpul
  Author URI:   https://350.org
- Version:      1.6.51
+ Version:      1.6.52
  Text Domain:  baseline
  GitHub Theme URI: https://github.com/350org/baseline
 */
@@ -3065,7 +3065,23 @@ input.search-form-submit {
   .mobile-margin-bottom-large {
     margin-bottom: 1.4rem; }
   .mobile-margin-bottom-huge {
-    margin-bottom: 2rem; } }
+    margin-bottom: 2rem; }
+  .mobile-padding-none {
+    padding: 0; }
+  .mobile-padding-tiny {
+    padding: calc(1.375vh + 0.625vw + 2px) calc(0.625vh + 1.375vw + 2px); }
+  .mobile-padding-small {
+    padding: calc(2.75vh + 1.25vw + 3px) calc(1.25vh + 2.75vw + 3px); }
+  .mobile-padding-normal {
+    padding: calc(3.78125vh + 1.71875vw + 5px) calc(1.71875vh + 3.78125vw + 5px); }
+  .mobile-padding-medium {
+    padding: calc(5.15625vh + 2.34375vw + 0px) calc(2.34375vh + 5.15625vw + 0px); }
+  .mobile-padding-large {
+    padding: calc(8.9375vh + 4.0625vw + -20px) calc(4.0625vh + 8.9375vw + -20px); }
+  .mobile-padding-huge {
+    padding: calc(11vh + 5vw + -30px) calc(5vh + 11vw + -30px); }
+  .mobile-padding-gigantic {
+    padding: calc(15.125vh + 6.875vw + -38px) calc(6.875vh + 15.125vw + -38px); } }
 
 /* Tablet and up */
 /* Tablet Only */
@@ -3087,7 +3103,23 @@ input.search-form-submit {
     margin-bottom: 2rem; }
   .margin-bottom-huge,
   .tablet-margin-bottom-huge {
-    margin-bottom: 2.2rem; } }
+    margin-bottom: 2.2rem; }
+  .tablet-padding-none {
+    padding: 0; }
+  .tablet-padding-tiny {
+    padding: calc(1.375vh + 0.625vw + 2px) calc(0.625vh + 1.375vw + 2px); }
+  .tablet-padding-small {
+    padding: calc(2.75vh + 1.25vw + 3px) calc(1.25vh + 2.75vw + 3px); }
+  .tablet-padding-normal {
+    padding: calc(3.78125vh + 1.71875vw + 5px) calc(1.71875vh + 3.78125vw + 5px); }
+  .tablet-padding-medium {
+    padding: calc(5.15625vh + 2.34375vw + 0px) calc(2.34375vh + 5.15625vw + 0px); }
+  .tablet-padding-large {
+    padding: calc(8.9375vh + 4.0625vw + -20px) calc(4.0625vh + 8.9375vw + -20px); }
+  .tablet-padding-huge {
+    padding: calc(11vh + 5vw + -30px) calc(5vh + 11vw + -30px); }
+  .tablet-padding-gigantic {
+    padding: calc(15.125vh + 6.875vw + -38px) calc(6.875vh + 15.125vw + -38px); } }
 
 /* Desktop and larger */
 @media only screen and (min-width: 950px) {
@@ -3108,7 +3140,23 @@ input.search-form-submit {
     margin-bottom: 2.5rem; }
   .margin-bottom-huge,
   .desktop-margin-bottom-huge {
-    margin-bottom: 3.2rem; } }
+    margin-bottom: 3.2rem; }
+  .desktop-padding-none {
+    padding: 0; }
+  .desktop-padding-tiny {
+    padding: calc(1.375vh + 0.625vw + 2px) calc(0.625vh + 1.375vw + 2px); }
+  .desktop-padding-small {
+    padding: calc(2.75vh + 1.25vw + 3px) calc(1.25vh + 2.75vw + 3px); }
+  .desktop-padding-normal {
+    padding: calc(3.78125vh + 1.71875vw + 5px) calc(1.71875vh + 3.78125vw + 5px); }
+  .desktop-padding-medium {
+    padding: calc(5.15625vh + 2.34375vw + 0px) calc(2.34375vh + 5.15625vw + 0px); }
+  .desktop-padding-large {
+    padding: calc(8.9375vh + 4.0625vw + -20px) calc(4.0625vh + 8.9375vw + -20px); }
+  .desktop-padding-huge {
+    padding: calc(11vh + 5vw + -30px) calc(5vh + 11vw + -30px); }
+  .desktop-padding-gigantic {
+    padding: calc(15.125vh + 6.875vw + -38px) calc(6.875vh + 15.125vw + -38px); } }
 
 /* Mobile Only */
 @media only screen and (max-width: 680px) {
