@@ -749,7 +749,7 @@ jQuery(document).ready(function($) {
       selector: '.lazy',
   });
   // for AK-style form fields, wrap adjacent sibs in fieldset
-  $('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'fieldset', 'input-group');
+  $('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'div', 'input-group');
 
   /* --- end of scripts likely to change document size */
 
