@@ -60,6 +60,7 @@ input[type="checkbox"]:checked{
   background-position:48% 45%;
   background-size:80% auto;}
 
+/* overwrite standard broswer select styles and replace with our own */
 select{
   appearance:none;
   background-image:url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMCA3MCI+PHBhdGggZD0iTTE1IDBMMCAyNmgzMHpNMTUgNzFsMTUtMjZIMHoiLz48L3N2Zz4K');
