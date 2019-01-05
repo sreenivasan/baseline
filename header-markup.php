@@ -63,9 +63,6 @@
 		$menu_object = wp_get_nav_menu_object( $menu_id );
 		$menu_array = get_object_vars( $menu_object );
 		$menu_width = "width-full";
-		if ( $header_alignment != "text-center" ):
-			$menu_width = "width-wide";
-		endif;
 
 	?>
 				<nav id="site-nav" class="site-nav site-header-item <?php echo $menu_width; ?> <?php echo $site_header_layout["nav-type"]; ?> bg-<?php echo $nav_desktop_bgcolor; ?> text-color-override">

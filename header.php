@@ -137,6 +137,9 @@ if ( $site_header_layout_option && $site_header_layout_option !== "site-header-l
 	$og_type = 'website';
 // more specific meta info for pages and posts
 	if ( is_single() || is_page() ):
+		// set up $post object to avoid PHP warnings from get_the_excerpt
+		global $post;
+		setup_postdata( $post );
 		$title = !empty( get_the_title() ) ? get_the_title() : $title;
 		$description = strip_tags( get_the_excerpt() );
 		$description = str_replace("\"", "'", $description);
