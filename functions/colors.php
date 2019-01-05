@@ -6,7 +6,7 @@ function site_colors_menu_options() {
 }
 // Load the Admin Options page
 add_action('admin_menu', 'site_colors_menu_options');
- 
+
 function site_colors_page() {
 
 	$site_colors_default_array = array (
@@ -68,19 +68,19 @@ function site_colors_page() {
 				if ( $site_colors_option ){
 					$site_colors = $site_colors_option;
 				} else {
-					$site_colors = $site_colors_default_string; 
+					$site_colors = $site_colors_default_string;
 				}
 			?>
 			<p>No UI for this yet :(</p>
 			<p>Format is "[Color Name]:[color slug]:[color CSS code]:[text light/dark]:[link color CSS]:[link hover color CSS]", with each color on its own line. Example:</p>
 			<p><code>White:white:#fff:dark:default:default<br>Blue:blue:#0f81e8:light:auto:auto<br>Light Gray:ltgray:#dae6f2:dark:auto:auto</code></p>
 			<p><strong>Defaults:</strong> 350's brand colors (white, blue, orange, dark gray, light gray).</p>
-			<form method="POST" action="">  
+			<form method="POST" action="">
            		<input type="hidden" name="site_colors_update" value="true" />
 				<textarea id="site_colors_input" type="textarea" name="site_colors" style="width:100%;max-width:650px;height:220px;font-family:monospace;"><?php echo $site_colors; ?></textarea><br>
 				<br><hr>
-		        <?php 
-					$site_colors_array = tfArrayifyColors( $site_colors ); 
+		        <?php
+					$site_colors_array = tfArrayifyColors( $site_colors );
 				?>
 				<label for="site_link_color"><strong>Default Link Color</strong></label>
 				<select id="site_link_color" name="site_link_color">
@@ -112,27 +112,34 @@ function tfArrayifyColors($colors_raw){
 	    // break the string by End Of Line
 	    $colors = explode(PHP_EOL, trim( $colors_raw ));
 	    // iterate through the lines.
-	    	foreach( $colors as $color ) { 
+	    	foreach( $colors as $color ) {
 	        // just make sure that the line's whitespace is cleared away
 	        $color = trim( $color );
 	        if( $color ){
 	            // break the line at the colon
 	            $pieces = explode( ":", $color );
 	            // Add each piece with it's corresponding key to a new sub-array
-	            $colors_array[] = array( 'name' => $pieces[0], 'slug' => $pieces[1], 'code' => $pieces[2], 'text' => $pieces[3], 'link' => $pieces[4], 'link_hover' => $pieces[5] );
+	            $colors_array[] = array(
+								'name' => $pieces[0],
+								'slug' => $pieces[1],
+								'code' => $pieces[2],
+								'text' => $pieces[3],
+								'link' => $pieces[4],
+								'link_hover' => ( array_key_exists(5, $pieces) ? $pieces[5] : 'auto'),
+							);
 
 	        }
 	    }
 	} else {
 
-	} 
+	}
 	return $colors_array;
 }
 
-function site_colors_update(){  
-	// this is where validation would go   
+function site_colors_update(){
+	// this is where validation would go
 	$site_colors_filtered = trim( stripslashes('site_colors') );
-	update_option('site_colors', $_POST[ $site_colors_filtered ]);  
+	update_option('site_colors', $_POST[ $site_colors_filtered ]);
 	update_option('site_link_color',  $_POST['site_link_color']);
 	update_option('site_button_color',  $_POST['site_button_color']);
 }
@@ -141,8 +148,8 @@ $site_colors_update_var = false;
 if (isset( $_POST['site_colors_update']) ){
 	$site_colors_update_var = $_POST['site_colors_update'];
 }
-if ($site_colors_update_var  == 'true' ){ 
-	site_colors_update(); 
-} 
+if ($site_colors_update_var  == 'true' ){
+	site_colors_update();
+}
 
 ?>
