@@ -74,7 +74,9 @@ li#d_sharing,
   margin-top:-44px !important;
   margin-right:10px !important;
   height:16px !important;
-  width:22px !important;}
+  width:22px !important}
+#can_embed_form form li{
+	list-style-type:none;} 
 
 /* Help AN's goofy code show/hide country select */
 .baseline #can_embed_form .country_drop_wrap select{
@@ -148,6 +150,7 @@ li#d_sharing,
   display:inline-block;
   font-size:1.1em;
   margin:0.5em 0;}
+
 /* AN event campaign — media query */
 @media screen and (min-width:$tablet-desktop-breakpoint){
   .event_campaign #form_col1 h4{

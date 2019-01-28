@@ -279,11 +279,12 @@ function urlParam(name){
 		var readMoreTranslations = {
 			en: "Read&nbsp;More",
 			fr: "Lire&nbsp;la&nbsp;Suite",
-      ar: "Ø§Ù‚Ø±Ø£&nbsp;Ø£ÙƒØ«Ø±",
-      pt: "Leia&nbsp;mais",
-      es: "Leer&nbsp;más",
-      de: "Weiterlesen",
-      tr: "Daha&nbsp;fazla&nbsp;oku",
+			ar: "Ø§Ù‚Ø±Ø£&nbsp;Ø£ÙƒØ«Ø±",
+			pt: "Leia&nbsp;mais",
+			es: "Leer&nbsp;más",
+			de: "Weiterlesen",
+			tr: "Daha&nbsp;fazla&nbsp;oku",
+			pl: "Czytaj dalej"
     };
 		var defaultReadMoreText = readMoreTranslations['en'];
 		// Detect language
@@ -748,7 +749,7 @@ jQuery(document).ready(function($) {
       selector: '.lazy',
   });
   // for AK-style form fields, wrap adjacent sibs in fieldset
-  $('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'fieldset', 'input-group');
+  $('.form-style-labelabove .input-text').findAdjacentSibsAndWrap('.input-text:not(.input-text-nogroup)', 'div', 'input-group');
 
   /* --- end of scripts likely to change document size */
 

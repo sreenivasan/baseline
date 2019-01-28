@@ -229,7 +229,7 @@ label[for]{
 .form-layout-horizontal textarea,
 .form-layout-horizontal select{
   align-self:stretch;
-  padding-top:0.7em;}
+  padding-top:2em;}
 
 .form-layout-horizontal .input-text label,
 .form-layout-horizontal .input-select label{
@@ -298,6 +298,7 @@ label[for]{
   .form-layout-horizontal button.submit{
     border-radius:0 4px 4px 0;
     height:100%; // not sure why align-items:stretch doesn't take care of the height, but hey
+    margin-left: 10px;
   }
   .form-layout-horizontal .input-radio,
   .form-layout-horizontal .input-checkbox,

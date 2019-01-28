@@ -92,6 +92,23 @@
   .mobile-margin-bottom-huge{
     margin-bottom:2rem;}
 
+	.mobile-padding-none{
+	  padding:0;}
+	.mobile-padding-tiny{
+	  padding:wva-pair(2, 2px);}
+	.mobile-padding-small{
+	  padding:wva-pair(4, 3px);}
+	.mobile-padding-normal{
+	  padding:wva-pair(5.5, 5px);}
+	.mobile-padding-medium{
+	  padding:wva-pair(7.5, 0px);}
+	.mobile-padding-large{
+	  padding:wva-pair(13, -20px);}
+	.mobile-padding-huge{
+	  padding:wva-pair(16, -30px);}
+	.mobile-padding-gigantic{
+	  padding:wva-pair(22, -38px);}
+
 }
 
 
@@ -103,24 +120,41 @@
 
 /* Tablet Only */
 @media only screen and (min-width:$mobile-tablet-breakpoint) and (max-width:$tablet-desktop-breakpoint){
-  .margin-bottom-none,
-  .tablet-margin-bottom-none{
-    margin-bottom:0;}
-  .margin-bottom-small,
-  .tablet-margin-bottom-small{
-    margin-bottom:0.4rem;}
-  .margin-bottom-normal,
-  .tablet-margin-bottom-normal{
-    margin-bottom:0.8rem;}
-  .margin-bottom-medium,
-  .tablet-margin-bottom-medium{
-    margin-bottom:1.1rem;}
-  .margin-bottom-large,
-  .tablet-margin-bottom-large{
-    margin-bottom:2rem;}
-  .margin-bottom-huge,
-  .tablet-margin-bottom-huge{
-    margin-bottom:2.2rem;}
+	.margin-bottom-none,
+	.tablet-margin-bottom-none{
+		margin-bottom:0;}
+	.margin-bottom-small,
+	.tablet-margin-bottom-small{
+		margin-bottom:0.4rem;}
+	.margin-bottom-normal,
+	.tablet-margin-bottom-normal{
+		margin-bottom:0.8rem;}
+	.margin-bottom-medium,
+	.tablet-margin-bottom-medium{
+		margin-bottom:1.1rem;}
+	.margin-bottom-large,
+	.tablet-margin-bottom-large{
+		margin-bottom:2rem;}
+	.margin-bottom-huge,
+	.tablet-margin-bottom-huge{
+		margin-bottom:2.2rem;}
+
+	.tablet-padding-none{
+		padding:0;}
+	.tablet-padding-tiny{
+		padding:wva-pair(2, 2px);}
+	.tablet-padding-small{
+		padding:wva-pair(4, 3px);}
+	.tablet-padding-normal{
+		padding:wva-pair(5.5, 5px);}
+	.tablet-padding-medium{
+		padding:wva-pair(7.5, 0px);}
+	.tablet-padding-large{
+		padding:wva-pair(13, -20px);}
+	.tablet-padding-huge{
+		padding:wva-pair(16, -30px);}
+	.tablet-padding-gigantic{
+		padding:wva-pair(22, -38px);}
 }
 
 /* Desktop and larger */
@@ -144,5 +178,22 @@
   .margin-bottom-huge,
   .desktop-margin-bottom-huge{
     margin-bottom:3.2rem;}
+
+	.desktop-padding-none{
+		padding:0;}
+	.desktop-padding-tiny{
+		padding:wva-pair(2, 2px);}
+	.desktop-padding-small{
+		padding:wva-pair(4, 3px);}
+	.desktop-padding-normal{
+		padding:wva-pair(5.5, 5px);}
+	.desktop-padding-medium{
+		padding:wva-pair(7.5, 0px);}
+	.desktop-padding-large{
+		padding:wva-pair(13, -20px);}
+	.desktop-padding-huge{
+		padding:wva-pair(16, -30px);}
+	.desktop-padding-gigantic{
+		padding:wva-pair(22, -38px);}
 
 }
